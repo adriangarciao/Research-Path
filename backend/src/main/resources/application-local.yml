@@ -1,0 +1,18 @@
+# `local` profile: developer machine, PostgreSQL from the repo's compose.yaml.
+# Activate with scripts\backend.ps1 (loads ..\.env into the process environment,
+# because Spring Boot does not read .env by itself).
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5434}/${DB_NAME:researchpath}
+    username: ${DB_USER:researchpath}
+    # No default on purpose: startup fails fast if the password was not provided.
+    password: ${DB_PASSWORD}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,flyway
+  endpoint:
+    health:
+      show-details: always

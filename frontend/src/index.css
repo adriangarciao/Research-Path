@@ -1,0 +1,65 @@
+:root {
+  --text: #3b3a40;
+  --text-muted: #6b6a72;
+  --bg: #fafaf8;
+  --surface: #ffffff;
+  --border: #e3e2e6;
+  --ok: #1f7a4d;
+  --down: #b3261e;
+  --unknown: #8a6d1a;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 16px/1.5 system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #e6e5ea;
+    --text-muted: #a3a2aa;
+    --bg: #15161a;
+    --surface: #1d1e23;
+    --border: #2e2f36;
+    --ok: #5fcf95;
+    --down: #ff8a80;
+    --unknown: #e6c25c;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin: 0 0 0.25rem;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-top: 1.5rem;
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+}
+
+.status-UP { color: var(--ok); }
+.status-DOWN, .status-UNREACHABLE { color: var(--down); }
+.status-CHECKING, .status-UNKNOWN { color: var(--unknown); }

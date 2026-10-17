@@ -1,0 +1,26 @@
+# Local development database for ResearchPath.
+# Values come from the gitignored .env file (see .env.example).
+name: researchpath
+
+services:
+  postgres:
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-researchpath}
+      POSTGRES_USER: ${DB_USER:-researchpath}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD must be set in .env (run scripts/setup-env.ps1)}
+    ports:
+      - "127.0.0.1:${DB_PORT:-5434}:5432"
+    volumes:
+      - researchpath_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+volumes:
+  researchpath_pgdata:
+    name: researchpath_pgdata

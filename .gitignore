@@ -1,0 +1,47 @@
+# ---- Secrets: never commit ----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ---- Backend (Maven) build output ----
+backend/target/
+backend/.mvn/wrapper/maven-wrapper.jar
+backend/logs/
+*.log
+
+# ---- Frontend ----
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/*.local
+frontend/.vite/
+node_modules/
+
+# ---- OpenAlex audit outputs (regenerable; review before committing any fixture) ----
+researchpath_audit_output/
+docs/audit/researchpath_audit_output/
+
+# ---- IDEs ----
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+.vscode/*
+!.vscode/extensions.json
+.classpath
+.project
+.settings/
+.factorypath
+.sts4-cache/
+
+# ---- OS / temp files ----
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.swp
+*~
+__pycache__/
