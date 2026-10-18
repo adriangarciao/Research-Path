@@ -77,6 +77,14 @@ Compose and the backend both read it.
 
 ## Verify
 
+Run the full regression check after every change (backend tests, frontend build/typecheck/lint, secret scan):
+
+```powershell
+.\scripts\verify.ps1
+```
+
+Individual checks:
+
 ```powershell
 docker compose ps                                              # postgres: healthy
 docker compose exec postgres pg_isready -U researchpath -d researchpath

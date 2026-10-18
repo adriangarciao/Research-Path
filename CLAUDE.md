@@ -18,12 +18,27 @@ Environment scaffold only. Not yet implemented: publication schema, OpenAlex ing
 sequencing, real UI. `V1__baseline.sql` is a no-op; real schema starts at V2. Next milestone:
 publication data modeling + OpenAlex ingestion (blueprint §4, §6, §14).
 
+## Working rule: verify every step
+After each change: run `.\scripts\verify.ps1` (all must PASS), add tests with the feature, and do a live
+check of new behavior (e.g. against the dev DB / OpenAlex). Report only results that were actually run.
+Test classes must end in `Test`/`Tests` (Surefire ignores `*IT`).
+
+## Working rule: small, focused branches
+- One concern per branch, named by type: `feature/…`, `fix/…`, `chore/…`, `docs/…`, `refactor/…`.
+- Branch from up-to-date `main`. Plan large work as a sequence of slices; start each slice from the
+  `main` that already contains the previous one. Never accumulate a milestone on one long-lived branch.
+- Each branch must build and pass `.\scripts\verify.ps1` **at its own head** before merging.
+- Merge into `main` with `git merge --no-ff` (keeps each branch visible as a unit), then delete the branch.
+- Commits: imperative subject ≤ 72 chars, body explains why. Never commit `.env` or generated output.
+- Pushing / opening PRs needs the user's explicit approval (no remote is configured yet).
+
 ## Commands (PowerShell, from repo root)
 - DB: `docker compose up -d` / `docker compose stop` / `docker compose ps`
 - Backend: `.\scripts\backend.ps1` (loads `.env`, forces JDK 21, profile `local`, port 8080)
 - Backend tests: `.\scripts\test-backend.ps1` (Testcontainers, needs Docker running)
 - Frontend: `.\scripts\frontend.ps1` (port 5173); build/typecheck: `cd frontend; npm run build`; lint: `npm run lint`
 - OpenAlex check: `.\scripts\openalex-smoke.ps1`
+- Full regression: `.\scripts\verify.ps1`
 
 ## Environment gotchas
 - `java` on PATH is JDK 17 on this machine; scripts select JDK 21 via JAVA_HOME. Run Maven via the scripts or set JAVA_HOME first.
