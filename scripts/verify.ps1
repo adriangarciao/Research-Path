@@ -21,10 +21,16 @@ function Invoke-Step([string]$name, [scriptblock]$body) {
 Invoke-Step 'docker engine' { docker info --format '{{.ServerVersion}}' | Out-Null }
 
 Use-Jdk21
+# `clean` is required: stale classes/reports in target/ (e.g. from another branch) could
+# otherwise run or be counted, making a branch "pass" with code it does not contain.
 Invoke-Step 'backend tests' {
     Push-Location (Join-Path $RepoRoot 'backend')
-    try { & .\mvnw.cmd -B -q verify } finally { Pop-Location }
+    try { & .\mvnw.cmd -B -q clean verify } finally { Pop-Location }
 }
+$reports = Get-ChildItem (Join-Path $RepoRoot 'backend\target\surefire-reports\*.txt') -ErrorAction SilentlyContinue
+$testCount = ($reports | ForEach-Object {
+    [int]([regex]::Match((Get-Content $_ -Raw), 'Tests run: (\d+)').Groups[1].Value) } | Measure-Object -Sum).Sum
+if ($results['backend tests'] -eq 'PASS') { $results['backend tests'] = "PASS ($testCount tests)" }
 
 Invoke-Step 'frontend build + typecheck' {
     Push-Location (Join-Path $RepoRoot 'frontend')
@@ -71,4 +77,4 @@ Invoke-Step 'secret scan' {
 
 Write-Host "`n=== SUMMARY ===" -ForegroundColor Cyan
 $results.GetEnumerator() | ForEach-Object { '{0,-28} {1}' -f $_.Key, $_.Value }
-if ($results.Values | Where-Object { $_ -ne 'PASS' }) { exit 1 }
+if ($results.Values | Where-Object { $_ -notlike 'PASS*' }) { exit 1 }
