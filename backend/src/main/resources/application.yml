@@ -21,6 +21,12 @@ spring:
 
 server:
   port: 8080
+  error:
+    # Never expose internals in error bodies (explicit, although these are Spring's defaults).
+    include-stacktrace: never
+    include-exception: false
+    include-message: never
+    include-binding-errors: never
 
 management:
   endpoints:
@@ -54,5 +60,14 @@ researchpath:
     # PROVISIONAL (S02): local bounds; rate limits and anonymous quotas come with M13.
     max-concurrent-generations: 4
     max-revisions-per-path: 50
+  rate-limit:
+    # PROVISIONAL (S02): per connection; a new path costs provider requests, a rebuild only local work.
+    enabled: true
+    create-burst: 3
+    creates-per-hour: 10
+    regenerate-burst: 10
+    regenerations-per-hour: 120
+    creates-per-day: 500   # global cap: bounds provider spend (~USD 0.001 per new path)
+    max-clients: 10000
   dev-api:
     enabled: false   # /api/dev/** endpoints; enabled in the local profile only

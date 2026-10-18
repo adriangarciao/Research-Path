@@ -2,10 +2,14 @@ package dev.researchpath.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
+import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -13,8 +17,12 @@ import dev.researchpath.openalex.OpenAlexException;
 import dev.researchpath.path.PathExceptions;
 import dev.researchpath.snapshot.SnapshotNotEvaluatedException;
 
-/** Maps domain failures to RFC 9457 problem responses. Bean-validation errors use Spring's defaults. */
+/**
+ * Maps domain failures to RFC 9457 problem responses. Bean-validation and other MVC errors use Spring's defaults;
+ * anything unexpected falls through to {@link FallbackExceptionHandler}.
+ */
 @RestControllerAdvice
+@Order(Ordered.HIGHEST_PRECEDENCE)
 class ApiExceptionHandler {
 
 	private static final Logger log = LoggerFactory.getLogger(ApiExceptionHandler.class);
@@ -22,6 +30,32 @@ class ApiExceptionHandler {
 	@ExceptionHandler(IllegalArgumentException.class)
 	ProblemDetail badRequest(IllegalArgumentException e) {
 		return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, e.getMessage());
+	}
+
+	/** Malformed JSON, or a streamed body over the size cap. The parser's own message is not echoed. */
+	@ExceptionHandler(HttpMessageNotReadableException.class)
+	ProblemDetail unreadable(HttpMessageNotReadableException e) {
+		for (Throwable t = e; t != null; t = t.getCause()) {
+			if (t instanceof ApiProtectionFilter.BodyTooLargeException) {
+				ProblemDetail problem = ProblemDetail.forStatusAndDetail(HttpStatus.CONTENT_TOO_LARGE,
+						"Request bodies are limited to " + ApiProtectionFilter.MAX_BODY_BYTES + " bytes.");
+				problem.setTitle("Request too large");
+				return problem;
+			}
+		}
+		ProblemDetail problem = ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, "The request body is not valid JSON for this operation.");
+		problem.setTitle("Malformed request");
+		return problem;
+	}
+
+	/** Database unreachable or failing: retryable, and no SQL or driver detail reaches the client. */
+	@ExceptionHandler(DataAccessException.class)
+	ProblemDetail database(DataAccessException e) {
+		log.error("Database failure: {}", e.getClass().getSimpleName(), e);
+		ProblemDetail problem = ProblemDetail.forStatusAndDetail(HttpStatus.SERVICE_UNAVAILABLE,
+				"The service is temporarily unavailable. Stored paths are safe; please try again shortly.");
+		problem.setTitle("Temporarily unavailable");
+		return problem;
 	}
 
 	@ExceptionHandler(SnapshotNotEvaluatedException.class)
