@@ -33,7 +33,9 @@ Test classes must end in `Test`/`Tests` (Surefire ignores `*IT`).
 - Each branch must build and pass `.\scripts\verify.ps1` **at its own head** before merging.
 - Merge into `main` with `git merge --no-ff` (keeps each branch visible as a unit), then delete the branch.
 - Commits: imperative subject ≤ 72 chars, body explains why. Never commit `.env` or generated output.
-- Pushing / opening PRs needs the user's explicit approval (no remote is configured yet).
+- Remote: `origin` = https://github.com/adriangarciao/Research-Path (**public**). Workflow is local merges,
+  then `git push origin main` (no PRs). Pushing `main` after a verified merge is pre-approved. Before every
+  push, scan the full history for the `.env` secret values. Never force-push and never push feature branches.
 
 ## Commands (PowerShell, from repo root)
 - DB: `docker compose up -d` / `docker compose stop` / `docker compose ps`
@@ -53,5 +55,6 @@ Test classes must end in `Test`/`Tests` (Surefire ignores `*IT`).
 - `OPENALEX_API_KEY` is server-side only. Never create `VITE_OPENALEX_API_KEY` or expose any secret through a `VITE_*` variable.
 - Never run `docker compose down -v`, `docker system prune`, or touch other projects' containers/volumes (e.g. `traveloptimizer`).
 - Schema changes only through new Flyway migrations; never edit an applied migration. Hibernate is `ddl-auto: validate`.
-- Do not push to GitHub or deploy without explicit approval.
+- Apart from pushing `main` as described above, anything outward-facing (deploys, releases, changing repo
+  visibility or settings, force-pushes) needs explicit approval.
 - Don't edit the provided docs in `docs/` unless asked.
