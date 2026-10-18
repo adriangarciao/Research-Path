@@ -2,9 +2,7 @@ package dev.researchpath.benchmark;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
-import java.util.regex.Pattern;
 
 import dev.researchpath.benchmark.BenchmarkDataset.Candidate;
 import dev.researchpath.concept.ConceptModel;
@@ -12,15 +10,13 @@ import dev.researchpath.optimizer.GreedyOptimizer;
 import dev.researchpath.optimizer.OptimizerCandidate;
 import dev.researchpath.optimizer.OptimizerConfig;
 import dev.researchpath.optimizer.Preferences;
+import dev.researchpath.sequence.OverviewCue;
 
 /**
  * Runs {@link GreedyOptimizer} on a frozen dataset, with the same concept model the metrics use, so the
  * optimizer is compared with the baselines on identical inputs.
  */
 public final class OptimizerSelector implements Selector {
-
-	/** Weak, documented accessibility cue (D09 OPEN): review work type or survey-like title words. */
-	private static final Pattern OVERVIEW = Pattern.compile("\\b(survey|review|tutorial|introduction|overview|primer)\\b");
 
 	private final Preferences preferences;
 	private final OptimizerConfig config;
@@ -68,8 +64,8 @@ public final class OptimizerSelector implements Selector {
 	}
 
 	static OptimizerCandidate candidate(Candidate c, Map<String, Double> concepts) {
-		boolean overview = "review".equals(c.workType())
-				|| OVERVIEW.matcher(c.title().toLowerCase(Locale.ROOT)).find();
+		// Weak, documented accessibility cue (D09 OPEN): review work type or survey-like title words.
+		boolean overview = OverviewCue.of(c.workType(), c.title()) != null;
 		return new OptimizerCandidate(c.openalexId(), c.providerRank(), concepts,
 				(c.relevanceCoverage() + c.titleTermShare()) / 2, c.citationPercentile(), c.publicationYear(), overview);
 	}
