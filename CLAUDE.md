@@ -51,6 +51,7 @@ Test classes must end in `Test`/`Tests` (Surefire ignores `*IT`).
 - DB `docker compose up -d` / `stop` / `ps` · Backend `.\scripts\backend.ps1` (loads `.env`, JDK 21,
   profile `local`, :8080) · Frontend `.\scripts\frontend.ps1` (:5173)
 - Full regression `.\scripts\verify.ps1` · Live OpenAlex check `.\scripts\openalex-smoke.ps1`
+- Snapshot quality report `.\scripts\snapshot-report.ps1 -Topic "..."` or `-Id <uuid>` (backend running)
 
 ## Environment gotchas
 - `java` on PATH is JDK 17 here; scripts select JDK 21. Spring Boot does not read `.env`
