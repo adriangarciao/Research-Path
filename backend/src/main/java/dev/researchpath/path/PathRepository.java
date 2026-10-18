@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
@@ -14,9 +15,11 @@ import org.springframework.stereotype.Repository;
 public class PathRepository {
 
 	private final JdbcClient jdbc;
+	private final JdbcTemplate batch;
 
-	public PathRepository(JdbcClient jdbc) {
+	public PathRepository(JdbcClient jdbc, JdbcTemplate batch) {
 		this.jdbc = jdbc;
+		this.batch = batch;
 	}
 
 	public record PathRow(UUID id, String publicId, UUID snapshotId, String topic, String idempotencyKey,
@@ -57,17 +60,21 @@ public class PathRepository {
 				.param("versions", versionsJson).param("fingerprint", fingerprint).param("result", resultJson)
 				.param("createdAt", Timestamp.from(createdAt))
 				.update();
-		for (ItemRow i : items) {
-			jdbc.sql("""
-					INSERT INTO path_revision_item (revision_id, position, publication_id, openalex_id, stage,
-					    selection_step, marginal_gain, reason)
-					VALUES (:rid, :position, :pid, :oid, :stage, :step, :gain, :reason)
-					""")
-					.param("rid", revisionId).param("position", i.position()).param("pid", i.publicationId())
-					.param("oid", i.openalexId()).param("stage", i.stage()).param("step", i.selectionStep())
-					.param("gain", i.marginalGain()).param("reason", i.reason())
-					.update();
-		}
+		// One batched statement for all items (M13: no per-item round trips).
+		batch.batchUpdate("""
+				INSERT INTO path_revision_item (revision_id, position, publication_id, openalex_id, stage,
+				    selection_step, marginal_gain, reason)
+				VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+				""", items, items.size(), (ps, i) -> {
+			ps.setObject(1, revisionId);
+			ps.setInt(2, i.position());
+			ps.setLong(3, i.publicationId());
+			ps.setString(4, i.openalexId());
+			ps.setInt(5, i.stage());
+			ps.setInt(6, i.selectionStep());
+			ps.setDouble(7, i.marginalGain());
+			ps.setString(8, i.reason());
+		});
 	}
 
 	public Optional<PathRow> findByPublicId(String publicId) {
