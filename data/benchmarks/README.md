@@ -10,9 +10,13 @@ endings, so it is stable across Git checkouts).
 | `gnn-200.json` | graph neural networks | 198 | `7357130a-6cc4-4776-8ac9-3a45e3d5a74d` | 2026-10-18 03:01:48 | `cb67e8d22bb3657ad7feb2683683d7abdf11931f68b68390ea5429adb805a710` |
 | `rl-robotics-200.json` | reinforcement learning in robotics | 200 | `7e49ed44-2332-4220-bc97-f6f4ebc1e66a` | 2026-10-18 03:01:57 | `52b61eb823a178896169f1c780c983246f3fe7321422cf9d75ff17d2f2d3a306` |
 | `medical-ai-200.json` | AI-assisted medical diagnosis | 167 | `4eaa4e37-f236-49d7-b31f-611d5f673e85` | 2026-10-18 03:02:07 | `ba7725f92857eaf158ea8c15b426c99e6f6123293382b8a8097515fc0104ad49` |
+| `protein-structure-200.json` | protein structure prediction | 200 | `dec42238-28a6-444b-a7a1-b2fb7a35355f` | 2026-10-18 20:25:16 | `695bdc70c692b1528b37d5f0df0683073cbf2f07d3df29b2f33f602c7147bfe9` |
+| `causal-economics-200.json` | causal inference in economics | 62 | `dfb0b49d-5777-4540-a3fb-c81307e328de` | 2026-10-18 20:25:40 | `e5b561839ff644061f76008952de537f1df2e7f4ef7dc5105406d2d74c388589` |
+| `quantum-ec-200.json` | quantum error correction | 198 | `c748ec22-3500-4474-82a6-78cdbfa635ee` | 2026-10-18 20:25:58 | `9aba207e11752c162f7c3320cb37ed967ffa1cc28e78f4343fb93e4241a9be31` |
+| `climate-agriculture-200.json` | climate change adaptation in agriculture | 183 | `58eeb968-259c-4b2d-837e-5ab0cff0b83d` | 2026-10-18 20:26:17 | `0ed92ca58a8e57bdd5b3ddbcfeb11d2defb075ed0edbd3bd3aa742135d2790d9` |
 
 **How they were produced:** OpenAlex `search=` (full-text), default relevance order, 2 pages × 100, authenticated;
-normalizer v2, identity policy v1 (conservative D06), relevance policy v1 (conservative D07). Each file contains
+normalizer v2, identity policy v1 (conservative D06). The first three (the audit topics, used to choose D12/D09 weights) were frozen under relevance policy v1; the last four (**held-out** topics from other fields, added in M14 and never used for tuning) under relevance policy v3. Each file records its policy versions; comparisons are only made within one dataset. Each file contains
 only the snapshot's *optimization candidates* (relevance-eligible and not suppressed as duplicates), with the
 fields selection, metrics and ordering need. No abstracts, no credentials.
 
