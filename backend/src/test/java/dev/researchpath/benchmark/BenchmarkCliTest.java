@@ -24,7 +24,11 @@ class BenchmarkCliTest {
 		String md = Files.readString(out.resolve("baseline-report.md"));
 		assertThat(md).contains("## graph neural networks").contains("## AI-assisted medical diagnosis")
 				.contains(RealDatasetBenchmarkTest.DATASET_SHA256.get("gnn-200"))
-				.contains("| RELEVANCE | 10 |").contains("| CITATION | 20 |").contains("| PROVIDER_ORDER | 5 |");
+				.contains("| RELEVANCE | 10 |").contains("| CITATION | 20 |").contains("| PROVIDER_ORDER | 5 |")
+				.contains("| OPTIMIZER | 10 |");
+		assertThat(Files.readString(out.resolve("optimizer-sweep.md"))).contains("Intermediate/Balanced additive β=4.0");
+		assertThat(Files.readString(out.resolve("optimizer-side-by-side.md"))).contains("### Best baseline:")
+				.contains("ADDS_NEW_CONCEPTS");
 		String json = Files.readString(out.resolve("baseline-runs.json"));
 		assertThat(json).contains("\"datasetSha256\"").contains("\"selectedIds\"").doesNotContain("\r\n");
 	}

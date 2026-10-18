@@ -18,6 +18,7 @@ public final class Objective {
 	private final Map<String, Double> conceptWeights;
 	private final OptimizerConfig.QualityWeights qualityWeights;
 	private final double qualityScale;
+	private final boolean qualityWeightedCoverage;
 	private final int minYear;
 	private final int maxYear;
 
@@ -30,6 +31,7 @@ public final class Objective {
 		this.conceptWeights = Map.copyOf(conceptWeights);
 		this.qualityWeights = OptimizerConfig.weights(preferences);
 		this.qualityScale = budget <= 0 ? 0 : config.qualityShare() / budget;
+		this.qualityWeightedCoverage = config.qualityWeightedCoverage();
 		this.minYear = pool.stream().map(OptimizerCandidate::year).filter(y -> y != null).mapToInt(Integer::intValue)
 				.min().orElse(0);
 		this.maxYear = pool.stream().map(OptimizerCandidate::year).filter(y -> y != null).mapToInt(Integer::intValue)
@@ -84,7 +86,7 @@ public final class Objective {
 		for (OptimizerCandidate c : selected) {
 			for (Map.Entry<String, Double> e : c.concepts().entrySet()) {
 				if (conceptWeights.containsKey(e.getKey())) {
-					uncovered.merge(e.getKey(), 1 - clamp(e.getValue()), (a, b) -> a * b);
+					uncovered.merge(e.getKey(), 1 - strength(c, e.getValue()), (a, b) -> a * b);
 				}
 			}
 		}
@@ -97,7 +99,7 @@ public final class Objective {
 		for (Map.Entry<String, Double> e : c.concepts().entrySet()) {
 			Double w = conceptWeights.get(e.getKey());
 			if (w != null) {
-				gain += w * clamp(e.getValue()) * uncovered.getOrDefault(e.getKey(), 1.0);
+				gain += w * strength(c, e.getValue()) * uncovered.getOrDefault(e.getKey(), 1.0);
 			}
 		}
 		return gain;
@@ -105,6 +107,12 @@ public final class Objective {
 
 	public double marginalGain(OptimizerCandidate c, List<OptimizerCandidate> selected) {
 		return coverageGain(c, uncoveredProbability(selected)) + qualityGain(c);
+	}
+
+	/** Probability that paper c represents a concept: its confidence, times its quality if configured. */
+	public double strength(OptimizerCandidate c, double confidence) {
+		double s = clamp(confidence);
+		return qualityWeightedCoverage ? s * quality(c).total() : s;
 	}
 
 	private static double clamp(double v) {

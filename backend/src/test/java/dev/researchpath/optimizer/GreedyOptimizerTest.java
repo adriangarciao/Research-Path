@@ -58,6 +58,19 @@ class GreedyOptimizerTest {
 	}
 
 	@Test
+	void reasonsAreGroundedInNewConceptsThenTheDominantQualityComponent() {
+		Map<String, Double> w = Map.of("a", 1.0);
+		List<OptimizerCandidate> pool = List.of(paper("FIRST", 1, covers("a"), 1, 0.2, 2020, false),
+				paper("INFLUENTIAL", 2, Map.of(), 0.75, 1.0, 2020, false));
+		// Large β: quality dominates gains, but the first paper still adds the concept and is explained by it.
+		GreedyOptimizer.Result r = GreedyOptimizer.select(pool, w, 2, Preferences.DEFAULT, new OptimizerConfig(8));
+		assertThat(r.decisions()).extracting(GreedyOptimizer.Decision::id, GreedyOptimizer.Decision::reason)
+				.containsExactly(org.assertj.core.groups.Tuple.tuple("FIRST", GreedyOptimizer.Reason.ADDS_NEW_CONCEPTS),
+						org.assertj.core.groups.Tuple.tuple("INFLUENTIAL", GreedyOptimizer.Reason.HIGH_RELEVANCE));
+		assertThat(r.decisions().get(1).newConcepts()).isEmpty();
+	}
+
+	@Test
 	void coverageSaturatesWhenEveryPaperSharesOneConcept() {
 		Map<String, Double> w = Map.of("only", 1.0);
 		List<OptimizerCandidate> pool = List.of(paper("P1", 1, Map.of("only", 0.8), 1, 0.5, 2020, false),
@@ -86,7 +99,8 @@ class GreedyOptimizerTest {
 		for (int trial = 0; trial < 200; trial++) {
 			List<OptimizerCandidate> pool = randomPool(rnd, 12, 6);
 			Map<String, Double> w = randomWeights(6);
-			Objective f = new Objective(w, pool, 5, randomPreferences(rnd), new OptimizerConfig(rnd.nextDouble()));
+			Objective f = new Objective(w, pool, 5, randomPreferences(rnd),
+					new OptimizerConfig(rnd.nextDouble() * 8, rnd.nextBoolean())); // both coverage modes
 			List<OptimizerCandidate> b = new ArrayList<>();
 			List<OptimizerCandidate> a = new ArrayList<>();
 			for (OptimizerCandidate c : pool.subList(0, 6)) {
@@ -111,6 +125,7 @@ class GreedyOptimizerTest {
 
 	@Test
 	void greedyIsWithinTheGuaranteeOfTheExhaustiveOptimumOnTinyPools() {
+		OptimizerConfig config = new OptimizerConfig(0.25); // fixed: the pinned measurement below depends on it
 		Random rnd = new Random(2026);
 		double worstRatio = 1;
 		int optimal = 0;
@@ -120,8 +135,8 @@ class GreedyOptimizerTest {
 			Map<String, Double> w = randomWeights(7);
 			int k = 1 + rnd.nextInt(4);
 			Preferences prefs = randomPreferences(rnd);
-			GreedyOptimizer.Result greedy = GreedyOptimizer.select(pool, w, k, prefs, OptimizerConfig.DEFAULT);
-			double opt = GreedyOptimizer.exhaustiveOptimum(pool, w, k, prefs, OptimizerConfig.DEFAULT);
+			GreedyOptimizer.Result greedy = GreedyOptimizer.select(pool, w, k, prefs, config);
+			double opt = GreedyOptimizer.exhaustiveOptimum(pool, w, k, prefs, config);
 			double ratio = opt == 0 ? 1 : greedy.objective() / opt;
 			worstRatio = Math.min(worstRatio, ratio);
 			if (ratio > 1 - 1e-6) {
@@ -135,6 +150,32 @@ class GreedyOptimizerTest {
 				optimal, trials);
 		assertThat(worstRatio).isGreaterThanOrEqualTo(0.8989);
 		assertThat(optimal).isGreaterThanOrEqualTo(53);
+	}
+
+	@Test
+	void guaranteeAlsoHoldsForTheChosenDefaultAndQualityWeightedCoverage() {
+		Random rnd = new Random(99);
+		for (OptimizerConfig config : List.of(OptimizerConfig.DEFAULT, new OptimizerConfig(4.0, true))) {
+			for (int trial = 0; trial < 40; trial++) {
+				List<OptimizerCandidate> pool = randomPool(rnd, 10, 7);
+				Map<String, Double> w = randomWeights(7);
+				int k = 1 + rnd.nextInt(4);
+				Preferences prefs = randomPreferences(rnd);
+				double greedy = GreedyOptimizer.select(pool, w, k, prefs, config).objective();
+				double opt = GreedyOptimizer.exhaustiveOptimum(pool, w, k, prefs, config);
+				assertThat(greedy).isGreaterThanOrEqualTo((1 - 1 / Math.E) * opt - 1e-6);
+			}
+		}
+	}
+
+	@Test
+	void qualityWeightedCoverageScalesConceptCreditByQuality() {
+		OptimizerCandidate strong = paper("S", 1, covers("a"), 1.0, 1.0, 2020, false);
+		OptimizerCandidate weak = paper("W", 2, covers("a"), 0.75, 0.0, 2020, false);
+		Objective f = new Objective(Map.of("a", 1.0), List.of(strong, weak), 1, Preferences.DEFAULT,
+				new OptimizerConfig(0, true));
+		assertThat(f.coverage(List.of(strong))).isGreaterThan(f.coverage(List.of(weak)));
+		assertThat(f.strength(weak, 1.0)).isEqualTo(f.quality(weak).total());
 	}
 
 	@Test
