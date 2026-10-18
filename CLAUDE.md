@@ -20,8 +20,8 @@ Tracked project records: `docs/progress/STATUS.md` + `MXX.md` (milestone reports
 DECISION_REGISTER.md`, `docs/design/`, `docs/evidence/`.
 
 ## Active milestone
-See `docs/progress/STATUS.md`. M00–M11 PASS. **M12** (React product journey on the `/api/paths` API) is next;
-the frontend renders stored results and never recomputes selection, order or coverage. Owner's standing instruction: at HUMAN DECISION gates choose the conservative/safer option, record it
+See `docs/progress/STATUS.md`. M00–M12 PASS. **M13** (hardening and performance: D14 synchronous generation,
+S02 rate limits/quotas/retention) is next. The frontend renders stored results and never recomputes them. Owner's standing instruction: at HUMAN DECISION gates choose the conservative/safer option, record it
 with evidence in the decision register, and continue (not for destructive/outward-facing actions). Do not
 start a milestone until the previous gate passes.
 
@@ -51,7 +51,8 @@ Test classes must end in `Test`/`Tests` (Surefire ignores `*IT`).
   inputs via `optimizationCandidates`, dev-only `/api/dev/snapshots`, `/{id}/identity`, `/{id}/relevance`),
   `web` (errors). Later milestones must read candidates from frozen `normalized_record`, never the cache. Data access = parameterized SQL via
   JdbcClient; Hibernate `ddl-auto: validate`, no entities yet.
-- `frontend/` React 19 + TypeScript + Vite 8 (placeholder page only).
+- `frontend/` React 19 + TypeScript + Vite 8: product UI on `/api/paths` (`src/api`, `src/components`), Vitest
+  unit tests (`npm test`, in verify) and a live Playwright flow test (`.\scripts\e2e.ps1`, needs the backend).
 - `compose.yaml` PostgreSQL 17 on **127.0.0.1:5434** (5433 is used by another project; owner-approved
   deviation from the playbook's 5433), volume `researchpath_pgdata`.
 - Test fixtures live in `backend/src/test/resources/` (classpath), not `data/fixtures/`.

@@ -7,7 +7,7 @@ documents kept locally in `docs/` (gitignored). Project records are public: mile
 [docs/progress](docs/progress/), decisions in [docs/decisions](docs/decisions/), design notes in
 [docs/design](docs/design/), and measured evidence in [docs/evidence](docs/evidence/).
 
-> **Status: playbook milestones M00–M11 PASS** (see [docs/progress/STATUS.md](docs/progress/STATUS.md)).
+> **Status: playbook milestones M00–M12 PASS** (see [docs/progress/STATUS.md](docs/progress/STATUS.md)).
 > Implemented: publication cache (topics/keywords with confidence, referenced-work IDs, missing-data flags,
 > bounded and URL-validated), live OpenAlex ingestion, frozen candidate snapshots, conservative duplicate
 > handling (obvious duplicates suppressed per snapshot, versions kept and flagged, nothing merged) and a
@@ -17,7 +17,8 @@ documents kept locally in `docs/` (gitignored). Project records are public: mile
 > reading-order and stage builder with grounded explanations, exposed through a path API with immutable
 > revisions and regeneration from the original snapshot (`POST /api/paths`, `GET /api/paths/{id}`,
 > `POST /api/paths/{id}/revisions`).
-> **Not implemented yet:** real UI (M12), rate limits (M13), deployment.
+> A React interface (http://localhost:5173) creates, shows and regenerates paths.
+> **Not implemented yet:** rate limits and retention (M13), deployment.
 
 ## Layout
 
@@ -103,7 +104,8 @@ docker compose exec postgres pg_isready -U researchpath -d researchpath
 Invoke-RestMethod http://localhost:8080/actuator/health        # status UP, components.db UP
 Invoke-RestMethod http://localhost:8080/actuator/flyway        # migration 1 SUCCESS
 .\scripts\test-backend.ps1                                     # backend tests (Testcontainers; Docker must be running)
-cd frontend; npm run build; npm run lint                       # typecheck + production build + lint
+cd frontend; npm run build; npm run lint; npm test            # typecheck + production build + lint + unit tests
+.\scripts\e2e.ps1                                               # live browser flow test (backend running; calls OpenAlex)
 .\scripts\openalex-smoke.ps1                                   # live OpenAlex check (needs key)
 ```
 
