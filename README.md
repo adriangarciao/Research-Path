@@ -1,7 +1,11 @@
 # ResearchPath
 
 Learn a research topic through an optimized, explainable sequence of real academic papers.
-Product and architecture: [docs/ResearchPath_Master_Blueprint_v1.1.md](docs/ResearchPath_Master_Blueprint_v1.1.md).
+
+The product blueprint, milestone playbook, setup plan and initial OpenAlex audit are private planning
+documents kept locally in `docs/` (gitignored). Project records are public: milestone status and reports in
+[docs/progress](docs/progress/), decisions in [docs/decisions](docs/decisions/), design notes in
+[docs/design](docs/design/), and measured evidence in [docs/evidence](docs/evidence/).
 
 > **Status: publication data model and OpenAlex ingestion (milestone 2).** Implemented: publication cache
 > (topics/keywords with confidence, referenced-work IDs, missing-data flags), possible-duplicate evidence
@@ -14,7 +18,7 @@ Product and architecture: [docs/ResearchPath_Master_Blueprint_v1.1.md](docs/Rese
 ```text
 backend/        Spring Boot 4.1 (Java 21, Maven Wrapper)
 frontend/       React 19 + TypeScript + Vite 8
-docs/           Blueprint, setup plan, OpenAlex audit (REPORT.md, papers.csv, audit script)
+docs/           progress/, decisions/, design/, evidence/ (tracked); planning docs (local only)
 scripts/        Windows PowerShell helpers
 compose.yaml    PostgreSQL 17 for local development
 .env.example    Template for the private .env (placeholders only)

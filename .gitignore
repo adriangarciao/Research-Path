@@ -19,6 +19,11 @@ frontend/*.local
 frontend/.vite/
 node_modules/
 
+# ---- Provided reference docs: kept locally, not published (owner's decision 2026-10-17) ----
+# Project records (docs/progress, docs/decisions, docs/design, docs/evidence, ...) stay tracked.
+docs/ResearchPath_*.md
+docs/audit/
+
 # ---- OpenAlex audit outputs (regenerable; review before committing any fixture) ----
 researchpath_audit_output/
 docs/audit/researchpath_audit_output/
