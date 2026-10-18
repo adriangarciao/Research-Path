@@ -18,7 +18,8 @@ class OpenAlexConfiguration {
 			Clock clock) {
 		HttpClient httpClient = HttpClient.newBuilder()
 				.connectTimeout(properties.connectTimeout())
-				.followRedirects(HttpClient.Redirect.NORMAL)
+				// Never follow redirects: the Bearer key must only ever reach the configured API host (M13 SSRF review).
+				.followRedirects(HttpClient.Redirect.NEVER)
 				.build();
 		JdkClientHttpRequestFactory requestFactory = new JdkClientHttpRequestFactory(httpClient);
 		requestFactory.setReadTimeout(properties.readTimeout());

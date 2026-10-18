@@ -6,6 +6,12 @@ services:
   postgres:
     image: postgres:17
     restart: unless-stopped
+    # Bounded resources (playbook M13): a runaway query cannot take the machine down.
+    mem_limit: 1g
+    cpus: 2.0
+    pids_limit: 256
+    security_opt:
+      - no-new-privileges:true
     environment:
       POSTGRES_DB: ${DB_NAME:-researchpath}
       POSTGRES_USER: ${DB_USER:-researchpath}
