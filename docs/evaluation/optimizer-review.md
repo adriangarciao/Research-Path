@@ -12,7 +12,7 @@ F(S) = Σ_c w_c · (1 − Π_{p∈S}(1 − s_{p,c})) + (β / k) · Σ_{p∈S} q_
 unknown = neutral 0.5). The sum is monotone submodular, so greedy has the (1 − 1/e) guarantee **for this objective**.
 Evidence, not assumption: property tests on 200 seeded random pools (monotone, Δ(p|A) ≥ Δ(p|B) for A ⊆ B, F
 increments equal recorded gains); exhaustive optimum on 60 tiny pools — greedy worst ratio **0.899**, exactly
-optimal in **53/60**, never below 0.632; the bound also checked for β = 4 and for quality-weighted coverage.
+optimal in **53/60** (config v1; 51/60 after the D09 change, see M10), never below 0.632; the bound also checked for β = 4 and for quality-weighted coverage.
 Removing the diminishing-returns factor fails 5 tests.
 
 ## D12 — choosing β (conservative)
@@ -65,7 +65,9 @@ ranker); whether paths built this way help people learn is **unproven** and need
 - GNN k = 15/20 contain "Graph neural networks" (2024 *Nature Reviews* primer) and "Graph Neural Networks" (2022
   book chapter): different works (pair review), not a duplicate.
 - Preferences: Recent vs Foundational shift median years by 3 (GNN) and 13 (RL); 161 of 167 medical candidates
-  are from 2020 or later (median 2025), so focus has little room there. Experience effects are deliberately small (D09 open).
+  are from 2020 or later (median 2025), so focus has little room there. ~~Experience effects are deliberately small.~~ **Corrected in M10:**
+  at β = 4 the v1 experience weights were strong (Beginner 7–10 of 10 overview-marked papers); D09 lowered
+  them to 0.02 (config v2), see [sequence-review.md](sequence-review.md).
 
 ## Not done (by design)
 Local swap/refinement search (optional per playbook), learned weights, and any claim about learning outcomes.

@@ -7,15 +7,15 @@ documents kept locally in `docs/` (gitignored). Project records are public: mile
 [docs/progress](docs/progress/), decisions in [docs/decisions](docs/decisions/), design notes in
 [docs/design](docs/design/), and measured evidence in [docs/evidence](docs/evidence/).
 
-> **Status: playbook milestones M00–M09 PASS** (see [docs/progress/STATUS.md](docs/progress/STATUS.md)).
+> **Status: playbook milestones M00–M10 PASS** (see [docs/progress/STATUS.md](docs/progress/STATUS.md)).
 > Implemented: publication cache (topics/keywords with confidence, referenced-work IDs, missing-data flags,
 > bounded and URL-validated), live OpenAlex ingestion, frozen candidate snapshots, conservative duplicate
 > handling (obvious duplicates suppressed per snapshot, versions kept and flagged, nothing merged) and a
 > metadata-quality report, a conservative relevance gate with frozen evaluation inputs, and a filtered
 > topic + keyword concept representation for coverage, an offline benchmark harness with three ranking
-> baselines, and a custom greedy marginal-gain set optimizer compared with them on committed datasets.
-> **Not implemented yet:** reading order and stages (M10), path persistence/regeneration and API, real UI,
-> deployment.
+> baselines, a custom greedy marginal-gain set optimizer compared with them on committed datasets, and a cautious
+> reading-order and stage builder with grounded explanations.
+> **Not implemented yet:** path persistence/regeneration (M11), public path API, real UI, deployment.
 
 ## Layout
 
@@ -142,8 +142,9 @@ benchmark needs only JDK 21 and this repository (no database, Docker or network)
 .\scripts\benchmark.ps1        # writes backend\target\benchmarks\baseline-report.md and baseline-runs.json
 ```
 
-The script also writes the optimizer sensitivity sweep and side-by-side paper lists. Results and analysis:
-[baselines](docs/evaluation/baseline-analysis.md), [optimizer](docs/evaluation/optimizer-review.md).
+The script also writes the optimizer sensitivity sweep, side-by-side paper lists, sample reading paths and the
+experience-weight sweep. Results and analysis: [baselines](docs/evaluation/baseline-analysis.md),
+[optimizer](docs/evaluation/optimizer-review.md), [reading paths](docs/evaluation/sequence-review.md).
 
 ## Configuration notes
 
