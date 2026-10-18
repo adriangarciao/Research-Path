@@ -111,6 +111,16 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- Offline benchmark CLI: mvnw compile exec:java -Dexec.args="..." (scripts/benchmark.ps1). -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>3.5.0</version>
+				<configuration>
+					<mainClass>dev.researchpath.benchmark.BenchmarkCli</mainClass>
+					<cleanupDaemonThreads>false</cleanupDaemonThreads>
+				</configuration>
+			</plugin>
 			<!-- Load Mockito as a Java agent instead of self-attaching (removes JDK 21+ warning). -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
