@@ -32,9 +32,9 @@ class RealDatasetBenchmarkTest {
 
 	/** Fingerprint of all selected ids and metrics (runtime excluded) per dataset; update only deliberately. */
 	static final Map<String, String> RESULT_FINGERPRINTS = Map.of(
-			"gnn-200", "c2a2ff9634f09e72d644099af8b2975a71fdd3d829e1c3bbca481675819af92f",
-			"rl-robotics-200", "a1baf4208ded715f6a2a4a80eab542c231653e25607011c14c18f2f2117bbdb0",
-			"medical-ai-200", "6e9eebfd7fc0e1f9c65425e5b0927ef075616a3ec4529f09ebdf963e0395bd05");
+			"gnn-200", "2eac9dc2b96cac62acd008d23acfe300634b65ee36a13fe8c750c59880c80fc6",
+			"rl-robotics-200", "3124b0c674f455ed157ab184f06e044d1ed98ff329cd041411549a2ffc42d267",
+			"medical-ai-200", "7924ec8697c09889ca2eb10305618889bd54609d458fc362682435c19b7d2240");
 
 	static BenchmarkRunner.Run run(String name) throws Exception {
 		Path file = DIR.resolve(name + ".json");
@@ -46,7 +46,8 @@ class RealDatasetBenchmarkTest {
 		StringBuilder sb = new StringBuilder();
 		for (BenchmarkRunner.Result r : run.results()) {
 			sb.append(r.selector()).append('|').append(r.budget()).append('|').append(r.selectedIds()).append('|')
-					.append(DatasetIo.JSON.writeValueAsString(r.metrics())).append('\n');
+					// Pretty-printed JSON uses the platform line separator; normalize so Windows and Linux agree (CI).
+					.append(DatasetIo.JSON.writeValueAsString(r.metrics()).replace("\r\n", "\n")).append('\n');
 		}
 		return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256")
 				.digest(sb.toString().getBytes(StandardCharsets.UTF_8)));
