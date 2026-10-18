@@ -14,8 +14,8 @@ Last updated: 2026-10-17. Owner instruction: at HUMAN DECISION gates take the co
 | M06 | Relevance & frozen snapshots | **PASS** (2026-10-17) — D07/D11 decided conservatively (owner's standing instruction) | [M06.md](M06.md), [relevance review](../evaluation/relevance-review.md) |
 | M07 | Concept/topic representation | **PASS** (2026-10-17) — D03/D08 decided conservatively | [M07.md](M07.md), [concept review](../evaluation/concept-review.md) |
 | M08 | Ranking baselines | **PASS** (2026-10-18) — reproduced from a fresh clone | [M08.md](M08.md), [baseline analysis](../evaluation/baseline-analysis.md) |
-| M09 | Marginal-gain optimizer | **NEXT — NOT STARTED** | — |
-| M10 | Ordering, stages, explanations | NOT STARTED | — |
+| M09 | Marginal-gain optimizer | **PASS** (2026-10-18) — D12 conservative (β = 4); D13 on coverage proxy | [M09.md](M09.md), [optimizer review](../evaluation/optimizer-review.md) |
+| M10 | Ordering, stages, explanations | **NEXT — NOT STARTED** | — |
 | M11 | Saved revisions & regeneration | NOT STARTED | — |
 | M12 | User-facing flow | NOT STARTED | — |
 | M13 | Hardening & performance | NOT STARTED | — |
