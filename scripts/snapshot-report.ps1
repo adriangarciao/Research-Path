@@ -66,6 +66,29 @@ Counts describe this retrieved pool only; they are not relevance or quality judg
 "@
 
 ''
+'## Relevance gate (conservative policy, decision D07)'
+''
+$rel = $s.relevance
+if ($null -eq $rel) {
+    'Not evaluated: this snapshot was created before the relevance gate existed.'
+} else {
+    "- Policy v$($rel.policyVersion): ELIGIBLE $($rel.eligible) · TANGENTIAL $($rel.tangential) · BORDERLINE $($rel.borderline) · INELIGIBLE $($rel.ineligible)"
+    "- Optimization candidates (eligible and not a suppressed duplicate): $($rel.optimizationCandidates)"
+    foreach ($w in @($rel.warnings)) { "- Warning $($w.code): $($w.message)" }
+    # Parenthesized: piped directly, Invoke-RestMethod passes the JSON array as a single object.
+    $excluded = @((Invoke-RestMethod "$BaseUrl/api/dev/snapshots/$($s.id)/relevance" -TimeoutSec 60) |
+        Where-Object { $_.tier -in 'TANGENTIAL', 'BORDERLINE' })
+    if ($excluded.Count -gt 0) {
+        ''
+        "Excluded for review (tangential / borderline, first 25 of $($excluded.Count)):"
+        foreach ($x in ($excluded | Select-Object -First 25)) {
+            $why = if ($x.tier -eq 'TANGENTIAL') { "aspect: $($x.evidence.aspectCues -join ', ')" } else { "missing: $($x.evidence.missing -join ', ')" }
+            "- #$($x.providerRank) $($x.tier) ($why): $($x.title)"
+        }
+    }
+}
+
+''
 '## Identity resolution (conservative policy, decision D06)'
 ''
 $i = $s.identity

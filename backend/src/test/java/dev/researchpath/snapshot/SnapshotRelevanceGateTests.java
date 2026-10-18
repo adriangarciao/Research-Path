@@ -129,6 +129,21 @@ class SnapshotRelevanceGateTests {
 	}
 
 	@Test
+	void relevanceDiagnosticsListDecisionsWithEvidenceAndFilterByTier() {
+		SnapshotSummary s = snapshot(Q, work("W1", "Off-Policy Reinforcement Learning for Robotics"),
+				work("W2", "Ethical considerations of reinforcement learning in robotics"));
+
+		List<RelevanceRow> all = service.relevance(s.id(), null).orElseThrow();
+		assertThat(all).extracting(RelevanceRow::openalexId, RelevanceRow::tier, RelevanceRow::optimizationCandidate)
+				.containsExactly(org.assertj.core.groups.Tuple.tuple("W1", "ELIGIBLE", true),
+						org.assertj.core.groups.Tuple.tuple("W2", "TANGENTIAL", false));
+		assertThat(all.get(1).evidence().path("aspectCues").toString()).contains("ethic");
+		assertThat(service.relevance(s.id(), dev.researchpath.relevance.RelevanceTier.TANGENTIAL).orElseThrow())
+				.extracting(RelevanceRow::openalexId).containsExactly("W2");
+		assertThat(service.relevance(java.util.UUID.randomUUID(), null)).isEmpty();
+	}
+
+	@Test
 	void stopwordOnlyTopicsAreRejectedBeforeAnyProviderCall() {
 		assertThatThrownBy(() -> service.createSnapshot("the of and", 10))
 				.isInstanceOf(IllegalArgumentException.class).hasMessageContaining("meaningful word");

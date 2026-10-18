@@ -1,5 +1,6 @@
 package dev.researchpath.snapshot;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -11,10 +12,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.researchpath.identity.IdentityDiagnostics;
 import dev.researchpath.identity.IdentityRepository;
+import dev.researchpath.relevance.RelevanceTier;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -55,6 +58,13 @@ class DevSnapshotController {
 	@GetMapping("/{id}")
 	ResponseEntity<SnapshotSummary> get(@PathVariable UUID id) {
 		return ResponseEntity.of(service.findSummary(id));
+	}
+
+	/** Frozen relevance decisions with evidence, optionally filtered by tier (e.g. ?tier=BORDERLINE). */
+	@GetMapping("/{id}/relevance")
+	ResponseEntity<List<RelevanceRow>> relevance(@PathVariable UUID id,
+			@RequestParam(required = false) RelevanceTier tier) {
+		return ResponseEntity.of(service.relevance(id, tier));
 	}
 
 	/** Frozen identity decisions (with evidence) and suppressed duplicates for one snapshot. */
