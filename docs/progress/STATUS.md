@@ -1,7 +1,7 @@
 # Milestone status
 
 Source of truth for gates (Playbook v1.0 §17). Only **verified** results count; "probably done" is not a status.
-Last updated: 2026-10-17.
+Last updated: 2026-10-17. Owner instruction: at HUMAN DECISION gates take the conservative/safer option and continue.
 
 | ID | Milestone | Status | Exit evidence |
 |---|---|---|---|
@@ -11,8 +11,8 @@ Last updated: 2026-10-17.
 | M03 | OpenAlex client & fixtures | **PASS** — LIVE VERIFIED (2026-10-17) | [M03.md](M03.md) |
 | M04 | Normalization & quality | **PASS** (verified 2026-10-17) | [M04.md](M04.md) |
 | M05 | Deduplication & versioning | **PASS** (2026-10-17) — D06 conservative policy approved by owner; pair labels: owner spot-check requested | [M05.md](M05.md), [pair review](../evaluation/identity-pair-review.md) |
-| M06 | Relevance & frozen snapshots | **NEXT — NOT STARTED.** Pre-existing groundwork only: frozen snapshots with exact provider records, 100-candidate live pools. **No relevance gate** (members `UNSCREENED`), no labeled set, **HUMAN DECISION D07/D11** not done | [evidence](../evidence/2026-10-17_first-100-candidate-snapshots.md) |
-| M07 | Concept/topic representation | NOT STARTED | — |
+| M06 | Relevance & frozen snapshots | **PASS** (2026-10-17) — D07/D11 decided conservatively (owner's standing instruction) | [M06.md](M06.md), [relevance review](../evaluation/relevance-review.md) |
+| M07 | Concept/topic representation | **NEXT — NOT STARTED** | — |
 | M08 | Ranking baselines | NOT STARTED | — |
 | M09 | Marginal-gain optimizer | NOT STARTED | — |
 | M10 | Ordering, stages, explanations | NOT STARTED | — |

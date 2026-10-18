@@ -1,6 +1,6 @@
 # Data contract — normalized publications and candidate snapshots
 
-Status: **current as of Flyway V4 / normalizer v2 / identity policy v1 (2026-10-17)**. Playbook M02 slice 2.
+Status: **current as of Flyway V5 / normalizer v2 / identity policy v1 / relevance policy v1 (2026-10-17)**. Playbook M02 slice 2.
 Source of truth in code: `OpenAlexWorkNormalizer`, `NormalizedWork`, `PublicationRepository`,
 `V2__publication_and_snapshot.sql`, `V3__normalization_bounds.sql`.
 
@@ -61,8 +61,14 @@ a source, not proof of free full text.
   retrieval notes (rejections with reason, within-response duplicates from page drift), created time.
 - `snapshot_membership`: provider rank (1-based, unique), provider relevance score, **exact raw provider
   record** (`source_record`, ≤ 512 KB per record), retrieval time, `canonical_publication_id` (identity
-  resolution), `eligibility_status` (all `UNSCREENED` until the M06 relevance gate exists).
+  resolution), relevance fields (below).
 - `snapshot_identity_decision`: frozen identity decisions for pairs inside the snapshot (see above).
+- Relevance (V5): each member stores `relevance_tier` (ELIGIBLE / TANGENTIAL / BORDERLINE / INELIGIBLE),
+  `relevance_reason`, `relevance_evidence` (matched / missing terms, aspect cues) and `eligibility_status`
+  (ELIGIBLE only for the ELIGIBLE tier); the snapshot stores `relevance_policy_version` and `warnings`.
+- **Frozen evaluation inputs (V5):** `normalized_record` is the normalized work exactly as evaluated. Optimization
+  candidates = members with `eligibility_status = 'ELIGIBLE'` and `canonical_publication_id = publication_id`,
+  read from `normalized_record` — never from the refreshable publication cache. NULL for pre-V5 snapshots.
 - Rule: the publication tables are a refreshable cache; a snapshot's evaluation inputs come from its frozen
   `source_record`s, so refreshing the cache never changes an old snapshot.
 
