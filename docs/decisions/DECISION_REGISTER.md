@@ -8,17 +8,17 @@ When resolving an item, record date, alternatives, evidence, rationale, owner an
 
 | ID | Status | Question / current direction | Evidence so far | Must be addressed in |
 |---|---|---|---|---|
-| D01 | OBSERVED (top-ranked only) | OpenAlex supplies real works with basic metadata | 30-work audit; 2026-10-17: 3×100 + 1×20 live snapshots, 0 rejected records ([evidence](../evidence/2026-10-17_first-100-candidate-snapshots.md)) | M06 (deeper/non-top samples) |
+| D01 | OBSERVED (incl. ranks 101–200) | OpenAlex supplies real works with basic metadata | 30-work audit; 2026-10-17 live snapshots incl. 3×200 (ranks 101–200), 0 rejected records, 0 provider errors ([evidence](../evidence/2026-10-17_first-100-candidate-snapshots.md), [relevance review](../evaluation/relevance-review.md)) | ongoing |
 | D02 | OBSERVED | Broad topics alone too coarse | Primary-topic concentration at 100 works: 57% / 92% / 54% | M07 |
 | D03 | OPEN | Are keywords trustworthy subtopics vs noise? | 392–603 distinct keywords per 100 works; no human review yet | M07 human review |
 | D04 | OBSERVED (variable) | Missing abstracts need fallback | Abstract present 89 / 77 / 86 of 100 | M04 ✔ fallback implemented; M06 |
 | D05 | OBSERVED (variable) | Citation edges incomplete | Internal edges 304 / 70 / 5 per 100; 9–42% of works list no references | M10 |
 | D06 | **RESOLVED 2026-10-17 (owner): conservative default** | Keep ambiguous versions separate; suppress only obvious duplicates (same DOI + title, or same title + year + shared author + ≤ 1 DOI). Never merge records | 18 reviewed real pairs: false merges 0/11, duplicates suppressed 4/7, missed 3/7 ([review](../evaluation/identity-pair-review.md)); `IdentityPolicy` v1 | Reverse if reviewed false merges appear, or if missed duplicates visibly harm paths (then consider PROBABLE_VERSION as a soft selection constraint in M09) |
-| D07 | OPEN — **HUMAN DECISION at M06** | Relevance eligibility floor | None measured; members stored `UNSCREENED` | **M06** |
+| D07 | **RESOLVED 2026-10-17: conservative** (owner's standing instruction) | ELIGIBLE = ≥ 75% of query terms in title/confident concepts and no unrequested aspect; BORDERLINE/TANGENTIAL excluded by default; abstract never required (`RelevancePolicy` v1) | Labeled 118: relevant recall 75/76, unrelated admitted 0/15, tangential excluded 17/23; live medical spot-check ~6 relevant works in BORDERLINE ([review](../evaluation/relevance-review.md)) | Revisit if pools fall below 20 candidates or tangential works reach paths; vetted synonyms are the planned v2 |
 | D08 | OPEN — **HUMAN DECISION at M07** | Topic vs keyword weights, noise filtering | Confidence scores stored (topics as low as 0.0003) | **M07** |
 | D09 | OPEN | Accessibility proxy from metadata? | — | M09/M10 |
 | D10 | OPEN | Ordering and stage-naming policy | — | M10 |
-| D11 | PROVISIONAL | Candidate pool size (~100–300) | 100 works ≈ 1 request, 3–6 s, USD 0.001/page; config default 100, max 200; depth beyond top-100 untested | **M06** human decision |
+| D11 | **RESOLVED 2026-10-17: conservative** | Default 100 candidates, max 200 | 100: 1 request, 3.4–5.8 s, USD 0.001; 200: 2 requests, 8.8–10.6 s, USD 0.002; eligible share at ranks 101–200 drops to 79% for medical AI (89% at 1–100) | Revisit when a topic yields < 20 optimization candidates |
 | D12 | OPEN | Influence/recency normalization, preference weights | fwci and citation percentile stored when supplied | M09/M14 |
 | D13 | OPEN | Does optimizer beat simple ranking? | — | M09/M14 |
 | D14 | OPEN | Is synchronous generation fast enough? | Retrieval 3–6 s for 100 candidates (cold); optimizer not built | M13 |
