@@ -46,9 +46,23 @@ public final class Ablation {
 		}
 	}
 
-	/** @param overlapWithDefault papers shared with the DEFAULT selection for the same dataset and budget */
+	/** Landmarks = the pool's most-cited works (raw citation count), a reader's "did it keep the classics?" check. */
+	public static final int LANDMARKS = 5;
+
+	/**
+	 * @param overlapWithDefault papers shared with the DEFAULT selection for the same dataset and budget
+	 * @param landmarksKept how many of the pool's {@value #LANDMARKS} most-cited works the selection contains
+	 */
 	public record Row(String topic, String variant, int budget, SelectionMetrics metrics, Double percentileMedian,
-			int overlapWithDefault, long selectionMicros, List<String> selectedIds) {
+			int overlapWithDefault, int landmarksKept, long selectionMicros, List<String> selectedIds) {
+	}
+
+	/** Ids of the pool's most-cited works (known counts only; ties by provider rank). */
+	public static List<String> landmarks(BenchmarkDataset d) {
+		return d.candidates().stream().filter(c -> c.citedByCount() != null)
+				.sorted(java.util.Comparator.comparingInt(Candidate::citedByCount).reversed()
+						.thenComparingInt(Candidate::providerRank))
+				.limit(LANDMARKS).map(Candidate::openalexId).toList();
 	}
 
 	public static List<Row> run(BenchmarkDataset d, List<Integer> budgets) {
@@ -56,6 +70,7 @@ public final class Ablation {
 		Map<String, Candidate> byId = new HashMap<>();
 		d.candidates().forEach(c -> byId.put(c.openalexId(), c));
 		List<Row> rows = new ArrayList<>();
+		Set<String> landmarks = new HashSet<>(landmarks(d));
 		for (int k : budgets) {
 			Set<String> defaultIds = Set.of();
 			for (Variant v : Variant.values()) {
@@ -68,8 +83,8 @@ public final class Ablation {
 				List<Candidate> selected = ids.stream().map(byId::get).toList();
 				Set<String> def = defaultIds;
 				rows.add(new Row(d.topic(), v.name(), k, SelectionMetrics.of(d, reference, k, selected),
-						SensitivitySweep.medianPercentile(selected), (int) ids.stream().filter(def::contains).count(), micros,
-						ids));
+						SensitivitySweep.medianPercentile(selected), (int) ids.stream().filter(def::contains).count(),
+						(int) ids.stream().filter(landmarks::contains).count(), micros, ids));
 			}
 			Selector best = null;
 			double bestCoverage = -1;
@@ -84,7 +99,8 @@ public final class Ablation {
 			Set<String> def = defaultIds;
 			rows.add(new Row(d.topic(), "BEST_BASELINE (" + best.name() + ")", k, SelectionMetrics.of(d, reference, k, bs),
 					SensitivitySweep.medianPercentile(bs), (int) bs.stream().filter(c -> def.contains(c.openalexId())).count(),
-					0, bs.stream().map(Candidate::openalexId).toList()));
+					(int) bs.stream().filter(c -> landmarks.contains(c.openalexId())).count(), 0,
+					bs.stream().map(Candidate::openalexId).toList()));
 		}
 		return rows;
 	}
@@ -130,7 +146,8 @@ public final class Ablation {
 				.append("concept policy v").append(ConceptPolicy.VERSION).append(") and the original candidate data. ")
 				.append("Coverage is weighted concept coverage of the eligible pool (the optimizer's own target for the ")
 				.append("combined variants, so partly circular). Δ = variant − default. Overlap = papers shared with the ")
-				.append("default selection. Variants:\n\n");
+				.append("default selection. Landmarks = how many of the pool's " + LANDMARKS + " most-cited works are kept. ")
+				.append("Variants:\n\n");
 		for (Variant v : Variant.values()) {
 			sb.append("- `").append(v.name()).append("`: ").append(v.description).append('\n');
 		}
@@ -147,16 +164,16 @@ public final class Ablation {
 				topic = r.topic();
 				sb.append("\n## ").append(topic).append("\n\n")
 						.append("| Variant | k | Coverage | Δ | Relevance mean | Percentile median | Citations median | ")
-						.append("Year median | Redundancy | Overlap | Time |\n")
-						.append("|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|\n");
+						.append("Year median | Redundancy | Overlap | Landmarks | Time |\n")
+						.append("|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|\n");
 			}
 			SelectionMetrics m = r.metrics();
 			double delta = m.weightedCoverage() - defaultCoverage.get(r.topic() + "|" + r.budget());
-			sb.append(String.format(Locale.ROOT, "| %s | %d | %.3f | %+.3f | %.2f | %s | %s | %s | %.3f | %d/%d | %s |%n",
+			sb.append(String.format(Locale.ROOT, "| %s | %d | %.3f | %+.3f | %.2f | %s | %s | %s | %.3f | %d/%d | %d/%d | %s |%n",
 					r.variant(), r.budget(), m.weightedCoverage(), delta, m.relevanceMean(),
 					r.percentileMedian() == null ? "–" : String.format(Locale.ROOT, "%.2f", r.percentileMedian()),
 					m.citationsMedian() == null ? "–" : m.citationsMedian(), m.yearMedian() == null ? "–" : m.yearMedian(),
-					m.redundancyJaccard(), r.overlapWithDefault(), m.selectedCount(),
+					m.redundancyJaccard(), r.overlapWithDefault(), m.selectedCount(), r.landmarksKept(), LANDMARKS,
 					r.selectionMicros() == 0 ? "–" : (r.selectionMicros() / 1000) + " ms"));
 		}
 		return sb.toString().replace("\r\n", "\n");
