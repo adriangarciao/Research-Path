@@ -15,7 +15,7 @@ export class ApiError extends Error {
 
   /** Worth offering "try again" (network, busy, provider trouble), as opposed to a bad request. */
   get retryable(): boolean {
-    return this.status === null || this.status >= 500
+    return this.status === null || this.status === 429 || this.status >= 500
   }
 }
 
@@ -24,6 +24,7 @@ const GENERIC: Record<number, string> = {
   404: 'This path could not be found. The link may be mistyped.',
   409: 'This request conflicts with a stored path.',
   422: 'No eligible papers were found for this topic.',
+  429: 'Too many requests. Please wait a moment and try again.',
   502: 'The research data provider could not be reached. Please try again.',
   503: 'The server is busy right now. Please try again in a few seconds.',
 }

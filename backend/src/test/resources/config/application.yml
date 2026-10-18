@@ -1,0 +1,9 @@
+# Test-only overrides (classpath:/config/ beats classpath:/ for the keys set here).
+# Integration tests create many paths from one address; the limiter has its own tests.
+researchpath:
+  rate-limit:
+    create-burst: 100000
+    creates-per-hour: 100000
+    regenerate-burst: 100000
+    regenerations-per-hour: 100000
+    creates-per-day: 100000
