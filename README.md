@@ -113,6 +113,9 @@ Invoke-RestMethod http://localhost:8080/api/dev/snapshots -Method Post -ContentT
   -Body '{"topic":"graph neural networks","maxCandidates":100}'
 # Re-read a snapshot's summary
 Invoke-RestMethod http://localhost:8080/api/dev/snapshots/<id>
+# Same, as a readable metadata-quality report (creates with -Topic, re-reads with -Id)
+.\scripts\snapshot-report.ps1 -Topic "graph neural networks" -MaxCandidates 100
+.\scripts\snapshot-report.ps1 -Id <id>
 ```
 
 The summary reports metadata availability, distinct topics/keywords, primary-topic concentration,

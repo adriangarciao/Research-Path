@@ -84,7 +84,7 @@ class CandidateSnapshotServiceIntegrationTests {
 		assertThat(s.rejectedCount()).isZero();
 		assertThat(s.normalizerVersion()).isEqualTo(2);
 		// Expected numbers computed independently from the fixture with Python.
-		assertThat(s.availability()).isEqualTo(new SnapshotSummary.Availability(2, 3, 3, 3, 3, 3));
+		assertThat(s.availability()).isEqualTo(new SnapshotSummary.Availability(2, 3, 3, 3, 3, 3, 3, 3, 3, 0));
 		assertThat(s.classification()).isEqualTo(
 				new SnapshotSummary.Classification(4, 19, "Advanced Graph Neural Networks", 3));
 		assertThat(s.internalCitationEdges()).isEqualTo(3);
@@ -230,6 +230,29 @@ class CandidateSnapshotServiceIntegrationTests {
 	void defaultCandidateCountIsConfigured() {
 		when(openAlex.searchWorks("t", 1, 100)).thenReturn(page(1, 1, work("W1", "a")));
 		assertThat(service.createSnapshot("t", null).requestedCount()).isEqualTo(100);
+	}
+
+	@Test
+	void qualityReportCountsLinksAuthorsAndReferenceListsHonestly() {
+		JsonNode withEverything = WorkJson.JSON.readTree("""
+				{"id": "https://openalex.org/W1", "display_name": "a", "doi": "https://doi.org/10.1/a",
+				 "authorships": [{"author": {"display_name": "X"}}], "referenced_works": []}""");
+		JsonNode landingOnly = WorkJson.JSON.readTree("""
+				{"id": "https://openalex.org/W2", "display_name": "b",
+				 "primary_location": {"landing_page_url": "https://publisher.example/b"}}""");
+		JsonNode unsafeLinkOnly = WorkJson.JSON.readTree("""
+				{"id": "https://openalex.org/W3", "display_name": "c",
+				 "primary_location": {"landing_page_url": "javascript:alert(1)"}, "referenced_works": null}""");
+		when(openAlex.searchWorks(anyString(), eq(1), anyInt())).thenReturn(new OpenAlexSearchPage(3L, 1,
+				List.of(withEverything, landingOnly, unsafeLinkOnly), WorkJson.RETRIEVED));
+
+		SnapshotSummary.Availability a = service.createSnapshot("t", 10).availability();
+
+		assertThat(a.withAuthors()).isEqualTo(1);
+		assertThat(a.withSourceLink()).isEqualTo(2); // the javascript: link does not count
+		assertThat(a.withReferenceListSupplied()).isEqualTo(1); // an empty list is supplied; null is not
+		assertThat(a.withReferences()).isZero(); // ...but it is not a non-empty reference list
+		assertThat(a.abstractsTruncated()).isZero();
 	}
 
 	@Test
