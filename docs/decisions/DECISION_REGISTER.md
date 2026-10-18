@@ -13,7 +13,7 @@ When resolving an item, record date, alternatives, evidence, rationale, owner an
 | D03 | OPEN | Are keywords trustworthy subtopics vs noise? | 392–603 distinct keywords per 100 works; no human review yet | M07 human review |
 | D04 | OBSERVED (variable) | Missing abstracts need fallback | Abstract present 89 / 77 / 86 of 100 | M04 ✔ fallback implemented; M06 |
 | D05 | OBSERVED (variable) | Citation edges incomplete | Internal edges 304 / 70 / 5 per 100; 9–42% of works list no references | M10 |
-| D06 | OPEN — **HUMAN DECISION at M05** | Safe merge / version-grouping policy | 16 flagged pairs; mix of true duplicates and same-title different works. Current behavior: evidence only, never merge | **M05** |
+| D06 | **RESOLVED 2026-10-17 (owner): conservative default** | Keep ambiguous versions separate; suppress only obvious duplicates (same DOI + title, or same title + year + shared author + ≤ 1 DOI). Never merge records | 18 reviewed real pairs: false merges 0/11, duplicates suppressed 4/7, missed 3/7 ([review](../evaluation/identity-pair-review.md)); `IdentityPolicy` v1 | Reverse if reviewed false merges appear, or if missed duplicates visibly harm paths (then consider PROBABLE_VERSION as a soft selection constraint in M09) |
 | D07 | OPEN — **HUMAN DECISION at M06** | Relevance eligibility floor | None measured; members stored `UNSCREENED` | **M06** |
 | D08 | OPEN — **HUMAN DECISION at M07** | Topic vs keyword weights, noise filtering | Confidence scores stored (topics as low as 0.0003) | **M07** |
 | D09 | OPEN | Accessibility proxy from metadata? | — | M09/M10 |

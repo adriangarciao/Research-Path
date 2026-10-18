@@ -1,6 +1,6 @@
 # Data contract — normalized publications and candidate snapshots
 
-Status: **current as of Flyway V3 / normalizer v2 (2026-10-17)**. Playbook M02 slice 2.
+Status: **current as of Flyway V4 / normalizer v2 / identity policy v1 (2026-10-17)**. Playbook M02 slice 2.
 Source of truth in code: `OpenAlexWorkNormalizer`, `NormalizedWork`, `PublicationRepository`,
 `V2__publication_and_snapshot.sql`, `V3__normalization_bounds.sql`.
 
@@ -43,19 +43,26 @@ a source, not proof of free full text.
 - `publication_reference`: actual referenced work IDs (set semantics; referenced work need not be cached,
   no placeholder rows). Counts are never converted into edges.
 
-## Identity policy (current; merge policy is OPEN — D06, M05)
+## Identity policy (D06 resolved: conservative; `IdentityPolicy` v1)
 - Exact identity: OpenAlex work id (unique constraint). Re-ingesting refreshes the row in place.
 - `publication_identity_candidate` records **possible** duplicates as evidence — `SAME_DOI`,
-  `SAME_NORMALIZED_TITLE` — with both works' id/DOI/title/year/type, `review_status = UNREVIEWED`.
-- **Nothing is merged or suppressed.** Missing DOI never matches missing DOI.
+  `SAME_NORMALIZED_TITLE` — with both works' id/DOI/title/year/type (cache-level, `review_status` for humans).
+- At snapshot creation every pair inside the snapshot is classified and frozen in
+  `snapshot_identity_decision` (decision, rule, evidence details): `SAME_WORK` (same DOI + title, or same title
+  + same year + shared author + ≤ 1 DOI), `PROBABLE_VERSION`, `DISTINCT`, `UNRESOLVED`.
+- Only `SAME_WORK` suppresses: `snapshot_membership.canonical_publication_id` points to the kept member
+  (chosen by DOI, open access, safe link, abstract, completeness, lowest id). **Nothing is merged or deleted.**
+  `canonical_publication_id` / `candidate_snapshot.identity_policy_version` are NULL for pre-V4 snapshots.
+- Missing DOI never matches missing DOI; equal titles alone never suppress.
 
 ## Candidate snapshot (frozen pool for one retrieval)
 - `candidate_snapshot`: UUID id (unguessable), topic + normalized topic, provider, exact retrieval
   parameters (JSON), requested/received/stored/rejected counts, provider total, **normalizer version**,
   retrieval notes (rejections with reason, within-response duplicates from page drift), created time.
 - `snapshot_membership`: provider rank (1-based, unique), provider relevance score, **exact raw provider
-  record** (`source_record`, ≤ 512 KB per record), retrieval time, `eligibility_status` (all `UNSCREENED`
-  until the M06 relevance gate exists).
+  record** (`source_record`, ≤ 512 KB per record), retrieval time, `canonical_publication_id` (identity
+  resolution), `eligibility_status` (all `UNSCREENED` until the M06 relevance gate exists).
+- `snapshot_identity_decision`: frozen identity decisions for pairs inside the snapshot (see above).
 - Rule: the publication tables are a refreshable cache; a snapshot's evaluation inputs come from its frozen
   `source_record`s, so refreshing the cache never changes an old snapshot.
 

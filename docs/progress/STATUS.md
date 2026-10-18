@@ -10,8 +10,8 @@ Last updated: 2026-10-17.
 | M02 | Database model & migrations | **PASS** (verified 2026-10-17) | [M02.md](M02.md), [data contract](../design/data-contract.md) |
 | M03 | OpenAlex client & fixtures | **PASS** — LIVE VERIFIED (2026-10-17) | [M03.md](M03.md) |
 | M04 | Normalization & quality | **PASS** (verified 2026-10-17) | [M04.md](M04.md) |
-| M05 | Deduplication & versioning | **NEXT — NOT STARTED.** Pre-existing groundwork only: exact OpenAlex-ID uniqueness; DOI/title pairs **recorded as evidence, never merged**. Pair review, canonical policy and **HUMAN DECISION D06** not done | — |
-| M06 | Relevance & frozen snapshots | NOT STARTED as a milestone. Pre-existing groundwork only: frozen snapshots with exact provider records, 100-candidate live pools. **No relevance gate** (members `UNSCREENED`), no labeled set, **HUMAN DECISION D07/D11** not done | [evidence](../evidence/2026-10-17_first-100-candidate-snapshots.md) |
+| M05 | Deduplication & versioning | **PASS** (2026-10-17) — D06 conservative policy approved by owner; pair labels: owner spot-check requested | [M05.md](M05.md), [pair review](../evaluation/identity-pair-review.md) |
+| M06 | Relevance & frozen snapshots | **NEXT — NOT STARTED.** Pre-existing groundwork only: frozen snapshots with exact provider records, 100-candidate live pools. **No relevance gate** (members `UNSCREENED`), no labeled set, **HUMAN DECISION D07/D11** not done | [evidence](../evidence/2026-10-17_first-100-candidate-snapshots.md) |
 | M07 | Concept/topic representation | NOT STARTED | — |
 | M08 | Ranking baselines | NOT STARTED | — |
 | M09 | Marginal-gain optimizer | NOT STARTED | — |
