@@ -169,12 +169,13 @@ public final class RelevancePolicy {
 		return normalized.isEmpty() ? List.of() : List.of(normalized.split(" "));
 	}
 
-	static List<String> stems(String text) {
+	/** Content-agnostic stems of a text (lowercased, accent-folded, light suffix stripping). */
+	public static List<String> stems(String text) {
 		return tokens(text).stream().map(RelevancePolicy::stem).toList();
 	}
 
 	/** Light English suffix stripping: robotics/robotic→robot, learning→learn, networks→network. */
-	static String stem(String token) {
+	public static String stem(String token) {
 		String t = token;
 		if (t.length() > 4 && t.endsWith("ies")) {
 			return t.substring(0, t.length() - 3) + "y";
@@ -259,6 +260,17 @@ public final class RelevancePolicy {
 			out.addAll(label);
 		}
 		return out;
+	}
+
+	/** True when a label/title (as stems) names an aspect the query did not ask for. */
+	public static boolean namesUnrequestedAspect(List<String> stems, Set<String> queryStems) {
+		return !aspectCues(stems, queryStems).isEmpty();
+	}
+
+	/** Full-phrase stems for a known acronym stem (e.g. "gnn" → graph neural network), else empty. */
+	public static List<String> acronymExpansion(String stem) {
+		String expansion = EXPANSIONS.get(stem);
+		return expansion == null ? List.of() : stems(expansion);
 	}
 
 	/** Cues match title stems by prefix. ("law" is deliberately absent: power law, Moore's law.) */
