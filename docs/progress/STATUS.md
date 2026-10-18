@@ -12,8 +12,8 @@ Last updated: 2026-10-17. Owner instruction: at HUMAN DECISION gates take the co
 | M04 | Normalization & quality | **PASS** (verified 2026-10-17) | [M04.md](M04.md) |
 | M05 | Deduplication & versioning | **PASS** (2026-10-17) — D06 conservative policy approved by owner; pair labels: owner spot-check requested | [M05.md](M05.md), [pair review](../evaluation/identity-pair-review.md) |
 | M06 | Relevance & frozen snapshots | **PASS** (2026-10-17) — D07/D11 decided conservatively (owner's standing instruction) | [M06.md](M06.md), [relevance review](../evaluation/relevance-review.md) |
-| M07 | Concept/topic representation | **NEXT — NOT STARTED** | — |
-| M08 | Ranking baselines | NOT STARTED | — |
+| M07 | Concept/topic representation | **PASS** (2026-10-17) — D03/D08 decided conservatively | [M07.md](M07.md), [concept review](../evaluation/concept-review.md) |
+| M08 | Ranking baselines | **NEXT — NOT STARTED** | — |
 | M09 | Marginal-gain optimizer | NOT STARTED | — |
 | M10 | Ordering, stages, explanations | NOT STARTED | — |
 | M11 | Saved revisions & regeneration | NOT STARTED | — |

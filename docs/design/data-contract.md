@@ -88,6 +88,12 @@ a source, not proof of free full text.
 Observed work types: article 242, conference-paper 98, preprint 42, book-chapter 34, review 28,
 dissertation 9, book 9, other 4, reference-entry 3, data-paper 1. FWCI absent for 59 of 470.
 
+## Concept model (M07; computed, not stored)
+Built on demand from a snapshot's frozen optimization candidates by `ConceptPolicy` (version returned with every
+model), so the same snapshot + policy version always yields the same model. Concept key = kind + normalized label
+stems; per-paper strength = max provider confidence (≥ 0.5) for that concept; weights log(1 + support), normalized.
+Paths and evaluation runs (M08+) must record the concept policy version they used.
+
 ## Reserved for later milestones (not created yet)
 Path, path revision, path item (selection evidence) — M11. Evaluation runs — M08/M14. Relevance labels —
 M06. Concept ledger — M07.
