@@ -12,7 +12,7 @@
   },
   "conceptPolicyVersion" : 1,
   "textPipelineVersion" : 3,
-  "ranAt" : "2026-10-18T04:01:37.334683100Z",
+  "ranAt" : "2026-10-18T04:24:35.286422700Z",
   "environment" : "Java 21.0.3 (Eclipse Adoptium), Windows 10 amd64, 12 CPUs",
   "results" : [ {
     "selector" : "RELEVANCE",
@@ -40,7 +40,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 29129700
+    "selectionNanos" : 24989800
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -67,7 +67,7 @@
       "openAccessShare" : 0.9,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 2298800
+    "selectionNanos" : 2115000
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -94,7 +94,7 @@
       "openAccessShare" : 0.933,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 2158200
+    "selectionNanos" : 1665400
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -121,7 +121,7 @@
       "openAccessShare" : 0.95,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 2434400
+    "selectionNanos" : 1483100
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -148,7 +148,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 3979500
+    "selectionNanos" : 2467700
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -175,7 +175,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 3813000
+    "selectionNanos" : 1791700
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -202,7 +202,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 2922400
+    "selectionNanos" : 1832700
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -229,7 +229,7 @@
       "openAccessShare" : 0.95,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 2146600
+    "selectionNanos" : 1680900
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -256,7 +256,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1114600
+    "selectionNanos" : 1411600
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -283,7 +283,7 @@
       "openAccessShare" : 0.9,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 980000
+    "selectionNanos" : 1301800
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -310,7 +310,7 @@
       "openAccessShare" : 0.933,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 680100
+    "selectionNanos" : 1273400
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -337,7 +337,7 @@
       "openAccessShare" : 0.95,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1567500
+    "selectionNanos" : 1269200
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -364,7 +364,7 @@
       "openAccessShare" : 0.6,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 136092000
+    "selectionNanos" : 94595600
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -391,7 +391,7 @@
       "openAccessShare" : 0.7,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 73186500
+    "selectionNanos" : 66159800
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -418,7 +418,7 @@
       "openAccessShare" : 0.667,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 49598500
+    "selectionNanos" : 42905900
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -445,7 +445,7 @@
       "openAccessShare" : 0.65,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 46869100
+    "selectionNanos" : 38179300
   } ]
 }, {
   "datasetFile" : "medical-ai-200.json",
@@ -461,7 +461,7 @@
   },
   "conceptPolicyVersion" : 1,
   "textPipelineVersion" : 3,
-  "ranAt" : "2026-10-18T04:01:37.654491800Z",
+  "ranAt" : "2026-10-18T04:24:35.572151Z",
   "environment" : "Java 21.0.3 (Eclipse Adoptium), Windows 10 amd64, 12 CPUs",
   "results" : [ {
     "selector" : "RELEVANCE",
@@ -489,7 +489,7 @@
       "openAccessShare" : 0.4,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1199200
+    "selectionNanos" : 839800
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -516,7 +516,7 @@
       "openAccessShare" : 0.5,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 789000
+    "selectionNanos" : 473300
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -543,7 +543,7 @@
       "openAccessShare" : 0.533,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 439400
+    "selectionNanos" : 431400
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -570,7 +570,7 @@
       "openAccessShare" : 0.65,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 558200
+    "selectionNanos" : 386700
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -597,7 +597,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 602400
+    "selectionNanos" : 412500
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -624,7 +624,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 425100
+    "selectionNanos" : 377900
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -651,7 +651,7 @@
       "openAccessShare" : 0.867,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 397000
+    "selectionNanos" : 410500
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -678,7 +678,7 @@
       "openAccessShare" : 0.9,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 348400
+    "selectionNanos" : 829300
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -705,7 +705,7 @@
       "openAccessShare" : 0.4,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 344700
+    "selectionNanos" : 408100
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -732,7 +732,7 @@
       "openAccessShare" : 0.5,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 502400
+    "selectionNanos" : 344000
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -759,7 +759,7 @@
       "openAccessShare" : 0.533,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 315500
+    "selectionNanos" : 390200
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -786,7 +786,7 @@
       "openAccessShare" : 0.6,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 271500
+    "selectionNanos" : 306900
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -813,7 +813,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 51661900
+    "selectionNanos" : 48749100
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -840,7 +840,7 @@
       "openAccessShare" : 0.9,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 51478400
+    "selectionNanos" : 44077800
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -867,7 +867,7 @@
       "openAccessShare" : 0.867,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 48459700
+    "selectionNanos" : 43105500
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -894,7 +894,7 @@
       "openAccessShare" : 0.85,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 50385100
+    "selectionNanos" : 44433600
   } ]
 }, {
   "datasetFile" : "rl-robotics-200.json",
@@ -910,7 +910,7 @@
   },
   "conceptPolicyVersion" : 1,
   "textPipelineVersion" : 3,
-  "ranAt" : "2026-10-18T04:01:37.872851800Z",
+  "ranAt" : "2026-10-18T04:24:35.778074600Z",
   "environment" : "Java 21.0.3 (Eclipse Adoptium), Windows 10 amd64, 12 CPUs",
   "results" : [ {
     "selector" : "RELEVANCE",
@@ -938,7 +938,7 @@
       "openAccessShare" : 0.2,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1117000
+    "selectionNanos" : 823800
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -965,7 +965,7 @@
       "openAccessShare" : 0.4,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 956100
+    "selectionNanos" : 384700
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -992,7 +992,7 @@
       "openAccessShare" : 0.467,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 561100
+    "selectionNanos" : 315400
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -1019,7 +1019,7 @@
       "openAccessShare" : 0.55,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 387800
+    "selectionNanos" : 309600
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -1046,7 +1046,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 672500
+    "selectionNanos" : 418300
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -1073,7 +1073,7 @@
       "openAccessShare" : 0.7,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 576800
+    "selectionNanos" : 386100
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -1100,7 +1100,7 @@
       "openAccessShare" : 0.667,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 546200
+    "selectionNanos" : 400100
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -1127,7 +1127,7 @@
       "openAccessShare" : 0.55,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 466000
+    "selectionNanos" : 395700
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -1154,7 +1154,7 @@
       "openAccessShare" : 0.2,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 582400
+    "selectionNanos" : 290300
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -1181,7 +1181,7 @@
       "openAccessShare" : 0.4,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 554000
+    "selectionNanos" : 277500
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -1208,7 +1208,7 @@
       "openAccessShare" : 0.467,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 743300
+    "selectionNanos" : 310400
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -1235,7 +1235,7 @@
       "openAccessShare" : 0.55,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 821500
+    "selectionNanos" : 329700
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -1262,7 +1262,7 @@
       "openAccessShare" : 0.6,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 33881100
+    "selectionNanos" : 36153500
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -1289,7 +1289,7 @@
       "openAccessShare" : 0.4,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 33804100
+    "selectionNanos" : 40313600
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -1316,7 +1316,7 @@
       "openAccessShare" : 0.467,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 35978600
+    "selectionNanos" : 35975000
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -1343,6 +1343,6 @@
       "openAccessShare" : 0.5,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 36505700
+    "selectionNanos" : 30088900
   } ]
 } ]
