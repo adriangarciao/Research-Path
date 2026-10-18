@@ -31,7 +31,8 @@ import dev.researchpath.publication.TextNormalization;
  */
 public final class RelevancePolicy {
 
-	public static final int VERSION = 1;
+	/** v2: "-ics" stripped only from words of 8+ letters, so "ethics" matches the ethics cue. */
+	public static final int VERSION = 2;
 	public static final double ELIGIBLE_COVERAGE = 0.75;
 	public static final double BORDERLINE_COVERAGE = 0.5;
 	/** Audit thresholds for counting classifications as evidence; unknown scores do not count. */
@@ -178,7 +179,8 @@ public final class RelevancePolicy {
 		if (t.length() > 4 && t.endsWith("ies")) {
 			return t.substring(0, t.length() - 3) + "y";
 		}
-		if (t.length() > 5 && t.endsWith("ics")) {
+		// Only long words: robotics → robot, but ethics → ethic (via the plural rule), optics → optic.
+		if (t.length() >= 8 && t.endsWith("ics")) {
 			return t.substring(0, t.length() - 3);
 		}
 		if (t.length() > 5 && t.endsWith("ic")) {

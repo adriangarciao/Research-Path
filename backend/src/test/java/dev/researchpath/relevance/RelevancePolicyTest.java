@@ -50,6 +50,9 @@ class RelevancePolicyTest {
 		assertThat(RelevancePolicy.stem("robotics")).isEqualTo("robot");
 		assertThat(RelevancePolicy.stem("robotic")).isEqualTo("robot");
 		assertThat(RelevancePolicy.stem("robots")).isEqualTo("robot");
+		assertThat(RelevancePolicy.stem("ethics")).isEqualTo("ethic"); // not "eth": the aspect cue must match
+		assertThat(decide("graph neural networks", work("Ethics of graph neural networks", null)).tier())
+				.isEqualTo(RelevanceTier.TANGENTIAL);
 		assertThat(RelevancePolicy.stem("learning")).isEqualTo("learn");
 		assertThat(RelevancePolicy.stem("networks")).isEqualTo("network");
 		assertThat(RelevancePolicy.stemMatch(RelevancePolicy.stem("diagnosis"), RelevancePolicy.stem("diagnostic")))

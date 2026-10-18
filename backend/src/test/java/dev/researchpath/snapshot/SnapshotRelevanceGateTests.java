@@ -25,6 +25,7 @@ import dev.researchpath.TestcontainersConfiguration;
 import dev.researchpath.openalex.OpenAlexClient;
 import dev.researchpath.publication.NormalizationResult.Accepted;
 import dev.researchpath.publication.OpenAlexWorkNormalizer;
+import dev.researchpath.relevance.RelevancePolicy;
 
 /** M06: relevance gate and frozen evaluation inputs at snapshot creation (real PostgreSQL 17). */
 @Import(TestcontainersConfiguration.class)
@@ -69,7 +70,7 @@ class SnapshotRelevanceGateTests {
 
 		assertThat(tiers(s)).containsExactly("W1:ELIGIBLE:ELIGIBLE", "W2:TANGENTIAL:INELIGIBLE",
 				"W3:INELIGIBLE:INELIGIBLE", "W4:INELIGIBLE:INELIGIBLE");
-		assertThat(s.relevance().policyVersion()).isEqualTo(1);
+		assertThat(s.relevance().policyVersion()).isEqualTo(RelevancePolicy.VERSION);
 		assertThat(s.relevance().eligible()).isEqualTo(1);
 		assertThat(s.relevance().optimizationCandidates()).isEqualTo(1);
 		assertThat(s.storedCount()).isEqualTo(4); // excluded works stay in the snapshot with evidence

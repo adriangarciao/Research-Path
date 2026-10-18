@@ -97,3 +97,8 @@ re-evaluated against this labeled set and these examples.
 yields ≥ 89 eligible candidates per topic (≫ 20), at half the latency and cost, and deeper pages add drift on the
 topic most prone to it. Revisit if a topic yields fewer than 20 optimization candidates (the snapshot then
 carries a FEW_ELIGIBLE_CANDIDATES warning).
+
+## Version note
+`RelevancePolicy` v2 (2026-10-17, during M07): the stemmer stripped "-ics" from 6-letter words, so "ethics"
+became "eth" and missed the ethics aspect cue ("ethical" was unaffected). "-ics" is now stripped only from words
+of 8+ letters. All 118 labeled tiers are unchanged; snapshots created earlier record v1.
