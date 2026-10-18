@@ -31,6 +31,9 @@ public final class WorkJsonAccess {
 		public Builder doi(String doi) { w.doi(doi); return this; }
 		public Builder author(String id, String name) { w.author(id, name); return this; }
 		public Builder cites(String... ids) { w.cites(ids); return this; }
+		public Builder keyword(String slug, String name, double score) { w.keyword(slug, name, score); return this; }
+		public Builder citedBy(int count) { w.citedBy(count); return this; }
+		public Builder type(String type) { w.type(type); return this; }
 	}
 
 }

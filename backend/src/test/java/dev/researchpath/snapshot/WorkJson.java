@@ -47,6 +47,24 @@ final class WorkJson {
 		return this;
 	}
 
+	/** Adds an OpenAlex keyword (e.g. slug "policy-search") with a confidence score. */
+	@SuppressWarnings("unchecked")
+	WorkJson keyword(String slug, String name, double score) {
+		List<Object> keywords = (List<Object>) fields.computeIfAbsent("keywords", k -> new ArrayList<>());
+		keywords.add(Map.of("id", "https://openalex.org/keywords/" + slug, "display_name", name, "score", score));
+		return this;
+	}
+
+	WorkJson citedBy(int count) {
+		fields.put("cited_by_count", count);
+		return this;
+	}
+
+	WorkJson type(String type) {
+		fields.put("type", type);
+		return this;
+	}
+
 	WorkJson cites(String... ids) {
 		for (String id : ids) {
 			references.add("https://openalex.org/" + id);
