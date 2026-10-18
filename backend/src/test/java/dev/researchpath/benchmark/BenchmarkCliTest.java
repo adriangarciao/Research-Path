@@ -27,6 +27,7 @@ class BenchmarkCliTest {
 				.contains("| RELEVANCE | 10 |").contains("| CITATION | 20 |").contains("| PROVIDER_ORDER | 5 |")
 				.contains("| OPTIMIZER | 10 |");
 		assertThat(Files.readString(out.resolve("optimizer-sweep.md"))).contains("Intermediate/Balanced additive β=4.0");
+		assertThat(Files.readString(out.resolve("reading-paths.md"))).contains("**Stage 1 — ", "ORDER_IS_HEURISTIC");
 		assertThat(Files.readString(out.resolve("optimizer-side-by-side.md"))).contains("### Best baseline:")
 				.contains("ADDS_NEW_CONCEPTS");
 		String json = Files.readString(out.resolve("baseline-runs.json"));

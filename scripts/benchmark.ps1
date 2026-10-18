@@ -19,7 +19,7 @@ if (-not $Datasets) {
     $Datasets = Get-ChildItem (Join-Path $RepoRoot 'data\benchmarks') -Filter '*.json' | ForEach-Object FullName
 }
 $paths = $Datasets | ForEach-Object { (Resolve-Path (Join-Path $RepoRoot $_) -ErrorAction SilentlyContinue)?.Path ?? (Resolve-Path $_).Path }
-$outPath = [IO.Path]::GetFullPath((Join-Path $RepoRoot $Out))
+$outPath = [IO.Path]::GetFullPath($(if ([IO.Path]::IsPathRooted($Out)) { $Out } else { Join-Path $RepoRoot $Out }))
 $argLine = (@('--out', "`"$outPath`"") + ($paths | ForEach-Object { "`"$_`"" })) -join ' '
 
 Push-Location (Join-Path $RepoRoot 'backend')
