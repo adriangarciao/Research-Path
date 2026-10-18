@@ -1,8 +1,12 @@
 package dev.researchpath.publication;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -10,11 +14,13 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
+import dev.researchpath.publication.NormalizedWork.Author;
 import dev.researchpath.publication.NormalizedWork.ConceptAssociation;
+import dev.researchpath.publication.NormalizedWork.ConceptKind;
 
 /**
- * Publication cache writes. Plain SQL is used deliberately: ingestion is upsert/batch heavy.
- * Callers must run inside a transaction.
+ * Publication cache reads and writes. Plain SQL is used deliberately: ingestion is upsert/batch heavy.
+ * Write callers must run inside a transaction.
  */
 @Repository
 public class PublicationRepository {
@@ -182,6 +188,82 @@ public class PublicationRepository {
 				.param("matchType", matchType)
 				.param("id", publicationId)
 				.update();
+	}
+
+	/**
+	 * Reads the cached normalized work. Authors keep their stored order; concepts are returned topics
+	 * first, then keywords, each by descending score (unknown last) then id; referenced work IDs have
+	 * set semantics and are returned sorted.
+	 */
+	public Optional<NormalizedWork> findByOpenalexId(String openalexId) {
+		return jdbc.sql("SELECT * FROM publication WHERE openalex_id = :id")
+				.param("id", openalexId)
+				.query((rs, n) -> {
+					long id = rs.getLong("id");
+					return new NormalizedWork(
+							rs.getString("openalex_id"),
+							rs.getString("doi"),
+							rs.getString("title"),
+							rs.getString("normalized_title"),
+							(Integer) rs.getObject("publication_year"),
+							rs.getObject("publication_date", LocalDate.class),
+							rs.getString("work_type"),
+							rs.getString("language"),
+							rs.getString("source_name"),
+							rs.getString("landing_page_url"),
+							rs.getString("oa_url"),
+							(Boolean) rs.getObject("is_oa"),
+							rs.getString("abstract_text"),
+							(Integer) rs.getObject("cited_by_count"),
+							(Double) rs.getObject("fwci"),
+							(Double) rs.getObject("citation_percentile"),
+							(Integer) rs.getObject("referenced_works_count"),
+							instant(rs, "provider_updated_at"),
+							authors(id),
+							concepts(id),
+							references(id));
+				})
+				.optional();
+	}
+
+	private List<Author> authors(long publicationId) {
+		return jdbc.sql("""
+				SELECT author_order, author_openalex_id, display_name, author_position
+				FROM publication_author WHERE publication_id = :id ORDER BY author_order
+				""")
+				.param("id", publicationId)
+				.query((rs, n) -> new Author(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)))
+				.list();
+	}
+
+	private List<ConceptAssociation> concepts(long publicationId) {
+		return jdbc.sql("""
+				SELECT c.kind, c.openalex_id, c.display_name, pc.score, pc.is_primary, c.subfield, c.field, c.domain
+				FROM publication_concept pc JOIN concept c ON c.id = pc.concept_id
+				WHERE pc.publication_id = :id
+				ORDER BY CASE c.kind WHEN 'TOPIC' THEN 0 ELSE 1 END, pc.score DESC NULLS LAST, c.openalex_id
+				""")
+				.param("id", publicationId)
+				.query((rs, n) -> new ConceptAssociation(ConceptKind.valueOf(rs.getString("kind")),
+						rs.getString("openalex_id"), rs.getString("display_name"), (Double) rs.getObject("score"),
+						rs.getBoolean("is_primary"), rs.getString("subfield"), rs.getString("field"),
+						rs.getString("domain")))
+				.list();
+	}
+
+	private List<String> references(long publicationId) {
+		return jdbc.sql("""
+				SELECT referenced_openalex_id FROM publication_reference
+				WHERE citing_publication_id = :id ORDER BY referenced_openalex_id
+				""")
+				.param("id", publicationId)
+				.query(String.class)
+				.list();
+	}
+
+	private static Instant instant(ResultSet rs, String column) throws SQLException {
+		Timestamp ts = rs.getTimestamp(column);
+		return ts == null ? null : ts.toInstant();
 	}
 
 	private static Timestamp timestamp(Instant instant) {
