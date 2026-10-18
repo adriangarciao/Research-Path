@@ -7,13 +7,14 @@ documents kept locally in `docs/` (gitignored). Project records are public: mile
 [docs/progress](docs/progress/), decisions in [docs/decisions](docs/decisions/), design notes in
 [docs/design](docs/design/), and measured evidence in [docs/evidence](docs/evidence/).
 
-> **Status: playbook milestones M00–M07 PASS** (see [docs/progress/STATUS.md](docs/progress/STATUS.md)).
+> **Status: playbook milestones M00–M08 PASS** (see [docs/progress/STATUS.md](docs/progress/STATUS.md)).
 > Implemented: publication cache (topics/keywords with confidence, referenced-work IDs, missing-data flags,
 > bounded and URL-validated), live OpenAlex ingestion, frozen candidate snapshots, conservative duplicate
 > handling (obvious duplicates suppressed per snapshot, versions kept and flagged, nothing merged) and a
 > metadata-quality report, a conservative relevance gate with frozen evaluation inputs, and a filtered
-> topic + keyword concept representation for coverage. **Not implemented yet:** baselines (M08), optimizer,
-> reading order, path API, real UI, deployment.
+> topic + keyword concept representation for coverage, and an offline benchmark harness with three ranking
+> baselines on committed datasets. **Not implemented yet:** optimizer (M09), reading order, path API, real UI,
+> deployment.
 
 ## Layout
 
@@ -130,6 +131,17 @@ member gets a relevance tier with evidence (`GET /api/dev/snapshots/<id>/relevan
 non-duplicate members are optimization candidates. Each snapshot stores the exact
 provider record (`snapshot_membership.source_record`), so it stays reproducible after the publication cache
 is refreshed. Evidence from the first live runs: [docs/evidence](docs/evidence/).
+
+## Offline benchmarks
+
+Frozen candidate pools for the three audit topics are committed in [data/benchmarks](data/benchmarks/). The
+benchmark needs only JDK 21 and this repository (no database, Docker or network):
+
+```powershell
+.\scripts\benchmark.ps1        # writes backend\target\benchmarks\baseline-report.md and baseline-runs.json
+```
+
+Current results and analysis: [docs/evaluation/baseline-analysis.md](docs/evaluation/baseline-analysis.md).
 
 ## Configuration notes
 
