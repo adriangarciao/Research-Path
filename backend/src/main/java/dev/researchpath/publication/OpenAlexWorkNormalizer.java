@@ -27,7 +27,8 @@ import tools.jackson.databind.JsonNode;
  *
  * <p>Rules: reject only records that cannot be identified (no valid work id) or displayed
  * (no title). Every other missing field becomes null / empty and is reflected in the
- * availability flags. Nothing is inferred or invented.
+ * availability flags. Nothing is inferred or invented. Unsafe or malformed URLs are dropped
+ * (see {@link UrlSafety}); the original value remains in the snapshot's raw provider record.
  */
 @Component
 public class OpenAlexWorkNormalizer {
@@ -59,8 +60,8 @@ public class OpenAlexWorkNormalizer {
 				text(work.path("type")),
 				text(work.path("language")),
 				text(primaryLocation.path("source").path("display_name")),
-				text(primaryLocation.path("landing_page_url")),
-				text(openAccess.path("oa_url")),
+				UrlSafety.safeDisplayUrl(text(primaryLocation.path("landing_page_url"))),
+				UrlSafety.safeDisplayUrl(text(openAccess.path("oa_url"))),
 				bool(openAccess.path("is_oa")),
 				abstractText(work.path("abstract_inverted_index")),
 				integer(work.path("cited_by_count")),

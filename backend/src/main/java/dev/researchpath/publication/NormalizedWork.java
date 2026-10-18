@@ -3,6 +3,7 @@ package dev.researchpath.publication;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Provider-independent view of one academic work. Missing values are null (unknown),
@@ -51,6 +52,32 @@ public record NormalizedWork(
 
 	public boolean hasReferences() {
 		return !referencedWorkIds.isEmpty();
+	}
+
+	/**
+	 * Best link to the work, in preference order: provider-reported open-access URL, DOI resolver,
+	 * publisher landing page. The kind tells the UI how to label it (a landing page or DOI link
+	 * is a source, not proof of free full text). Empty if no safe link exists.
+	 */
+	public Optional<SourceLink> preferredSourceLink() {
+		if (oaUrl != null) {
+			return Optional.of(new SourceLink(oaUrl, SourceLinkKind.OPEN_ACCESS));
+		}
+		String doiUrl = UrlSafety.doiUrl(doi);
+		if (doiUrl != null) {
+			return Optional.of(new SourceLink(doiUrl, SourceLinkKind.DOI));
+		}
+		if (landingPageUrl != null) {
+			return Optional.of(new SourceLink(landingPageUrl, SourceLinkKind.LANDING_PAGE));
+		}
+		return Optional.empty();
+	}
+
+	public record SourceLink(String url, SourceLinkKind kind) {
+	}
+
+	public enum SourceLinkKind {
+		OPEN_ACCESS, DOI, LANDING_PAGE
 	}
 
 	public record Author(int order, String openalexId, String displayName, String authorPosition) {
