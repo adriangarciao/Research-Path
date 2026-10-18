@@ -1,4 +1,902 @@
 [ {
+  "datasetFile" : "causal-economics-200.json",
+  "datasetSha256" : "e5b561839ff644061f76008952de537f1df2e7f4ef7dc5105406d2d74c388589",
+  "snapshotId" : "dfb0b49d-5777-4540-a3fb-c81307e328de",
+  "topic" : "causal inference in economics",
+  "candidateCount" : 62,
+  "datasetFormatVersion" : 1,
+  "snapshotPolicies" : {
+    "normalizerVersion" : 2,
+    "identityPolicyVersion" : 1,
+    "relevancePolicyVersion" : 3
+  },
+  "conceptPolicyVersion" : 1,
+  "textPipelineVersion" : 3,
+  "ranAt" : "2026-10-18T20:49:00.659752400Z",
+  "environment" : "Java 21.0.3 (Eclipse Adoptium), Windows 10 amd64, 12 CPUs",
+  "results" : [ {
+    "selector" : "RELEVANCE",
+    "selectorVersion" : 1,
+    "budget" : 5,
+    "selectedIds" : [ "W2462689321", "W2512779609", "W2905572727", "W3187440871", "W4409697834" ],
+    "metrics" : {
+      "budget" : 5,
+      "selectedCount" : 5,
+      "conceptUniverseSize" : 48,
+      "conceptsCovered" : 10,
+      "weightedCoverage" : 0.219,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.011,
+      "conceptRepeats" : 1,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 8.0,
+      "topQuartileCitationShare" : 0.4,
+      "yearMin" : 2012,
+      "yearMedian" : 2018,
+      "yearMax" : 2025,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.8,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 97002400
+  }, {
+    "selector" : "RELEVANCE",
+    "selectorVersion" : 1,
+    "budget" : 10,
+    "selectedIds" : [ "W2462689321", "W2512779609", "W2905572727", "W3187440871", "W4409697834", "W2483709630", "W7171357486", "W3081268572", "W2691789418", "W4254934341" ],
+    "metrics" : {
+      "budget" : 10,
+      "selectedCount" : 10,
+      "conceptUniverseSize" : 48,
+      "conceptsCovered" : 20,
+      "weightedCoverage" : 0.419,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.037,
+      "conceptRepeats" : 8,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 1.0,
+      "topQuartileCitationShare" : 0.3,
+      "yearMin" : 1989,
+      "yearMedian" : 2018,
+      "yearMax" : 2025,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.7,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 9872800
+  }, {
+    "selector" : "RELEVANCE",
+    "selectorVersion" : 1,
+    "budget" : 15,
+    "selectedIds" : [ "W2462689321", "W2512779609", "W2905572727", "W3187440871", "W4409697834", "W2483709630", "W7171357486", "W3081268572", "W2691789418", "W4254934341", "W3022579435", "W7204948062", "W4211101300", "W1593627163", "W3198960374" ],
+    "metrics" : {
+      "budget" : 15,
+      "selectedCount" : 15,
+      "conceptUniverseSize" : 48,
+      "conceptsCovered" : 27,
+      "weightedCoverage" : 0.55,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.033,
+      "conceptRepeats" : 18,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 1.0,
+      "topQuartileCitationShare" : 0.333,
+      "yearMin" : 1989,
+      "yearMedian" : 2018,
+      "yearMax" : 2026,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.667,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 18792100
+  }, {
+    "selector" : "RELEVANCE",
+    "selectorVersion" : 1,
+    "budget" : 20,
+    "selectedIds" : [ "W2462689321", "W2512779609", "W2905572727", "W3187440871", "W4409697834", "W2483709630", "W7171357486", "W3081268572", "W2691789418", "W4254934341", "W3022579435", "W7204948062", "W4211101300", "W1593627163", "W3198960374", "W2519132382", "W4206718038", "W7136544042", "W7136745254", "W3014779277" ],
+    "metrics" : {
+      "budget" : 20,
+      "selectedCount" : 20,
+      "conceptUniverseSize" : 48,
+      "conceptsCovered" : 34,
+      "weightedCoverage" : 0.718,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.04,
+      "conceptRepeats" : 31,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 1.0,
+      "topQuartileCitationShare" : 0.25,
+      "yearMin" : 1989,
+      "yearMedian" : 2018,
+      "yearMax" : 2026,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.55,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 8605400
+  }, {
+    "selector" : "CITATION",
+    "selectorVersion" : 1,
+    "budget" : 5,
+    "selectedIds" : [ "W2462689321", "W3047877081", "W2091675738", "W4211101300", "W3006421439" ],
+    "metrics" : {
+      "budget" : 5,
+      "selectedCount" : 5,
+      "conceptUniverseSize" : 48,
+      "conceptsCovered" : 9,
+      "weightedCoverage" : 0.168,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 0.802,
+      "redundancyJaccard" : 0.0,
+      "conceptRepeats" : 0,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 118.0,
+      "topQuartileCitationShare" : 1.0,
+      "yearMin" : 1985,
+      "yearMedian" : 2016,
+      "yearMax" : 2020,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.6,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 3688300
+  }, {
+    "selector" : "CITATION",
+    "selectorVersion" : 1,
+    "budget" : 10,
+    "selectedIds" : [ "W2462689321", "W3047877081", "W2091675738", "W4211101300", "W3006421439", "W2996477010", "W3119835483", "W1593627163", "W2905572727", "W1826032005" ],
+    "metrics" : {
+      "budget" : 10,
+      "selectedCount" : 10,
+      "conceptUniverseSize" : 48,
+      "conceptsCovered" : 18,
+      "weightedCoverage" : 0.375,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 0.835,
+      "redundancyJaccard" : 0.019,
+      "conceptRepeats" : 5,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 84.5,
+      "topQuartileCitationShare" : 1.0,
+      "yearMin" : 1985,
+      "yearMedian" : 2017,
+      "yearMax" : 2023,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.8,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 2911300
+  }, {
+    "selector" : "CITATION",
+    "selectorVersion" : 1,
+    "budget" : 15,
+    "selectedIds" : [ "W2462689321", "W3047877081", "W2091675738", "W4211101300", "W3006421439", "W2996477010", "W3119835483", "W1593627163", "W2905572727", "W1826032005", "W4400824990", "W1604681736", "W2582165863", "W2118526062", "W4200622433" ],
+    "metrics" : {
+      "budget" : 15,
+      "selectedCount" : 15,
+      "conceptUniverseSize" : 48,
+      "conceptsCovered" : 21,
+      "weightedCoverage" : 0.445,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 0.802,
+      "redundancyJaccard" : 0.011,
+      "conceptRepeats" : 6,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 71.0,
+      "topQuartileCitationShare" : 1.0,
+      "yearMin" : 1985,
+      "yearMedian" : 2017,
+      "yearMax" : 2024,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.8,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1735200
+  }, {
+    "selector" : "CITATION",
+    "selectorVersion" : 1,
+    "budget" : 20,
+    "selectedIds" : [ "W2462689321", "W3047877081", "W2091675738", "W4211101300", "W3006421439", "W2996477010", "W3119835483", "W1593627163", "W2905572727", "W1826032005", "W4400824990", "W1604681736", "W2582165863", "W2118526062", "W4200622433", "W2483709630", "W3187440871", "W2996348539", "W2970838271", "W4396572664" ],
+    "metrics" : {
+      "budget" : 20,
+      "selectedCount" : 20,
+      "conceptUniverseSize" : 48,
+      "conceptsCovered" : 29,
+      "weightedCoverage" : 0.608,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 0.819,
+      "redundancyJaccard" : 0.011,
+      "conceptRepeats" : 10,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 44.0,
+      "topQuartileCitationShare" : 0.8,
+      "yearMin" : 1985,
+      "yearMedian" : 2019,
+      "yearMax" : 2024,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.75,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 2848000
+  }, {
+    "selector" : "PROVIDER_ORDER",
+    "selectorVersion" : 1,
+    "budget" : 5,
+    "selectedIds" : [ "W2462689321", "W2512779609", "W2905572727", "W3187440871", "W4409697834" ],
+    "metrics" : {
+      "budget" : 5,
+      "selectedCount" : 5,
+      "conceptUniverseSize" : 48,
+      "conceptsCovered" : 10,
+      "weightedCoverage" : 0.219,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.011,
+      "conceptRepeats" : 1,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 8.0,
+      "topQuartileCitationShare" : 0.4,
+      "yearMin" : 2012,
+      "yearMedian" : 2018,
+      "yearMax" : 2025,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.8,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1057100
+  }, {
+    "selector" : "PROVIDER_ORDER",
+    "selectorVersion" : 1,
+    "budget" : 10,
+    "selectedIds" : [ "W2462689321", "W2512779609", "W2905572727", "W3187440871", "W4409697834", "W2483709630", "W7171357486", "W3081268572", "W2691789418", "W4254934341" ],
+    "metrics" : {
+      "budget" : 10,
+      "selectedCount" : 10,
+      "conceptUniverseSize" : 48,
+      "conceptsCovered" : 20,
+      "weightedCoverage" : 0.419,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.037,
+      "conceptRepeats" : 8,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 1.0,
+      "topQuartileCitationShare" : 0.3,
+      "yearMin" : 1989,
+      "yearMedian" : 2018,
+      "yearMax" : 2025,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.7,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 37477400
+  }, {
+    "selector" : "PROVIDER_ORDER",
+    "selectorVersion" : 1,
+    "budget" : 15,
+    "selectedIds" : [ "W2462689321", "W2512779609", "W2905572727", "W3187440871", "W4409697834", "W2483709630", "W7171357486", "W3081268572", "W2691789418", "W4254934341", "W3022579435", "W7204948062", "W4211101300", "W1593627163", "W3198960374" ],
+    "metrics" : {
+      "budget" : 15,
+      "selectedCount" : 15,
+      "conceptUniverseSize" : 48,
+      "conceptsCovered" : 27,
+      "weightedCoverage" : 0.55,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.033,
+      "conceptRepeats" : 18,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 1.0,
+      "topQuartileCitationShare" : 0.333,
+      "yearMin" : 1989,
+      "yearMedian" : 2018,
+      "yearMax" : 2026,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.667,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1120100
+  }, {
+    "selector" : "PROVIDER_ORDER",
+    "selectorVersion" : 1,
+    "budget" : 20,
+    "selectedIds" : [ "W2462689321", "W2512779609", "W2905572727", "W3187440871", "W4409697834", "W2483709630", "W7171357486", "W3081268572", "W2691789418", "W4254934341", "W3022579435", "W7204948062", "W4211101300", "W1593627163", "W3198960374", "W2519132382", "W4206718038", "W7136544042", "W7136745254", "W3014779277" ],
+    "metrics" : {
+      "budget" : 20,
+      "selectedCount" : 20,
+      "conceptUniverseSize" : 48,
+      "conceptsCovered" : 34,
+      "weightedCoverage" : 0.718,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.04,
+      "conceptRepeats" : 31,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 1.0,
+      "topQuartileCitationShare" : 0.25,
+      "yearMin" : 1989,
+      "yearMedian" : 2018,
+      "yearMax" : 2026,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.55,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 692000
+  }, {
+    "selector" : "OPTIMIZER",
+    "selectorVersion" : 1,
+    "budget" : 5,
+    "selectedIds" : [ "W4206718038", "W3187440871", "W4211101300", "W2996477010", "W2483709630" ],
+    "metrics" : {
+      "budget" : 5,
+      "selectedCount" : 5,
+      "conceptUniverseSize" : 48,
+      "conceptsCovered" : 23,
+      "weightedCoverage" : 0.483,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.011,
+      "conceptRepeats" : 1,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 11.0,
+      "topQuartileCitationShare" : 0.6,
+      "yearMin" : 2015,
+      "yearMedian" : 2021,
+      "yearMax" : 2023,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.4,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 113812700
+  }, {
+    "selector" : "OPTIMIZER",
+    "selectorVersion" : 1,
+    "budget" : 10,
+    "selectedIds" : [ "W4206718038", "W3187440871", "W4211101300", "W2513629617", "W2483709630", "W2996477010", "W2462689321", "W3022579435", "W2519132382", "W4400824990" ],
+    "metrics" : {
+      "budget" : 10,
+      "selectedCount" : 10,
+      "conceptUniverseSize" : 48,
+      "conceptsCovered" : 34,
+      "weightedCoverage" : 0.73,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 0.967,
+      "redundancyJaccard" : 0.013,
+      "conceptRepeats" : 5,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 9.5,
+      "topQuartileCitationShare" : 0.5,
+      "yearMin" : 1990,
+      "yearMedian" : 2016,
+      "yearMax" : 2024,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.5,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 39331600
+  }, {
+    "selector" : "OPTIMIZER",
+    "selectorVersion" : 1,
+    "budget" : 15,
+    "selectedIds" : [ "W4206718038", "W3187440871", "W4211101300", "W2513629617", "W2483709630", "W3022579435", "W2996477010", "W4408767339", "W4400824990", "W2462689321", "W2519132382", "W2970838271", "W1604681736", "W7126002939", "W7213410752" ],
+    "metrics" : {
+      "budget" : 15,
+      "selectedCount" : 15,
+      "conceptUniverseSize" : 48,
+      "conceptsCovered" : 39,
+      "weightedCoverage" : 0.832,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 0.978,
+      "redundancyJaccard" : 0.007,
+      "conceptRepeats" : 6,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 6.0,
+      "topQuartileCitationShare" : 0.4,
+      "yearMin" : 1990,
+      "yearMedian" : 2019,
+      "yearMax" : 2026,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.6,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 41253800
+  }, {
+    "selector" : "OPTIMIZER",
+    "selectorVersion" : 1,
+    "budget" : 20,
+    "selectedIds" : [ "W4206718038", "W3187440871", "W4211101300", "W2513629617", "W3022579435", "W2483709630", "W2996477010", "W4408767339", "W4400824990", "W2462689321", "W2519132382", "W2970838271", "W7126002939", "W1604681736", "W2091675738", "W1593627163", "W3104946744", "W7213410752", "W2905572727", "W2582165863" ],
+    "metrics" : {
+      "budget" : 20,
+      "selectedCount" : 20,
+      "conceptUniverseSize" : 48,
+      "conceptsCovered" : 44,
+      "weightedCoverage" : 0.926,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 0.951,
+      "redundancyJaccard" : 0.018,
+      "conceptRepeats" : 15,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 9.5,
+      "topQuartileCitationShare" : 0.5,
+      "yearMin" : 1985,
+      "yearMedian" : 2018,
+      "yearMax" : 2026,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.65,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 37614300
+  } ]
+}, {
+  "datasetFile" : "climate-agriculture-200.json",
+  "datasetSha256" : "0ed92ca58a8e57bdd5b3ddbcfeb11d2defb075ed0edbd3bd3aa742135d2790d9",
+  "snapshotId" : "58eeb968-259c-4b2d-837e-5ab0cff0b83d",
+  "topic" : "climate change adaptation in agriculture",
+  "candidateCount" : 183,
+  "datasetFormatVersion" : 1,
+  "snapshotPolicies" : {
+    "normalizerVersion" : 2,
+    "identityPolicyVersion" : 1,
+    "relevancePolicyVersion" : 3
+  },
+  "conceptPolicyVersion" : 1,
+  "textPipelineVersion" : 3,
+  "ranAt" : "2026-10-18T20:49:01.445174100Z",
+  "environment" : "Java 21.0.3 (Eclipse Adoptium), Windows 10 amd64, 12 CPUs",
+  "results" : [ {
+    "selector" : "RELEVANCE",
+    "selectorVersion" : 1,
+    "budget" : 5,
+    "selectedIds" : [ "W4392292073", "W2883580336", "W7139426203", "W2761721125", "W2760489063" ],
+    "metrics" : {
+      "budget" : 5,
+      "selectedCount" : 5,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 10,
+      "weightedCoverage" : 0.236,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.062,
+      "conceptRepeats" : 2,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 0.0,
+      "topQuartileCitationShare" : 0.0,
+      "yearMin" : 2011,
+      "yearMedian" : 2018,
+      "yearMax" : 2024,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.8,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 3883500
+  }, {
+    "selector" : "RELEVANCE",
+    "selectorVersion" : 1,
+    "budget" : 10,
+    "selectedIds" : [ "W4392292073", "W2883580336", "W7139426203", "W2761721125", "W2760489063", "W2990679205", "W2797092418", "W2898665959", "W3126594632", "W2763954571" ],
+    "metrics" : {
+      "budget" : 10,
+      "selectedCount" : 10,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 15,
+      "weightedCoverage" : 0.342,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.03,
+      "conceptRepeats" : 5,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 4.0,
+      "topQuartileCitationShare" : 0.0,
+      "yearMin" : 2010,
+      "yearMedian" : 2018,
+      "yearMax" : 2024,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.7,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1775900
+  }, {
+    "selector" : "RELEVANCE",
+    "selectorVersion" : 1,
+    "budget" : 15,
+    "selectedIds" : [ "W4392292073", "W2883580336", "W7139426203", "W2761721125", "W2760489063", "W2990679205", "W2797092418", "W2898665959", "W3126594632", "W2763954571", "W1995564130", "W4396776900", "W4404219986", "W4283386396", "W4286629437" ],
+    "metrics" : {
+      "budget" : 15,
+      "selectedCount" : 15,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 22,
+      "weightedCoverage" : 0.483,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.028,
+      "conceptRepeats" : 10,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 5.0,
+      "topQuartileCitationShare" : 0.0,
+      "yearMin" : 2010,
+      "yearMedian" : 2019,
+      "yearMax" : 2024,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.533,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1766300
+  }, {
+    "selector" : "RELEVANCE",
+    "selectorVersion" : 1,
+    "budget" : 20,
+    "selectedIds" : [ "W4392292073", "W2883580336", "W7139426203", "W2761721125", "W2760489063", "W2990679205", "W2797092418", "W2898665959", "W3126594632", "W2763954571", "W1995564130", "W4396776900", "W4404219986", "W4283386396", "W4286629437", "W2794773410", "W2802629290", "W3082289313", "W3120930532", "W7199337423" ],
+    "metrics" : {
+      "budget" : 20,
+      "selectedCount" : 20,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 23,
+      "weightedCoverage" : 0.503,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.016,
+      "conceptRepeats" : 11,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 3.5,
+      "topQuartileCitationShare" : 0.0,
+      "yearMin" : 2010,
+      "yearMedian" : 2020,
+      "yearMax" : 2025,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.55,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1145400
+  }, {
+    "selector" : "CITATION",
+    "selectorVersion" : 1,
+    "budget" : 5,
+    "selectedIds" : [ "W2148838277", "W2151408602", "W2208007485", "W2153807830", "W1992970788" ],
+    "metrics" : {
+      "budget" : 5,
+      "selectedCount" : 5,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 12,
+      "weightedCoverage" : 0.288,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 0.95,
+      "redundancyJaccard" : 0.05,
+      "conceptRepeats" : 2,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 909.0,
+      "topQuartileCitationShare" : 1.0,
+      "yearMin" : 2002,
+      "yearMedian" : 2009,
+      "yearMax" : 2013,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.2,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1009400
+  }, {
+    "selector" : "CITATION",
+    "selectorVersion" : 1,
+    "budget" : 10,
+    "selectedIds" : [ "W2148838277", "W2151408602", "W2208007485", "W2153807830", "W1992970788", "W2960778279", "W2045421681", "W2516083450", "W3006566784", "W2167137222" ],
+    "metrics" : {
+      "budget" : 10,
+      "selectedCount" : 10,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 20,
+      "weightedCoverage" : 0.449,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 0.975,
+      "redundancyJaccard" : 0.048,
+      "conceptRepeats" : 9,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 747.5,
+      "topQuartileCitationShare" : 1.0,
+      "yearMin" : 2002,
+      "yearMedian" : 2013,
+      "yearMax" : 2020,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.6,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1397300
+  }, {
+    "selector" : "CITATION",
+    "selectorVersion" : 1,
+    "budget" : 15,
+    "selectedIds" : [ "W2148838277", "W2151408602", "W2208007485", "W2153807830", "W1992970788", "W2960778279", "W2045421681", "W2516083450", "W3006566784", "W2167137222", "W3081418651", "W2108084845", "W2156834925", "W4411413252", "W1965176386" ],
+    "metrics" : {
+      "budget" : 15,
+      "selectedCount" : 15,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 23,
+      "weightedCoverage" : 0.502,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 0.983,
+      "redundancyJaccard" : 0.065,
+      "conceptRepeats" : 17,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 556.0,
+      "topQuartileCitationShare" : 1.0,
+      "yearMin" : 1999,
+      "yearMedian" : 2012,
+      "yearMax" : 2025,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.6,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 2346800
+  }, {
+    "selector" : "CITATION",
+    "selectorVersion" : 1,
+    "budget" : 20,
+    "selectedIds" : [ "W2148838277", "W2151408602", "W2208007485", "W2153807830", "W1992970788", "W2960778279", "W2045421681", "W2516083450", "W3006566784", "W2167137222", "W3081418651", "W2108084845", "W2156834925", "W4411413252", "W1965176386", "W2754553803", "W1936423778", "W2012271201", "W2767677000", "W2294627342" ],
+    "metrics" : {
+      "budget" : 20,
+      "selectedCount" : 20,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 26,
+      "weightedCoverage" : 0.565,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 0.988,
+      "redundancyJaccard" : 0.054,
+      "conceptRepeats" : 24,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 490.0,
+      "topQuartileCitationShare" : 1.0,
+      "yearMin" : 1999,
+      "yearMedian" : 2013,
+      "yearMax" : 2025,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.65,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 2299300
+  }, {
+    "selector" : "PROVIDER_ORDER",
+    "selectorVersion" : 1,
+    "budget" : 5,
+    "selectedIds" : [ "W4392292073", "W2883580336", "W7139426203", "W2761721125", "W2760489063" ],
+    "metrics" : {
+      "budget" : 5,
+      "selectedCount" : 5,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 10,
+      "weightedCoverage" : 0.236,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.062,
+      "conceptRepeats" : 2,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 0.0,
+      "topQuartileCitationShare" : 0.0,
+      "yearMin" : 2011,
+      "yearMedian" : 2018,
+      "yearMax" : 2024,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.8,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1085200
+  }, {
+    "selector" : "PROVIDER_ORDER",
+    "selectorVersion" : 1,
+    "budget" : 10,
+    "selectedIds" : [ "W4392292073", "W2883580336", "W7139426203", "W2761721125", "W2760489063", "W2990679205", "W2797092418", "W2898665959", "W3126594632", "W2763954571" ],
+    "metrics" : {
+      "budget" : 10,
+      "selectedCount" : 10,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 15,
+      "weightedCoverage" : 0.342,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.03,
+      "conceptRepeats" : 5,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 4.0,
+      "topQuartileCitationShare" : 0.0,
+      "yearMin" : 2010,
+      "yearMedian" : 2018,
+      "yearMax" : 2024,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.7,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 822200
+  }, {
+    "selector" : "PROVIDER_ORDER",
+    "selectorVersion" : 1,
+    "budget" : 15,
+    "selectedIds" : [ "W4392292073", "W2883580336", "W7139426203", "W2761721125", "W2760489063", "W2990679205", "W2797092418", "W2898665959", "W3126594632", "W2763954571", "W1995564130", "W4396776900", "W4404219986", "W4283386396", "W4286629437" ],
+    "metrics" : {
+      "budget" : 15,
+      "selectedCount" : 15,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 22,
+      "weightedCoverage" : 0.483,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.028,
+      "conceptRepeats" : 10,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 5.0,
+      "topQuartileCitationShare" : 0.0,
+      "yearMin" : 2010,
+      "yearMedian" : 2019,
+      "yearMax" : 2024,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.533,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 810500
+  }, {
+    "selector" : "PROVIDER_ORDER",
+    "selectorVersion" : 1,
+    "budget" : 20,
+    "selectedIds" : [ "W4392292073", "W2883580336", "W7139426203", "W2761721125", "W2760489063", "W2990679205", "W2797092418", "W2898665959", "W3126594632", "W2763954571", "W1995564130", "W4396776900", "W4404219986", "W4283386396", "W4286629437", "W2794773410", "W2802629290", "W3082289313", "W3120930532", "W7199337423" ],
+    "metrics" : {
+      "budget" : 20,
+      "selectedCount" : 20,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 23,
+      "weightedCoverage" : 0.503,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.016,
+      "conceptRepeats" : 11,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 3.5,
+      "topQuartileCitationShare" : 0.0,
+      "yearMin" : 2010,
+      "yearMedian" : 2020,
+      "yearMax" : 2025,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.55,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 626500
+  }, {
+    "selector" : "OPTIMIZER",
+    "selectorVersion" : 1,
+    "budget" : 5,
+    "selectedIds" : [ "W4394919599", "W4286629437", "W2068289448", "W4229014251", "W4307973157" ],
+    "metrics" : {
+      "budget" : 5,
+      "selectedCount" : 5,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 28,
+      "weightedCoverage" : 0.59,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.017,
+      "conceptRepeats" : 2,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 71.0,
+      "topQuartileCitationShare" : 0.4,
+      "yearMin" : 2011,
+      "yearMedian" : 2022,
+      "yearMax" : 2024,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.4,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 127914000
+  }, {
+    "selector" : "OPTIMIZER",
+    "selectorVersion" : 1,
+    "budget" : 10,
+    "selectedIds" : [ "W4394919599", "W4286629437", "W2068289448", "W4229014251", "W4307973157", "W2079121073", "W4240695645", "W4391397619", "W3105307044", "W1991667513" ],
+    "metrics" : {
+      "budget" : 10,
+      "selectedCount" : 10,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 40,
+      "weightedCoverage" : 0.819,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.025,
+      "conceptRepeats" : 10,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 76.0,
+      "topQuartileCitationShare" : 0.4,
+      "yearMin" : 2010,
+      "yearMedian" : 2021,
+      "yearMax" : 2024,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.4,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 111212700
+  }, {
+    "selector" : "OPTIMIZER",
+    "selectorVersion" : 1,
+    "budget" : 15,
+    "selectedIds" : [ "W4394919599", "W4286629437", "W2068289448", "W4229014251", "W4307973157", "W2079121073", "W4240695645", "W4391397619", "W3105307044", "W1991667513", "W2167137222", "W2754553803", "W2108084845", "W2516083450", "W1534452221" ],
+    "metrics" : {
+      "budget" : 15,
+      "selectedCount" : 15,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 45,
+      "weightedCoverage" : 0.911,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.034,
+      "conceptRepeats" : 22,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 158.0,
+      "topQuartileCitationShare" : 0.533,
+      "yearMin" : 2009,
+      "yearMedian" : 2016,
+      "yearMax" : 2024,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.6,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 96491100
+  }, {
+    "selector" : "OPTIMIZER",
+    "selectorVersion" : 1,
+    "budget" : 20,
+    "selectedIds" : [ "W4394919599", "W4286629437", "W2068289448", "W4229014251", "W4307973157", "W2079121073", "W4240695645", "W4391397619", "W3105307044", "W1991667513", "W2167137222", "W2754553803", "W2108084845", "W2516083450", "W1534452221", "W2520155330", "W4237032080", "W2896102781", "W3122505668", "W2607509676" ],
+    "metrics" : {
+      "budget" : 20,
+      "selectedCount" : 20,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 47,
+      "weightedCoverage" : 0.947,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.029,
+      "conceptRepeats" : 33,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 166.0,
+      "topQuartileCitationShare" : 0.55,
+      "yearMin" : 2009,
+      "yearMedian" : 2017,
+      "yearMax" : 2024,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.55,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 111754700
+  } ]
+}, {
   "datasetFile" : "gnn-200.json",
   "datasetSha256" : "cb67e8d22bb3657ad7feb2683683d7abdf11931f68b68390ea5429adb805a710",
   "snapshotId" : "7357130a-6cc4-4776-8ac9-3a45e3d5a74d",
@@ -12,7 +910,7 @@
   },
   "conceptPolicyVersion" : 1,
   "textPipelineVersion" : 3,
-  "ranAt" : "2026-10-18T04:24:35.286422700Z",
+  "ranAt" : "2026-10-18T20:49:01.947917200Z",
   "environment" : "Java 21.0.3 (Eclipse Adoptium), Windows 10 amd64, 12 CPUs",
   "results" : [ {
     "selector" : "RELEVANCE",
@@ -40,7 +938,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 24989800
+    "selectionNanos" : 3446100
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -67,7 +965,7 @@
       "openAccessShare" : 0.9,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 2115000
+    "selectionNanos" : 4481000
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -94,7 +992,7 @@
       "openAccessShare" : 0.933,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1665400
+    "selectionNanos" : 2670800
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -121,7 +1019,7 @@
       "openAccessShare" : 0.95,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1483100
+    "selectionNanos" : 1690500
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -148,7 +1046,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 2467700
+    "selectionNanos" : 2593700
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -175,7 +1073,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1791700
+    "selectionNanos" : 3255200
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -202,7 +1100,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1832700
+    "selectionNanos" : 1600300
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -229,7 +1127,7 @@
       "openAccessShare" : 0.95,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1680900
+    "selectionNanos" : 1940700
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -256,7 +1154,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1411600
+    "selectionNanos" : 1309900
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -283,7 +1181,7 @@
       "openAccessShare" : 0.9,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1301800
+    "selectionNanos" : 2111200
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -310,7 +1208,7 @@
       "openAccessShare" : 0.933,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1273400
+    "selectionNanos" : 1241400
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -337,7 +1235,7 @@
       "openAccessShare" : 0.95,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1269200
+    "selectionNanos" : 817600
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -364,7 +1262,7 @@
       "openAccessShare" : 0.6,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 94595600
+    "selectionNanos" : 110624900
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -391,7 +1289,7 @@
       "openAccessShare" : 0.7,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 66159800
+    "selectionNanos" : 64758700
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -418,7 +1316,7 @@
       "openAccessShare" : 0.667,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 42905900
+    "selectionNanos" : 63298700
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -445,7 +1343,7 @@
       "openAccessShare" : 0.65,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 38179300
+    "selectionNanos" : 64046700
   } ]
 }, {
   "datasetFile" : "medical-ai-200.json",
@@ -461,7 +1359,7 @@
   },
   "conceptPolicyVersion" : 1,
   "textPipelineVersion" : 3,
-  "ranAt" : "2026-10-18T04:24:35.572151Z",
+  "ranAt" : "2026-10-18T20:49:02.434673100Z",
   "environment" : "Java 21.0.3 (Eclipse Adoptium), Windows 10 amd64, 12 CPUs",
   "results" : [ {
     "selector" : "RELEVANCE",
@@ -489,7 +1387,7 @@
       "openAccessShare" : 0.4,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 839800
+    "selectionNanos" : 1747000
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -516,7 +1414,7 @@
       "openAccessShare" : 0.5,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 473300
+    "selectionNanos" : 873800
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -543,7 +1441,7 @@
       "openAccessShare" : 0.533,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 431400
+    "selectionNanos" : 900600
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -570,7 +1468,7 @@
       "openAccessShare" : 0.65,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 386700
+    "selectionNanos" : 1252500
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -597,7 +1495,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 412500
+    "selectionNanos" : 1136500
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -624,7 +1522,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 377900
+    "selectionNanos" : 1325700
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -651,7 +1549,7 @@
       "openAccessShare" : 0.867,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 410500
+    "selectionNanos" : 1434200
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -678,7 +1576,7 @@
       "openAccessShare" : 0.9,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 829300
+    "selectionNanos" : 1138600
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -705,7 +1603,7 @@
       "openAccessShare" : 0.4,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 408100
+    "selectionNanos" : 736700
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -732,7 +1630,7 @@
       "openAccessShare" : 0.5,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 344000
+    "selectionNanos" : 657100
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -759,7 +1657,7 @@
       "openAccessShare" : 0.533,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 390200
+    "selectionNanos" : 727400
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -786,7 +1684,7 @@
       "openAccessShare" : 0.6,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 306900
+    "selectionNanos" : 741000
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -813,7 +1711,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 48749100
+    "selectionNanos" : 98883200
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -840,7 +1738,7 @@
       "openAccessShare" : 0.9,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 44077800
+    "selectionNanos" : 81799300
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -867,7 +1765,7 @@
       "openAccessShare" : 0.867,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 43105500
+    "selectionNanos" : 88124300
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -894,7 +1792,905 @@
       "openAccessShare" : 0.85,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 44433600
+    "selectionNanos" : 87188000
+  } ]
+}, {
+  "datasetFile" : "protein-structure-200.json",
+  "datasetSha256" : "695bdc70c692b1528b37d5f0df0683073cbf2f07d3df29b2f33f602c7147bfe9",
+  "snapshotId" : "dec42238-28a6-444b-a7a1-b2fb7a35355f",
+  "topic" : "protein structure prediction",
+  "candidateCount" : 200,
+  "datasetFormatVersion" : 1,
+  "snapshotPolicies" : {
+    "normalizerVersion" : 2,
+    "identityPolicyVersion" : 1,
+    "relevancePolicyVersion" : 3
+  },
+  "conceptPolicyVersion" : 1,
+  "textPipelineVersion" : 3,
+  "ranAt" : "2026-10-18T20:49:02.905633500Z",
+  "environment" : "Java 21.0.3 (Eclipse Adoptium), Windows 10 amd64, 12 CPUs",
+  "results" : [ {
+    "selector" : "RELEVANCE",
+    "selectorVersion" : 1,
+    "budget" : 5,
+    "selectedIds" : [ "W1548178570", "W2142529984", "W2170471837", "W2126362472", "W2968494487" ],
+    "metrics" : {
+      "budget" : 5,
+      "selectedCount" : 5,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 13,
+      "weightedCoverage" : 0.316,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.05,
+      "conceptRepeats" : 2,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 1587.0,
+      "topQuartileCitationShare" : 1.0,
+      "yearMin" : 2000,
+      "yearMedian" : 2001,
+      "yearMax" : 2019,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.2,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1906900
+  }, {
+    "selector" : "RELEVANCE",
+    "selectorVersion" : 1,
+    "budget" : 10,
+    "selectedIds" : [ "W1548178570", "W2142529984", "W2170471837", "W2126362472", "W2968494487", "W1535422202", "W2120684043", "W3177828909", "W2115213105", "W2080876451" ],
+    "metrics" : {
+      "budget" : 10,
+      "selectedCount" : 10,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 18,
+      "weightedCoverage" : 0.433,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.063,
+      "conceptRepeats" : 9,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 1297.5,
+      "topQuartileCitationShare" : 1.0,
+      "yearMin" : 1992,
+      "yearMedian" : 2004,
+      "yearMax" : 2021,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.5,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1053600
+  }, {
+    "selector" : "RELEVANCE",
+    "selectorVersion" : 1,
+    "budget" : 15,
+    "selectedIds" : [ "W1548178570", "W2142529984", "W2170471837", "W2126362472", "W2968494487", "W1535422202", "W2120684043", "W3177828909", "W2115213105", "W2080876451", "W3215498386", "W2115167726", "W2147472674", "W2026478054", "W2020644553" ],
+    "metrics" : {
+      "budget" : 15,
+      "selectedCount" : 15,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 22,
+      "weightedCoverage" : 0.512,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.065,
+      "conceptRepeats" : 19,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 806.0,
+      "topQuartileCitationShare" : 0.8,
+      "yearMin" : 1992,
+      "yearMedian" : 2004,
+      "yearMax" : 2021,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.533,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1006100
+  }, {
+    "selector" : "RELEVANCE",
+    "selectorVersion" : 1,
+    "budget" : 20,
+    "selectedIds" : [ "W1548178570", "W2142529984", "W2170471837", "W2126362472", "W2968494487", "W1535422202", "W2120684043", "W3177828909", "W2115213105", "W2080876451", "W3215498386", "W2115167726", "W2147472674", "W2026478054", "W2020644553", "W2047289990", "W2008807736", "W2997234557", "W3000982932", "W1971747108" ],
+    "metrics" : {
+      "budget" : 20,
+      "selectedCount" : 20,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 24,
+      "weightedCoverage" : 0.548,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.066,
+      "conceptRepeats" : 28,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 618.0,
+      "topQuartileCitationShare" : 0.8,
+      "yearMin" : 1992,
+      "yearMedian" : 2004,
+      "yearMax" : 2021,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.55,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1117200
+  }, {
+    "selector" : "CITATION",
+    "selectorVersion" : 1,
+    "budget" : 5,
+    "selectedIds" : [ "W3177828909", "W2060259273", "W2142529984", "W2999044305", "W3183475563" ],
+    "metrics" : {
+      "budget" : 5,
+      "selectedCount" : 5,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 10,
+      "weightedCoverage" : 0.246,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.02,
+      "conceptRepeats" : 1,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 3842.0,
+      "topQuartileCitationShare" : 1.0,
+      "yearMin" : 2000,
+      "yearMedian" : 2020,
+      "yearMax" : 2021,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.6,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1828500
+  }, {
+    "selector" : "CITATION",
+    "selectorVersion" : 1,
+    "budget" : 10,
+    "selectedIds" : [ "W3177828909", "W2060259273", "W2142529984", "W2999044305", "W3183475563", "W2115167726", "W1548178570", "W2120684043", "W2170471837", "W2997234557" ],
+    "metrics" : {
+      "budget" : 10,
+      "selectedCount" : 10,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 18,
+      "weightedCoverage" : 0.412,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.031,
+      "conceptRepeats" : 5,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 2559.5,
+      "topQuartileCitationShare" : 1.0,
+      "yearMin" : 1992,
+      "yearMedian" : 2007,
+      "yearMax" : 2021,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.5,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 3504100
+  }, {
+    "selector" : "CITATION",
+    "selectorVersion" : 1,
+    "budget" : 15,
+    "selectedIds" : [ "W3177828909", "W2060259273", "W2142529984", "W2999044305", "W3183475563", "W2115167726", "W1548178570", "W2120684043", "W2170471837", "W2997234557", "W2080876451", "W2150383975", "W2968494487", "W2126677834", "W2008807736" ],
+    "metrics" : {
+      "budget" : 15,
+      "selectedCount" : 15,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 22,
+      "weightedCoverage" : 0.507,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.029,
+      "conceptRepeats" : 10,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 1677.0,
+      "topQuartileCitationShare" : 1.0,
+      "yearMin" : 1992,
+      "yearMedian" : 2007,
+      "yearMax" : 2021,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.667,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1327400
+  }, {
+    "selector" : "CITATION",
+    "selectorVersion" : 1,
+    "budget" : 20,
+    "selectedIds" : [ "W3177828909", "W2060259273", "W2142529984", "W2999044305", "W3183475563", "W2115167726", "W1548178570", "W2120684043", "W2170471837", "W2997234557", "W2080876451", "W2150383975", "W2968494487", "W2126677834", "W2008807736", "W2141783940", "W3212854871", "W2109801072", "W1982583124", "W2017285544" ],
+    "metrics" : {
+      "budget" : 20,
+      "selectedCount" : 20,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 27,
+      "weightedCoverage" : 0.593,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.025,
+      "conceptRepeats" : 15,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 1210.5,
+      "topQuartileCitationShare" : 1.0,
+      "yearMin" : 1992,
+      "yearMedian" : 2008,
+      "yearMax" : 2021,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.7,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1132600
+  }, {
+    "selector" : "PROVIDER_ORDER",
+    "selectorVersion" : 1,
+    "budget" : 5,
+    "selectedIds" : [ "W1548178570", "W2142529984", "W2170471837", "W2126362472", "W2968494487" ],
+    "metrics" : {
+      "budget" : 5,
+      "selectedCount" : 5,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 13,
+      "weightedCoverage" : 0.316,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.05,
+      "conceptRepeats" : 2,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 1587.0,
+      "topQuartileCitationShare" : 1.0,
+      "yearMin" : 2000,
+      "yearMedian" : 2001,
+      "yearMax" : 2019,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.2,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1525400
+  }, {
+    "selector" : "PROVIDER_ORDER",
+    "selectorVersion" : 1,
+    "budget" : 10,
+    "selectedIds" : [ "W1548178570", "W2142529984", "W2170471837", "W2126362472", "W2968494487", "W1535422202", "W2120684043", "W3177828909", "W2115213105", "W2080876451" ],
+    "metrics" : {
+      "budget" : 10,
+      "selectedCount" : 10,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 18,
+      "weightedCoverage" : 0.433,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.063,
+      "conceptRepeats" : 9,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 1297.5,
+      "topQuartileCitationShare" : 1.0,
+      "yearMin" : 1992,
+      "yearMedian" : 2004,
+      "yearMax" : 2021,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.5,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1559500
+  }, {
+    "selector" : "PROVIDER_ORDER",
+    "selectorVersion" : 1,
+    "budget" : 15,
+    "selectedIds" : [ "W1548178570", "W2142529984", "W2170471837", "W2126362472", "W2968494487", "W1535422202", "W2120684043", "W3177828909", "W2115213105", "W2080876451", "W3215498386", "W2115167726", "W2147472674", "W2026478054", "W2020644553" ],
+    "metrics" : {
+      "budget" : 15,
+      "selectedCount" : 15,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 22,
+      "weightedCoverage" : 0.512,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.065,
+      "conceptRepeats" : 19,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 806.0,
+      "topQuartileCitationShare" : 0.8,
+      "yearMin" : 1992,
+      "yearMedian" : 2004,
+      "yearMax" : 2021,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.533,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1157900
+  }, {
+    "selector" : "PROVIDER_ORDER",
+    "selectorVersion" : 1,
+    "budget" : 20,
+    "selectedIds" : [ "W1548178570", "W2142529984", "W2170471837", "W2126362472", "W2968494487", "W1535422202", "W2120684043", "W3177828909", "W2115213105", "W2080876451", "W3215498386", "W2115167726", "W2147472674", "W2026478054", "W2020644553", "W2047289990", "W2008807736", "W2997234557", "W3000982932", "W1971747108" ],
+    "metrics" : {
+      "budget" : 20,
+      "selectedCount" : 20,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 24,
+      "weightedCoverage" : 0.548,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.066,
+      "conceptRepeats" : 28,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 618.0,
+      "topQuartileCitationShare" : 0.8,
+      "yearMin" : 1992,
+      "yearMedian" : 2004,
+      "yearMax" : 2021,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.55,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1186800
+  }, {
+    "selector" : "OPTIMIZER",
+    "selectorVersion" : 1,
+    "budget" : 5,
+    "selectedIds" : [ "W4401209403", "W2153414768", "W3198923619", "W3212854871", "W3199799076" ],
+    "metrics" : {
+      "budget" : 5,
+      "selectedCount" : 5,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 23,
+      "weightedCoverage" : 0.512,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.041,
+      "conceptRepeats" : 3,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 502.0,
+      "topQuartileCitationShare" : 0.6,
+      "yearMin" : 2003,
+      "yearMedian" : 2021,
+      "yearMax" : 2024,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.8,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 114630100
+  }, {
+    "selector" : "OPTIMIZER",
+    "selectorVersion" : 1,
+    "budget" : 10,
+    "selectedIds" : [ "W7117761473", "W2141216359", "W3199799076", "W3198923619", "W4401209403", "W2141120048", "W2170471837", "W2115167726", "W4210958064", "W2066162606" ],
+    "metrics" : {
+      "budget" : 10,
+      "selectedCount" : 10,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 34,
+      "weightedCoverage" : 0.738,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.044,
+      "conceptRepeats" : 11,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 238.5,
+      "topQuartileCitationShare" : 0.5,
+      "yearMin" : 2001,
+      "yearMedian" : 2013,
+      "yearMax" : 2025,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.6,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 47945200
+  }, {
+    "selector" : "OPTIMIZER",
+    "selectorVersion" : 1,
+    "budget" : 15,
+    "selectedIds" : [ "W7117761473", "W2141216359", "W3199799076", "W3198923619", "W4401209403", "W2141120048", "W2170471837", "W2144981983", "W2115167726", "W2066162606", "W2011769393", "W1989777815", "W2073758233", "W4205172550", "W2169290665" ],
+    "metrics" : {
+      "budget" : 15,
+      "selectedCount" : 15,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 43,
+      "weightedCoverage" : 0.885,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.032,
+      "conceptRepeats" : 19,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 165.0,
+      "topQuartileCitationShare" : 0.467,
+      "yearMin" : 1995,
+      "yearMedian" : 2005,
+      "yearMax" : 2025,
+      "sourceLinkShare" : 0.933,
+      "openAccessShare" : 0.533,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 72854200
+  }, {
+    "selector" : "OPTIMIZER",
+    "selectorVersion" : 1,
+    "budget" : 20,
+    "selectedIds" : [ "W7117761473", "W2141216359", "W3199799076", "W3198923619", "W4401209403", "W2141120048", "W2170471837", "W2144981983", "W2115167726", "W2066162606", "W2011769393", "W1989777815", "W2073758233", "W4388314683", "W3165016356", "W2006332277", "W3212854871", "W4206563428", "W2126677834", "W2103382374" ],
+    "metrics" : {
+      "budget" : 20,
+      "selectedCount" : 20,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 49,
+      "weightedCoverage" : 0.983,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.036,
+      "conceptRepeats" : 28,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 215.0,
+      "topQuartileCitationShare" : 0.5,
+      "yearMin" : 1996,
+      "yearMedian" : 2008,
+      "yearMax" : 2025,
+      "sourceLinkShare" : 0.95,
+      "openAccessShare" : 0.4,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 77306300
+  } ]
+}, {
+  "datasetFile" : "quantum-ec-200.json",
+  "datasetSha256" : "9aba207e11752c162f7c3320cb37ed967ffa1cc28e78f4343fb93e4241a9be31",
+  "snapshotId" : "c748ec22-3500-4474-82a6-78cdbfa635ee",
+  "topic" : "quantum error correction",
+  "candidateCount" : 198,
+  "datasetFormatVersion" : 1,
+  "snapshotPolicies" : {
+    "normalizerVersion" : 2,
+    "identityPolicyVersion" : 1,
+    "relevancePolicyVersion" : 3
+  },
+  "conceptPolicyVersion" : 1,
+  "textPipelineVersion" : 3,
+  "ranAt" : "2026-10-18T20:49:03.321866800Z",
+  "environment" : "Java 21.0.3 (Eclipse Adoptium), Windows 10 amd64, 12 CPUs",
+  "results" : [ {
+    "selector" : "RELEVANCE",
+    "selectorVersion" : 1,
+    "budget" : 5,
+    "selectedIds" : [ "W4301287831", "W2097527197", "W1980856895", "W3033331243", "W2019024432" ],
+    "metrics" : {
+      "budget" : 5,
+      "selectedCount" : 5,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 14,
+      "weightedCoverage" : 0.323,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.122,
+      "conceptRepeats" : 6,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 579.0,
+      "topQuartileCitationShare" : 1.0,
+      "yearMin" : 1998,
+      "yearMedian" : 2013,
+      "yearMax" : 2020,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.8,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1586700
+  }, {
+    "selector" : "RELEVANCE",
+    "selectorVersion" : 1,
+    "budget" : 10,
+    "selectedIds" : [ "W4301287831", "W2097527197", "W1980856895", "W3033331243", "W2019024432", "W1839785972", "W4394672652", "W1984021697", "W2088324731", "W2124596515" ],
+    "metrics" : {
+      "budget" : 10,
+      "selectedCount" : 10,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 19,
+      "weightedCoverage" : 0.439,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.113,
+      "conceptRepeats" : 19,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 617.0,
+      "topQuartileCitationShare" : 1.0,
+      "yearMin" : 1996,
+      "yearMedian" : 2009,
+      "yearMax" : 2020,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.8,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1115800
+  }, {
+    "selector" : "RELEVANCE",
+    "selectorVersion" : 1,
+    "budget" : 15,
+    "selectedIds" : [ "W4301287831", "W2097527197", "W1980856895", "W3033331243", "W2019024432", "W1839785972", "W4394672652", "W1984021697", "W2088324731", "W2124596515", "W2963127785", "W1992359860", "W2095090362", "W2495455579", "W2098838878" ],
+    "metrics" : {
+      "budget" : 15,
+      "selectedCount" : 15,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 25,
+      "weightedCoverage" : 0.55,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.066,
+      "conceptRepeats" : 23,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 512.0,
+      "topQuartileCitationShare" : 0.933,
+      "yearMin" : 1996,
+      "yearMedian" : 2012,
+      "yearMax" : 2020,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.733,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1075500
+  }, {
+    "selector" : "RELEVANCE",
+    "selectorVersion" : 1,
+    "budget" : 20,
+    "selectedIds" : [ "W4301287831", "W2097527197", "W1980856895", "W3033331243", "W2019024432", "W1839785972", "W4394672652", "W1984021697", "W2088324731", "W2124596515", "W2963127785", "W1992359860", "W2095090362", "W2495455579", "W2098838878", "W2151914114", "W1828074370", "W2119314900", "W2153553676", "W2083041493" ],
+    "metrics" : {
+      "budget" : 20,
+      "selectedCount" : 20,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 27,
+      "weightedCoverage" : 0.597,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.059,
+      "conceptRepeats" : 32,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 358.5,
+      "topQuartileCitationShare" : 0.9,
+      "yearMin" : 1996,
+      "yearMedian" : 2006,
+      "yearMax" : 2020,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.75,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1347300
+  }, {
+    "selector" : "CITATION",
+    "selectorVersion" : 1,
+    "budget" : 5,
+    "selectedIds" : [ "W2060887031", "W2167413626", "W1984021697", "W2131690084", "W1839785972" ],
+    "metrics" : {
+      "budget" : 5,
+      "selectedCount" : 5,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 12,
+      "weightedCoverage" : 0.299,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.074,
+      "conceptRepeats" : 3,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 1342.0,
+      "topQuartileCitationShare" : 1.0,
+      "yearMin" : 1996,
+      "yearMedian" : 1997,
+      "yearMax" : 2015,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.8,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 944000
+  }, {
+    "selector" : "CITATION",
+    "selectorVersion" : 1,
+    "budget" : 10,
+    "selectedIds" : [ "W2060887031", "W2167413626", "W1984021697", "W2131690084", "W1839785972", "W2087256203", "W2098838878", "W2091331782", "W2097527197", "W4405183524" ],
+    "metrics" : {
+      "budget" : 10,
+      "selectedCount" : 10,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 21,
+      "weightedCoverage" : 0.471,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.053,
+      "conceptRepeats" : 8,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 1051.5,
+      "topQuartileCitationShare" : 1.0,
+      "yearMin" : 1996,
+      "yearMedian" : 1999,
+      "yearMax" : 2024,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.9,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 876500
+  }, {
+    "selector" : "CITATION",
+    "selectorVersion" : 1,
+    "budget" : 15,
+    "selectedIds" : [ "W2060887031", "W2167413626", "W1984021697", "W2131690084", "W1839785972", "W2087256203", "W2098838878", "W2091331782", "W2097527197", "W4405183524", "W4394672652", "W4200634137", "W4301287831", "W2053915666", "W2116059612" ],
+    "metrics" : {
+      "budget" : 15,
+      "selectedCount" : 15,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 25,
+      "weightedCoverage" : 0.553,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.09,
+      "conceptRepeats" : 22,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 802.0,
+      "topQuartileCitationShare" : 1.0,
+      "yearMin" : 1996,
+      "yearMedian" : 2012,
+      "yearMax" : 2024,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.933,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 1197300
+  }, {
+    "selector" : "CITATION",
+    "selectorVersion" : 1,
+    "budget" : 20,
+    "selectedIds" : [ "W2060887031", "W2167413626", "W1984021697", "W2131690084", "W1839785972", "W2087256203", "W2098838878", "W2091331782", "W2097527197", "W4405183524", "W4394672652", "W4200634137", "W4301287831", "W2053915666", "W2116059612", "W1980856895", "W2019024432", "W3011844650", "W3043723517", "W4353055437" ],
+    "metrics" : {
+      "budget" : 20,
+      "selectedCount" : 20,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 28,
+      "weightedCoverage" : 0.608,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.078,
+      "conceptRepeats" : 26,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 757.0,
+      "topQuartileCitationShare" : 1.0,
+      "yearMin" : 1996,
+      "yearMedian" : 2013,
+      "yearMax" : 2024,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.9,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 876700
+  }, {
+    "selector" : "PROVIDER_ORDER",
+    "selectorVersion" : 1,
+    "budget" : 5,
+    "selectedIds" : [ "W4301287831", "W2097527197", "W1980856895", "W3033331243", "W2019024432" ],
+    "metrics" : {
+      "budget" : 5,
+      "selectedCount" : 5,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 14,
+      "weightedCoverage" : 0.323,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.122,
+      "conceptRepeats" : 6,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 579.0,
+      "topQuartileCitationShare" : 1.0,
+      "yearMin" : 1998,
+      "yearMedian" : 2013,
+      "yearMax" : 2020,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.8,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 692500
+  }, {
+    "selector" : "PROVIDER_ORDER",
+    "selectorVersion" : 1,
+    "budget" : 10,
+    "selectedIds" : [ "W4301287831", "W2097527197", "W1980856895", "W3033331243", "W2019024432", "W1839785972", "W4394672652", "W1984021697", "W2088324731", "W2124596515" ],
+    "metrics" : {
+      "budget" : 10,
+      "selectedCount" : 10,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 19,
+      "weightedCoverage" : 0.439,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.113,
+      "conceptRepeats" : 19,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 617.0,
+      "topQuartileCitationShare" : 1.0,
+      "yearMin" : 1996,
+      "yearMedian" : 2009,
+      "yearMax" : 2020,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.8,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 675900
+  }, {
+    "selector" : "PROVIDER_ORDER",
+    "selectorVersion" : 1,
+    "budget" : 15,
+    "selectedIds" : [ "W4301287831", "W2097527197", "W1980856895", "W3033331243", "W2019024432", "W1839785972", "W4394672652", "W1984021697", "W2088324731", "W2124596515", "W2963127785", "W1992359860", "W2095090362", "W2495455579", "W2098838878" ],
+    "metrics" : {
+      "budget" : 15,
+      "selectedCount" : 15,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 25,
+      "weightedCoverage" : 0.55,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.066,
+      "conceptRepeats" : 23,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 512.0,
+      "topQuartileCitationShare" : 0.933,
+      "yearMin" : 1996,
+      "yearMedian" : 2012,
+      "yearMax" : 2020,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.733,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 596000
+  }, {
+    "selector" : "PROVIDER_ORDER",
+    "selectorVersion" : 1,
+    "budget" : 20,
+    "selectedIds" : [ "W4301287831", "W2097527197", "W1980856895", "W3033331243", "W2019024432", "W1839785972", "W4394672652", "W1984021697", "W2088324731", "W2124596515", "W2963127785", "W1992359860", "W2095090362", "W2495455579", "W2098838878", "W2151914114", "W1828074370", "W2119314900", "W2153553676", "W2083041493" ],
+    "metrics" : {
+      "budget" : 20,
+      "selectedCount" : 20,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 27,
+      "weightedCoverage" : 0.597,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.059,
+      "conceptRepeats" : 32,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 358.5,
+      "topQuartileCitationShare" : 0.9,
+      "yearMin" : 1996,
+      "yearMedian" : 2006,
+      "yearMax" : 2020,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.75,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 686700
+  }, {
+    "selector" : "OPTIMIZER",
+    "selectorVersion" : 1,
+    "budget" : 5,
+    "selectedIds" : [ "W3033331243", "W4405183524", "W4210753780", "W571950922", "W2622552587" ],
+    "metrics" : {
+      "budget" : 5,
+      "selectedCount" : 5,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 29,
+      "weightedCoverage" : 0.625,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.04,
+      "conceptRepeats" : 5,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 248.0,
+      "topQuartileCitationShare" : 0.6,
+      "yearMin" : 2012,
+      "yearMedian" : 2020,
+      "yearMax" : 2024,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.6,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 52229800
+  }, {
+    "selector" : "OPTIMIZER",
+    "selectorVersion" : 1,
+    "budget" : 10,
+    "selectedIds" : [ "W3033331243", "W3176428101", "W571950922", "W2803105322", "W2060887031", "W4405183524", "W4210753780", "W2098838878", "W2893961856", "W2622552587" ],
+    "metrics" : {
+      "budget" : 10,
+      "selectedCount" : 10,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 41,
+      "weightedCoverage" : 0.839,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.032,
+      "conceptRepeats" : 14,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 195.0,
+      "topQuartileCitationShare" : 0.5,
+      "yearMin" : 1996,
+      "yearMedian" : 2019,
+      "yearMax" : 2024,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.7,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 87868700
+  }, {
+    "selector" : "OPTIMIZER",
+    "selectorVersion" : 1,
+    "budget" : 15,
+    "selectedIds" : [ "W3033331243", "W3176428101", "W571950922", "W2803105322", "W2060887031", "W4405183524", "W4210753780", "W2098838878", "W2893961856", "W2622552587", "W4353055437", "W142413548", "W2621945747", "W4214882324", "W1679069470" ],
+    "metrics" : {
+      "budget" : 15,
+      "selectedCount" : 15,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 47,
+      "weightedCoverage" : 0.947,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.026,
+      "conceptRepeats" : 22,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 142.0,
+      "topQuartileCitationShare" : 0.467,
+      "yearMin" : 1996,
+      "yearMedian" : 2019,
+      "yearMax" : 2024,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.667,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 100241000
+  }, {
+    "selector" : "OPTIMIZER",
+    "selectorVersion" : 1,
+    "budget" : 20,
+    "selectedIds" : [ "W3033331243", "W3176428101", "W571950922", "W2803105322", "W2060887031", "W4405183524", "W4286600165", "W2098838878", "W2893961856", "W2622552587", "W3181660950", "W4214882324", "W2621945747", "W4301287831", "W2141783987", "W1679069470", "W1984021697", "W3128237057", "W2095025840", "W243654351" ],
+    "metrics" : {
+      "budget" : 20,
+      "selectedCount" : 20,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 49,
+      "weightedCoverage" : 0.982,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.036,
+      "conceptRepeats" : 38,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 135.5,
+      "topQuartileCitationShare" : 0.45,
+      "yearMin" : 1996,
+      "yearMedian" : 2018,
+      "yearMax" : 2024,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.7,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 77016000
   } ]
 }, {
   "datasetFile" : "rl-robotics-200.json",
@@ -910,7 +2706,7 @@
   },
   "conceptPolicyVersion" : 1,
   "textPipelineVersion" : 3,
-  "ranAt" : "2026-10-18T04:24:35.778074600Z",
+  "ranAt" : "2026-10-18T20:49:03.626313300Z",
   "environment" : "Java 21.0.3 (Eclipse Adoptium), Windows 10 amd64, 12 CPUs",
   "results" : [ {
     "selector" : "RELEVANCE",
@@ -938,7 +2734,7 @@
       "openAccessShare" : 0.2,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 823800
+    "selectionNanos" : 2035200
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -965,7 +2761,7 @@
       "openAccessShare" : 0.4,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 384700
+    "selectionNanos" : 1150000
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -992,7 +2788,7 @@
       "openAccessShare" : 0.467,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 315400
+    "selectionNanos" : 1126300
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -1019,7 +2815,7 @@
       "openAccessShare" : 0.55,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 309600
+    "selectionNanos" : 1054500
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -1046,7 +2842,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 418300
+    "selectionNanos" : 1502800
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -1073,7 +2869,7 @@
       "openAccessShare" : 0.7,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 386100
+    "selectionNanos" : 1131700
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -1100,7 +2896,7 @@
       "openAccessShare" : 0.667,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 400100
+    "selectionNanos" : 917300
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -1127,7 +2923,7 @@
       "openAccessShare" : 0.55,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 395700
+    "selectionNanos" : 840100
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -1154,7 +2950,7 @@
       "openAccessShare" : 0.2,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 290300
+    "selectionNanos" : 1018800
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -1181,7 +2977,7 @@
       "openAccessShare" : 0.4,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 277500
+    "selectionNanos" : 928500
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -1208,7 +3004,7 @@
       "openAccessShare" : 0.467,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 310400
+    "selectionNanos" : 1043900
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -1235,7 +3031,7 @@
       "openAccessShare" : 0.55,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 329700
+    "selectionNanos" : 930600
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -1262,7 +3058,7 @@
       "openAccessShare" : 0.6,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 36153500
+    "selectionNanos" : 44661100
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -1289,7 +3085,7 @@
       "openAccessShare" : 0.4,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 40313600
+    "selectionNanos" : 46791500
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -1316,7 +3112,7 @@
       "openAccessShare" : 0.467,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 35975000
+    "selectionNanos" : 36164700
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -1343,6 +3139,6 @@
       "openAccessShare" : 0.5,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 30088900
+    "selectionNanos" : 39535100
   } ]
 } ]

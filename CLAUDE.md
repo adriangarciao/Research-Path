@@ -20,7 +20,8 @@ Tracked project records: `docs/progress/STATUS.md` + `MXX.md` (milestone reports
 DECISION_REGISTER.md`, `docs/design/`, `docs/evidence/`.
 
 ## Active milestone
-See `docs/progress/STATUS.md`. M00–M13 PASS. **M14** (evaluation with people: human review of paths) is next.
+See `docs/progress/STATUS.md`. M00–M14 PASS. **M15** (release readiness; deployment is M16 and NOT authorized) is
+next. Open owner decision: D16 (landmark retention, see `docs/evaluation/BENCHMARKS.md`).
 CI (`.github/workflows/ci.yml`) must stay green; the frontend renders stored results and never recomputes them. Owner's standing instruction: at HUMAN DECISION gates choose the conservative/safer option, record it
 with evidence in the decision register, and continue (not for destructive/outward-facing actions). Do not
 start a milestone until the previous gate passes.

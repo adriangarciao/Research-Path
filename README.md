@@ -7,7 +7,7 @@ documents kept locally in `docs/` (gitignored). Project records are public: mile
 [docs/progress](docs/progress/), decisions in [docs/decisions](docs/decisions/), design notes in
 [docs/design](docs/design/), and measured evidence in [docs/evidence](docs/evidence/).
 
-> **Status: playbook milestones M00–M13 PASS** (see [docs/progress/STATUS.md](docs/progress/STATUS.md)).
+> **Status: playbook milestones M00–M14 PASS** (see [docs/progress/STATUS.md](docs/progress/STATUS.md)).
 > Implemented: publication cache (topics/keywords with confidence, referenced-work IDs, missing-data flags,
 > bounded and URL-validated), live OpenAlex ingestion, frozen candidate snapshots, conservative duplicate
 > handling (obvious duplicates suppressed per snapshot, versions kept and flagged, nothing merged) and a
@@ -20,7 +20,9 @@ documents kept locally in `docs/` (gitignored). Project records are public: mile
 > A React interface (http://localhost:5173) creates, shows and regenerates paths.
 > The API is rate-limited and hardened (see [security review](docs/evidence/security-review-m13.md)); CI runs
 > backend, frontend and secret guards on every push.
-> **Not implemented yet:** retention job, human evaluation (M14), deployment.
+> Evaluation: [BENCHMARKS.md](docs/evaluation/BENCHMARKS.md) — broader subtopic coverage than simple rankings on 7
+> topics (4 held out), but it often omits a topic's most-cited landmark papers; no learning benefit is claimed.
+> **Not implemented yet:** retention job, deployment.
 
 ## Layout
 
