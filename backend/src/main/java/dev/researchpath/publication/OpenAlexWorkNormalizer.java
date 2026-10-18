@@ -1,5 +1,6 @@
 package dev.researchpath.publication;
 
+import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -34,7 +35,13 @@ import tools.jackson.databind.JsonNode;
 public class OpenAlexWorkNormalizer {
 
 	/** Bump when normalization output changes, so snapshots record which rules produced them. */
-	public static final int VERSION = 1;
+	public static final int VERSION = 2;
+
+	/** Resource bounds (playbook M04). Measured on 420 real records: largest 41 KB, average 11.6 KB. */
+	public static final int MAX_RECORD_BYTES = 512 * 1024;
+	public static final int MAX_TITLE_CHARS = 1_000;
+	public static final int MAX_ABSTRACT_CHARS = 20_000;
+	public static final int MAX_STORED_AUTHORS = 100;
 
 	public NormalizationResult normalize(JsonNode work) {
 		String rawId = text(work.path("id"));
@@ -42,10 +49,23 @@ public class OpenAlexWorkNormalizer {
 		if (openalexId == null) {
 			return new Rejected(rawId, RejectionReason.MISSING_OR_INVALID_ID);
 		}
+		if (work.toString().getBytes(StandardCharsets.UTF_8).length > MAX_RECORD_BYTES) {
+			return new Rejected(openalexId, RejectionReason.RECORD_TOO_LARGE);
+		}
 		String title = firstNonBlank(text(work.path("display_name")), text(work.path("title")));
 		if (title == null) {
 			return new Rejected(openalexId, RejectionReason.MISSING_TITLE);
 		}
+		if (title.length() > MAX_TITLE_CHARS) {
+			return new Rejected(openalexId, RejectionReason.TITLE_TOO_LONG);
+		}
+		String abstractText = abstractText(work.path("abstract_inverted_index"));
+		boolean abstractTruncated = abstractText != null && abstractText.length() > MAX_ABSTRACT_CHARS;
+		if (abstractTruncated) {
+			abstractText = truncateAtWord(abstractText, MAX_ABSTRACT_CHARS);
+		}
+		List<Author> allAuthors = authors(work.path("authorships"));
+		JsonNode references = work.path("referenced_works");
 
 		JsonNode primaryLocation = work.path("primary_location");
 		JsonNode openAccess = work.path("open_access");
@@ -63,15 +83,18 @@ public class OpenAlexWorkNormalizer {
 				UrlSafety.safeDisplayUrl(text(primaryLocation.path("landing_page_url"))),
 				UrlSafety.safeDisplayUrl(text(openAccess.path("oa_url"))),
 				bool(openAccess.path("is_oa")),
-				abstractText(work.path("abstract_inverted_index")),
+				abstractText,
 				integer(work.path("cited_by_count")),
 				decimal(work.path("fwci")),
 				decimal(work.path("citation_normalized_percentile").path("value")),
 				integer(work.path("referenced_works_count")),
 				instant(text(work.path("updated_date"))),
-				authors(work.path("authorships")),
+				allAuthors.subList(0, Math.min(allAuthors.size(), MAX_STORED_AUTHORS)),
 				concepts(work),
-				referencedWorks(work.path("referenced_works"))));
+				referencedWorks(references),
+				allAuthors.size(),
+				abstractTruncated,
+				references.isArray()));
 	}
 
 	/** Rebuilds abstract text from OpenAlex's {word: [positions]} inverted index. */
@@ -115,7 +138,7 @@ public class OpenAlexWorkNormalizer {
 			if (id == null || name == null || !seen.add("T:" + id)) {
 				continue;
 			}
-			concepts.add(new ConceptAssociation(ConceptKind.TOPIC, id, name, decimal(topic.path("score")),
+			concepts.add(new ConceptAssociation(ConceptKind.TOPIC, id, name, confidence(topic.path("score")),
 					id.equals(primaryTopicId), text(topic.path("subfield").path("display_name")),
 					text(topic.path("field").path("display_name")), text(topic.path("domain").path("display_name"))));
 		}
@@ -125,7 +148,7 @@ public class OpenAlexWorkNormalizer {
 			if (id == null || name == null || !seen.add("K:" + id)) {
 				continue;
 			}
-			concepts.add(new ConceptAssociation(ConceptKind.KEYWORD, id, name, decimal(keyword.path("score")),
+			concepts.add(new ConceptAssociation(ConceptKind.KEYWORD, id, name, confidence(keyword.path("score")),
 					false, null, null, null));
 		}
 		return concepts;
@@ -158,6 +181,21 @@ public class OpenAlexWorkNormalizer {
 
 	private static Double decimal(JsonNode node) {
 		return node != null && node.isNumber() ? node.doubleValue() : null;
+	}
+
+	/** Provider confidence must be a finite number in [0, 1]; anything else is unknown (null). */
+	private static Double confidence(JsonNode node) {
+		Double value = decimal(node);
+		return value != null && Double.isFinite(value) && value >= 0.0 && value <= 1.0 ? value : null;
+	}
+
+	/** Cuts at the last space at or before {@code max} characters (hard cut if there is none). */
+	static String truncateAtWord(String text, int max) {
+		if (text.length() <= max) {
+			return text;
+		}
+		int cut = text.lastIndexOf(' ', max);
+		return (cut > 0 ? text.substring(0, cut) : text.substring(0, max)).stripTrailing();
 	}
 
 	private static Boolean bool(JsonNode node) {

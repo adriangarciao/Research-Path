@@ -8,6 +8,11 @@ import java.util.Optional;
 /**
  * Provider-independent view of one academic work. Missing values are null (unknown),
  * never invented defaults.
+ *
+ * @param authorCount total named authors supplied (the {@code authors} list may be capped)
+ * @param abstractTruncated the abstract was cut at the length limit
+ * @param referencesSupplied whether the provider supplied a reference list at all (true even if
+ *     empty); null only for legacy cache rows where this is unknown
  */
 public record NormalizedWork(
 		String openalexId,
@@ -30,7 +35,10 @@ public record NormalizedWork(
 		Instant providerUpdatedAt,
 		List<Author> authors,
 		List<ConceptAssociation> concepts,
-		List<String> referencedWorkIds) {
+		List<String> referencedWorkIds,
+		int authorCount,
+		boolean abstractTruncated,
+		Boolean referencesSupplied) {
 
 	public NormalizedWork {
 		authors = List.copyOf(authors);
