@@ -1,0 +1,82 @@
+# Continuous integration (playbook M13 slice 6). No secrets are used: backend tests stub OpenAlex and use
+# Testcontainers PostgreSQL; the live provider and browser checks (openalex-smoke, e2e) stay local.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend:
+    name: Backend tests (Java 21, Testcontainers)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      - name: Build and test
+        working-directory: backend
+        run: sh ./mvnw -B -ntp clean verify
+
+  frontend:
+    name: Frontend typecheck, build, lint, tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Install (lockfile only)
+        working-directory: frontend
+        run: npm ci
+      - name: Typecheck and build
+        working-directory: frontend
+        run: npm run build
+      - name: Lint
+        working-directory: frontend
+        run: npm run lint
+      - name: Unit tests
+        working-directory: frontend
+        run: npm test
+      - name: Dependency audit (high and critical)
+        working-directory: frontend
+        run: npm audit --audit-level=high
+
+  guards:
+    name: Secret guards
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: No provider key in frontend configuration
+        run: |
+          if git grep -n -I 'VITE_OPENALEX' -- frontend; then
+            echo "::error::VITE_OPENALEX* must never exist (the OpenAlex key is server-side only)"; exit 1
+          fi
+      - name: No committed environment files
+        run: |
+          if git ls-files | grep -E '(^|/)\.env$'; then
+            echo "::error::.env files must not be committed"; exit 1
+          fi
