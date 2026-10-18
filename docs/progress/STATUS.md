@@ -7,10 +7,10 @@ Last updated: 2026-10-17.
 |---|---|---|---|
 | M00 | Reality check & Git safety | **PASS** (pre-existing, verified 2026-10-17) | [M00.md](M00.md) |
 | M01 | Local monorepo, DB, backend, frontend | **PASS** (pre-existing, verified 2026-10-17) | [M01.md](M01.md) |
-| M02 | Database model & migrations | IN REVIEW — closing gaps (data contract doc, repository read + roundtrip tests) | — |
-| M03 | OpenAlex client & fixtures | IN REVIEW — closing gaps (response size limit, empty/malformed/shape/403 tests); live smoke verified earlier | — |
-| M04 | Normalization & quality | IN REVIEW — closing gaps (URL safety + link preference, size bounds, missing-vs-empty references, quality report command) | — |
-| M05 | Deduplication & versioning | NOT STARTED as a milestone. Pre-existing groundwork only: exact OpenAlex-ID uniqueness; DOI/title pairs **recorded as evidence, never merged**. Pair review, canonical policy and **HUMAN DECISION D06** not done | — |
+| M02 | Database model & migrations | **PASS** (verified 2026-10-17) | [M02.md](M02.md), [data contract](../design/data-contract.md) |
+| M03 | OpenAlex client & fixtures | **PASS** — LIVE VERIFIED (2026-10-17) | [M03.md](M03.md) |
+| M04 | Normalization & quality | **PASS** (verified 2026-10-17) | [M04.md](M04.md) |
+| M05 | Deduplication & versioning | **NEXT — NOT STARTED.** Pre-existing groundwork only: exact OpenAlex-ID uniqueness; DOI/title pairs **recorded as evidence, never merged**. Pair review, canonical policy and **HUMAN DECISION D06** not done | — |
 | M06 | Relevance & frozen snapshots | NOT STARTED as a milestone. Pre-existing groundwork only: frozen snapshots with exact provider records, 100-candidate live pools. **No relevance gate** (members `UNSCREENED`), no labeled set, **HUMAN DECISION D07/D11** not done | [evidence](../evidence/2026-10-17_first-100-candidate-snapshots.md) |
 | M07 | Concept/topic representation | NOT STARTED | — |
 | M08 | Ranking baselines | NOT STARTED | — |

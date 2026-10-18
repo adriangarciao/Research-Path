@@ -7,11 +7,12 @@ documents kept locally in `docs/` (gitignored). Project records are public: mile
 [docs/progress](docs/progress/), decisions in [docs/decisions](docs/decisions/), design notes in
 [docs/design](docs/design/), and measured evidence in [docs/evidence](docs/evidence/).
 
-> **Status: publication data model and OpenAlex ingestion (milestone 2).** Implemented: publication cache
-> (topics/keywords with confidence, referenced-work IDs, missing-data flags), possible-duplicate evidence
-> (recorded, never merged), and frozen candidate snapshots via a dev-only endpoint.
-> **Not implemented yet:** relevance gate, scoring, optimizer, reading-order builder, path API, real UI,
-> deployment.
+> **Status: playbook milestones M00–M04 PASS** (see [docs/progress/STATUS.md](docs/progress/STATUS.md)).
+> Implemented: publication cache (topics/keywords with confidence, referenced-work IDs, missing-data flags,
+> bounded and URL-validated), live OpenAlex ingestion, possible-duplicate evidence (recorded, never merged),
+> frozen candidate snapshots and a metadata-quality report. **Not implemented yet:** deduplication policy
+> (M05), relevance gate (M06), concept representation, baselines, optimizer, reading order, path API,
+> real UI, deployment.
 
 ## Layout
 
