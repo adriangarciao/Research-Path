@@ -20,8 +20,8 @@ Tracked project records: `docs/progress/STATUS.md` + `MXX.md` (milestone reports
 DECISION_REGISTER.md`, `docs/design/`, `docs/evidence/`.
 
 ## Active milestone
-See `docs/progress/STATUS.md`. M00–M10 PASS. **M11** (saved path revisions and deterministic regeneration from
-the same snapshot) is next; selection and ordering must stay byte-identical to the pinned fingerprints. Owner's standing instruction: at HUMAN DECISION gates choose the conservative/safer option, record it
+See `docs/progress/STATUS.md`. M00–M11 PASS. **M12** (React product journey on the `/api/paths` API) is next;
+the frontend renders stored results and never recomputes selection, order or coverage. Owner's standing instruction: at HUMAN DECISION gates choose the conservative/safer option, record it
 with evidence in the decision register, and continue (not for destructive/outward-facing actions). Do not
 start a milestone until the previous gate passes.
 
@@ -46,7 +46,8 @@ Test classes must end in `Test`/`Tests` (Surefire ignores `*IT`).
   (conservative D03/D08 coverage concepts from frozen inputs, `/{id}/concepts`), `benchmark` (offline datasets,
   baselines, metrics, runner, CLI, optimizer adapter/sweep; Spring-free), `optimizer` (pure greedy marginal-gain
   set selection, D12 default β = 4, D09 experience weight 0.02), `sequence` (pure reading order, metadata-only
-  stage names, template explanations, D10), `snapshot` (service, frozen
+  stage names, template explanations, D10), `path` (product API `/api/paths`, immutable revisions in V6,
+  regeneration from the original snapshot with no provider calls, D15), `snapshot` (service, frozen
   inputs via `optimizationCandidates`, dev-only `/api/dev/snapshots`, `/{id}/identity`, `/{id}/relevance`),
   `web` (errors). Later milestones must read candidates from frozen `normalized_record`, never the cache. Data access = parameterized SQL via
   JdbcClient; Hibernate `ddl-auto: validate`, no entities yet.

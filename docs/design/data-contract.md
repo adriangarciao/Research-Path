@@ -94,6 +94,16 @@ model), so the same snapshot + policy version always yields the same model. Conc
 stems; per-paper strength = max provider confidence (≥ 0.5) for that concept; weights log(1 + support), normalized.
 Paths and evaluation runs (M08+) must record the concept policy version they used.
 
+## Reading path and revisions (V6, M11)
+- `reading_path`: opaque `public_id` (22 base64url chars, 128 random bits), the **original** `snapshot_id`, topic,
+  optional unique `idempotency_key`, `created_at`.
+- `path_revision`: `revision` (1…n, unique per path), `parent_revision`, options (experience, focus, budget
+  5/10/15/20), `engine_versions`, `request_fingerprint` (sha256 of snapshot + options + versions; unique per path),
+  `result` (the complete document returned to clients, `PathDocument` v1), `created_at`.
+- `path_revision_item`: position, canonical `publication_id`, OpenAlex id, stage, selection step, marginal gain,
+  reason.
+- Only successful revisions are stored (one transaction). UPDATE is rejected by triggers on all three tables;
+  DELETE stays possible for a future retention policy (S02).
+
 ## Reserved for later milestones (not created yet)
-Path, path revision, path item (selection evidence) — M11. Evaluation runs — M08/M14. Relevance labels —
-M06. Concept ledger — M07.
+Evaluation runs — M14. Relevance labels and concept ledger are files and computed models (M06/M07), not tables.
