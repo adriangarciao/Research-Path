@@ -18,8 +18,8 @@ Last updated: 2026-10-17. Owner instruction: at HUMAN DECISION gates take the co
 | M10 | Ordering, stages, explanations | **PASS** (2026-10-18) — D09 experience weight 0.02; D10 metadata-only stage names | [M10.md](M10.md), [sequence review](../evaluation/sequence-review.md) |
 | M11 | Saved revisions & regeneration | **PASS** (2026-10-18) — D15 confirmed; zero provider calls on regenerate (live) | [M11.md](M11.md) |
 | M12 | User-facing flow | **PASS** (2026-10-18) — live browser flow (desktop + mobile) against real backend | [M12.md](M12.md) |
-| M13 | Hardening & performance | **NEXT — NOT STARTED** | — |
-| M14 | Evaluation & manual quality | NOT STARTED | — |
+| M13 | Hardening & performance | **PASS** (2026-10-18) — limits/429, safe errors, CVE patches, CI green; D14 synchronous | [M13.md](M13.md), [security](../evidence/security-review-m13.md), [performance](../evaluation/performance-m13.md) |
+| M14 | Evaluation & manual quality | **NEXT — NOT STARTED** | — |
 | M15 | Near-MVP release candidate | NOT STARTED | — |
 | M16 | Optional deployment | NOT AUTHORIZED | Separate user approval required |
 

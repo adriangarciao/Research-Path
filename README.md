@@ -7,7 +7,7 @@ documents kept locally in `docs/` (gitignored). Project records are public: mile
 [docs/progress](docs/progress/), decisions in [docs/decisions](docs/decisions/), design notes in
 [docs/design](docs/design/), and measured evidence in [docs/evidence](docs/evidence/).
 
-> **Status: playbook milestones M00–M12 PASS** (see [docs/progress/STATUS.md](docs/progress/STATUS.md)).
+> **Status: playbook milestones M00–M13 PASS** (see [docs/progress/STATUS.md](docs/progress/STATUS.md)).
 > Implemented: publication cache (topics/keywords with confidence, referenced-work IDs, missing-data flags,
 > bounded and URL-validated), live OpenAlex ingestion, frozen candidate snapshots, conservative duplicate
 > handling (obvious duplicates suppressed per snapshot, versions kept and flagged, nothing merged) and a
@@ -18,7 +18,9 @@ documents kept locally in `docs/` (gitignored). Project records are public: mile
 > revisions and regeneration from the original snapshot (`POST /api/paths`, `GET /api/paths/{id}`,
 > `POST /api/paths/{id}/revisions`).
 > A React interface (http://localhost:5173) creates, shows and regenerates paths.
-> **Not implemented yet:** rate limits and retention (M13), deployment.
+> The API is rate-limited and hardened (see [security review](docs/evidence/security-review-m13.md)); CI runs
+> backend, frontend and secret guards on every push.
+> **Not implemented yet:** retention job, human evaluation (M14), deployment.
 
 ## Layout
 

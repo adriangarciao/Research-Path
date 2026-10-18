@@ -20,8 +20,8 @@ Tracked project records: `docs/progress/STATUS.md` + `MXX.md` (milestone reports
 DECISION_REGISTER.md`, `docs/design/`, `docs/evidence/`.
 
 ## Active milestone
-See `docs/progress/STATUS.md`. M00–M12 PASS. **M13** (hardening and performance: D14 synchronous generation,
-S02 rate limits/quotas/retention) is next. The frontend renders stored results and never recomputes them. Owner's standing instruction: at HUMAN DECISION gates choose the conservative/safer option, record it
+See `docs/progress/STATUS.md`. M00–M13 PASS. **M14** (evaluation with people: human review of paths) is next.
+CI (`.github/workflows/ci.yml`) must stay green; the frontend renders stored results and never recomputes them. Owner's standing instruction: at HUMAN DECISION gates choose the conservative/safer option, record it
 with evidence in the decision register, and continue (not for destructive/outward-facing actions). Do not
 start a milestone until the previous gate passes.
 
@@ -49,7 +49,7 @@ Test classes must end in `Test`/`Tests` (Surefire ignores `*IT`).
   stage names, template explanations, D10), `path` (product API `/api/paths`, immutable revisions in V6,
   regeneration from the original snapshot with no provider calls, D15), `snapshot` (service, frozen
   inputs via `optimizationCandidates`, dev-only `/api/dev/snapshots`, `/{id}/identity`, `/{id}/relevance`),
-  `web` (errors). Later milestones must read candidates from frozen `normalized_record`, never the cache. Data access = parameterized SQL via
+  `web` (errors, rate limits/429, body cap, security headers). Later milestones must read candidates from frozen `normalized_record`, never the cache. Data access = parameterized SQL via
   JdbcClient; Hibernate `ddl-auto: validate`, no entities yet.
 - `frontend/` React 19 + TypeScript + Vite 8: product UI on `/api/paths` (`src/api`, `src/components`), Vitest
   unit tests (`npm test`, in verify) and a live Playwright flow test (`.\scripts\e2e.ps1`, needs the backend).
