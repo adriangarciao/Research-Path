@@ -123,10 +123,16 @@ public class PathService {
 		if (parent < 1 || parent > latest) {
 			throw new IllegalArgumentException("parentRevision must be an existing revision (1-" + latest + ")");
 		}
+		String fingerprint = fingerprint(path.snapshotId(), options);
+		// Fast path for repeats (double clicks, back-and-forth): no generation work at all. The locked check below
+		// still decides races.
+		Optional<Integer> stored = repository.revisionWithFingerprint(path.id(), fingerprint);
+		if (stored.isPresent()) {
+			return view(path, stored.get(), false);
+		}
 		return bounded(() -> {
 			Pool pool = pool(path.snapshotId());
 			PathEngine.Generated g = generate(pool, options, path.topic());
-			String fingerprint = fingerprint(path.snapshotId(), options);
 			return transaction.execute(status -> {
 				repository.lock(path.id());
 				Optional<Integer> same = repository.revisionWithFingerprint(path.id(), fingerprint);

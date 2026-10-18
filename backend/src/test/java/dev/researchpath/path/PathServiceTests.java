@@ -320,7 +320,8 @@ class PathServiceTests {
 		PathService saturated = new PathService(snapshots, repository, transaction, json, new PathProperties(0, 50));
 		clearInvocations(openAlex);
 		assertThatThrownBy(() -> saturated.create(Q, PathOptions.DEFAULT, null)).isInstanceOf(PathExceptions.Busy.class);
-		assertThatThrownBy(() -> saturated.regenerate(v1.pathId(), PathOptions.DEFAULT, null))
+		// New options need generation capacity (an already stored revision would be returned without work).
+		assertThatThrownBy(() -> saturated.regenerate(v1.pathId(), options(Experience.ADVANCED, Focus.RECENT, 20), null))
 				.isInstanceOf(PathExceptions.Busy.class);
 		verify(openAlex, never()).searchWorks(anyString(), anyInt(), anyInt());
 	}
