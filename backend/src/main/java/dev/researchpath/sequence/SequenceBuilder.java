@@ -10,6 +10,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
+import dev.researchpath.optimizer.OptimizerConfig;
 import dev.researchpath.optimizer.Preferences;
 import dev.researchpath.publication.UrlSafety;
 import dev.researchpath.sequence.ReadingPath.Flag;
@@ -57,6 +58,11 @@ public final class SequenceBuilder {
 	}
 
 	public static ReadingPath build(List<PathPaper> papers, Preferences preferences) {
+		return build(papers, preferences, OptimizerConfig.DEFAULT);
+	}
+
+	/** @param config the configuration the selection was made with (explanations name its dominant factor) */
+	public static ReadingPath build(List<PathPaper> papers, Preferences preferences, OptimizerConfig config) {
 		Map<String, PathPaper> byId = new LinkedHashMap<>();
 		for (PathPaper p : papers) {
 			if (p.decision() == null) {
@@ -104,7 +110,7 @@ public final class SequenceBuilder {
 							.thenComparing(PathPaper.Concept::label))
 					.map(PathPaper.Concept::label).distinct().limit(MAX_TAGS).toList();
 			items.add(new Item(pos, stage, p.id(), p.title(), p.year(), p.workType(), link,
-					link == null ? null : p.sourceLinkKind(), tags, Explanations.reasons(p, preferences), citesPos,
+					link == null ? null : p.sourceLinkKind(), tags, Explanations.reasons(p, config.weights(preferences)), citesPos,
 					citedBy, flags(p, link, tags), p.decision().step()));
 		}
 

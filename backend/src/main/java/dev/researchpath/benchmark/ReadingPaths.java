@@ -31,7 +31,7 @@ public final class ReadingPaths {
 	public static ReadingPath path(BenchmarkDataset d, int k, Preferences preferences) {
 		ConceptModel model = SelectionMetrics.conceptModel(d);
 		GreedyOptimizer.Result result = new OptimizerSelector(preferences, OptimizerConfig.DEFAULT).optimize(d, k);
-		return SequenceBuilder.build(papers(d, model, result), preferences);
+		return SequenceBuilder.build(papers(d, model, result), preferences, OptimizerConfig.DEFAULT);
 	}
 
 	/** Selected candidates in selection order, with their included concepts and recorded decisions. */

@@ -9,10 +9,13 @@ import dev.researchpath.optimizer.Preferences.Experience;
  * @param qualityShare β: quality term contributes at most β (vs coverage ≤ 1)
  * @param qualityWeightedCoverage if true, a paper's credit for a concept is its strength × its quality q_p
  *     (low-quality papers become weak coverers); still monotone submodular
+ * @param experienceWeight share of the quality weight given to overview-marked works (Beginner) or to works not
+ *     marked as overviews (Advanced); 0 for Intermediate. In [0, 0.5].
  */
-public record OptimizerConfig(double qualityShare, boolean qualityWeightedCoverage) {
+public record OptimizerConfig(double qualityShare, boolean qualityWeightedCoverage, double experienceWeight) {
 
-	public static final int VERSION = 1;
+	/** 2: experience weight lowered to 0.02 (D09); Intermediate selections unchanged. */
+	public static final int VERSION = 2;
 
 	/**
 	 * D12 (conservative, 2026-10-18): additive objective with β = 4, the smallest β in the sweep that kept
@@ -22,14 +25,35 @@ public record OptimizerConfig(double qualityShare, boolean qualityWeightedCovera
 	 */
 	public static final OptimizerConfig DEFAULT = new OptimizerConfig(4.0, false);
 
+	/**
+	 * D09 (conservative, 2026-10-18): the largest swept weight at which Beginner and Advanced selections keep
+	 * ≥ 60% of the Intermediate papers on every topic and budget, with overview counts ordered and Advanced still
+	 * keeping an overview where Intermediate has several. The previous 0.15 / 0.10 turned Beginner paths into 7–10
+	 * overview-marked papers of 10 and removed every overview for Advanced, on a weak title/type cue. See
+	 * docs/evaluation/sequence-review.md.
+	 */
+	public static final double DEFAULT_EXPERIENCE_WEIGHT = 0.02;
+
 	public OptimizerConfig(double qualityShare) {
 		this(qualityShare, false);
+	}
+
+	public OptimizerConfig(double qualityShare, boolean qualityWeightedCoverage) {
+		this(qualityShare, qualityWeightedCoverage, DEFAULT_EXPERIENCE_WEIGHT);
 	}
 
 	public OptimizerConfig {
 		if (qualityShare < 0) {
 			throw new IllegalArgumentException("qualityShare must be >= 0 (keeps the objective monotone)");
 		}
+		if (experienceWeight < 0 || experienceWeight > 0.5) {
+			throw new IllegalArgumentException("experienceWeight must be in [0, 0.5]");
+		}
+	}
+
+	/** The same configuration with another experience weight (sweeps). */
+	public OptimizerConfig withExperienceWeight(double weight) {
+		return new OptimizerConfig(qualityShare, qualityWeightedCoverage, weight);
 	}
 
 	/** Weights of the quality components; each profile sums to 1 and every weight is non-negative. */
@@ -39,11 +63,11 @@ public record OptimizerConfig(double qualityShare, boolean qualityWeightedCovera
 
 	/**
 	 * Balanced is time-neutral (recency and age weights equal, and recency + age = 1 for known years);
-	 * Foundational favours older influential work; Recent favours newer work. Experience only shifts a small
-	 * weight to overview-like works (Beginner) or away from them (Advanced): accessibility from metadata is a
-	 * weak signal (D09 OPEN), so its effect is deliberately small.
+	 * Foundational favours older influential work; Recent favours newer work. Experience shifts
+	 * {@code experienceWeight} to overview-marked works (Beginner) or to works not marked as overviews (Advanced):
+	 * accessibility from metadata is a weak signal (D09), so the weight is kept small.
 	 */
-	public static QualityWeights weights(Preferences p) {
+	public QualityWeights weights(Preferences p) {
 		double relevance;
 		double influence;
 		double recency;
@@ -56,9 +80,9 @@ public record OptimizerConfig(double qualityShare, boolean qualityWeightedCovera
 		double overview = 0;
 		double technical = 0;
 		if (p.experience() == Experience.BEGINNER) {
-			overview = 0.15;
+			overview = experienceWeight;
 		} else if (p.experience() == Experience.ADVANCED) {
-			technical = 0.10;
+			technical = experienceWeight;
 		}
 		double scale = 1 - overview - technical;
 		return new QualityWeights(relevance * scale, influence * scale, recency * scale, age * scale, overview,

@@ -9,7 +9,6 @@ import java.util.Map;
 import dev.researchpath.optimizer.GreedyOptimizer;
 import dev.researchpath.optimizer.Objective;
 import dev.researchpath.optimizer.OptimizerConfig;
-import dev.researchpath.optimizer.Preferences;
 import dev.researchpath.sequence.ReadingPath.Explanation;
 
 /**
@@ -23,9 +22,9 @@ final class Explanations {
 	private Explanations() {
 	}
 
-	static List<Explanation> reasons(PathPaper p, Preferences preferences) {
+	static List<Explanation> reasons(PathPaper p, OptimizerConfig.QualityWeights weights) {
 		List<Explanation> out = new ArrayList<>();
-		out.add(primary(p, preferences));
+		out.add(primary(p, weights));
 		OverviewCue.Source source = OverviewCue.of(p.workType(), p.title());
 		if (source == OverviewCue.Source.PUBLICATION_TYPE) {
 			out.add(new Explanation("OVERVIEW_TYPE", "OpenAlex lists its publication type as review."));
@@ -37,14 +36,14 @@ final class Explanations {
 		return out;
 	}
 
-	private static Explanation primary(PathPaper p, Preferences preferences) {
+	private static Explanation primary(PathPaper p, OptimizerConfig.QualityWeights weights) {
 		GreedyOptimizer.Decision d = p.decision();
 		return switch (d.reason()) {
 			case ADDS_NEW_CONCEPTS -> addsConcepts(p);
 			case HIGH_RELEVANCE -> new Explanation("RELEVANCE",
 					"Selected mainly for relevance: the query's terms appear in its title or subject tags.");
 			case INFLUENCE -> influence(p);
-			case PREFERENCE_FIT -> preferenceFit(p, preferences);
+			case PREFERENCE_FIT -> preferenceFit(p, weights);
 		};
 	}
 
@@ -77,8 +76,7 @@ final class Explanations {
 				+ top + "% of works of similar age and field by citations.");
 	}
 
-	private static Explanation preferenceFit(PathPaper p, Preferences preferences) {
-		OptimizerConfig.QualityWeights w = OptimizerConfig.weights(preferences);
+	private static Explanation preferenceFit(PathPaper p, OptimizerConfig.QualityWeights w) {
 		Objective.QualityParts q = p.decision().quality();
 		double recency = w.recency() * q.recency();
 		double age = w.age() * q.age();
