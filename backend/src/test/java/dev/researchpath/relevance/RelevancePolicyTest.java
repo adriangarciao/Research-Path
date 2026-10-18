@@ -147,6 +147,15 @@ class RelevancePolicyTest {
 	}
 
 	@Test
+	void conceptLabelsNamingAnAspectAreNotEvidence() {
+		NormalizedWork w = work("Learning outcomes study", null, keyword("medical education", 0.9),
+				keyword("AI adoption barriers", 0.9), keyword("diagnosis", 0.9));
+		Decision d = decide("AI-assisted medical diagnosis", w);
+		assertThat(d.evidence().get("inConcepts")).isEqualTo(List.of("diagnosi"));
+		assertThat(d.tier()).isNotEqualTo(RelevanceTier.ELIGIBLE);
+	}
+
+	@Test
 	void decisionsAreDeterministic() {
 		NormalizedWork w = work("Deep Reinforcement Learning for Robotic Pushing", "abstract text");
 		List<Decision> runs = new ArrayList<>();
