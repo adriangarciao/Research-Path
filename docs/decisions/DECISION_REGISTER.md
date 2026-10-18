@@ -20,7 +20,7 @@ When resolving an item, record date, alternatives, evidence, rationale, owner an
 | D10 | OPEN | Ordering and stage-naming policy | — | M10 |
 | D11 | **RESOLVED 2026-10-17: conservative** | Default 100 candidates, max 200 | 100: 1 request, 3.4–5.8 s, USD 0.001; 200: 2 requests, 8.8–10.6 s, USD 0.002; eligible share at ranks 101–200 drops to 79% for medical AI (89% at 1–100) | Revisit when a topic yields < 20 optimization candidates |
 | D12 | OPEN | Influence/recency normalization, preference weights | fwci and citation percentile stored when supplied | M09/M14 |
-| D13 | OPEN | Does optimizer beat simple ranking? | — | M09/M14 |
+| D13 | OPEN (baselines measured) | Does optimizer beat simple ranking? | Reproducible baseline bar per topic/budget: weighted coverage at k = 20 is 0.719 (GNN, provider order), 0.583 (RL, citations), 0.665 (medical, provider order); RELEVANCE ≡ PROVIDER_ORDER where gate evidence saturates ([baseline analysis](../evaluation/baseline-analysis.md)) | M09/M14 |
 | D14 | OPEN | Is synchronous generation fast enough? | Retrieval 3–6 s for 100 candidates (cold); optimizer not built | M13 |
 | D15 | LOCKED (untested) | Regeneration from frozen snapshot; immutable revisions | Snapshots freeze raw provider records; revisions not built | M11 |
 | S01 | LOCKED | Secret stays local/server-side | Key in `.env` only, Bearer header, never logged; history scans clean | ongoing |
@@ -39,4 +39,5 @@ When resolving an item, record date, alternatives, evidence, rationale, owner an
 | P06 | 2026-10-17 | OpenAlex retrieval uses `search=` (full-text), default relevance order | Same mode as the audit; recorded per snapshot in `retrieval_params` | M06 comparison with `title_and_abstract.search` |
 | P07 | 2026-10-17 | Test fixtures in `backend/src/test/resources/` (not `data/fixtures/`) | Classpath access for tests | Non-test consumers need them |
 | P08 | 2026-10-17 | Provider URLs: accept absolute http(s) with host only; encode interior spaces as %20; drop the rest; link preference OA → DOI → landing page (labelled) | Playbook §4.3; real data: 80 of 885 URLs are plain http, 2 OA links had literal spaces, 0 other schemes | UI/security review (M12/M13) requires https-only display |
+| P10 | 2026-10-18 | Benchmarks run offline on committed, hash-pinned datasets (`data/benchmarks`, CC0 OpenAlex metadata, no abstracts) | Playbook M08 gate: reproducible on another machine without the dev DB | Dataset size or licensing concerns |
 | P09 | 2026-10-17 | PROVISIONAL normalization bounds: record 512 KB (reject), title 1000 chars (reject), abstract 20000 chars (truncate + flag), 100 stored authors (total kept), response 8 MB | ≥ 4x headroom over measured maxima (41 KB, 172, 4237, 34, 1.2 MB) | Real records hit a limit → re-measure before changing |
