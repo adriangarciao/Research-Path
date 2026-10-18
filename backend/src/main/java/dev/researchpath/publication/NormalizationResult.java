@@ -14,7 +14,11 @@ public sealed interface NormalizationResult {
 		/** No valid OpenAlex work id: the record cannot be identified reliably. */
 		MISSING_OR_INVALID_ID,
 		/** No usable title to display or match on. */
-		MISSING_TITLE
+		MISSING_TITLE,
+		/** Title longer than the normalization limit: treated as a suspicious record. */
+		TITLE_TOO_LONG,
+		/** Raw provider record larger than the per-record limit. */
+		RECORD_TOO_LARGE
 	}
 
 }

@@ -178,6 +178,24 @@ class PublicationRepositoryTests {
 	}
 
 	@Test
+	void boundedFieldsRoundTrip() {
+		StringBuilder authors = new StringBuilder("[");
+		for (int i = 1; i <= 120; i++) {
+			authors.append(i > 1 ? "," : "").append("{\"author\": {\"display_name\": \"A").append(i).append("\"}}");
+		}
+		NormalizedWork w = normalize("""
+				{"id": "https://openalex.org/W1", "display_name": "x", "authorships": %s}"""
+				.formatted(authors.append("]")));
+		save(w, T1);
+
+		NormalizedWork read = repository.findByOpenalexId("W1").orElseThrow();
+		assertSameContent(read, w);
+		assertThat(read.authors()).hasSize(100);
+		assertThat(read.authorCount()).isEqualTo(120);
+		assertThat(read.referencesSupplied()).isFalse(); // no referenced_works field supplied
+	}
+
+	@Test
 	void unknownWorkIsEmpty() {
 		assertThat(repository.findByOpenalexId("W404")).isEmpty();
 	}

@@ -45,11 +45,11 @@ public class PublicationRepository {
 				    publication_date, work_type, language, source_name, landing_page_url, oa_url, is_oa,
 				    abstract_text, cited_by_count, fwci, citation_percentile, referenced_works_count,
 				    has_abstract, has_topics, has_keywords, has_references, provider_updated_at,
-				    first_retrieved_at, last_retrieved_at)
+				    first_retrieved_at, last_retrieved_at, author_count, abstract_truncated, references_supplied)
 				VALUES (:openalexId, :doi, :title, :normalizedTitle, :year, :date, :type, :language, :source,
 				    :landing, :oaUrl, :isOa, :abstract, :citedBy, :fwci, :percentile, :refCount,
 				    :hasAbstract, :hasTopics, :hasKeywords, :hasReferences, :providerUpdatedAt,
-				    :retrievedAt, :retrievedAt)
+				    :retrievedAt, :retrievedAt, :authorCount, :abstractTruncated, :referencesSupplied)
 				ON CONFLICT (openalex_id) DO UPDATE SET
 				    doi = EXCLUDED.doi, title = EXCLUDED.title, normalized_title = EXCLUDED.normalized_title,
 				    publication_year = EXCLUDED.publication_year, publication_date = EXCLUDED.publication_date,
@@ -62,7 +62,10 @@ public class PublicationRepository {
 				    has_abstract = EXCLUDED.has_abstract, has_topics = EXCLUDED.has_topics,
 				    has_keywords = EXCLUDED.has_keywords, has_references = EXCLUDED.has_references,
 				    provider_updated_at = EXCLUDED.provider_updated_at,
-				    last_retrieved_at = EXCLUDED.last_retrieved_at
+				    last_retrieved_at = EXCLUDED.last_retrieved_at,
+				    author_count = EXCLUDED.author_count,
+				    abstract_truncated = EXCLUDED.abstract_truncated,
+				    references_supplied = EXCLUDED.references_supplied
 				RETURNING id
 				""")
 				.param("openalexId", work.openalexId())
@@ -88,6 +91,9 @@ public class PublicationRepository {
 				.param("hasReferences", work.hasReferences())
 				.param("providerUpdatedAt", timestamp(work.providerUpdatedAt()))
 				.param("retrievedAt", timestamp(retrievedAt))
+				.param("authorCount", work.authorCount())
+				.param("abstractTruncated", work.abstractTruncated())
+				.param("referencesSupplied", work.referencesSupplied())
 				.query(Long.class)
 				.single();
 
@@ -221,7 +227,10 @@ public class PublicationRepository {
 							instant(rs, "provider_updated_at"),
 							authors(id),
 							concepts(id),
-							references(id));
+							references(id),
+							rs.getInt("author_count"),
+							rs.getBoolean("abstract_truncated"),
+							(Boolean) rs.getObject("references_supplied"));
 				})
 				.optional();
 	}

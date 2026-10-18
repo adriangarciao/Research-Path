@@ -82,7 +82,7 @@ class CandidateSnapshotServiceIntegrationTests {
 		assertThat(s.receivedCount()).isEqualTo(3);
 		assertThat(s.storedCount()).isEqualTo(3);
 		assertThat(s.rejectedCount()).isZero();
-		assertThat(s.normalizerVersion()).isEqualTo(1);
+		assertThat(s.normalizerVersion()).isEqualTo(2);
 		// Expected numbers computed independently from the fixture with Python.
 		assertThat(s.availability()).isEqualTo(new SnapshotSummary.Availability(2, 3, 3, 3, 3, 3));
 		assertThat(s.classification()).isEqualTo(

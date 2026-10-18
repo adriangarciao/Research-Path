@@ -1,6 +1,7 @@
 package dev.researchpath.publication;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.tuple;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -153,6 +154,133 @@ class OpenAlexWorkNormalizerTest {
 				.isEqualTo(new Rejected("https://openalex.org/A123", RejectionReason.MISSING_OR_INVALID_ID));
 		assertThat(normalizer.normalize(JSON.readTree("{\"display_name\": \"No id\"}")))
 				.isEqualTo(new Rejected(null, RejectionReason.MISSING_OR_INVALID_ID));
+	}
+
+	// ---- M04 bounds and edge cases ----
+
+	private static String authorships(int n) {
+		StringBuilder sb = new StringBuilder("[");
+		for (int i = 1; i <= n; i++) {
+			sb.append(i > 1 ? "," : "").append("{\"author\": {\"display_name\": \"Author ").append(i).append("\"}}");
+		}
+		return sb.append("]").toString();
+	}
+
+	@Test
+	void longAuthorListIsCappedButTotalCountIsKept() {
+		NormalizedWork work = accepted(JSON.readTree("""
+				{"id": "https://openalex.org/W1", "display_name": "Big collaboration", "authorships": %s}"""
+				.formatted(authorships(150))));
+
+		assertThat(work.authors()).hasSize(OpenAlexWorkNormalizer.MAX_STORED_AUTHORS);
+		assertThat(work.authors().get(99).displayName()).isEqualTo("Author 100");
+		assertThat(work.authorCount()).isEqualTo(150);
+	}
+
+	@Test
+	void overlongAbstractIsTruncatedAtAWordAndFlagged() {
+		StringBuilder index = new StringBuilder("{");
+		int words = 4_000; // "word0000 " ... ~36,000 characters
+		for (int i = 0; i < words; i++) {
+			index.append(i > 0 ? "," : "").append("\"w").append(String.format("%07d", i)).append("\": [").append(i).append("]");
+		}
+		NormalizedWork work = accepted(JSON.readTree("""
+				{"id": "https://openalex.org/W1", "display_name": "t", "abstract_inverted_index": %s}"""
+				.formatted(index.append("}"))));
+
+		assertThat(work.abstractTruncated()).isTrue();
+		assertThat(work.abstractText().length()).isLessThanOrEqualTo(OpenAlexWorkNormalizer.MAX_ABSTRACT_CHARS);
+		assertThat(work.abstractText()).startsWith("w0000000 w0000001").doesNotEndWith(" ");
+		assertThat(work.abstractText().split(" ")).allMatch(word -> word.length() == 8); // no word cut in half
+	}
+
+	@Test
+	void shortAbstractIsNotFlagged() throws IOException {
+		NormalizedWork work = accepted(fixtureResult(1));
+		assertThat(work.abstractTruncated()).isFalse();
+		assertThat(work.authorCount()).isEqualTo(5);
+	}
+
+	@Test
+	void truncateAtWordFallsBackToHardCutWithoutSpaces() {
+		assertThat(OpenAlexWorkNormalizer.truncateAtWord("abcdefghij", 4)).isEqualTo("abcd");
+		assertThat(OpenAlexWorkNormalizer.truncateAtWord("ab cd ef", 6)).isEqualTo("ab cd");
+		assertThat(OpenAlexWorkNormalizer.truncateAtWord("short", 10)).isEqualTo("short");
+	}
+
+	@Test
+	void overlongTitleAndOversizedRecordAreRejected() {
+		assertThat(normalizer.normalize(JSON.readTree("""
+				{"id": "https://openalex.org/W1", "display_name": "%s"}""".formatted("x".repeat(1_001)))))
+				.isEqualTo(new Rejected("W1", RejectionReason.TITLE_TOO_LONG));
+		assertThat(normalizer.normalize(JSON.readTree("""
+				{"id": "https://openalex.org/W2", "display_name": "%s"}""".formatted("x".repeat(1_000)))))
+				.isInstanceOf(Accepted.class);
+		assertThat(normalizer.normalize(JSON.readTree("""
+				{"id": "https://openalex.org/W3", "display_name": "t", "padding": "%s"}"""
+				.formatted("x".repeat(OpenAlexWorkNormalizer.MAX_RECORD_BYTES)))))
+				.isEqualTo(new Rejected("W3", RejectionReason.RECORD_TOO_LARGE));
+	}
+
+	@Test
+	void confidenceOutsideZeroToOneIsUnknownButBoundariesAreKept() {
+		NormalizedWork work = accepted(JSON.readTree("""
+				{"id": "https://openalex.org/W1", "display_name": "t", "keywords": [
+				  {"id": "https://openalex.org/keywords/zero", "display_name": "zero", "score": 0.0},
+				  {"id": "https://openalex.org/keywords/one", "display_name": "one", "score": 1},
+				  {"id": "https://openalex.org/keywords/neg", "display_name": "neg", "score": -0.1},
+				  {"id": "https://openalex.org/keywords/big", "display_name": "big", "score": 1.5},
+				  {"id": "https://openalex.org/keywords/str", "display_name": "str", "score": "0.5"},
+				  {"id": "https://openalex.org/keywords/none", "display_name": "none"}]}"""));
+
+		assertThat(work.concepts()).extracting(NormalizedWork.ConceptAssociation::displayName,
+				NormalizedWork.ConceptAssociation::score)
+				.containsExactly(tuple("zero", 0.0), tuple("one", 1.0), tuple("neg", null), tuple("big", null),
+						tuple("str", null), tuple("none", null));
+	}
+
+	@Test
+	void missingReferenceListDiffersFromEmptyList() {
+		NormalizedWork empty = accepted(JSON.readTree("""
+				{"id": "https://openalex.org/W1", "display_name": "t", "referenced_works": []}"""));
+		NormalizedWork missing = accepted(JSON.readTree("""
+				{"id": "https://openalex.org/W2", "display_name": "t"}"""));
+		NormalizedWork nullList = accepted(JSON.readTree("""
+				{"id": "https://openalex.org/W3", "display_name": "t", "referenced_works": null}"""));
+
+		assertThat(empty.referencesSupplied()).isTrue();
+		assertThat(empty.hasReferences()).isFalse();
+		assertThat(missing.referencesSupplied()).isFalse();
+		assertThat(nullList.referencesSupplied()).isFalse();
+	}
+
+	@Test
+	void blankAbstractWordsYieldNoAbstract() {
+		NormalizedWork work = accepted(JSON.readTree("""
+				{"id": "https://openalex.org/W1", "display_name": "t", "abstract_inverted_index": {" ": [0], "": [1]}}"""));
+		assertThat(work.abstractText()).isNull();
+		assertThat(work.hasAbstract()).isFalse();
+	}
+
+	@Test
+	void duplicateKeywordIdsCountOnceButDistinctIdsWithSameLabelAreKept() {
+		NormalizedWork work = accepted(JSON.readTree("""
+				{"id": "https://openalex.org/W1", "display_name": "t", "keywords": [
+				  {"id": "https://openalex.org/keywords/gnn", "display_name": "GNN", "score": 0.9},
+				  {"id": "https://openalex.org/keywords/gnn", "display_name": "GNN", "score": 0.8},
+				  {"id": "https://openalex.org/keywords/gnn-2", "display_name": "GNN", "score": 0.7}]}"""));
+
+		assertThat(work.concepts()).extracting(NormalizedWork.ConceptAssociation::openalexId)
+				.containsExactly("keywords/gnn", "keywords/gnn-2"); // synonyms are not merged here (M07)
+		assertThat(work.concepts().get(0).score()).isEqualTo(0.9); // first occurrence wins
+	}
+
+	@Test
+	void unknownYearAndDateStayNull() {
+		NormalizedWork work = accepted(JSON.readTree("""
+				{"id": "https://openalex.org/W1", "display_name": "t", "publication_year": "2020", "publication_date": "2020-13-45"}"""));
+		assertThat(work.publicationYear()).isNull(); // a string is not a trusted year
+		assertThat(work.publicationDate()).isNull();
 	}
 
 	@Test
