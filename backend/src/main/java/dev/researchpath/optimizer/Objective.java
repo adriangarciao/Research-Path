@@ -29,7 +29,7 @@ public final class Objective {
 	public Objective(Map<String, Double> conceptWeights, Collection<OptimizerCandidate> pool, int budget,
 			Preferences preferences, OptimizerConfig config) {
 		this.conceptWeights = Map.copyOf(conceptWeights);
-		this.qualityWeights = OptimizerConfig.weights(preferences);
+		this.qualityWeights = config.weights(preferences);
 		this.qualityScale = budget <= 0 ? 0 : config.qualityShare() / budget;
 		this.qualityWeightedCoverage = config.qualityWeightedCoverage();
 		this.minYear = pool.stream().map(OptimizerCandidate::year).filter(y -> y != null).mapToInt(Integer::intValue)

@@ -125,7 +125,8 @@ class GreedyOptimizerTest {
 
 	@Test
 	void greedyIsWithinTheGuaranteeOfTheExhaustiveOptimumOnTinyPools() {
-		OptimizerConfig config = new OptimizerConfig(0.25); // fixed: the pinned measurement below depends on it
+		// Fixed explicitly (β = 0.25, experience weight 0.02): the pinned measurement below depends on it.
+		OptimizerConfig config = new OptimizerConfig(0.25, false, 0.02);
 		Random rnd = new Random(2026);
 		double worstRatio = 1;
 		int optimal = 0;
@@ -144,12 +145,13 @@ class GreedyOptimizerTest {
 			}
 			assertThat(greedy.objective()).isGreaterThanOrEqualTo((1 - 1 / Math.E) * opt - 1e-6);
 		}
-		// Measured with these seeds (recorded in the optimizer review): worst ratio 0.8990, optimal in 53 of 60.
+		// Measured with these seeds (recorded in the optimizer review): worst ratio 0.8990, optimal in 51 of 60
+		// (53 of 60 under config v1, whose Beginner/Advanced weights were 0.15/0.10).
 		// Pinned as a regression check, not a claim: well above the 0.632 worst-case guarantee asserted above.
 		System.out.printf("greedy/exhaustive: worst ratio %.4f, optimal in %d of %d tiny pools%n", worstRatio,
 				optimal, trials);
 		assertThat(worstRatio).isGreaterThanOrEqualTo(0.8989);
-		assertThat(optimal).isGreaterThanOrEqualTo(53);
+		assertThat(optimal).isGreaterThanOrEqualTo(51);
 	}
 
 	@Test
@@ -239,11 +241,11 @@ class GreedyOptimizerTest {
 
 	@Test
 	void balancedFocusIsTimeNeutralForKnownYears() {
-		OptimizerConfig.QualityWeights w = OptimizerConfig.weights(Preferences.DEFAULT);
+		OptimizerConfig.QualityWeights w = OptimizerConfig.DEFAULT.weights(Preferences.DEFAULT);
 		assertThat(w.recency()).isEqualTo(w.age());
 		for (Preferences.Experience e : Preferences.Experience.values()) {
 			for (Preferences.Focus fo : Preferences.Focus.values()) {
-				OptimizerConfig.QualityWeights q = OptimizerConfig.weights(new Preferences(e, fo));
+				OptimizerConfig.QualityWeights q = OptimizerConfig.DEFAULT.weights(new Preferences(e, fo));
 				double sum = q.relevance() + q.influence() + q.recency() + q.age() + q.overview() + q.technical();
 				assertThat(sum).isCloseTo(1.0, org.assertj.core.data.Offset.offset(1e-9));
 			}
@@ -253,6 +255,8 @@ class GreedyOptimizerTest {
 	@Test
 	void negativeQualityShareIsRejectedToKeepTheObjectiveMonotone() {
 		assertThatThrownBy(() -> new OptimizerConfig(-0.1)).isInstanceOf(IllegalArgumentException.class);
+		assertThatThrownBy(() -> new OptimizerConfig(1, false, 0.6)).isInstanceOf(IllegalArgumentException.class);
+		assertThatThrownBy(() -> new OptimizerConfig(1, false, -0.01)).isInstanceOf(IllegalArgumentException.class);
 	}
 
 	// ---- random fixtures (seeded, reproducible) ----

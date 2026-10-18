@@ -59,8 +59,14 @@ public final class BenchmarkCli {
 		Files.writeString(out.resolve("optimizer-sweep.md"), SensitivitySweep.markdown(sweep), StandardCharsets.UTF_8);
 		Files.writeString(out.resolve("optimizer-side-by-side.md"), SideBySide.markdown(loaded, 10), StandardCharsets.UTF_8);
 		Files.writeString(out.resolve("reading-paths.md"), ReadingPaths.markdown(loaded), StandardCharsets.UTF_8);
+		List<ExperienceSweep.Row> experience = new ArrayList<>();
+		for (BenchmarkDataset d : loaded) {
+			experience.addAll(ExperienceSweep.run(d, List.of(10, 20), OptimizerConfig.DEFAULT));
+		}
+		Files.writeString(out.resolve("experience-sweep.md"),
+				ExperienceSweep.markdown(experience, OptimizerConfig.DEFAULT.experienceWeight()), StandardCharsets.UTF_8);
 		System.out.println("Wrote " + md.toAbsolutePath() + ", " + json.toAbsolutePath()
-				+ ", optimizer-sweep.md, optimizer-side-by-side.md and reading-paths.md");
+				+ ", optimizer-sweep.md, optimizer-side-by-side.md, reading-paths.md and experience-sweep.md");
 	}
 
 	static List<BenchmarkRunner.Run> run(List<Path> datasets, Clock clock) throws IOException {

@@ -85,7 +85,7 @@ public final class GreedyOptimizer {
 					.toList();
 			Objective.QualityParts parts = objective.quality(best);
 			decisions.add(new Decision(selected.size() + 1, best.id(), round(bestGain), round(bestCoverage),
-					round(bestQuality), parts, newConcepts, reason(newConcepts, parts, preferences)));
+					round(bestQuality), parts, newConcepts, reason(newConcepts, parts, config.weights(preferences))));
 			selected.add(best);
 			remaining.remove(best);
 			for (Map.Entry<String, Double> e : best.concepts().entrySet()) {
@@ -111,11 +111,10 @@ public final class GreedyOptimizer {
 	 * the concepts it adds (quality is similar across candidates, so it rarely distinguishes a pick); otherwise
 	 * by its largest weighted quality component.
 	 */
-	private static Reason reason(List<String> newConcepts, Objective.QualityParts q, Preferences p) {
+	private static Reason reason(List<String> newConcepts, Objective.QualityParts q, OptimizerConfig.QualityWeights w) {
 		if (!newConcepts.isEmpty()) {
 			return Reason.ADDS_NEW_CONCEPTS;
 		}
-		OptimizerConfig.QualityWeights w = OptimizerConfig.weights(p);
 		double relevance = w.relevance() * q.relevance();
 		double influence = w.influence() * q.influence();
 		double fit = w.recency() * q.recency() + w.age() * q.age() + w.overview() * q.overview()
