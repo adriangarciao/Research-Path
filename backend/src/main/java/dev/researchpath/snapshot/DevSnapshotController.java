@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import dev.researchpath.concept.ConceptModel;
+import dev.researchpath.concept.ConceptService;
 import dev.researchpath.identity.IdentityDiagnostics;
 import dev.researchpath.identity.IdentityRepository;
 import dev.researchpath.relevance.RelevanceTier;
@@ -38,10 +40,12 @@ class DevSnapshotController {
 	private final CandidateSnapshotService service;
 
 	private final IdentityRepository identity;
+	private final ConceptService concepts;
 
-	DevSnapshotController(CandidateSnapshotService service, IdentityRepository identity) {
+	DevSnapshotController(CandidateSnapshotService service, IdentityRepository identity, ConceptService concepts) {
 		this.service = service;
 		this.identity = identity;
+		this.concepts = concepts;
 	}
 
 	record CreateSnapshotRequest(
@@ -65,6 +69,13 @@ class DevSnapshotController {
 	ResponseEntity<List<RelevanceRow>> relevance(@PathVariable UUID id,
 			@RequestParam(required = false) RelevanceTier tier) {
 		return ResponseEntity.of(service.relevance(id, tier));
+	}
+
+	/** Concept model and ledger built from the snapshot's frozen inputs (default: combined). */
+	@GetMapping("/{id}/concepts")
+	ResponseEntity<ConceptModel> concepts(@PathVariable UUID id,
+			@RequestParam(defaultValue = "COMBINED") ConceptModel.Representation representation) {
+		return ResponseEntity.of(concepts.build(id, representation));
 	}
 
 	/** Frozen identity decisions (with evidence) and suppressed duplicates for one snapshot. */
