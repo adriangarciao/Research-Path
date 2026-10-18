@@ -22,6 +22,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import dev.researchpath.concept.ConceptModel;
+import dev.researchpath.concept.ConceptService;
 import dev.researchpath.identity.IdentityDiagnostics;
 import dev.researchpath.identity.IdentityRepository;
 import dev.researchpath.openalex.OpenAlexException;
@@ -39,6 +41,9 @@ class DevSnapshotControllerTests {
 
 	@MockitoBean
 	IdentityRepository identity;
+
+	@MockitoBean
+	ConceptService concepts;
 
 	private static SnapshotSummary summary(UUID id) {
 		return new SnapshotSummary(id, "graph neural networks", Instant.parse("2026-10-17T12:00:00Z"), "OPENALEX", 10,
@@ -124,6 +129,31 @@ class DevSnapshotControllerTests {
 				.andExpect(status().isBadRequest());
 		mvc.perform(get("/api/dev/snapshots/" + UUID.randomUUID() + "/relevance"))
 				.andExpect(status().isNotFound());
+	}
+
+	@Test
+	void conceptsEndpointDefaultsToCombinedAndMapsLegacySnapshotsTo409() throws Exception {
+		UUID id = UUID.randomUUID();
+		UUID legacy = UUID.randomUUID();
+		when(concepts.build(any(), any())).thenAnswer(inv -> {
+			if (inv.getArgument(0).equals(legacy)) {
+				throw new SnapshotNotEvaluatedException(legacy);
+			}
+			return inv.getArgument(0).equals(id)
+					? Optional.of(new ConceptModel(1, inv.getArgument(1), 3, List.of(), java.util.Map.of(), List.of(),
+							java.util.Map.of(), new ConceptModel.Stats(0, 0, 0, 0, 1, 0)))
+					: Optional.empty();
+		});
+
+		mvc.perform(get("/api/dev/snapshots/" + id + "/concepts"))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.representation").value("COMBINED"));
+		mvc.perform(get("/api/dev/snapshots/" + id + "/concepts").param("representation", "TOPIC_ONLY"))
+				.andExpect(jsonPath("$.representation").value("TOPIC_ONLY"));
+		mvc.perform(get("/api/dev/snapshots/" + legacy + "/concepts"))
+				.andExpect(status().isConflict())
+				.andExpect(jsonPath("$.title").value("Snapshot predates frozen evaluation inputs"));
+		mvc.perform(get("/api/dev/snapshots/" + UUID.randomUUID() + "/concepts")).andExpect(status().isNotFound());
 	}
 
 	@Test

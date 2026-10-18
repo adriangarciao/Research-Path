@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import dev.researchpath.openalex.OpenAlexException;
+import dev.researchpath.snapshot.SnapshotNotEvaluatedException;
 
 /** Maps domain failures to RFC 9457 problem responses. Bean-validation errors use Spring's defaults. */
 @RestControllerAdvice
@@ -18,6 +19,13 @@ class ApiExceptionHandler {
 	@ExceptionHandler(IllegalArgumentException.class)
 	ProblemDetail badRequest(IllegalArgumentException e) {
 		return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, e.getMessage());
+	}
+
+	@ExceptionHandler(SnapshotNotEvaluatedException.class)
+	ProblemDetail notEvaluated(SnapshotNotEvaluatedException e) {
+		ProblemDetail problem = ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, e.getMessage());
+		problem.setTitle("Snapshot predates frozen evaluation inputs");
+		return problem;
 	}
 
 	/** Provider unavailable or rate-limited: retryable for the caller, nothing was persisted. */

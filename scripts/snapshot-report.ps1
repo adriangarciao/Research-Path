@@ -89,6 +89,23 @@ if ($null -eq $rel) {
 }
 
 ''
+'## Concepts (conservative policy, decisions D03/D08)'
+''
+if ($null -ne $rel) {
+    $cm = Invoke-RestMethod "$BaseUrl/api/dev/snapshots/$($s.id)/concepts" -TimeoutSec 60
+    $st = $cm.stats
+    "- Policy v$($cm.policyVersion), $($cm.representation): $($st.universeSize) concepts over $($cm.candidates) candidates; $($st.candidatesWithConcepts) candidates carry at least one; mean $($st.meanConceptsPerCandidate) per candidate"
+    "- Distinct concept signatures: $($st.distinctSignatures); top concept share: $($st.topConceptShare); mean pairwise Jaccard: $($st.meanPairwiseJaccard)"
+    "- Excluded: $((($cm.excludedByReason.PSObject.Properties | ForEach-Object { "$($_.Name) $($_.Value)" }) -join ' · '))"
+    ''
+    '| Concept | Kind | Support | Weight |'
+    '|---|---|---:|---:|'
+    foreach ($c in ($cm.included | Select-Object -First 15)) { "| $($c.label) | $($c.kind) | $($c.support) | $($c.weight) |" }
+} else {
+    'Not evaluated: this snapshot predates frozen evaluation inputs.'
+}
+
+''
 '## Identity resolution (conservative policy, decision D06)'
 ''
 $i = $s.identity
