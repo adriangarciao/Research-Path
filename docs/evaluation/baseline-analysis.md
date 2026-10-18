@@ -43,3 +43,5 @@ A fixed, reproducible bar per topic and budget. The optimizer must improve **wei
 baseline *for that topic* while keeping relevance (minimum ≥ the gate floor, mean reported) and not inflating
 redundancy; any topic where it does not will be reported. Runtime here is ~2 ms per selection after JIT warm-up
 (first selection ~27 ms), excluding retrieval.
+
+> **Update 2026-10-18 (M09):** the generated report in `benchmarks/` now also contains the optimizer, the sensitivity sweep and side-by-side lists; baseline rows are unchanged (pinned). See [optimizer-review.md](optimizer-review.md).

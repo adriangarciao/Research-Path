@@ -20,8 +20,8 @@ Tracked project records: `docs/progress/STATUS.md` + `MXX.md` (milestone reports
 DECISION_REGISTER.md`, `docs/design/`, `docs/evidence/`.
 
 ## Active milestone
-See `docs/progress/STATUS.md`. M00–M08 PASS. **M09** (custom marginal-gain optimizer, HUMAN DECISION
-D12/D13) is next; it must be compared with the M08 baselines on the committed datasets. Owner's standing instruction: at HUMAN DECISION gates choose the conservative/safer option, record it
+See `docs/progress/STATUS.md`. M00–M09 PASS. **M10** (reading order, stages, grounded explanations; HUMAN
+DECISION D09/D10) is next; it must not change the optimizer's selected set (pinned fingerprints). Owner's standing instruction: at HUMAN DECISION gates choose the conservative/safer option, record it
 with evidence in the decision register, and continue (not for destructive/outward-facing actions). Do not
 start a milestone until the previous gate passes.
 
@@ -44,7 +44,8 @@ Test classes must end in `Test`/`Tests` (Surefire ignores `*IT`).
   Flyway, Maven Wrapper. Packages: `openalex` (client), `publication` (normalizer, cache repo),
   `identity` (conservative D06 policy), `relevance` (conservative D07 gate + shared text pipeline), `concept`
   (conservative D03/D08 coverage concepts from frozen inputs, `/{id}/concepts`), `benchmark` (offline datasets,
-  baselines, metrics, runner, CLI; Spring-free), `snapshot` (service, frozen
+  baselines, metrics, runner, CLI, optimizer adapter/sweep; Spring-free), `optimizer` (pure greedy marginal-gain
+  set selection, D12 default β = 4), `snapshot` (service, frozen
   inputs via `optimizationCandidates`, dev-only `/api/dev/snapshots`, `/{id}/identity`, `/{id}/relevance`),
   `web` (errors). Later milestones must read candidates from frozen `normalized_record`, never the cache. Data access = parameterized SQL via
   JdbcClient; Hibernate `ddl-auto: validate`, no entities yet.
