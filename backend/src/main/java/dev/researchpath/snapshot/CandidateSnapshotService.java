@@ -27,6 +27,7 @@ import dev.researchpath.publication.NormalizedWork;
 import dev.researchpath.publication.OpenAlexWorkNormalizer;
 import dev.researchpath.publication.PublicationRepository;
 import dev.researchpath.publication.TextNormalization;
+import dev.researchpath.relevance.RelevancePolicy;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.json.JsonMapper;
 
@@ -35,12 +36,16 @@ import tools.jackson.databind.json.JsonMapper;
  * cache and freezes the pool as a candidate snapshot (blueprint §3.5 steps 1-3 and 6).
  *
  * <p>Obvious duplicates are suppressed by the conservative identity policy (D06), frozen with the
- * snapshot. Not done here yet: the query-relevance gate (D07 is OPEN), so every member is UNSCREENED.
+ * snapshot. The conservative relevance gate (D07) marks each member ELIGIBLE or INELIGIBLE with
+ * evidence; only eligible canonical members may enter optimization. Normalized inputs are frozen per
+ * member so later cache refreshes cannot change the snapshot.
  */
 @Service
 public class CandidateSnapshotService {
 
 	public static final String PROVIDER = "OPENALEX";
+	/** Largest paper budget a path can request (blueprint §2.1); fewer candidates triggers a warning. */
+	public static final int MAX_PAPER_BUDGET = 20;
 
 	private static final Logger log = LoggerFactory.getLogger(CandidateSnapshotService.class);
 
@@ -78,6 +83,10 @@ public class CandidateSnapshotService {
 		}
 		if (cleanTopic.length() > ingestion.maxTopicLength()) {
 			throw new IllegalArgumentException("topic must be at most " + ingestion.maxTopicLength() + " characters");
+		}
+		RelevancePolicy.Query query = RelevancePolicy.analyzeQuery(cleanTopic);
+		if (!query.hasContent()) {
+			throw new IllegalArgumentException("topic must contain at least one meaningful word");
 		}
 		int requested = maxCandidates == null ? ingestion.defaultCandidates() : maxCandidates;
 		if (requested < 1 || requested > ingestion.maxCandidates()) {
@@ -143,12 +152,16 @@ public class CandidateSnapshotService {
 			for (Candidate c : candidates) {
 				long publicationId = publications.upsert(c.work(), c.record().retrievedAt());
 				JsonNode score = c.record().json().path("relevance_score");
+				RelevancePolicy.Decision relevance = RelevancePolicy.decide(query, c.work());
 				snapshots.addMember(snapshotId, publicationId, c.record().rank(),
 						score.isNumber() ? score.doubleValue() : null, c.record().json().toString(),
-						c.record().retrievedAt());
+						c.record().retrievedAt(), json(c.work()), relevance.tier(), relevance.reason(),
+						json(relevance.evidence()));
 			}
 			// Conservative identity resolution (D06), frozen with the snapshot.
 			identity.resolveSnapshot(snapshotId);
+			snapshots.finishRelevance(snapshotId, RelevancePolicy.VERSION,
+					json(warnings(query, snapshots.countOptimizationCandidates(snapshotId))));
 		});
 		log.info("Created snapshot {} for topic '{}': received={}, stored={}, rejected={}", snapshotId, cleanTopic,
 				received.size(), storedCount, rejectedCount);
@@ -158,6 +171,35 @@ public class CandidateSnapshotService {
 
 	public Optional<SnapshotSummary> findSummary(UUID id) {
 		return snapshots.findSummary(id);
+	}
+
+	/** Frozen inputs of members that may enter optimization (eligible and canonical), by provider rank. */
+	public List<FrozenCandidate> optimizationCandidates(UUID snapshotId) {
+		return snapshots.loadOptimizationCandidates(snapshotId);
+	}
+
+	/** Snapshot-level messages for broad, narrow or empty results (blueprint §8). */
+	static List<Map<String, Object>> warnings(RelevancePolicy.Query query, int candidates) {
+		List<Map<String, Object>> warnings = new ArrayList<>();
+		if (candidates == 0) {
+			warnings.add(warning("NO_ELIGIBLE_CANDIDATES",
+					"No retrieved work passed the relevance gate; try a more specific or differently worded topic."));
+		} else if (candidates < MAX_PAPER_BUDGET) {
+			warnings.add(warning("FEW_ELIGIBLE_CANDIDATES", "Only " + candidates
+					+ " works passed the relevance gate; longer paths may contain fewer papers than requested."));
+		}
+		if (query.terms().size() == 1) {
+			warnings.add(warning("BROAD_QUERY",
+					"The topic has a single meaningful term; consider narrowing it for a more focused path."));
+		}
+		return warnings;
+	}
+
+	private static Map<String, Object> warning(String code, String message) {
+		Map<String, Object> w = new LinkedHashMap<>();
+		w.put("code", code);
+		w.put("message", message);
+		return w;
 	}
 
 	private Map<String, Object> retrievalParams(String topic, int perPage, List<Integer> pages) {

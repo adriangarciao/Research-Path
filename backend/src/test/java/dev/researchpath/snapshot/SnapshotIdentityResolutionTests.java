@@ -143,9 +143,9 @@ class SnapshotIdentityResolutionTests {
 
 	@Test
 	void everyCanonicalIsAMemberOfTheSameSnapshot() {
-		snapshot("a", work("W1", TITLE).year(2020).doi("10.1/a").author("A1", "Ann Lee"),
+		snapshot("alpha topic", work("W1", TITLE).year(2020).doi("10.1/a").author("A1", "Ann Lee"),
 				work("W2", TITLE).year(2020).author("A1", "Ann Lee"), work("W3", "x").year(2001));
-		snapshot("b", work("W2", TITLE).year(2020).author("A1", "Ann Lee"), work("W4", "y"));
+		snapshot("beta topic", work("W2", TITLE).year(2020).author("A1", "Ann Lee"), work("W4", "y"));
 
 		assertThat(jdbc.sql("""
 				SELECT count(*) FROM snapshot_membership m

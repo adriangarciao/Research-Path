@@ -102,7 +102,9 @@ class CandidateSnapshotServiceIntegrationTests {
 				""").param("id", s.id()).query(String.class).single()).isEqualTo("https://openalex.org/W4392553889");
 		assertThat(jdbc.sql("SELECT provider_relevance_score FROM snapshot_membership WHERE provider_rank = 3")
 				.query(Double.class).single()).isEqualTo(235.25731);
-		assertThat(count("SELECT count(*) FROM snapshot_membership WHERE eligibility_status <> 'UNSCREENED'")).isZero();
+		// All three real works are about graph neural networks: the relevance gate admits them.
+		assertThat(count("SELECT count(*) FROM snapshot_membership WHERE eligibility_status = 'ELIGIBLE'")).isEqualTo(3);
+		assertThat(s.relevance().optimizationCandidates()).isEqualTo(3);
 
 		String params = jdbc.sql("SELECT retrieval_params::text FROM candidate_snapshot").query(String.class).single();
 		assertThat(params).contains("\"search\": \"graph neural networks\"").contains("\"pages\": [1]");
