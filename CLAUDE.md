@@ -20,8 +20,9 @@ Tracked project records: `docs/progress/STATUS.md` + `MXX.md` (milestone reports
 DECISION_REGISTER.md`, `docs/design/`, `docs/evidence/`.
 
 ## Active milestone
-See `docs/progress/STATUS.md`. M05 (deduplication policy, **HUMAN DECISION D06**) is next and has
-**not** been started. Do not start a milestone until the previous gate passes.
+See `docs/progress/STATUS.md`. M00–M05 PASS. **M06** (relevance gate + snapshot pool policy,
+**HUMAN DECISION D07/D11**) is next and has **not** been started. Do not start a milestone until the
+previous gate passes.
 
 ## Milestone protocol (playbook §0.3–0.4)
 Inspect → smallest slice → verify → regress (`.\scripts\verify.ps1`) → security review → write
@@ -40,7 +41,8 @@ Test classes must end in `Test`/`Tests` (Surefire ignores `*IT`).
 ## Stack
 - `backend/` Java 21, Spring Boot 4.1 (Web MVC, Actuator, Data JPA, Validation, RestClient), PostgreSQL,
   Flyway, Maven Wrapper. Packages: `openalex` (client), `publication` (normalizer, cache repo),
-  `snapshot` (service, dev-only `/api/dev/snapshots`), `web` (errors). Data access = parameterized SQL via
+  `identity` (conservative D06 policy, frozen per snapshot), `snapshot` (service, dev-only
+  `/api/dev/snapshots`, `/{id}/identity`), `web` (errors). Data access = parameterized SQL via
   JdbcClient; Hibernate `ddl-auto: validate`, no entities yet.
 - `frontend/` React 19 + TypeScript + Vite 8 (placeholder page only).
 - `compose.yaml` PostgreSQL 17 on **127.0.0.1:5434** (5433 is used by another project; owner-approved

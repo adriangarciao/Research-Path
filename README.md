@@ -7,12 +7,12 @@ documents kept locally in `docs/` (gitignored). Project records are public: mile
 [docs/progress](docs/progress/), decisions in [docs/decisions](docs/decisions/), design notes in
 [docs/design](docs/design/), and measured evidence in [docs/evidence](docs/evidence/).
 
-> **Status: playbook milestones M00–M04 PASS** (see [docs/progress/STATUS.md](docs/progress/STATUS.md)).
+> **Status: playbook milestones M00–M05 PASS** (see [docs/progress/STATUS.md](docs/progress/STATUS.md)).
 > Implemented: publication cache (topics/keywords with confidence, referenced-work IDs, missing-data flags,
-> bounded and URL-validated), live OpenAlex ingestion, possible-duplicate evidence (recorded, never merged),
-> frozen candidate snapshots and a metadata-quality report. **Not implemented yet:** deduplication policy
-> (M05), relevance gate (M06), concept representation, baselines, optimizer, reading order, path API,
-> real UI, deployment.
+> bounded and URL-validated), live OpenAlex ingestion, frozen candidate snapshots, conservative duplicate
+> handling (obvious duplicates suppressed per snapshot, versions kept and flagged, nothing merged) and a
+> metadata-quality report. **Not implemented yet:** relevance gate (M06), concept representation,
+> baselines, optimizer, reading order, path API, real UI, deployment.
 
 ## Layout
 
@@ -123,7 +123,9 @@ The summary reports metadata availability, distinct topics/keywords, primary-top
 citation edges between members, and possible-duplicate pairs. These are descriptive counts, not quality
 judgments. Rules: missing abstracts/topics are flagged, not rejected; only records with no valid work ID or no
 title are rejected; possible duplicates go to `publication_identity_candidate` for review and are never
-merged; every member is `UNSCREENED` until a relevance gate exists. Each snapshot stores the exact
+merged; obvious duplicates (`SAME_WORK`) are suppressed per snapshot by the conservative identity policy,
+while probable versions stay as candidates and are flagged (`GET /api/dev/snapshots/<id>/identity`); every
+member is `UNSCREENED` until a relevance gate exists. Each snapshot stores the exact
 provider record (`snapshot_membership.source_record`), so it stays reproducible after the publication cache
 is refreshed. Evidence from the first live runs: [docs/evidence](docs/evidence/).
 
