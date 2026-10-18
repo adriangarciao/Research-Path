@@ -44,6 +44,7 @@ researchpath:
     initial-backoff: 1s
     max-backoff: 30s
     max-per-page: 100
+    max-response-size: 8MB   # ~4-5x a full 100-work page; larger bodies are rejected unparsed
   ingestion:
     # PROVISIONAL (blueprint D11): 100-300 candidates is a planning target, not a tested value.
     default-candidates: 100

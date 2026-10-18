@@ -1,5 +1,7 @@
 package dev.researchpath.openalex;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 import java.time.Clock;
 import java.time.Duration;
@@ -23,7 +25,8 @@ import tools.jackson.databind.json.JsonMapper;
  * Minimal OpenAlex works client: search with bounded retries.
  *
  * <p>Retries 429, 5xx and network errors up to {@code maxAttempts}, honouring Retry-After
- * (capped). Other 4xx responses fail immediately. The API key travels only in the
+ * (capped). Other 4xx responses fail immediately. Response bodies are size-bounded before
+ * parsing and must have the expected shape (object with a {@code results} array). The API key travels only in the
  * Authorization header, so it cannot appear in URLs, logs or exception messages.
  */
 public class OpenAlexClient {
@@ -76,9 +79,14 @@ public class OpenAlexClient {
 				.queryParam("select", WORK_FIELDS)
 				.build(), "search page " + page);
 
+		JsonNode resultsNode = body.path("results");
+		if (!body.isObject() || !resultsNode.isArray()) {
+			throw new OpenAlexException("OpenAlex search page " + page + " returned an unexpected response shape",
+					200, null);
+		}
 		JsonNode count = body.path("meta").path("count");
 		List<JsonNode> results = new ArrayList<>();
-		body.path("results").forEach(results::add);
+		resultsNode.forEach(results::add);
 		return new OpenAlexSearchPage(count.isIntegralNumber() ? count.longValue() : null, page, results,
 				clock.instant());
 	}
@@ -91,9 +99,9 @@ public class OpenAlexClient {
 				response = restClient.get()
 						.uri(uri)
 						.headers(this::authenticate)
-						.exchange((request, res) -> new Response(res.getStatusCode().value(),
-								res.getHeaders().getFirst(HttpHeaders.RETRY_AFTER), res.getBody().readAllBytes()),
-								false);
+						.exchange((request, res) -> readBounded(res.getStatusCode().value(),
+								res.getHeaders().getFirst(HttpHeaders.RETRY_AFTER), res.getHeaders().getContentLength(),
+								res.getBody()), false);
 			} catch (ResourceAccessException e) {
 				if (attempt >= properties.maxAttempts()) {
 					throw new OpenAlexException("OpenAlex " + description + " failed: network error after "
@@ -106,6 +114,11 @@ public class OpenAlexClient {
 				continue;
 			}
 
+			if (response.tooLarge()) {
+				// Not retried: the provider would return the same oversized body again.
+				throw new OpenAlexException("OpenAlex " + description + " response exceeded "
+						+ properties.maxResponseSize().toBytes() + " bytes", response.status(), null);
+			}
 			if (response.status() == 200) {
 				try {
 					return jsonMapper.readTree(response.body());
@@ -161,7 +174,22 @@ public class OpenAlexClient {
 		}
 	}
 
-	private record Response(int status, String retryAfter, byte[] body) {
+	/**
+	 * Reads at most {@code maxResponseSize} bytes. A declared Content-Length over the limit is
+	 * rejected before reading; otherwise one extra byte is read to detect an oversized body.
+	 */
+	private Response readBounded(int status, String retryAfter, long declaredLength, InputStream body)
+			throws IOException {
+		long max = properties.maxResponseSize().toBytes();
+		if (declaredLength > max) {
+			return new Response(status, retryAfter, new byte[0], true);
+		}
+		byte[] bytes = body.readNBytes((int) Math.min(Integer.MAX_VALUE - 8, max + 1));
+		return bytes.length > max ? new Response(status, retryAfter, new byte[0], true)
+				: new Response(status, retryAfter, bytes, false);
+	}
+
+	private record Response(int status, String retryAfter, byte[] body, boolean tooLarge) {
 	}
 
 }
