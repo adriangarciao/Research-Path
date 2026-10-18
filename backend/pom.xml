@@ -15,6 +15,11 @@
 	<description>ResearchPath backend</description>
 	<properties>
 		<java.version>21</java.version>
+		<!-- Security patch overrides of the Spring Boot 4.1.1 BOM (OSV audit 2026-10-18, docs/evidence/security-review-m13.md).
+		     Tomcat 11.0.24: CVE-2026-65905/65182/68525 (fixed 11.0.25); Jackson 3.1.5: CVE-2026-91777/68497/91776/89425/89407 and
+		     others (fixed 3.1.7). Same release lines, patch versions only. Remove when the Boot BOM ships these or newer. -->
+		<tomcat.version>11.0.27</tomcat.version>
+		<jackson-bom.version>3.1.8</jackson-bom.version>
 	</properties>
 	<dependencies>
 		<dependency>

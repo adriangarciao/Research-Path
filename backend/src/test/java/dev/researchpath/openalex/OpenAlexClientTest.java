@@ -224,6 +224,19 @@ class OpenAlexClientTest {
 		assertThat(sleeps).isEmpty();
 	}
 
+	/** Redirects are never followed (the key must not travel to another host); a 3xx is a non-retried failure. */
+	@Test
+	void redirectIsAFailureNotFollowed() {
+		OpenAlexClient client = client(SECRET, 3);
+		server.expect(times(1), requestTo(Matchers.startsWith(WORKS))).andRespond(withStatus(HttpStatus.FOUND)
+				.header("Location", "https://attacker.example/steal"));
+
+		assertThatThrownBy(() -> client.searchWorks("x", 1, 2))
+				.isInstanceOfSatisfying(OpenAlexException.class, e -> assertThat(e.httpStatus()).isEqualTo(302));
+		server.verify();
+		assertThat(sleeps).isEmpty();
+	}
+
 	@Test
 	void oversizedBodyIsRejectedWithoutRetry() {
 		OpenAlexClient client = client(SECRET, 3, DataSize.ofBytes(100));
