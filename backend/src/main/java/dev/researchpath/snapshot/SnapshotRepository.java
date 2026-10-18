@@ -87,7 +87,21 @@ public class SnapshotRepository {
 				)
 				SELECT s.id, s.topic, s.created_at, s.provider, s.requested_count, s.provider_total_count,
 				       s.received_count, s.stored_count, s.rejected_count, s.normalizer_version,
-				       s.retrieval_notes::text AS notes,
+				       s.retrieval_notes::text AS notes, s.identity_policy_version,
+				       (SELECT count(DISTINCT (ic.publication_a_id, ic.publication_b_id)) FROM snapshot_identity_decision d
+				            JOIN publication_identity_candidate ic ON ic.id = d.pair_id
+				            WHERE d.snapshot_id = s.id AND d.decision = 'SAME_WORK') AS same_work_pairs,
+				       (SELECT count(DISTINCT (ic.publication_a_id, ic.publication_b_id)) FROM snapshot_identity_decision d
+				            JOIN publication_identity_candidate ic ON ic.id = d.pair_id
+				            WHERE d.snapshot_id = s.id AND d.decision = 'PROBABLE_VERSION') AS probable_version_pairs,
+				       (SELECT count(DISTINCT (ic.publication_a_id, ic.publication_b_id)) FROM snapshot_identity_decision d
+				            JOIN publication_identity_candidate ic ON ic.id = d.pair_id
+				            WHERE d.snapshot_id = s.id AND d.decision = 'DISTINCT') AS distinct_pairs,
+				       (SELECT count(DISTINCT (ic.publication_a_id, ic.publication_b_id)) FROM snapshot_identity_decision d
+				            JOIN publication_identity_candidate ic ON ic.id = d.pair_id
+				            WHERE d.snapshot_id = s.id AND d.decision = 'UNRESOLVED') AS unresolved_pairs,
+				       (SELECT count(*) FROM snapshot_membership m WHERE m.snapshot_id = s.id AND m.canonical_publication_id = m.publication_id) AS canonical_members,
+				       (SELECT count(*) FROM snapshot_membership m WHERE m.snapshot_id = s.id AND m.canonical_publication_id <> m.publication_id) AS suppressed_members,
 				       (SELECT count(*) FILTER (WHERE has_abstract) FROM members)          AS with_abstract,
 				       (SELECT count(*) FILTER (WHERE has_topics) FROM members)            AS with_topics,
 				       (SELECT count(*) FILTER (WHERE has_keywords) FROM members)          AS with_keywords,
@@ -135,6 +149,11 @@ public class SnapshotRepository {
 								rs.getString("top_primary_topic"), rs.getInt("top_primary_topic_count")),
 						rs.getLong("internal_edges"),
 						rs.getLong("duplicate_pairs"),
+						rs.getObject("identity_policy_version") == null ? null
+								: new SnapshotSummary.Identity(rs.getInt("identity_policy_version"),
+										rs.getInt("same_work_pairs"), rs.getInt("probable_version_pairs"),
+										rs.getInt("distinct_pairs"), rs.getInt("unresolved_pairs"),
+										rs.getInt("canonical_members"), rs.getInt("suppressed_members")),
 						jsonMapper.readTree(rs.getString("notes"))))
 				.optional();
 	}

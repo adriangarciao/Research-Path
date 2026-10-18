@@ -97,7 +97,7 @@ class ReviewedIdentityPairsTest {
 				.filter(p -> p.label().equals("SAME_WORK"))
 				.filter(p -> !IdentityPolicy.classify(p.a(), p.b()).decision().suppresses())
 				.map(Reviewed::pairId).sorted().toList();
-		assertThat(caught).containsExactly(1L, 2L, 29L);
+		assertThat(caught).containsExactly(1L, 2L, 29L, 160L);
 		// 13: year off by one; 28: conflicting DOIs (thesis vs arXiv); 16: wrong author metadata.
 		assertThat(missed).containsExactly(13L, 16L, 28L);
 	}

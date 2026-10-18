@@ -39,6 +39,14 @@ final class WorkJson {
 		return this;
 	}
 
+	/** Adds an authorship with an OpenAlex author id (e.g. "A1") and display name. */
+	@SuppressWarnings("unchecked")
+	WorkJson author(String id, String name) {
+		List<Object> authorships = (List<Object>) fields.computeIfAbsent("authorships", k -> new ArrayList<>());
+		authorships.add(Map.of("author", Map.of("id", "https://openalex.org/" + id, "display_name", name)));
+		return this;
+	}
+
 	WorkJson cites(String... ids) {
 		for (String id : ids) {
 			references.add("https://openalex.org/" + id);
