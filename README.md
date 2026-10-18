@@ -3,9 +3,11 @@
 Learn a research topic through an optimized, explainable sequence of real academic papers.
 Product and architecture: [docs/ResearchPath_Master_Blueprint_v1.1.md](docs/ResearchPath_Master_Blueprint_v1.1.md).
 
-> **Status: development environment only.** The repository contains a working Spring Boot + PostgreSQL +
-> Flyway backend skeleton and a placeholder React page. **Not implemented yet:** publication schema,
-> OpenAlex ingestion, relevance gate, optimizer, reading-order builder, path API, real UI, deployment.
+> **Status: publication data model and OpenAlex ingestion (milestone 2).** Implemented: publication cache
+> (topics/keywords with confidence, referenced-work IDs, missing-data flags), possible-duplicate evidence
+> (recorded, never merged), and frozen candidate snapshots via a dev-only endpoint.
+> **Not implemented yet:** relevance gate, scoring, optimizer, reading-order builder, path API, real UI,
+> deployment.
 
 ## Layout
 
@@ -97,14 +99,35 @@ cd frontend; npm run build; npm run lint                       # typecheck + pro
 
 `/actuator/health` includes a real database check: it returns 503 / `DOWN` within about 5 s if PostgreSQL is stopped.
 
+## Candidate snapshots (dev API)
+
+Enabled only in the `local` profile (`researchpath.dev-api.enabled`). Requires `OPENALEX_API_KEY` for real use.
+
+```powershell
+# Retrieve up to 100 works (max 200) for a topic, store them, and freeze a snapshot
+Invoke-RestMethod http://localhost:8080/api/dev/snapshots -Method Post -ContentType 'application/json' `
+  -Body '{"topic":"graph neural networks","maxCandidates":100}'
+# Re-read a snapshot's summary
+Invoke-RestMethod http://localhost:8080/api/dev/snapshots/<id>
+```
+
+The summary reports metadata availability, distinct topics/keywords, primary-topic concentration,
+citation edges between members, and possible-duplicate pairs. These are descriptive counts, not quality
+judgments. Rules: missing abstracts/topics are flagged, not rejected; only records with no valid work ID or no
+title are rejected; possible duplicates go to `publication_identity_candidate` for review and are never
+merged; every member is `UNSCREENED` until a relevance gate exists. Each snapshot stores the exact
+provider record (`snapshot_membership.source_record`), so it stays reproducible after the publication cache
+is refreshed. Evidence from the first live runs: [docs/evidence](docs/evidence/).
+
 ## Configuration notes
 
 - Docker Compose reads `.env` automatically. **Spring Boot does not.** `scripts\backend.ps1` loads `.env`
   into its own process (nothing is written to your user or system environment).
 - Running from an IDE: use profile `local` and set env vars `DB_PASSWORD` (and optionally
   `OPENALEX_API_KEY`) in the run configuration, or install an EnvFile plugin pointing at `.env`.
-- Flyway migrations: `backend/src/main/resources/db/migration`. `V1__baseline.sql` is intentionally a
-  no-op that only creates Flyway's `flyway_schema_history` table. Add real schema as `V2__...`.
+- Flyway migrations: `backend/src/main/resources/db/migration`. `V1__baseline.sql` is a no-op;
+  `V2__publication_and_snapshot.sql` holds the publication/snapshot schema. Never edit an applied migration;
+  add `V3__...`.
 - Hibernate runs with `ddl-auto: validate`; it never creates tables.
 - Tests use a throwaway `postgres:17` container (Testcontainers), not your local database.
 
@@ -124,6 +147,6 @@ cd frontend; npm run build; npm run lint                       # typecheck + pro
 
 ## Next milestone
 
-Publication data modeling and OpenAlex ingestion (blueprint §4, §6, §14): canonical identifiers and
-possible duplicate versions, topics/keywords with confidence, referenced-work IDs, missing-data flags,
-and frozen candidate snapshots.
+Relevance gate, candidate features, and baselines (blueprint §10, days 5–6). Before that, finish the
+Appendix C follow-up: retrieve beyond the top 100 and manually label a varied subset per topic for
+relevance, duplicate/version relation, and keyword accuracy (decisions D03, D06, D07).

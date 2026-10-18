@@ -2,6 +2,7 @@ package dev.researchpath;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.context.annotation.Import;
+import org.springframework.http.MediaType;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -31,17 +33,36 @@ class ResearchpathBackendApplicationTests {
 	MockMvc mockMvc;
 
 	@Test
-	void flywayAppliedBaselineMigration() {
+	void flywayAppliedAllMigrations() {
 		MigrationInfo current = flyway.info().current();
 		assertThat(current).isNotNull();
-		assertThat(current.getVersion().getVersion()).isEqualTo("1");
+		assertThat(current.getVersion().getVersion()).isEqualTo("2");
 		assertThat(flyway.info().pending()).isEmpty();
+		assertThat(flyway.info().applied()).allSatisfy(m -> assertThat(m.getState().isFailed()).isFalse());
+	}
+
+	@Test
+	void publicationAndSnapshotTablesExist() {
+		Integer tables = jdbc.queryForObject("""
+				SELECT count(*) FROM information_schema.tables
+				WHERE table_schema = 'public' AND table_name IN (
+				  'publication', 'publication_author', 'concept', 'publication_concept',
+				  'publication_reference', 'publication_identity_candidate',
+				  'candidate_snapshot', 'snapshot_membership')
+				""", Integer.class);
+		assertThat(tables).isEqualTo(8);
 	}
 
 	@Test
 	void databaseIsPostgres17() {
 		String version = jdbc.queryForObject("SHOW server_version", String.class);
 		assertThat(version).startsWith("17.");
+	}
+
+	@Test
+	void devApiIsDisabledByDefault() throws Exception {
+		mockMvc.perform(post("/api/dev/snapshots").contentType(MediaType.APPLICATION_JSON).content("{\"topic\":\"t\"}"))
+			.andExpect(status().isNotFound());
 	}
 
 	@Test

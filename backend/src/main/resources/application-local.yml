@@ -16,3 +16,7 @@ management:
   endpoint:
     health:
       show-details: always
+
+researchpath:
+  dev-api:
+    enabled: true

@@ -11,7 +11,7 @@ import org.testcontainers.utility.DockerImageName;
  * spring.datasource.* settings, so tests never touch the developer database.
  */
 @TestConfiguration(proxyBeanMethods = false)
-class TestcontainersConfiguration {
+public class TestcontainersConfiguration {
 
 	@Bean
 	@ServiceConnection
