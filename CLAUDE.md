@@ -14,9 +14,12 @@ turn OPEN items into hard-coded decisions. Audit evidence lives in `docs/audit/`
 - Modular monolith: modules inside one Spring Boot app, not separate services.
 
 ## Current phase
-Environment scaffold only. Not yet implemented: publication schema, OpenAlex ingestion, optimizer,
-sequencing, real UI. `V1__baseline.sql` is a no-op; real schema starts at V2. Next milestone:
-publication data modeling + OpenAlex ingestion (blueprint §4, §6, §14).
+Milestone 2 done: publication cache + OpenAlex ingestion + frozen candidate snapshots (V2 migration).
+Packages: `openalex` (HTTP client, retries), `publication` (normalizer, cache repository),
+`snapshot` (service, dev-only `/api/dev/snapshots`), `web` (error mapping). Data access is plain SQL via
+JdbcClient (upsert/batch heavy); Hibernate stays `validate` with no entities yet.
+Not implemented: relevance gate (D07 OPEN, members are `UNSCREENED`), duplicate merging (D06 OPEN,
+evidence only), scoring, optimizer, sequencing, path API, real UI. Evidence notes go in `docs/evidence/`.
 
 ## Working rule: verify every step
 After each change: run `.\scripts\verify.ps1` (all must PASS), add tests with the feature, and do a live

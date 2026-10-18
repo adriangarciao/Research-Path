@@ -15,6 +15,9 @@ spring:
   flyway:
     enabled: true
     locations: classpath:db/migration
+  mvc:
+    problemdetails:
+      enabled: true   # RFC 9457 error bodies
 
 server:
   port: 8080
@@ -41,3 +44,10 @@ researchpath:
     initial-backoff: 1s
     max-backoff: 30s
     max-per-page: 100
+  ingestion:
+    # PROVISIONAL (blueprint D11): 100-300 candidates is a planning target, not a tested value.
+    default-candidates: 100
+    max-candidates: 200
+    max-topic-length: 300
+  dev-api:
+    enabled: false   # /api/dev/** endpoints; enabled in the local profile only
