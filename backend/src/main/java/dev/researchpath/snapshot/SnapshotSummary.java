@@ -29,9 +29,13 @@ public record SnapshotSummary(
 		long possibleDuplicatePairs,
 		JsonNode retrievalNotes) {
 
-	/** Number of members with each kind of metadata present. */
+	/**
+	 * Number of members with each kind of metadata present. {@code withReferences} counts non-empty
+	 * reference lists; {@code withReferenceListSupplied} counts lists supplied at all (possibly empty).
+	 * {@code withSourceLink} counts members with a safe preferred link (open access, DOI or landing page).
+	 */
 	public record Availability(int withAbstract, int withTopics, int withKeywords, int withReferences, int withDoi,
-			int withYear) {
+			int withYear, int withAuthors, int withSourceLink, int withReferenceListSupplied, int abstractsTruncated) {
 	}
 
 	/**

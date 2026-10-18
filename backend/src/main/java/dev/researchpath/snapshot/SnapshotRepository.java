@@ -8,6 +8,7 @@ import java.util.UUID;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
+import dev.researchpath.publication.UrlSafety;
 import dev.researchpath.snapshot.SnapshotSummary.Availability;
 import dev.researchpath.snapshot.SnapshotSummary.Classification;
 import tools.jackson.databind.json.JsonMapper;
@@ -69,6 +70,7 @@ public class SnapshotRepository {
 	}
 
 	public Optional<SnapshotSummary> findSummary(UUID id) {
+		int withSourceLink = countMembersWithSourceLink(id);
 		return jdbc.sql("""
 				WITH members AS (
 				    SELECT p.* FROM snapshot_membership m JOIN publication p ON p.id = m.publication_id
@@ -92,6 +94,9 @@ public class SnapshotRepository {
 				       (SELECT count(*) FILTER (WHERE has_references) FROM members)        AS with_references,
 				       (SELECT count(*) FILTER (WHERE doi IS NOT NULL) FROM members)       AS with_doi,
 				       (SELECT count(*) FILTER (WHERE publication_year IS NOT NULL) FROM members) AS with_year,
+				       (SELECT count(*) FILTER (WHERE author_count > 0) FROM members)      AS with_authors,
+				       (SELECT count(*) FILTER (WHERE references_supplied) FROM members)   AS with_reference_list,
+				       (SELECT count(*) FILTER (WHERE abstract_truncated) FROM members)    AS abstracts_truncated,
 				       (SELECT count(DISTINCT pc.concept_id) FROM members p
 				            JOIN publication_concept pc ON pc.publication_id = p.id
 				            JOIN concept c ON c.id = pc.concept_id AND c.kind = 'TOPIC')   AS distinct_topics,
@@ -124,13 +129,30 @@ public class SnapshotRepository {
 						rs.getInt("normalizer_version"),
 						new Availability(rs.getInt("with_abstract"), rs.getInt("with_topics"),
 								rs.getInt("with_keywords"), rs.getInt("with_references"), rs.getInt("with_doi"),
-								rs.getInt("with_year")),
+								rs.getInt("with_year"), rs.getInt("with_authors"), withSourceLink,
+								rs.getInt("with_reference_list"), rs.getInt("abstracts_truncated")),
 						new Classification(rs.getInt("distinct_topics"), rs.getInt("distinct_keywords"),
 								rs.getString("top_primary_topic"), rs.getInt("top_primary_topic_count")),
 						rs.getLong("internal_edges"),
 						rs.getLong("duplicate_pairs"),
 						jsonMapper.readTree(rs.getString("notes"))))
 				.optional();
+	}
+
+	/** Applies the same preference rule as {@code NormalizedWork.preferredSourceLink()}. */
+	private int countMembersWithSourceLink(UUID snapshotId) {
+		return (int) jdbc.sql("""
+				SELECT p.oa_url, p.doi, p.landing_page_url
+				FROM snapshot_membership m JOIN publication p ON p.id = m.publication_id
+				WHERE m.snapshot_id = :id
+				""")
+				.param("id", snapshotId)
+				.query((rs, n) -> rs.getString(1) != null || UrlSafety.doiUrl(rs.getString(2)) != null
+						|| rs.getString(3) != null)
+				.list()
+				.stream()
+				.filter(Boolean::booleanValue)
+				.count();
 	}
 
 }
