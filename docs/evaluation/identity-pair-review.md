@@ -16,7 +16,7 @@ Everything else — conflicting DOIs, year gaps, missing authors/years, DOI/titl
 ## Population
 129 pairs flagged in the dev DB (470 works, 7 snapshots): **0 same-DOI pairs**, 129 same-normalized-title
 pairs, ~100 of them from the generic title "Protein structure prediction" (1990–2021, no shared authors).
-17 representative pairs were reviewed.
+17 representative pairs were reviewed, plus one pair found by the live run (18 total).
 
 ## Reviewed pairs
 
@@ -25,6 +25,7 @@ pairs, ~100 of them from the generic title "Protein structure prediction" (1990�
 | 1 | IEEE TNNLS 2020 survey vs UTS repository copy | SAME_WORK | SAME_WORK | ✅ suppressed (DOI record kept) |
 | 2 | GNNExplainer arXiv preprint vs PMC copy (2019) | SAME_WORK | SAME_WORK | ✅ suppressed |
 | 29 | Contemporary Physics 2019 vs White Rose accepted manuscript | SAME_WORK | SAME_WORK | ✅ suppressed (name formats differ) |
+| 160 | Steane 1996 Proc. R. Soc. A vs CiteSeerX copy (found live, then reviewed) | SAME_WORK | SAME_WORK | ✅ suppressed (titles differ by a hyphen) |
 | 13 | SPIE proceedings 2002 vs dblp 2001 record, same paper | SAME_WORK | PROBABLE_VERSION | ⚠️ missed duplicate (year off by one) |
 | 28 | Gottesman thesis vs arXiv copy (1997) | SAME_WORK | PROBABLE_VERSION | ⚠️ missed duplicate (conflicting DOIs) |
 | 16 | Journal article vs Zenodo deposit credited to the journal | SAME_WORK | DISTINCT | ⚠️ missed duplicate (bad author metadata) |
@@ -40,8 +41,19 @@ pairs, ~100 of them from the generic title "Protein structure prediction" (1990�
 | 12 | 2002 SPIE paper vs 2026 Zenodo preprint, other author | DIFFERENT_WORK | DISTINCT | ✅ kept |
 | 36 | 2001 review vs 2014 book (one side no authors) | DIFFERENT_WORK | DISTINCT | ✅ kept |
 
-**Results on reviewed pairs:** false merges **0 / 11** non-duplicate pairs · duplicates suppressed
-**3 / 6** · missed duplicates **3 / 6** (all in the conservative direction; documented above).
+**Results on 18 reviewed pairs:** false merges **0 / 11** non-duplicate pairs · duplicates suppressed
+**4 / 7** · missed duplicates **3 / 7** (all in the conservative direction; documented above).
+
+## Live run (V4, 2026-10-17, fresh 100-candidate snapshots)
+
+| Topic | SAME_WORK pairs | PROBABLE_VERSION | DISTINCT | UNRESOLVED | Suppressed members |
+|---|---:|---:|---:|---:|---:|
+| graph neural networks | 2 | 0 | 3 | 0 | 2 (pairs 1, 2) |
+| quantum error correction | 2 | 7 | 80 | 0 | 2 (pairs 29, 160) |
+| reinforcement learning in robotics | 0 | 5 | 5 | 0 | 0 |
+
+Every live suppression was inspected; all four are reviewed SAME_WORK pairs and the canonical member is
+the record with a DOI. The seven snapshots created before V4 report no identity block (not evaluated).
 
 ## Missed duplicates outside detection (near-identical titles)
 One-off scan of all 470 works for similar-but-unequal titles sharing an author surname (token Jaccard ≥ 0.75

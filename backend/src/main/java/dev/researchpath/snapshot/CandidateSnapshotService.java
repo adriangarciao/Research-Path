@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.support.TransactionTemplate;
 
+import dev.researchpath.identity.IdentityResolutionService;
 import dev.researchpath.openalex.OpenAlexClient;
 import dev.researchpath.openalex.OpenAlexProperties;
 import dev.researchpath.openalex.OpenAlexSearchPage;
@@ -33,8 +34,8 @@ import tools.jackson.databind.json.JsonMapper;
  * Retrieves a bounded candidate pool from OpenAlex, normalizes it, refreshes the publication
  * cache and freezes the pool as a candidate snapshot (blueprint §3.5 steps 1-3 and 6).
  *
- * <p>Not done here yet: the query-relevance gate (decision D07 is OPEN), so every member is
- * stored as UNSCREENED, and duplicate resolution beyond recording evidence (D06 is OPEN).
+ * <p>Obvious duplicates are suppressed by the conservative identity policy (D06), frozen with the
+ * snapshot. Not done here yet: the query-relevance gate (D07 is OPEN), so every member is UNSCREENED.
  */
 @Service
 public class CandidateSnapshotService {
@@ -49,19 +50,22 @@ public class CandidateSnapshotService {
 	private final OpenAlexWorkNormalizer normalizer;
 	private final PublicationRepository publications;
 	private final SnapshotRepository snapshots;
+	private final IdentityResolutionService identity;
 	private final TransactionTemplate transaction;
 	private final JsonMapper jsonMapper;
 	private final Clock clock;
 
 	public CandidateSnapshotService(OpenAlexClient openAlex, OpenAlexProperties openAlexProperties,
 			IngestionProperties ingestion, OpenAlexWorkNormalizer normalizer, PublicationRepository publications,
-			SnapshotRepository snapshots, TransactionTemplate transaction, JsonMapper jsonMapper, Clock clock) {
+			SnapshotRepository snapshots, IdentityResolutionService identity, TransactionTemplate transaction,
+			JsonMapper jsonMapper, Clock clock) {
 		this.openAlex = openAlex;
 		this.openAlexProperties = openAlexProperties;
 		this.ingestion = ingestion;
 		this.normalizer = normalizer;
 		this.publications = publications;
 		this.snapshots = snapshots;
+		this.identity = identity;
 		this.transaction = transaction;
 		this.jsonMapper = jsonMapper;
 		this.clock = clock;
@@ -143,6 +147,8 @@ public class CandidateSnapshotService {
 						score.isNumber() ? score.doubleValue() : null, c.record().json().toString(),
 						c.record().retrievedAt());
 			}
+			// Conservative identity resolution (D06), frozen with the snapshot.
+			identity.resolveSnapshot(snapshotId);
 		});
 		log.info("Created snapshot {} for topic '{}': received={}, stored={}, rejected={}", snapshotId, cleanTopic,
 				received.size(), storedCount, rejectedCount);

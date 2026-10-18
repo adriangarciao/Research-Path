@@ -981,6 +981,50 @@
     "hasOpenAccessLink": false,
     "metadataCompleteness": 5
    }
+  },
+  {
+   "pairId": 160,
+   "reviewerLabel": "SAME_WORK",
+   "expectedDecision": "SAME_WORK",
+   "rationale": "Steane 1996 Proc. R. Soc. A paper and a CiteSeerX copy; same OpenAlex author id, titles differ only by a hyphen. Found by live resolution, then reviewed.",
+   "a": {
+    "doi": "10.1098/rspa.1996.0136",
+    "year": 1996,
+    "title": "Multiple-particle interference and quantum error correction",
+    "source": "Proceedings of the Royal Society A Mathematical Physical and Engineering Sciences",
+    "authors": [
+     {
+      "id": "A5039762638",
+      "name": "Andrew M. Steane"
+     }
+    ],
+    "workType": "article",
+    "openalexId": "W2131690084",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "multiple particle interference and quantum error correction",
+    "hasOpenAccessLink": true,
+    "metadataCompleteness": 5
+   },
+   "b": {
+    "doi": null,
+    "year": 1996,
+    "title": "Multiple particle interference and quantum error correction",
+    "source": null,
+    "authors": [
+     {
+      "id": "A5039762638",
+      "name": "Andrew M. Steane"
+     }
+    ],
+    "workType": "article",
+    "openalexId": "W3100206575",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "multiple particle interference and quantum error correction",
+    "hasOpenAccessLink": false,
+    "metadataCompleteness": 5
+   }
   }
  ]
 }

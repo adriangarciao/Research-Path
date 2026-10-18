@@ -27,6 +27,7 @@ public record SnapshotSummary(
 		Classification classification,
 		long internalCitationEdges,
 		long possibleDuplicatePairs,
+		Identity identity,
 		JsonNode retrievalNotes) {
 
 	/**
@@ -36,6 +37,15 @@ public record SnapshotSummary(
 	 */
 	public record Availability(int withAbstract, int withTopics, int withKeywords, int withReferences, int withDoi,
 			int withYear, int withAuthors, int withSourceLink, int withReferenceListSupplied, int abstractsTruncated) {
+	}
+
+	/**
+	 * Frozen identity resolution (D06); null for snapshots created before it existed.
+	 * {@code canonicalMembers} = members that remain candidates; {@code suppressedMembers} = obvious
+	 * duplicates of another member (kept as provenance, not eligible).
+	 */
+	public record Identity(int policyVersion, int sameWorkPairs, int probableVersionPairs, int distinctPairs,
+			int unresolvedPairs, int canonicalMembers, int suppressedMembers) {
 	}
 
 	/**

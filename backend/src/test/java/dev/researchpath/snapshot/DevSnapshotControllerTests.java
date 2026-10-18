@@ -37,7 +37,7 @@ class DevSnapshotControllerTests {
 		return new SnapshotSummary(id, "graph neural networks", Instant.parse("2026-10-17T12:00:00Z"), "OPENALEX", 10,
 				964424L, 10, 9, 1, 1, new SnapshotSummary.Availability(8, 9, 9, 9, 7, 9, 9, 9, 9, 0),
 				new SnapshotSummary.Classification(3, 40, "Advanced Graph Neural Networks", 7), 5, 1,
-				WorkJson.JSON.readTree("[]"));
+				new SnapshotSummary.Identity(1, 1, 0, 0, 0, 8, 1), WorkJson.JSON.readTree("[]"));
 	}
 
 	@Test
