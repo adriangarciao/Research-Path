@@ -141,6 +141,30 @@ class RelevancePolicyTest {
 	}
 
 	@Test
+	void technicalVocabularyIsNotMistakenForAspects() {
+		String rl = "reinforcement learning in robotics";
+		assertThat(decide(rl, work("Curriculum learning for robot reinforcement learning", null)).tier())
+				.isEqualTo(RelevanceTier.ELIGIBLE);
+		assertThat(decide(rl, work("Robot perception for reinforcement learning", null)).tier())
+				.isEqualTo(RelevanceTier.ELIGIBLE);
+		assertThat(decide(rl, work("Linear quadratic regulator baselines for robot reinforcement learning", null)).tier())
+				.isEqualTo(RelevanceTier.ELIGIBLE);
+		assertThat(decide("graph neural networks", work("Multilayer perceptrons versus graph neural networks", null))
+				.tier()).isEqualTo(RelevanceTier.ELIGIBLE);
+		// The query supplies technical context: an RL query makes a bare "policy learning" label technical.
+		assertThat(RelevancePolicy.namesUnrequestedAspect(RelevancePolicy.stems("policy learning"),
+				RelevancePolicy.analyzeQuery(rl).stems())).isFalse();
+		assertThat(RelevancePolicy.namesUnrequestedAspect(RelevancePolicy.stems("health policy"),
+				RelevancePolicy.analyzeQuery("AI-assisted medical diagnosis").stems())).isTrue();
+		// Education and regulation are still aspects.
+		assertThat(decide("AI-assisted medical diagnosis",
+				work("Regulatory challenges of AI-assisted medical diagnosis", null)).tier())
+				.isEqualTo(RelevanceTier.TANGENTIAL);
+		assertThat(decide(rl, work("Robotics education with reinforcement learning kits for students", null)).tier())
+				.isEqualTo(RelevanceTier.TANGENTIAL);
+	}
+
+	@Test
 	void technicalUsesOfLawAreNotAspects() {
 		assertThat(decide("graph neural networks", work("Graph neural networks for power-law degree graphs", null))
 				.tier()).isEqualTo(RelevanceTier.ELIGIBLE);

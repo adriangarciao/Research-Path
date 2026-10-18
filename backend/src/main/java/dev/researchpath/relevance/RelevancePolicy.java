@@ -31,8 +31,8 @@ import dev.researchpath.publication.TextNormalization;
  */
 public final class RelevancePolicy {
 
-	/** v2: "-ics" stripped only from words of 8+ letters, so "ethics" matches the ethics cue. */
-	public static final int VERSION = 2;
+	/** v2: "-ics" only on 8+ letter words; v3: narrower aspect cues, query supplies technical context. */
+	public static final int VERSION = 3;
 	public static final double ELIGIBLE_COVERAGE = 0.75;
 	public static final double BORDERLINE_COVERAGE = 0.5;
 	/** Audit thresholds for counting classifications as evidence; unknown scores do not count. */
@@ -60,16 +60,24 @@ public final class RelevancePolicy {
 			"ml", List.of("machine learning"), "nlp", List.of("natural language processing"),
 			"llm", List.of("large language model"), "cnn", List.of("convolutional neural network"));
 
-	/** Non-technical aspects (title words, matched by stem prefix). Not cues when the query asks for them. */
-	private static final List<String> ASPECT_CUES = List.of("polic", "governanc", "regulat", "legal",
-			"liabil", "ethic", "econom", "staffing", "workforc", "educat", "student", "curricul", "percept", "attitud",
+	/**
+	 * Non-technical aspects (title words, matched by stem prefix). Not cues when the query asks for them.
+	 * v3: "percept" removed (multilayer perceptron, robot perception); "regulat" narrowed so the control
+	 * term "regulator" is not a cue.
+	 */
+	private static final List<String> ASPECT_CUES = List.of("polic", "governanc", "regulati", "regulatory", "legal",
+			"liabil", "ethic", "econom", "staffing", "workforc", "educat", "student", "curricul", "attitud",
 			"intention", "acceptanc", "adoption", "distrust");
 	/** Two-word aspect cues. */
 	private static final List<String> ASPECT_PHRASES = List.of("information secur");
-	/** Technical senses that cancel a cue: "policy" in RL/control, "student" in teacher-student models. */
+	/**
+	 * Technical senses that cancel a cue when a context stem appears in the title/label <b>or in the query</b>:
+	 * "policy" in RL/control, "student" in teacher-student models, "curriculum learning".
+	 */
 	private static final Map<String, List<String>> TECHNICAL_SENSES = Map.of(
 			"polic", List.of("reinforc", "optimiz", "gradient", "search", "control", "robot", "agent", "reward"),
-			"student", List.of("teacher", "distill"));
+			"student", List.of("teacher", "distill"),
+			"curricul", List.of("learn"));
 
 	private RelevancePolicy() {
 	}
@@ -287,7 +295,8 @@ public final class RelevancePolicy {
 				continue;
 			}
 			List<String> technical = TECHNICAL_SENSES.getOrDefault(cue, List.of());
-			boolean technicalSense = titleStems.stream().anyMatch(s -> technical.stream().anyMatch(s::startsWith));
+			boolean technicalSense = titleStems.stream().anyMatch(s -> technical.stream().anyMatch(s::startsWith))
+					|| queryStems.stream().anyMatch(s -> technical.stream().anyMatch(s::startsWith));
 			if (!technicalSense) {
 				found.add(cue);
 			}
