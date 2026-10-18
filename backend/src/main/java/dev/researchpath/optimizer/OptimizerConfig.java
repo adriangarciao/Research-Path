@@ -7,13 +7,24 @@ import dev.researchpath.optimizer.Preferences.Experience;
  * {@code qualityShare} caps the whole quality term at that value for a full budget.
  *
  * @param qualityShare β: quality term contributes at most β (vs coverage ≤ 1)
+ * @param qualityWeightedCoverage if true, a paper's credit for a concept is its strength × its quality q_p
+ *     (low-quality papers become weak coverers); still monotone submodular
  */
-public record OptimizerConfig(double qualityShare) {
+public record OptimizerConfig(double qualityShare, boolean qualityWeightedCoverage) {
 
 	public static final int VERSION = 1;
 
-	/** Placeholder until the D12 sensitivity sweep chooses β (see docs/evaluation/optimizer-review.md). */
-	public static final OptimizerConfig DEFAULT = new OptimizerConfig(0.25);
+	/**
+	 * D12 (conservative, 2026-10-18): additive objective with β = 4, the smallest β in the sweep that kept
+	 * coverage above every baseline on all three datasets while restoring relevance (mean ≥ 0.95) and influence
+	 * (median citation percentile ≥ 0.9). β = 0.25 chased niche concepts with barely cited papers. See
+	 * docs/evaluation/optimizer-review.md.
+	 */
+	public static final OptimizerConfig DEFAULT = new OptimizerConfig(4.0, false);
+
+	public OptimizerConfig(double qualityShare) {
+		this(qualityShare, false);
+	}
 
 	public OptimizerConfig {
 		if (qualityShare < 0) {

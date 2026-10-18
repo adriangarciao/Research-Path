@@ -22,9 +22,9 @@ public final class GreedyOptimizer {
 
 	/** Why a paper was chosen, from its recorded contributions. */
 	public enum Reason {
-		/** Most of its gain came from concepts not yet represented. */
+		/** It is the first selected paper to carry at least one concept. */
 		ADDS_NEW_CONCEPTS,
-		/** Coverage gain was small; chosen mainly for relevance evidence. */
+		/** Adds no new concept; chosen mainly for relevance evidence. */
 		HIGH_RELEVANCE,
 		/** Chosen mainly for normalized citation influence. */
 		INFLUENCE,
@@ -85,12 +85,12 @@ public final class GreedyOptimizer {
 					.toList();
 			Objective.QualityParts parts = objective.quality(best);
 			decisions.add(new Decision(selected.size() + 1, best.id(), round(bestGain), round(bestCoverage),
-					round(bestQuality), parts, newConcepts, reason(bestCoverage, bestQuality, parts, preferences)));
+					round(bestQuality), parts, newConcepts, reason(newConcepts, parts, preferences)));
 			selected.add(best);
 			remaining.remove(best);
 			for (Map.Entry<String, Double> e : best.concepts().entrySet()) {
 				if (conceptWeights.containsKey(e.getKey())) {
-					uncovered.merge(e.getKey(), 1 - Math.max(0, Math.min(1, e.getValue())), (a, b) -> a * b);
+					uncovered.merge(e.getKey(), 1 - objective.strength(best, e.getValue()), (a, b) -> a * b);
 				}
 			}
 		}
@@ -106,8 +106,13 @@ public final class GreedyOptimizer {
 				round(objective.value(selected)), round(objective.coverage(selected)), List.copyOf(warnings));
 	}
 
-	private static Reason reason(double coverageGain, double qualityGain, Objective.QualityParts q, Preferences p) {
-		if (coverageGain >= qualityGain) {
+	/**
+	 * Grounded in recorded facts: a paper that is the first selected one to carry some concept is explained by
+	 * the concepts it adds (quality is similar across candidates, so it rarely distinguishes a pick); otherwise
+	 * by its largest weighted quality component.
+	 */
+	private static Reason reason(List<String> newConcepts, Objective.QualityParts q, Preferences p) {
+		if (!newConcepts.isEmpty()) {
 			return Reason.ADDS_NEW_CONCEPTS;
 		}
 		OptimizerConfig.QualityWeights w = OptimizerConfig.weights(p);
