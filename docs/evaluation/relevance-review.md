@@ -102,3 +102,8 @@ carries a FEW_ELIGIBLE_CANDIDATES warning).
 `RelevancePolicy` v2 (2026-10-17, during M07): the stemmer stripped "-ics" from 6-letter words, so "ethics"
 became "eth" and missed the ethics aspect cue ("ethical" was unaffected). "-ics" is now stripped only from words
 of 8+ letters. All 118 labeled tiers are unchanged; snapshots created earlier record v1.
+`RelevancePolicy` v3 (2026-10-17, during M07): concept-label review showed cues firing on technical
+vocabulary — "percept" (multilayer perceptron, robot perception), "regulat" (linear quadratic regulator),
+"curricul" (curriculum learning) and "polic" on short RL labels (policy search, policy learning). "percept" was
+removed, "regulat" narrowed to regulation/regulatory, "curriculum learning" treated as technical, and technical
+context may now come from the query (an RL query makes "policy" technical). All 118 labeled tiers unchanged.
