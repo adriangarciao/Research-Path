@@ -41,12 +41,20 @@ class AblationTest {
 			SelectionMetrics again = SelectionMetrics.of(d, reference, r.budget(), r.selectedIds().stream().map(byId::get).toList());
 			assertThat(r.metrics()).isEqualTo(again);
 			assertThat(r.metrics().conceptUniverseSize()).isEqualTo(reference.included().size());
+			assertThat(r.landmarksKept()).isEqualTo((int) r.selectedIds().stream().filter(Ablation.landmarks(d)::contains).count());
 		}
 		for (int k : List.of(10, 20)) {
 			List<String> product = new OptimizerSelector(Preferences.DEFAULT, OptimizerConfig.DEFAULT).optimize(d, k).selectedIds();
 			assertThat(a.stream().filter(r -> r.variant().equals("DEFAULT") && r.budget() == k).findFirst().orElseThrow()
 					.selectedIds()).as("default variant is the product optimizer").isEqualTo(product);
 		}
+	}
+
+	@org.junit.jupiter.api.Test
+	void landmarksAreThePoolsMostCitedWorks() throws Exception {
+		BenchmarkDataset d = OptimizerBenchmarkTest.load("protein-structure-200");
+		// The AlphaFold 2 paper (43k citations) is the most-cited candidate of this pool.
+		assertThat(Ablation.landmarks(d)).hasSize(Ablation.LANDMARKS).first().isEqualTo("W3177828909");
 	}
 
 }
