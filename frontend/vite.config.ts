@@ -14,6 +14,7 @@ export default defineConfig(({ mode }) => {
       environment: 'jsdom',
       setupFiles: ['./src/test/setup.ts'],
       restoreMocks: true,
+      include: ['src/**/*.test.{ts,tsx}'],
     },
     server: {
       port: 5173,

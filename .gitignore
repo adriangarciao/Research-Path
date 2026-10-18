@@ -50,3 +50,7 @@ desktop.ini
 *.swp
 *~
 __pycache__/
+
+# Playwright output (screenshots, traces)
+frontend/e2e-results/
+frontend/playwright-report/
