@@ -16,8 +16,8 @@ import dev.researchpath.publication.TextNormalization;
 /**
  * Conservative, interpretable relevance gate (decision D07). Pure logic: no Spring, DB or network.
  *
- * <p>Evidence = which query terms appear in the title, in confident keywords/topics, and in the
- * abstract. The abstract is never required: it only distinguishes BORDERLINE from INELIGIBLE.
+ * <p>Evidence = which query terms appear in the title, in confident keywords/topics (excluding labels
+ * that name an unrequested aspect), and in the abstract. The abstract is never required: it only distinguishes BORDERLINE from INELIGIBLE.
  * Decision, first match wins:
  * <ol>
  *   <li>Title is about an aspect the query did not ask for (policy, legal, economics, education,
@@ -113,7 +113,7 @@ public final class RelevancePolicy {
 
 	public static Decision decide(Query query, NormalizedWork work) {
 		List<String> title = withExpansions(stems(work.title()));
-		List<String> concepts = withExpansions(conceptStems(work.concepts()));
+		List<String> concepts = withExpansions(conceptStems(work.concepts(), query.stems()));
 		List<String> abstractText = work.abstractText() == null ? List.of() : withExpansions(stems(work.abstractText()));
 
 		List<String> inTitle = new ArrayList<>();
@@ -238,14 +238,23 @@ public final class RelevancePolicy {
 		return out;
 	}
 
-	private static List<String> conceptStems(Collection<ConceptAssociation> concepts) {
+	/**
+	 * Confident topic/keyword labels as evidence. Labels that themselves name an unrequested aspect
+	 * (e.g. "medical education", "AI adoption barriers") are not evidence of technical relevance.
+	 */
+	private static List<String> conceptStems(Collection<ConceptAssociation> concepts, Set<String> queryStems) {
 		List<String> out = new ArrayList<>();
 		for (ConceptAssociation c : concepts) {
 			double min = c.kind() == ConceptKind.TOPIC ? MIN_TOPIC_SCORE : MIN_KEYWORD_SCORE;
-			if (c.score() != null && c.score() >= min) {
-				out.add("|");
-				out.addAll(stems(c.displayName()));
+			if (c.score() == null || c.score() < min) {
+				continue;
 			}
+			List<String> label = stems(c.displayName());
+			if (!aspectCues(label, queryStems).isEmpty()) {
+				continue;
+			}
+			out.add("|");
+			out.addAll(label);
 		}
 		return out;
 	}
