@@ -1,5 +1,6 @@
 package dev.researchpath.benchmark;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -27,10 +28,14 @@ public class DatasetExportService {
 			if (summary.relevance() == null) {
 				throw new SnapshotNotEvaluatedException(snapshotId);
 			}
-			return new BenchmarkDataset(BenchmarkDataset.FORMAT_VERSION, snapshotId, summary.topic(),
-					summary.createdAt(), policies(summary),
-					snapshots.optimizationCandidates(snapshotId).stream().map(DatasetExportService::candidate).toList());
+			return dataset(summary, snapshots.optimizationCandidates(snapshotId));
 		});
+	}
+
+	/** The frozen pool as a dataset; {@code summary} must belong to an evaluated snapshot. */
+	public static BenchmarkDataset dataset(SnapshotSummary summary, List<FrozenCandidate> candidates) {
+		return new BenchmarkDataset(BenchmarkDataset.FORMAT_VERSION, summary.id(), summary.topic(), summary.createdAt(),
+				policies(summary), candidates.stream().map(DatasetExportService::candidate).toList());
 	}
 
 	private static BenchmarkDataset.Policies policies(SnapshotSummary s) {

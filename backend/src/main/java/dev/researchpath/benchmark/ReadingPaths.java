@@ -35,7 +35,7 @@ public final class ReadingPaths {
 	}
 
 	/** Selected candidates in selection order, with their included concepts and recorded decisions. */
-	static List<PathPaper> papers(BenchmarkDataset d, ConceptModel model, GreedyOptimizer.Result result) {
+	public static List<PathPaper> papers(BenchmarkDataset d, ConceptModel model, GreedyOptimizer.Result result) {
 		Map<String, String> labels = new HashMap<>();
 		model.included().forEach(e -> labels.put(e.key(), e.label()));
 		Map<String, Candidate> byId = d.candidates().stream().collect(Collectors.toMap(Candidate::openalexId, c -> c));

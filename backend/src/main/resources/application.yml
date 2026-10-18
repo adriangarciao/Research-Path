@@ -50,5 +50,9 @@ researchpath:
     default-candidates: 100
     max-candidates: 200
     max-topic-length: 300
+  paths:
+    # PROVISIONAL (S02): local bounds; rate limits and anonymous quotas come with M13.
+    max-concurrent-generations: 4
+    max-revisions-per-path: 50
   dev-api:
     enabled: false   # /api/dev/** endpoints; enabled in the local profile only
