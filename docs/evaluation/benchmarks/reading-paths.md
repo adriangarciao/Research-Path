@@ -7,6 +7,206 @@ Always disclosed with a path:
 - ORDER_IS_HEURISTIC: the order is a recommendation built from review/survey metadata, citation links among the selected papers and publication year; a citation link suggests background, it does not mean one paper must be read first.
 - DIFFICULTY_NOT_ESTIMATED: papers carry no difficulty or accessibility rating; review/survey labels describe metadata, not verified content.
 
+## causal inference in economics
+
+### Stage structure by budget (Intermediate / Balanced)
+
+| k | Stages | Citation links | Cycles broken | Warnings |
+|---:|---|---:|---:|---|
+| 5 | Selected papers (5) | 0 | 0 | NO_CITATION_LINKS |
+| 10 | Papers from 1990–2015 (4) → Papers from 2016–2021 (3) → Papers from 2022–2024 (3) | 0 | 0 | NO_CITATION_LINKS |
+| 15 | Papers from 1990–2015 (5) → Papers from 2016–2019 (3) → Papers from 2021–2023 (3) → Papers from 2024–2026 (4) | 0 | 0 | NO_CITATION_LINKS |
+| 20 | Overviews and surveys (1) → Papers from 1985–2015 (7) → Papers from 2016–2021 (6) → Papers from 2022–2026 (6) | 0 | 0 | NO_CITATION_LINKS |
+
+### k = 10, Intermediate / Balanced
+
+Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of the selected papers cite each other; the order uses review/survey metadata and publication year only
+
+**Stage 1 — Papers from 1990–2015.** Published 1990–2015; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 1 | EXPERT SYSTEM FOR QUALITATIVE CAUSAL INFERENCE IN ECONOMICS (W3022579435) | 1990 | book-chapter | Adds subtopics the selection did not yet cover: expert systems, indeterminacy and knowledge base (and 2 more). | – | FEW_CITATIONS |
+| 2 | Causal Inference and Scientific Explanation in Economics (W2519132382) | 2005 | article | Adds subtopics the selection did not yet cover: Philosophy and History of Science. | – | – |
+| 3 | Causal Inference in Urban and Regional Economics (W4211101300) | 2015 | book-chapter | Adds subtopics the selection did not yet cover: regional economics, urban economics and unobserved heterogeneity (and 2 more). | – | – |
+| 4 | Causality Inference with Observational Data in Economics (W2513629617) | 2015 | article | Adds subtopics the selection did not yet cover: regression discontinuity design, difference-in-differences and selection bias. | – | FEW_CITATIONS |
+
+**Stage 2 — Papers from 2016–2021.** Published 2016–2021; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 5 | Suppes’ probabilistic theory of causality and causal inference in economics (W2483709630) | 2016 | article | Adds subtopics the selection did not yet cover: Patrick Suppes, Bayesian networks and design-based inference. | – | – |
+| 6 | Causal inference in economics and marketing (W2462689321) | 2016 | article | Adds subtopics the selection did not yet cover: treatment effects. | – | – |
+| 7 | Making progress on causal inference in economics (W3187440871) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: causal graphs, covariate adjustment and causal discovery (and 3 more). | – | – |
+
+**Stage 3 — Papers from 2022–2024.** Published 2022–2024; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 8 | Causal Inference and Austrian Economics (W4206718038) | 2022 | book-chapter | Adds subtopics the selection did not yet cover: generalizability, observational data and Austrian economics (and 3 more). | – | FEW_CITATIONS |
+| 9 | Causal inference and data fusion in econometrics (W2996477010) | 2023 | article | Adds subtopics the selection did not yet cover: data fusion and unmeasured confounding. | – | – |
+| 10 | A First Course in Causal Inference (W4400824990) | 2024 | book | Adds subtopics the selection did not yet cover: confounding and counterfactual reasoning. | – | – |
+
+### k = 10, Beginner / Balanced
+
+Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of the selected papers cite each other; the order uses review/survey metadata and publication year only
+
+**Stage 1 — Papers from 1990–2015.** Published 1990–2015; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 1 | EXPERT SYSTEM FOR QUALITATIVE CAUSAL INFERENCE IN ECONOMICS (W3022579435) | 1990 | book-chapter | Adds subtopics the selection did not yet cover: expert systems, indeterminacy and knowledge base (and 2 more). | – | FEW_CITATIONS |
+| 2 | Causal Inference and Scientific Explanation in Economics (W2519132382) | 2005 | article | Adds subtopics the selection did not yet cover: Philosophy and History of Science. | – | – |
+| 3 | Causal Inference in Urban and Regional Economics (W4211101300) | 2015 | book-chapter | Adds subtopics the selection did not yet cover: regional economics, urban economics and unobserved heterogeneity (and 2 more). | – | – |
+| 4 | Causality Inference with Observational Data in Economics (W2513629617) | 2015 | article | Adds subtopics the selection did not yet cover: regression discontinuity design, difference-in-differences and selection bias. | – | FEW_CITATIONS |
+
+**Stage 2 — Papers from 2016–2021.** Published 2016–2021; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 5 | Suppes’ probabilistic theory of causality and causal inference in economics (W2483709630) | 2016 | article | Adds subtopics the selection did not yet cover: Patrick Suppes, Bayesian networks and design-based inference. | – | – |
+| 6 | Causal inference in economics and marketing (W2462689321) | 2016 | article | Adds subtopics the selection did not yet cover: treatment effects. | – | – |
+| 7 | Making progress on causal inference in economics (W3187440871) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: causal graphs, covariate adjustment and causal discovery (and 3 more). | – | – |
+
+**Stage 3 — Papers from 2022–2024.** Published 2022–2024; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 8 | Causal Inference and Austrian Economics (W4206718038) | 2022 | book-chapter | Adds subtopics the selection did not yet cover: generalizability, observational data and Austrian economics (and 3 more). | – | FEW_CITATIONS |
+| 9 | Causal inference and data fusion in econometrics (W2996477010) | 2023 | article | Adds subtopics the selection did not yet cover: data fusion and unmeasured confounding. | – | – |
+| 10 | A First Course in Causal Inference (W4400824990) | 2024 | book | Adds subtopics the selection did not yet cover: confounding and counterfactual reasoning. | – | – |
+
+### k = 10, Advanced / Balanced
+
+Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of the selected papers cite each other; the order uses review/survey metadata and publication year only
+
+**Stage 1 — Papers from 1990–2015.** Published 1990–2015; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 1 | EXPERT SYSTEM FOR QUALITATIVE CAUSAL INFERENCE IN ECONOMICS (W3022579435) | 1990 | book-chapter | Adds subtopics the selection did not yet cover: expert systems, indeterminacy and knowledge base (and 2 more). | – | FEW_CITATIONS |
+| 2 | Causal Inference and Scientific Explanation in Economics (W2519132382) | 2005 | article | Adds subtopics the selection did not yet cover: Philosophy and History of Science. | – | – |
+| 3 | Causal Inference in Urban and Regional Economics (W4211101300) | 2015 | book-chapter | Adds subtopics the selection did not yet cover: regional economics, urban economics and unobserved heterogeneity (and 2 more). | – | – |
+| 4 | Causality Inference with Observational Data in Economics (W2513629617) | 2015 | article | Adds subtopics the selection did not yet cover: regression discontinuity design, difference-in-differences and selection bias. | – | FEW_CITATIONS |
+
+**Stage 2 — Papers from 2016–2021.** Published 2016–2021; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 5 | Suppes’ probabilistic theory of causality and causal inference in economics (W2483709630) | 2016 | article | Adds subtopics the selection did not yet cover: Patrick Suppes, Bayesian networks and design-based inference. | – | – |
+| 6 | Causal inference in economics and marketing (W2462689321) | 2016 | article | Adds subtopics the selection did not yet cover: treatment effects. | – | – |
+| 7 | Making progress on causal inference in economics (W3187440871) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: causal graphs, covariate adjustment and causal discovery (and 3 more). | – | – |
+
+**Stage 3 — Papers from 2022–2024.** Published 2022–2024; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 8 | Causal Inference and Austrian Economics (W4206718038) | 2022 | book-chapter | Adds subtopics the selection did not yet cover: generalizability, observational data and Austrian economics (and 3 more). | – | FEW_CITATIONS |
+| 9 | Causal inference and data fusion in econometrics (W2996477010) | 2023 | article | Adds subtopics the selection did not yet cover: data fusion and unmeasured confounding. | – | – |
+| 10 | A First Course in Causal Inference (W4400824990) | 2024 | book | Adds subtopics the selection did not yet cover: confounding and counterfactual reasoning. | – | – |
+
+**Beginner vs Advanced (k = 10):** 10 of 10 papers shared; overview-marked papers 0 vs 0.
+
+## climate change adaptation in agriculture
+
+### Stage structure by budget (Intermediate / Balanced)
+
+| k | Stages | Citation links | Cycles broken | Warnings |
+|---:|---|---:|---:|---|
+| 5 | Overviews and surveys (1) → Further papers (4) | 0 | 0 | NO_CITATION_LINKS |
+| 10 | Overviews and surveys (1) → Papers from 2010–2020 (5) → Papers from 2022–2024 (4) | 1 | 0 | – |
+| 15 | Overviews and surveys (2) → Papers from 2009–2011 (4) → Papers from 2012–2020 (5) → Papers from 2022–2024 (4) | 2 | 0 | – |
+| 20 | Overviews and surveys (2) → Papers from 2009–2012 (6) → Papers from 2013–2018 (6) → Papers from 2019–2024 (6) | 2 | 0 | – |
+
+### k = 10, Intermediate / Balanced
+
+Citation links among selected papers: 1
+
+**Stage 1 — Overviews and surveys.** Start with works that their metadata marks as reviews, surveys or introductions.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 1 | Climate change and Indian agriculture: A systematic review of farmers’ perception, adaptation, and transformation (W4229014251) | 2022 | review | Adds subtopics the selection did not yet cover: transformative adaptation, farmer perceptions and cropping systems (and 2 more). OpenAlex lists its publication type as review. | – | – |
+
+**Stage 2 — Papers from 2010–2020.** Published 2010–2020; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 2 | From climate change impacts to the development of adaptation strategies: Challenges for agriculture in Europe (W2079121073) | 2011 | article | Adds subtopics the selection did not yet cover: agricultural extension, climate change impacts and climate risk. | ← #3 | – |
+| 3 | Towards adaptation of agriculture to climate change in the Mediterranean (W1991667513) | 2010 | article | Adds subtopics the selection did not yet cover: water scarcity and climate change vulnerability. | → #2 | – |
+| 4 | Technologies for climate change adaptation. Agriculture sector (W2068289448) | 2011 | article | Adds subtopics the selection did not yet cover: crop management, agricultural productivity and capacity building (and 2 more). | – | – |
+| 5 | Climate Change and Agriculture in India: Impact and Adaptation (W4240695645) | 2018 | book | Adds subtopics the selection did not yet cover: climate change mitigation, agricultural technology and India. | – | – |
+| 6 | Climate Change and Adaptation: Recommendations for Agricultural Sector (W3105307044) | 2020 | book-chapter | Adds subtopics the selection did not yet cover: adaptation strategies and climate change scenarios. | – | – |
+
+**Stage 3 — Papers from 2022–2024.** Published 2022–2024; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 7 | Climate Change Adaptation and Agricultural Livelihoods of Smallholder Farmers (W4286629437) | 2022 | book-chapter | Adds subtopics the selection did not yet cover: agricultural livelihoods, crop rotation and smallholder farmers (and 4 more). | – | – |
+| 8 | Impact, adaptation, and mitigation of climate change in Indian agriculture (W4307973157) | 2022 | article | Adds subtopics the selection did not yet cover: climate-smart agriculture, rainfed agriculture and crop yield (and 1 more). | – | – |
+| 9 | Impact of Climate Change on Global Agriculture: Challenges and Adaptation (W4394919599) | 2024 | article | Adds subtopics the selection did not yet cover: climate change impacts on agriculture, food security and water management (and 4 more). | – | – |
+| 10 | Climate smart agriculture? Adaptation strategies of traditional agriculture to climate change in sub-Saharan Africa (W4391397619) | 2024 | article | Adds subtopics the selection did not yet cover: agroforestry and indigenous knowledge. | – | – |
+
+### k = 10, Beginner / Balanced
+
+Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of the selected papers cite each other; the order uses review/survey metadata and publication year only
+
+**Stage 1 — Overviews and surveys.** Start with works that their metadata marks as reviews, surveys or introductions.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 1 | Overview of Impacts of Climate Change and Adaptation in China's Agriculture (W1534452221) | 2014 | article | Adds subtopics the selection did not yet cover: CO2 fertilization. Its title presents it as an overview (content not verified). | – | – |
+| 2 | Climate change and Indian agriculture: A systematic review of farmers’ perception, adaptation, and transformation (W4229014251) | 2022 | review | Adds subtopics the selection did not yet cover: transformative adaptation, farmer perceptions and cropping systems (and 2 more). OpenAlex lists its publication type as review. | – | – |
+
+**Stage 2 — Papers from 2011–2020.** Published 2011–2020; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 3 | Technologies for climate change adaptation. Agriculture sector (W2068289448) | 2011 | article | Adds subtopics the selection did not yet cover: crop management, agricultural productivity and capacity building (and 2 more). | – | – |
+| 4 | From climate change impacts to the development of adaptation strategies: Challenges for agriculture in Europe (W2079121073) | 2011 | article | Adds subtopics the selection did not yet cover: agricultural extension, climate change impacts and climate risk. | – | – |
+| 5 | Climate Change and Agriculture in India: Impact and Adaptation (W4240695645) | 2018 | book | Adds subtopics the selection did not yet cover: climate change mitigation, agricultural technology and India. | – | – |
+| 6 | Climate Change and Adaptation: Recommendations for Agricultural Sector (W3105307044) | 2020 | book-chapter | Adds subtopics the selection did not yet cover: adaptation strategies and climate change scenarios. | – | – |
+
+**Stage 3 — Papers from 2022–2024.** Published 2022–2024; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 7 | Climate Change Adaptation and Agricultural Livelihoods of Smallholder Farmers (W4286629437) | 2022 | book-chapter | Adds subtopics the selection did not yet cover: agricultural livelihoods, crop rotation and smallholder farmers (and 4 more). | – | – |
+| 8 | Impact, adaptation, and mitigation of climate change in Indian agriculture (W4307973157) | 2022 | article | Adds subtopics the selection did not yet cover: climate-smart agriculture, rainfed agriculture and crop yield (and 1 more). | – | – |
+| 9 | Impact of Climate Change on Global Agriculture: Challenges and Adaptation (W4394919599) | 2024 | article | Adds subtopics the selection did not yet cover: climate change impacts on agriculture, food security and water management (and 4 more). | – | – |
+| 10 | Climate smart agriculture? Adaptation strategies of traditional agriculture to climate change in sub-Saharan Africa (W4391397619) | 2024 | article | Adds subtopics the selection did not yet cover: agroforestry and indigenous knowledge. | – | – |
+
+### k = 10, Advanced / Balanced
+
+Citation links among selected papers: 1
+
+**Stage 1 — Overviews and surveys.** Start with works that their metadata marks as reviews, surveys or introductions.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 1 | Climate change and Indian agriculture: A systematic review of farmers’ perception, adaptation, and transformation (W4229014251) | 2022 | review | Adds subtopics the selection did not yet cover: transformative adaptation, farmer perceptions and cropping systems (and 2 more). OpenAlex lists its publication type as review. | – | – |
+
+**Stage 2 — Papers from 2010–2020.** Published 2010–2020; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 2 | From climate change impacts to the development of adaptation strategies: Challenges for agriculture in Europe (W2079121073) | 2011 | article | Adds subtopics the selection did not yet cover: agricultural extension, climate change impacts and climate risk. | ← #3 | – |
+| 3 | Towards adaptation of agriculture to climate change in the Mediterranean (W1991667513) | 2010 | article | Adds subtopics the selection did not yet cover: water scarcity and climate change vulnerability. | → #2 | – |
+| 4 | Technologies for climate change adaptation. Agriculture sector (W2068289448) | 2011 | article | Adds subtopics the selection did not yet cover: crop management, agricultural productivity and capacity building (and 2 more). | – | – |
+| 5 | Climate Change and Agriculture in India: Impact and Adaptation (W4240695645) | 2018 | book | Adds subtopics the selection did not yet cover: climate change mitigation, agricultural technology and India. | – | – |
+| 6 | Climate Change and Adaptation: Recommendations for Agricultural Sector (W3105307044) | 2020 | book-chapter | Adds subtopics the selection did not yet cover: adaptation strategies and climate change scenarios. | – | – |
+
+**Stage 3 — Papers from 2022–2024.** Published 2022–2024; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 7 | Climate Change Adaptation and Agricultural Livelihoods of Smallholder Farmers (W4286629437) | 2022 | book-chapter | Adds subtopics the selection did not yet cover: agricultural livelihoods, crop rotation and smallholder farmers (and 4 more). | – | – |
+| 8 | Impact, adaptation, and mitigation of climate change in Indian agriculture (W4307973157) | 2022 | article | Adds subtopics the selection did not yet cover: climate-smart agriculture, rainfed agriculture and crop yield (and 1 more). | – | – |
+| 9 | Impact of Climate Change on Global Agriculture: Challenges and Adaptation (W4394919599) | 2024 | article | Adds subtopics the selection did not yet cover: climate change impacts on agriculture, food security and water management (and 4 more). | – | – |
+| 10 | Climate smart agriculture? Adaptation strategies of traditional agriculture to climate change in sub-Saharan Africa (W4391397619) | 2024 | article | Adds subtopics the selection did not yet cover: agroforestry and indigenous knowledge. | – | – |
+
+**Beginner vs Advanced (k = 10):** 9 of 10 papers shared; overview-marked papers 2 vs 1.
+
 ## graph neural networks
 
 ### Stage structure by budget (Intermediate / Balanced)
@@ -206,6 +406,206 @@ Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of th
 | 10 | AI-ASSISTED MEDICAL IMAGE DIAGNOSIS MOBILE APPLICATION (W7216238055) | 2026 | article | Adds subtopics the selection did not yet cover: magnetic resonance imaging, computed tomography and medical image analysis (and 3 more). | – | FEW_CITATIONS |
 
 **Beginner vs Advanced (k = 10):** 10 of 10 papers shared; overview-marked papers 0 vs 0.
+
+## protein structure prediction
+
+### Stage structure by budget (Intermediate / Balanced)
+
+| k | Stages | Citation links | Cycles broken | Warnings |
+|---:|---|---:|---:|---|
+| 5 | Selected papers (5) | 3 | 0 | – |
+| 10 | Papers from 2001–2004 (3) → Papers from 2005–2019 (4) → Papers from 2021–2025 (3) | 2 | 0 | – |
+| 15 | Overviews and surveys (1) → Papers from 1995–2001 (5) → Papers from 2004–2009 (4) → Papers from 2019–2025 (5) | 1 | 0 | – |
+| 20 | Overviews and surveys (1) → Papers from 1996–2004 (6) → Papers from 2005–2019 (7) → Papers from 2021–2025 (6) | 12 | 0 | – |
+
+### k = 10, Intermediate / Balanced
+
+Citation links among selected papers: 2
+
+**Stage 1 — Papers from 2001–2004.** Published 2001–2004; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 1 | Rosetta in CASP4: Progress in ab initio protein structure prediction (W2141216359) | 2001 | article | Adds subtopics the selection did not yet cover: ab initio protein structure prediction, caspase-4 and Rosetta (and 2 more). | – | – |
+| 2 | Protein Structure Prediction and Structural Genomics (W2170471837) | 2001 | article | Adds subtopics the selection did not yet cover: structural genomics and protein function. | – | – |
+| 3 | Protein structure prediction and analysis using the Robetta server (W2115167726) | 2004 | article | Adds subtopics the selection did not yet cover: de novo structure prediction and protein design. | – | – |
+
+**Stage 2 — Papers from 2005–2019.** Published 2005–2019; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 4 | Protein Structure Prediction: Inroads to Biology (W2066162606) | 2005 | article | Adds subtopics the selection did not yet cover: amino acid sequence and protein 3D structure. | – | – |
+| 5 | SAM-T08, HMM-based protein structure prediction (W2141120048) | 2009 | article | Adds subtopics the selection did not yet cover: hidden Markov models, web server and multiple sequence alignment. | – | – |
+| 6 | Ab Initio Protein Structure Prediction (W4210958064) | 2017 | book-chapter | Adds subtopics the selection did not yet cover: conformational search and model selection. | ← #9 | – |
+| 7 | Critical assessment of methods of protein structure prediction (CASP)—Round XIII (W3199799076) | 2019 | article | Adds subtopics the selection did not yet cover: CASP13, template-based modeling and ab initio structure prediction (and 1 more). | ← #8 | – |
+
+**Stage 3 — Papers from 2021–2025.** Published 2021–2025; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 8 | Critical assessment of methods of protein structure prediction (CASP)—Round XIV (W3198923619) | 2021 | article | Adds subtopics the selection did not yet cover: structure refinement, CASP14 and model accuracy assessment. | → #7 | – |
+| 9 | AI-Driven Deep Learning Techniques in Protein Structure Prediction (W4401209403) | 2024 | article | Adds subtopics the selection did not yet cover: protein threading, AlphaFold and protein-protein interaction (and 1 more). | → #6 | – |
+| 10 | Protein Structure Prediction (W7117761473) | 2025 | book-chapter | Adds subtopics the selection did not yet cover: contact prediction, AlphaFold2 and homology modeling (and 4 more). | – | FEW_CITATIONS |
+
+### k = 10, Beginner / Balanced
+
+Citation links among selected papers: 1
+
+**Stage 1 — Overviews and surveys.** Start with works that their metadata marks as reviews, surveys or introductions.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 1 | Progress and challenges in protein structure prediction (W2115213105) | 2008 | review | Adds subtopics the selection did not yet cover: conformational search, template-based modeling and structure refinement. OpenAlex lists its publication type as review. | – | – |
+
+**Stage 2 — Papers from 2001–2009.** Published 2001–2009; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 2 | Rosetta in CASP4: Progress in ab initio protein structure prediction (W2141216359) | 2001 | article | Adds subtopics the selection did not yet cover: ab initio protein structure prediction, caspase-4 and Rosetta (and 2 more). | – | – |
+| 3 | Protein Structure Prediction and Structural Genomics (W2170471837) | 2001 | article | Adds subtopics the selection did not yet cover: structural genomics, ab initio structure prediction and protein function. | – | – |
+| 4 | Protein structure prediction and analysis using the Robetta server (W2115167726) | 2004 | article | Adds subtopics the selection did not yet cover: de novo structure prediction and protein design. | – | – |
+| 5 | Protein Structure Prediction: Inroads to Biology (W2066162606) | 2005 | article | Adds subtopics the selection did not yet cover: amino acid sequence and protein 3D structure. | – | – |
+| 6 | SAM-T08, HMM-based protein structure prediction (W2141120048) | 2009 | article | Adds subtopics the selection did not yet cover: hidden Markov models, web server and multiple sequence alignment. | – | – |
+
+**Stage 3 — Papers from 2019–2025.** Published 2019–2025; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 7 | Critical assessment of methods of protein structure prediction (CASP)—Round XIII (W3199799076) | 2019 | article | Adds subtopics the selection did not yet cover: CASP13 and model refinement. | ← #8 | – |
+| 8 | Critical assessment of methods of protein structure prediction (CASP)—Round XIV (W3198923619) | 2021 | article | Adds subtopics the selection did not yet cover: CASP14 and model accuracy assessment. | → #7 | – |
+| 9 | AI-Driven Deep Learning Techniques in Protein Structure Prediction (W4401209403) | 2024 | article | Adds subtopics the selection did not yet cover: protein threading, AlphaFold and protein-protein interaction (and 1 more). | – | – |
+| 10 | Protein Structure Prediction (W7117761473) | 2025 | book-chapter | Adds subtopics the selection did not yet cover: contact prediction, AlphaFold2 and homology modeling (and 4 more). | – | FEW_CITATIONS |
+
+### k = 10, Advanced / Balanced
+
+Citation links among selected papers: 2
+
+**Stage 1 — Papers from 2001–2004.** Published 2001–2004; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 1 | Rosetta in CASP4: Progress in ab initio protein structure prediction (W2141216359) | 2001 | article | Adds subtopics the selection did not yet cover: ab initio protein structure prediction, caspase-4 and Rosetta (and 2 more). | – | – |
+| 2 | Protein Structure Prediction and Structural Genomics (W2170471837) | 2001 | article | Adds subtopics the selection did not yet cover: structural genomics and protein function. | – | – |
+| 3 | Protein structure prediction and analysis using the Robetta server (W2115167726) | 2004 | article | Adds subtopics the selection did not yet cover: de novo structure prediction and protein design. | – | – |
+
+**Stage 2 — Papers from 2005–2019.** Published 2005–2019; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 4 | Protein Structure Prediction: Inroads to Biology (W2066162606) | 2005 | article | Adds subtopics the selection did not yet cover: amino acid sequence and protein 3D structure. | – | – |
+| 5 | SAM-T08, HMM-based protein structure prediction (W2141120048) | 2009 | article | Adds subtopics the selection did not yet cover: hidden Markov models, web server and multiple sequence alignment. | – | – |
+| 6 | Ab Initio Protein Structure Prediction (W4210958064) | 2017 | book-chapter | Adds subtopics the selection did not yet cover: conformational search and model selection. | ← #9 | – |
+| 7 | Critical assessment of methods of protein structure prediction (CASP)—Round XIII (W3199799076) | 2019 | article | Adds subtopics the selection did not yet cover: CASP13, template-based modeling and ab initio structure prediction (and 1 more). | ← #8 | – |
+
+**Stage 3 — Papers from 2021–2025.** Published 2021–2025; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 8 | Critical assessment of methods of protein structure prediction (CASP)—Round XIV (W3198923619) | 2021 | article | Adds subtopics the selection did not yet cover: structure refinement, CASP14 and model accuracy assessment. | → #7 | – |
+| 9 | AI-Driven Deep Learning Techniques in Protein Structure Prediction (W4401209403) | 2024 | article | Adds subtopics the selection did not yet cover: protein threading, AlphaFold and protein-protein interaction (and 1 more). | → #6 | – |
+| 10 | Protein Structure Prediction (W7117761473) | 2025 | book-chapter | Adds subtopics the selection did not yet cover: contact prediction, AlphaFold2 and homology modeling (and 4 more). | – | FEW_CITATIONS |
+
+**Beginner vs Advanced (k = 10):** 9 of 10 papers shared; overview-marked papers 1 vs 0.
+
+## quantum error correction
+
+### Stage structure by budget (Intermediate / Balanced)
+
+| k | Stages | Citation links | Cycles broken | Warnings |
+|---:|---|---:|---:|---|
+| 5 | Selected papers (5) | 0 | 0 | NO_CITATION_LINKS |
+| 10 | Papers from 1996–2015 (3) → Papers from 2018–2020 (4) → Papers from 2021–2024 (3) | 1 | 0 | – |
+| 15 | Papers from 1996–2015 (5) → Papers from 2017–2019 (4) → Papers from 2020–2021 (3) → Papers from 2022–2024 (3) | 4 | 0 | – |
+| 20 | Papers from 1996–2012 (5) → Papers from 2013–2020 (5) → Papers from 2017–2019 (4) → Papers from 2021–2024 (6) | 14 | 0 | – |
+
+### k = 10, Intermediate / Balanced
+
+Citation links among selected papers: 1
+
+**Stage 1 — Papers from 1996–2015.** Published 1996–2015; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 1 | Mixed-state entanglement and quantum error correction (W2060887031) | 1996 | article | Adds subtopics the selection did not yet cover: Quantum Information and Cryptography, depolarizing channel and noisy quantum channels. | ← #9 | – |
+| 2 | Quantum error-correction (W571950922) | 2012 | book-chapter | Adds subtopics the selection did not yet cover: quantum cryptography, quantum information and quantum computing hardware (and 1 more). | – | – |
+| 3 | Bulk locality and quantum error correction in AdS/CFT (W2098838878) | 2015 | article | Adds subtopics the selection did not yet cover: Black Holes and Theoretical Physics and AdS/CFT correspondence. | – | – |
+
+**Stage 2 — Papers from 2018–2020.** Published 2018–2020; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 4 | Achieving the Heisenberg limit in quantum metrology using quantum error correction (W2622552587) | 2018 | article | Adds subtopics the selection did not yet cover: quantum metrology. | – | – |
+| 5 | Performance of quantum error correction with coherent errors (W2803105322) | 2019 | article | Adds subtopics the selection did not yet cover: Shor code, concatenated codes and coherent errors (and 1 more). | – | – |
+| 6 | Quantum error correction with the toric Gottesman-Kitaev-Preskill code (W2893961856) | 2019 | article | Adds subtopics the selection did not yet cover: Gottesman-Kitaev-Preskill code, error threshold and continuous-variable quantum error correction. | – | – |
+| 7 | Quantum Error Correction (W3033331243) | 2020 | reference-entry | Adds subtopics the selection did not yet cover: noiseless subsystems, decoherence-free subspace and decoherence (and 9 more). | – | INFLUENCE_UNKNOWN |
+
+**Stage 3 — Papers from 2021–2024.** Published 2021–2024; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 8 | Quantum Error Correction (W3176428101) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: surface code, stabilizer formalism and CSS codes (and 4 more). | – | FEW_CITATIONS |
+| 9 | Quantum Error Correction (W4210753780) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: amplitude damping channel and Calderbank-Shor-Steane codes. | → #1 | – |
+| 10 | Quantum error correction below the surface code threshold (W4405183524) | 2024 | article | Adds subtopics the selection did not yet cover: correlated errors, quantum memory and logical error rate. | – | – |
+
+### k = 10, Beginner / Balanced
+
+Citation links among selected papers: 2
+
+**Stage 1 — Overviews and surveys.** Start with works that their metadata marks as reviews, surveys or introductions.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 1 | Holographic tensor network models and quantum error correction: a topical review (W3126425107) | 2021 | article | Adds subtopics the selection did not yet cover: Black Holes and Theoretical Physics and AdS/CFT correspondence. Its title presents it as a review (content not verified). | → #2 | – |
+
+**Stage 2 — Papers from 1996–2019.** Published 1996–2019; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 2 | Mixed-state entanglement and quantum error correction (W2060887031) | 1996 | article | Adds subtopics the selection did not yet cover: Quantum Information and Cryptography, depolarizing channel and noisy quantum channels. | ← #1, #9 | – |
+| 3 | Quantum error-correction (W571950922) | 2012 | book-chapter | Adds subtopics the selection did not yet cover: quantum cryptography, quantum information and quantum computing hardware (and 1 more). | – | – |
+| 4 | Achieving the Heisenberg limit in quantum metrology using quantum error correction (W2622552587) | 2018 | article | Adds subtopics the selection did not yet cover: quantum metrology. | – | – |
+| 5 | Performance of quantum error correction with coherent errors (W2803105322) | 2019 | article | Adds subtopics the selection did not yet cover: Shor code, concatenated codes and coherent errors (and 1 more). | – | – |
+| 6 | Quantum error correction with the toric Gottesman-Kitaev-Preskill code (W2893961856) | 2019 | article | Adds subtopics the selection did not yet cover: Gottesman-Kitaev-Preskill code, error threshold and continuous-variable quantum error correction. | – | – |
+
+**Stage 3 — Papers from 2020–2024.** Published 2020–2024; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 7 | Quantum Error Correction (W3033331243) | 2020 | reference-entry | Adds subtopics the selection did not yet cover: noiseless subsystems, decoherence-free subspace and decoherence (and 9 more). | – | INFLUENCE_UNKNOWN |
+| 8 | Quantum Error Correction (W3176428101) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: surface code, stabilizer formalism and CSS codes (and 4 more). | – | FEW_CITATIONS |
+| 9 | Quantum Error Correction (W4210753780) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: amplitude damping channel and Calderbank-Shor-Steane codes. | → #2 | – |
+| 10 | Quantum error correction below the surface code threshold (W4405183524) | 2024 | article | Adds subtopics the selection did not yet cover: correlated errors, quantum memory and logical error rate. | – | – |
+
+### k = 10, Advanced / Balanced
+
+Citation links among selected papers: 1
+
+**Stage 1 — Papers from 1996–2015.** Published 1996–2015; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 1 | Mixed-state entanglement and quantum error correction (W2060887031) | 1996 | article | Adds subtopics the selection did not yet cover: Quantum Information and Cryptography, depolarizing channel and noisy quantum channels. | ← #9 | – |
+| 2 | Quantum error-correction (W571950922) | 2012 | book-chapter | Adds subtopics the selection did not yet cover: quantum cryptography, quantum information and quantum computing hardware (and 1 more). | – | – |
+| 3 | Bulk locality and quantum error correction in AdS/CFT (W2098838878) | 2015 | article | Adds subtopics the selection did not yet cover: Black Holes and Theoretical Physics and AdS/CFT correspondence. | – | – |
+
+**Stage 2 — Papers from 2018–2020.** Published 2018–2020; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 4 | Achieving the Heisenberg limit in quantum metrology using quantum error correction (W2622552587) | 2018 | article | Adds subtopics the selection did not yet cover: quantum metrology. | – | – |
+| 5 | Performance of quantum error correction with coherent errors (W2803105322) | 2019 | article | Adds subtopics the selection did not yet cover: Shor code, concatenated codes and coherent errors (and 1 more). | – | – |
+| 6 | Quantum error correction with the toric Gottesman-Kitaev-Preskill code (W2893961856) | 2019 | article | Adds subtopics the selection did not yet cover: Gottesman-Kitaev-Preskill code, error threshold and continuous-variable quantum error correction. | – | – |
+| 7 | Quantum Error Correction (W3033331243) | 2020 | reference-entry | Adds subtopics the selection did not yet cover: noiseless subsystems, decoherence-free subspace and decoherence (and 9 more). | – | INFLUENCE_UNKNOWN |
+
+**Stage 3 — Papers from 2021–2024.** Published 2021–2024; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 8 | Quantum Error Correction (W3176428101) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: surface code, stabilizer formalism and CSS codes (and 4 more). | – | FEW_CITATIONS |
+| 9 | Quantum Error Correction (W4210753780) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: amplitude damping channel and Calderbank-Shor-Steane codes. | → #1 | – |
+| 10 | Quantum error correction below the surface code threshold (W4405183524) | 2024 | article | Adds subtopics the selection did not yet cover: correlated errors, quantum memory and logical error rate. | – | – |
+
+**Beginner vs Advanced (k = 10):** 9 of 10 papers shared; overview-marked papers 1 vs 0.
 
 ## reinforcement learning in robotics
 
