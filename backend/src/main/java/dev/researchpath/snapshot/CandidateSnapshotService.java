@@ -28,6 +28,7 @@ import dev.researchpath.publication.OpenAlexWorkNormalizer;
 import dev.researchpath.publication.PublicationRepository;
 import dev.researchpath.publication.TextNormalization;
 import dev.researchpath.relevance.RelevancePolicy;
+import dev.researchpath.relevance.RelevanceTier;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.json.JsonMapper;
 
@@ -171,6 +172,11 @@ public class CandidateSnapshotService {
 
 	public Optional<SnapshotSummary> findSummary(UUID id) {
 		return snapshots.findSummary(id);
+	}
+
+	/** Frozen relevance decisions; empty if the snapshot does not exist. */
+	public Optional<List<RelevanceRow>> relevance(UUID snapshotId, RelevanceTier tier) {
+		return snapshots.exists(snapshotId) ? Optional.of(snapshots.relevanceRows(snapshotId, tier)) : Optional.empty();
 	}
 
 	/** Frozen inputs of members that may enter optimization (eligible and canonical), by provider rank. */

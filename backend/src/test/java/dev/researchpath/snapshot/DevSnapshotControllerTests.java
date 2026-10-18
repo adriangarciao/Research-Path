@@ -25,6 +25,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import dev.researchpath.identity.IdentityDiagnostics;
 import dev.researchpath.identity.IdentityRepository;
 import dev.researchpath.openalex.OpenAlexException;
+import dev.researchpath.relevance.RelevanceTier;
 
 @WebMvcTest(controllers = DevSnapshotController.class,
 		properties = { "researchpath.dev-api.enabled=true", "spring.mvc.problemdetails.enabled=true" })
@@ -104,6 +105,25 @@ class DevSnapshotControllerTests {
 				.andExpect(jsonPath("$.decisions[0].decision").value("SAME_WORK"))
 				.andExpect(jsonPath("$.decisions[0].details.yearGap").value(0))
 				.andExpect(jsonPath("$.suppressed[0].canonicalOpenalexId").value("W1"));
+	}
+
+	@Test
+	void relevanceDiagnosticsFilterByTierAndRejectUnknownTier() throws Exception {
+		UUID id = UUID.randomUUID();
+		when(service.relevance(any(), any())).thenAnswer(inv -> inv.getArgument(0).equals(id)
+				&& inv.getArgument(1) == RelevanceTier.BORDERLINE
+						? Optional.of(List.of(new RelevanceRow(3, "W3", "T", "BORDERLINE", "PARTIAL_TERM_MATCH", false,
+								WorkJson.JSON.readTree("{}"))))
+						: Optional.empty());
+
+		mvc.perform(get("/api/dev/snapshots/" + id + "/relevance").param("tier", "BORDERLINE"))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$[0].openalexId").value("W3"))
+				.andExpect(jsonPath("$[0].optimizationCandidate").value(false));
+		mvc.perform(get("/api/dev/snapshots/" + id + "/relevance").param("tier", "NOT_A_TIER"))
+				.andExpect(status().isBadRequest());
+		mvc.perform(get("/api/dev/snapshots/" + UUID.randomUUID() + "/relevance"))
+				.andExpect(status().isNotFound());
 	}
 
 	@Test

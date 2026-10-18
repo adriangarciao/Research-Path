@@ -101,6 +101,29 @@ public class SnapshotRepository {
 				.update();
 	}
 
+	public boolean exists(UUID snapshotId) {
+		return jdbc.sql("SELECT count(*) FROM candidate_snapshot WHERE id = :id").param("id", snapshotId)
+				.query(Integer.class).single() > 0;
+	}
+
+	/** Frozen relevance decisions in provider rank order, optionally limited to one tier. */
+	public List<RelevanceRow> relevanceRows(UUID snapshotId, RelevanceTier tier) {
+		return jdbc.sql("""
+				SELECT m.provider_rank, p.openalex_id, p.title, m.relevance_tier, m.relevance_reason,
+				       (m.eligibility_status = 'ELIGIBLE' AND m.canonical_publication_id = m.publication_id) AS candidate,
+				       m.relevance_evidence::text AS evidence
+				FROM snapshot_membership m JOIN publication p ON p.id = m.publication_id
+				WHERE m.snapshot_id = :id AND (CAST(:tier AS varchar) IS NULL OR m.relevance_tier = :tier)
+				ORDER BY m.provider_rank
+				""")
+				.param("id", snapshotId)
+				.param("tier", tier == null ? null : tier.name())
+				.query((rs, n) -> new RelevanceRow(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+						rs.getString(5), rs.getBoolean(6),
+						rs.getString(7) == null ? null : jsonMapper.readTree(rs.getString(7))))
+				.list();
+	}
+
 	/** Frozen normalized inputs of eligible canonical members, in provider rank order. */
 	public List<FrozenCandidate> loadOptimizationCandidates(UUID snapshotId) {
 		return jdbc.sql("""
