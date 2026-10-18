@@ -40,6 +40,10 @@ Invoke-Step 'frontend build + typecheck' {
     } finally { Pop-Location }
 }
 
+Invoke-Step 'frontend tests' {
+    Push-Location (Join-Path $RepoRoot 'frontend')
+    try { & npm test --silent } finally { Pop-Location }
+}
 Invoke-Step 'frontend lint' {
     Push-Location (Join-Path $RepoRoot 'frontend')
     try { & npm run lint --silent } finally { Pop-Location }
