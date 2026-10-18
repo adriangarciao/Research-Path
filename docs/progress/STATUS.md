@@ -16,8 +16,8 @@ Last updated: 2026-10-17. Owner instruction: at HUMAN DECISION gates take the co
 | M08 | Ranking baselines | **PASS** (2026-10-18) — reproduced from a fresh clone | [M08.md](M08.md), [baseline analysis](../evaluation/baseline-analysis.md) |
 | M09 | Marginal-gain optimizer | **PASS** (2026-10-18) — D12 conservative (β = 4); D13 on coverage proxy | [M09.md](M09.md), [optimizer review](../evaluation/optimizer-review.md) |
 | M10 | Ordering, stages, explanations | **PASS** (2026-10-18) — D09 experience weight 0.02; D10 metadata-only stage names | [M10.md](M10.md), [sequence review](../evaluation/sequence-review.md) |
-| M11 | Saved revisions & regeneration | **NEXT — NOT STARTED** | — |
-| M12 | User-facing flow | NOT STARTED | — |
+| M11 | Saved revisions & regeneration | **PASS** (2026-10-18) — D15 confirmed; zero provider calls on regenerate (live) | [M11.md](M11.md) |
+| M12 | User-facing flow | **NEXT — NOT STARTED** | — |
 | M13 | Hardening & performance | NOT STARTED | — |
 | M14 | Evaluation & manual quality | NOT STARTED | — |
 | M15 | Near-MVP release candidate | NOT STARTED | — |

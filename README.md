@@ -7,15 +7,17 @@ documents kept locally in `docs/` (gitignored). Project records are public: mile
 [docs/progress](docs/progress/), decisions in [docs/decisions](docs/decisions/), design notes in
 [docs/design](docs/design/), and measured evidence in [docs/evidence](docs/evidence/).
 
-> **Status: playbook milestones M00–M10 PASS** (see [docs/progress/STATUS.md](docs/progress/STATUS.md)).
+> **Status: playbook milestones M00–M11 PASS** (see [docs/progress/STATUS.md](docs/progress/STATUS.md)).
 > Implemented: publication cache (topics/keywords with confidence, referenced-work IDs, missing-data flags,
 > bounded and URL-validated), live OpenAlex ingestion, frozen candidate snapshots, conservative duplicate
 > handling (obvious duplicates suppressed per snapshot, versions kept and flagged, nothing merged) and a
 > metadata-quality report, a conservative relevance gate with frozen evaluation inputs, and a filtered
 > topic + keyword concept representation for coverage, an offline benchmark harness with three ranking
 > baselines, a custom greedy marginal-gain set optimizer compared with them on committed datasets, and a cautious
-> reading-order and stage builder with grounded explanations.
-> **Not implemented yet:** path persistence/regeneration (M11), public path API, real UI, deployment.
+> reading-order and stage builder with grounded explanations, exposed through a path API with immutable
+> revisions and regeneration from the original snapshot (`POST /api/paths`, `GET /api/paths/{id}`,
+> `POST /api/paths/{id}/revisions`).
+> **Not implemented yet:** real UI (M12), rate limits (M13), deployment.
 
 ## Layout
 
