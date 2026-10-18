@@ -1,0 +1,986 @@
+{
+ "description": "Real OpenAlex pairs flagged as possible duplicates (dev DB, 2026-10-17), labelled by the Claude Code reviewer from authors, venues, years, DOIs and landing pages; owner spot-check requested. Evidence fields are copied from the publication cache.",
+ "pairs": [
+  {
+   "pairId": 1,
+   "reviewerLabel": "SAME_WORK",
+   "expectedDecision": "SAME_WORK",
+   "rationale": "UTS ePRESS repository copy (handle) of the IEEE TNNLS 2020 survey; same six authors, same year.",
+   "a": {
+    "doi": "10.1109/tnnls.2020.2978386",
+    "year": 2020,
+    "title": "A Comprehensive Survey on Graph Neural Networks",
+    "source": "IEEE Transactions on Neural Networks and Learning Systems",
+    "authors": [
+     {
+      "id": null,
+      "name": "Zonghan Wu"
+     },
+     {
+      "id": "A5008056593",
+      "name": "Shirui Pan"
+     },
+     {
+      "id": null,
+      "name": "Fengwen Chen"
+     },
+     {
+      "id": "A5059227406",
+      "name": "Guodong Long"
+     },
+     {
+      "id": "A5100438525",
+      "name": "Chengqi Zhang"
+     },
+     {
+      "id": null,
+      "name": "Philip S. Yu"
+     }
+    ],
+    "workType": "article",
+    "openalexId": "W2907492528",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "a comprehensive survey on graph neural networks",
+    "hasOpenAccessLink": true,
+    "metadataCompleteness": 5
+   },
+   "b": {
+    "doi": null,
+    "year": 2020,
+    "title": "A Comprehensive Survey on Graph Neural Networks",
+    "source": "UTS ePRESS (University of Technology Sydney)",
+    "authors": [
+     {
+      "id": null,
+      "name": "Wu, Z"
+     },
+     {
+      "id": "A5008056593",
+      "name": "Shirui Pan"
+     },
+     {
+      "id": null,
+      "name": "Chen, F"
+     },
+     {
+      "id": "A5059227406",
+      "name": "Guodong Long"
+     },
+     {
+      "id": "A5100349440",
+      "name": "Chenhao Zhang"
+     },
+     {
+      "id": null,
+      "name": "Yu, PS"
+     }
+    ],
+    "workType": "article",
+    "openalexId": "W4210257598",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "a comprehensive survey on graph neural networks",
+    "hasOpenAccessLink": true,
+    "metadataCompleteness": 5
+   }
+  },
+  {
+   "pairId": 2,
+   "reviewerLabel": "SAME_WORK",
+   "expectedDecision": "SAME_WORK",
+   "rationale": "PMC author manuscript and arXiv preprint of the same NeurIPS 2019 paper (GNNExplainer); identical author list.",
+   "a": {
+    "doi": "10.48550/arxiv.1903.03894",
+    "year": 2019,
+    "title": "GNNExplainer: Generating Explanations for Graph Neural Networks",
+    "source": "arXiv (Cornell University)",
+    "authors": [
+     {
+      "id": "A5078337825",
+      "name": "Rex Ying"
+     },
+     {
+      "id": "A5068580214",
+      "name": "Dylan Bourgeois"
+     },
+     {
+      "id": "A5003491365",
+      "name": "Jiaxuan You"
+     },
+     {
+      "id": "A5086052373",
+      "name": "Marinka Žitnik"
+     },
+     {
+      "id": "A5091272738",
+      "name": "Jure Leskovec"
+     }
+    ],
+    "workType": "preprint",
+    "openalexId": "W2972317931",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "gnnexplainer generating explanations for graph neural networks",
+    "hasOpenAccessLink": true,
+    "metadataCompleteness": 5
+   },
+   "b": {
+    "doi": null,
+    "year": 2019,
+    "title": "GNNExplainer: Generating Explanations for Graph Neural Networks.",
+    "source": "PubMed",
+    "authors": [
+     {
+      "id": "A5078337825",
+      "name": "Rex Ying"
+     },
+     {
+      "id": "A5068580214",
+      "name": "Dylan Bourgeois"
+     },
+     {
+      "id": "A5003491365",
+      "name": "Jiaxuan You"
+     },
+     {
+      "id": "A5086052373",
+      "name": "Marinka Žitnik"
+     },
+     {
+      "id": "A5091272738",
+      "name": "Jure Leskovec"
+     }
+    ],
+    "workType": "article",
+    "openalexId": "W2970119293",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "gnnexplainer generating explanations for graph neural networks",
+    "hasOpenAccessLink": true,
+    "metadataCompleteness": 5
+   }
+  },
+  {
+   "pairId": 3,
+   "reviewerLabel": "DIFFERENT_WORK",
+   "expectedDecision": "DISTINCT",
+   "rationale": "Nature Reviews Methods Primers 2024 vs. Springer book chapter 2022 with the generic title 'Graph neural networks'; different authors.",
+   "a": {
+    "doi": "10.1038/s43586-024-00294-7",
+    "year": 2024,
+    "title": "Graph neural networks",
+    "source": "Nature Reviews Methods Primers",
+    "authors": [
+     {
+      "id": "A5057871229",
+      "name": "Gabriele Corso"
+     },
+     {
+      "id": null,
+      "name": "Hannes Stark"
+     },
+     {
+      "id": "A5085699861",
+      "name": "Stefanie Jegelka"
+     },
+     {
+      "id": "A5048915657",
+      "name": "Tommi Jaakkola"
+     },
+     {
+      "id": "A5010124873",
+      "name": "Regina Barzilay"
+     }
+    ],
+    "workType": "review",
+    "openalexId": "W4392553889",
+    "hasAbstract": false,
+    "hasSourceLink": true,
+    "normalizedTitle": "graph neural networks",
+    "hasOpenAccessLink": false,
+    "metadataCompleteness": 4
+   },
+   "b": {
+    "doi": "10.1007/978-981-16-6054-2_3",
+    "year": 2022,
+    "title": "Graph Neural Networks",
+    "source": "Springer eBooks",
+    "authors": [
+     {
+      "id": "A5011825081",
+      "name": "Lingfei Wu"
+     },
+     {
+      "id": "A5009228005",
+      "name": "Peng Cui"
+     },
+     {
+      "id": "A5062247330",
+      "name": "Jian Pei"
+     },
+     {
+      "id": "A5048756500",
+      "name": "Liang Zhao"
+     },
+     {
+      "id": "A5102898115",
+      "name": "Le Song"
+     }
+    ],
+    "workType": "book-chapter",
+    "openalexId": "W4206401350",
+    "hasAbstract": false,
+    "hasSourceLink": true,
+    "normalizedTitle": "graph neural networks",
+    "hasOpenAccessLink": false,
+    "metadataCompleteness": 4
+   }
+  },
+  {
+   "pairId": 6,
+   "reviewerLabel": "DISTINCT_VERSION",
+   "expectedDecision": "PROBABLE_VERSION",
+   "rationale": "IJRR 2013 survey vs. a 2013 book-chapter republication by Kober & Peters; overlapping content, separate publications.",
+   "a": {
+    "doi": "10.1177/0278364913495721",
+    "year": 2013,
+    "title": "Reinforcement learning in robotics: A survey",
+    "source": "The International Journal of Robotics Research",
+    "authors": [
+     {
+      "id": "A5035229829",
+      "name": "Jens Kober"
+     },
+     {
+      "id": "A5112411386",
+      "name": "James Andrew Bagnell"
+     },
+     {
+      "id": "A5071367253",
+      "name": "Jan Peters"
+     }
+    ],
+    "workType": "article",
+    "openalexId": "W1977655452",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "reinforcement learning in robotics a survey",
+    "hasOpenAccessLink": true,
+    "metadataCompleteness": 5
+   },
+   "b": {
+    "doi": "10.1007/978-3-319-03194-1_2",
+    "year": 2013,
+    "title": "Reinforcement Learning in Robotics: A Survey",
+    "source": "Springer tracts in advanced robotics",
+    "authors": [
+     {
+      "id": "A5035229829",
+      "name": "Jens Kober"
+     },
+     {
+      "id": "A5071367253",
+      "name": "Jan Peters"
+     }
+    ],
+    "workType": "book-chapter",
+    "openalexId": "W2965916140",
+    "hasAbstract": false,
+    "hasSourceLink": true,
+    "normalizedTitle": "reinforcement learning in robotics a survey",
+    "hasOpenAccessLink": false,
+    "metadataCompleteness": 4
+   }
+  },
+  {
+   "pairId": 8,
+   "reviewerLabel": "DISTINCT_VERSION",
+   "expectedDecision": "PROBABLE_VERSION",
+   "rationale": "Two book-chapter versions (2012, 2013) of the same Kober & Peters survey.",
+   "a": {
+    "doi": "10.1007/978-3-319-03194-1_2",
+    "year": 2013,
+    "title": "Reinforcement Learning in Robotics: A Survey",
+    "source": "Springer tracts in advanced robotics",
+    "authors": [
+     {
+      "id": "A5035229829",
+      "name": "Jens Kober"
+     },
+     {
+      "id": "A5071367253",
+      "name": "Jan Peters"
+     }
+    ],
+    "workType": "book-chapter",
+    "openalexId": "W2965916140",
+    "hasAbstract": false,
+    "hasSourceLink": true,
+    "normalizedTitle": "reinforcement learning in robotics a survey",
+    "hasOpenAccessLink": false,
+    "metadataCompleteness": 4
+   },
+   "b": {
+    "doi": "10.1007/978-3-642-27645-3_18",
+    "year": 2012,
+    "title": "Reinforcement Learning in Robotics: A Survey",
+    "source": "Adaptation, learning, and optimization",
+    "authors": [
+     {
+      "id": "A5035229829",
+      "name": "Jens Kober"
+     },
+     {
+      "id": "A5071367253",
+      "name": "Jan Peters"
+     }
+    ],
+    "workType": "book-chapter",
+    "openalexId": "W4211089519",
+    "hasAbstract": false,
+    "hasSourceLink": true,
+    "normalizedTitle": "reinforcement learning in robotics a survey",
+    "hasOpenAccessLink": false,
+    "metadataCompleteness": 4
+   }
+  },
+  {
+   "pairId": 9,
+   "reviewerLabel": "DIFFERENT_WORK",
+   "expectedDecision": "DISTINCT",
+   "rationale": "Apress 2018 chapter vs. Springer 2026 chapter by different authors.",
+   "a": {
+    "doi": "10.1007/978-1-4842-3453-2_6",
+    "year": 2018,
+    "title": "Reinforcement Learning and Robotics",
+    "source": "Apress eBooks",
+    "authors": [
+     {
+      "id": "A5088302903",
+      "name": "Armando S. Vieira"
+     },
+     {
+      "id": "A5046882659",
+      "name": "Bernardete Ribeiro"
+     }
+    ],
+    "workType": "book-chapter",
+    "openalexId": "W2801350962",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "reinforcement learning and robotics",
+    "hasOpenAccessLink": false,
+    "metadataCompleteness": 5
+   },
+   "b": {
+    "doi": "10.1007/978-3-032-24858-9_7",
+    "year": 2026,
+    "title": "Reinforcement Learning and Robotics",
+    "source": "Springer eBooks",
+    "authors": [
+     {
+      "id": "A5028587584",
+      "name": "Deepti Chopra"
+     },
+     {
+      "id": "A5086780327",
+      "name": "Roopal Khurana"
+     }
+    ],
+    "workType": "book-chapter",
+    "openalexId": "W7159842832",
+    "hasAbstract": false,
+    "hasSourceLink": true,
+    "normalizedTitle": "reinforcement learning and robotics",
+    "hasOpenAccessLink": false,
+    "metadataCompleteness": 4
+   }
+  },
+  {
+   "pairId": 12,
+   "reviewerLabel": "DIFFERENT_WORK",
+   "expectedDecision": "DISTINCT",
+   "rationale": "2002 SPIE paper vs. a 2026 Zenodo preprint by a different author reusing the title.",
+   "a": {
+    "doi": "10.1117/12.457434",
+    "year": 2002,
+    "title": "Reinforcement learning for robot control",
+    "source": "Proceedings of SPIE, the International Society for Optical Engineering/Proceedings of SPIE",
+    "authors": [
+     {
+      "id": "A5026622322",
+      "name": "William D. Smart"
+     },
+     {
+      "id": "A5012862284",
+      "name": "Leslie Pack Kaelbling"
+     }
+    ],
+    "workType": "conference-paper",
+    "openalexId": "W2053806934",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "reinforcement learning for robot control",
+    "hasOpenAccessLink": false,
+    "metadataCompleteness": 5
+   },
+   "b": {
+    "doi": "10.5281/zenodo.22336835",
+    "year": 2026,
+    "title": "Reinforcement Learning for Robot Control",
+    "source": "Zenodo (CERN European Organization for Nuclear Research)",
+    "authors": [
+     {
+      "id": "A5148816175",
+      "name": "Jincheng Zhang"
+     }
+    ],
+    "workType": "preprint",
+    "openalexId": "W7208818468",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "reinforcement learning for robot control",
+    "hasOpenAccessLink": true,
+    "metadataCompleteness": 5
+   }
+  },
+  {
+   "pairId": 13,
+   "reviewerLabel": "SAME_WORK",
+   "expectedDecision": "PROBABLE_VERSION",
+   "rationale": "SPIE Mobile Robots proceedings (dated 2002) and a dblp record dated 2001 of the same conference paper by Smart & Kaelbling. Missed duplicate: year differs by one.",
+   "a": {
+    "doi": "10.1117/12.457434",
+    "year": 2002,
+    "title": "Reinforcement learning for robot control",
+    "source": "Proceedings of SPIE, the International Society for Optical Engineering/Proceedings of SPIE",
+    "authors": [
+     {
+      "id": "A5026622322",
+      "name": "William D. Smart"
+     },
+     {
+      "id": "A5012862284",
+      "name": "Leslie Pack Kaelbling"
+     }
+    ],
+    "workType": "conference-paper",
+    "openalexId": "W2053806934",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "reinforcement learning for robot control",
+    "hasOpenAccessLink": false,
+    "metadataCompleteness": 5
+   },
+   "b": {
+    "doi": null,
+    "year": 2001,
+    "title": "Reinforcement learning for robot control.",
+    "source": null,
+    "authors": [
+     {
+      "id": "A5026622322",
+      "name": "William D. Smart"
+     },
+     {
+      "id": "A5012862284",
+      "name": "Leslie Pack Kaelbling"
+     }
+    ],
+    "workType": "article",
+    "openalexId": "W3016183088",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "reinforcement learning for robot control",
+    "hasOpenAccessLink": false,
+    "metadataCompleteness": 5
+   }
+  },
+  {
+   "pairId": 15,
+   "reviewerLabel": "DISTINCT_VERSION",
+   "expectedDecision": "PROBABLE_VERSION",
+   "rationale": "Annual Review 2024 review vs. AAAI 2025 paper with the same title and six authors; likely a condensed version, separate publication.",
+   "a": {
+    "doi": "10.1146/annurev-control-030323-022510",
+    "year": 2024,
+    "title": "Deep Reinforcement Learning for Robotics: A Survey of Real-World Successes",
+    "source": "Annual Review of Control Robotics and Autonomous Systems",
+    "authors": [
+     {
+      "id": "A5101867083",
+      "name": "Chen Tang"
+     },
+     {
+      "id": "A5003639695",
+      "name": "Ben Abbatematteo"
+     },
+     {
+      "id": "A5089998046",
+      "name": "Jiaheng Hu"
+     },
+     {
+      "id": "A5016704715",
+      "name": "Rohan Chandra"
+     },
+     {
+      "id": "A5065655761",
+      "name": "Roberto Martín-Martín"
+     },
+     {
+      "id": "A5001594330",
+      "name": "Peter Stone"
+     }
+    ],
+    "workType": "review",
+    "openalexId": "W4404738510",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "deep reinforcement learning for robotics a survey of real world successes",
+    "hasOpenAccessLink": true,
+    "metadataCompleteness": 5
+   },
+   "b": {
+    "doi": "10.1609/aaai.v39i27.35095",
+    "year": 2025,
+    "title": "Deep Reinforcement Learning for Robotics: A Survey of Real-World Successes",
+    "source": "Proceedings of the AAAI Conference on Artificial Intelligence",
+    "authors": [
+     {
+      "id": "A5101867083",
+      "name": "Chen Tang"
+     },
+     {
+      "id": "A5003639695",
+      "name": "Ben Abbatematteo"
+     },
+     {
+      "id": "A5089998046",
+      "name": "Jiaheng Hu"
+     },
+     {
+      "id": "A5016704715",
+      "name": "Rohan Chandra"
+     },
+     {
+      "id": "A5065655761",
+      "name": "Roberto Martín-Martín"
+     },
+     {
+      "id": "A5001594330",
+      "name": "Peter Stone"
+     }
+    ],
+    "workType": "conference-paper",
+    "openalexId": "W4409348659",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "deep reinforcement learning for robotics a survey of real world successes",
+    "hasOpenAccessLink": true,
+    "metadataCompleteness": 5
+   }
+  },
+  {
+   "pairId": 16,
+   "reviewerLabel": "SAME_WORK",
+   "expectedDecision": "DISTINCT",
+   "rationale": "Journal article and a Zenodo deposit of it credited to the journal ('Ijrei') as author. Missed duplicate: author metadata is wrong, so no shared author.",
+   "a": {
+    "doi": "10.36037/ijrei.2025.9403",
+    "year": 2025,
+    "title": "Implementation of AI-powered medical diagnosis system",
+    "source": "International Journal of Research in Engineering and Innovation",
+    "authors": [
+     {
+      "id": "A5118143938",
+      "name": "Ridhima Shirashwal"
+     },
+     {
+      "id": "A5017082427",
+      "name": "Anurag Sharma"
+     },
+     {
+      "id": null,
+      "name": "Annu Dhiman"
+     },
+     {
+      "id": "A5118143939",
+      "name": "Divyansh Dhiman"
+     },
+     {
+      "id": "A5118143940",
+      "name": "Sonal Namdev"
+     }
+    ],
+    "workType": "article",
+    "openalexId": "W4411289144",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "implementation of ai powered medical diagnosis system",
+    "hasOpenAccessLink": true,
+    "metadataCompleteness": 5
+   },
+   "b": {
+    "doi": "10.5281/zenodo.18058957",
+    "year": 2025,
+    "title": "Implementation of AI-powered medical diagnosis system",
+    "source": "Zenodo (CERN European Organization for Nuclear Research)",
+    "authors": [
+     {
+      "id": "A5121387184",
+      "name": "Ijrei"
+     }
+    ],
+    "workType": "other",
+    "openalexId": "W7117360775",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "implementation of ai powered medical diagnosis system",
+    "hasOpenAccessLink": true,
+    "metadataCompleteness": 5
+   }
+  },
+  {
+   "pairId": 28,
+   "reviewerLabel": "SAME_WORK",
+   "expectedDecision": "PROBABLE_VERSION",
+   "rationale": "Gottesman's Caltech PhD thesis and its arXiv copy (quant-ph/9705052, identical PDF). Missed duplicate: the two DOIs conflict.",
+   "a": {
+    "doi": "10.7907/rzr7-dt72.",
+    "year": 1997,
+    "title": "Stabilizer Codes and Quantum Error Correction",
+    "source": null,
+    "authors": [
+     {
+      "id": "A5006327208",
+      "name": "Daniel Gottesman"
+     }
+    ],
+    "workType": "article",
+    "openalexId": "W1839785972",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "stabilizer codes and quantum error correction",
+    "hasOpenAccessLink": true,
+    "metadataCompleteness": 5
+   },
+   "b": {
+    "doi": "10.48550/arxiv.quant-ph/9705052",
+    "year": 1997,
+    "title": "Stabilizer Codes and Quantum Error Correction",
+    "source": "arXiv (Cornell University)",
+    "authors": [
+     {
+      "id": "A5006327208",
+      "name": "Daniel Gottesman"
+     }
+    ],
+    "workType": "preprint",
+    "openalexId": "W4394672652",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "stabilizer codes and quantum error correction",
+    "hasOpenAccessLink": true,
+    "metadataCompleteness": 5
+   }
+  },
+  {
+   "pairId": 29,
+   "reviewerLabel": "SAME_WORK",
+   "expectedDecision": "SAME_WORK",
+   "rationale": "White Rose eprint 'arxiv_sub_v2.pdf' is the accepted manuscript of the Contemporary Physics 2019 article; same single author (name formats differ).",
+   "a": {
+    "doi": "10.1080/00107514.2019.1667078",
+    "year": 2019,
+    "title": "Quantum error correction: an introductory guide",
+    "source": "Contemporary Physics",
+    "authors": [
+     {
+      "id": "A5027437078",
+      "name": "Joschka Roffe"
+     }
+    ],
+    "workType": "article",
+    "openalexId": "W2963127785",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "quantum error correction an introductory guide",
+    "hasOpenAccessLink": true,
+    "metadataCompleteness": 5
+   },
+   "b": {
+    "doi": null,
+    "year": 2019,
+    "title": "Quantum error correction : an introductory guide",
+    "source": "White Rose Research Online (University of Leeds, The University of Sheffield, University of York)",
+    "authors": [
+     {
+      "id": null,
+      "name": "Roffe, J."
+     }
+    ],
+    "workType": "article",
+    "openalexId": "W3100060644",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "quantum error correction an introductory guide",
+    "hasOpenAccessLink": false,
+    "metadataCompleteness": 5
+   }
+  },
+  {
+   "pairId": 36,
+   "reviewerLabel": "DIFFERENT_WORK",
+   "expectedDecision": "DISTINCT",
+   "rationale": "2001 review vs. 2014 book; one side has no author data, but the years are 13 apart.",
+   "a": {
+    "doi": "10.1016/s1367-5931(00)00164-2",
+    "year": 2001,
+    "title": "Protein structure prediction",
+    "source": "Current Opinion in Chemical Biology",
+    "authors": [
+     {
+      "id": "A5007910628",
+      "name": "Bissan Al‐Lazikani"
+     },
+     {
+      "id": null,
+      "name": "Joon Jung"
+     },
+     {
+      "id": "A5108186913",
+      "name": "Zhexin Xiang"
+     },
+     {
+      "id": "A5036654109",
+      "name": "Barry H. Honig"
+     }
+    ],
+    "workType": "review",
+    "openalexId": "W2126362472",
+    "hasAbstract": false,
+    "hasSourceLink": true,
+    "normalizedTitle": "protein structure prediction",
+    "hasOpenAccessLink": false,
+    "metadataCompleteness": 4
+   },
+   "b": {
+    "doi": "10.1007/978-1-4939-0366-5",
+    "year": 2014,
+    "title": "Protein Structure Prediction",
+    "source": "Methods in molecular biology",
+    "authors": [],
+    "workType": "book",
+    "openalexId": "W618912524",
+    "hasAbstract": false,
+    "hasSourceLink": true,
+    "normalizedTitle": "protein structure prediction",
+    "hasOpenAccessLink": false,
+    "metadataCompleteness": 3
+   }
+  },
+  {
+   "pairId": 42,
+   "reviewerLabel": "UNCERTAIN",
+   "expectedDecision": "UNRESOLVED",
+   "rationale": "2014 'Methods in molecular biology' book vs. a 2014 book chapter, both without author data.",
+   "a": {
+    "doi": "10.1007/978-1-4939-0366-5",
+    "year": 2014,
+    "title": "Protein Structure Prediction",
+    "source": "Methods in molecular biology",
+    "authors": [],
+    "workType": "book",
+    "openalexId": "W618912524",
+    "hasAbstract": false,
+    "hasSourceLink": true,
+    "normalizedTitle": "protein structure prediction",
+    "hasOpenAccessLink": false,
+    "metadataCompleteness": 3
+   },
+   "b": {
+    "doi": "10.1145/2625848.2625853",
+    "year": 2014,
+    "title": "Protein Structure Prediction",
+    "source": null,
+    "authors": [],
+    "workType": "book-chapter",
+    "openalexId": "W2495364087",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "protein structure prediction",
+    "hasOpenAccessLink": false,
+    "metadataCompleteness": 4
+   }
+  },
+  {
+   "pairId": 69,
+   "reviewerLabel": "DIFFERENT_WORK",
+   "expectedDecision": "DISTINCT",
+   "rationale": "Jones 1997 vs. Murzin 2001 reviews sharing a generic title.",
+   "a": {
+    "doi": "10.1016/s0959-440x(97)80055-3",
+    "year": 1997,
+    "title": "Progress in protein structure prediction",
+    "source": "Current Opinion in Structural Biology",
+    "authors": [
+     {
+      "id": "A5068654082",
+      "name": "David T. Jones"
+     }
+    ],
+    "workType": "review",
+    "openalexId": "W2020644553",
+    "hasAbstract": false,
+    "hasSourceLink": true,
+    "normalizedTitle": "progress in protein structure prediction",
+    "hasOpenAccessLink": false,
+    "metadataCompleteness": 4
+   },
+   "b": {
+    "doi": "10.1038/84088",
+    "year": 2001,
+    "title": "Progress in protein structure prediction.",
+    "source": "Nature Structural Biology",
+    "authors": [
+     {
+      "id": "A5025834882",
+      "name": "Alexey G. Murzin"
+     }
+    ],
+    "workType": "article",
+    "openalexId": "W1567853508",
+    "hasAbstract": false,
+    "hasSourceLink": true,
+    "normalizedTitle": "progress in protein structure prediction",
+    "hasOpenAccessLink": false,
+    "metadataCompleteness": 4
+   }
+  },
+  {
+   "pairId": 115,
+   "reviewerLabel": "DIFFERENT_WORK",
+   "expectedDecision": "DISTINCT",
+   "rationale": "2017 article and 2012 encyclopedia entry that share one author (Yang Zhang) and a generic title.",
+   "a": {
+    "doi": "10.1142/s021797921840009x",
+    "year": 2017,
+    "title": "Protein structure prediction",
+    "source": "International Journal of Modern Physics B",
+    "authors": [
+     {
+      "id": "A5028268688",
+      "name": "Haiyou Deng"
+     },
+     {
+      "id": "A5108055908",
+      "name": "Ya Jia"
+     },
+     {
+      "id": "A5100354659",
+      "name": "Yang Zhang"
+     }
+    ],
+    "workType": "article",
+    "openalexId": "W2147472674",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "protein structure prediction",
+    "hasOpenAccessLink": true,
+    "metadataCompleteness": 5
+   },
+   "b": {
+    "doi": "10.1002/9780470015902.a0003031.pub2",
+    "year": 2012,
+    "title": "Protein Structure Prediction",
+    "source": "Encyclopedia of Life Sciences",
+    "authors": [
+     {
+      "id": "A5082120044",
+      "name": "Ambrish Roy"
+     },
+     {
+      "id": "A5100354659",
+      "name": "Yang Zhang"
+     }
+    ],
+    "workType": "reference-entry",
+    "openalexId": "W3023334178",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "protein structure prediction",
+    "hasOpenAccessLink": false,
+    "metadataCompleteness": 5
+   }
+  },
+  {
+   "pairId": 135,
+   "reviewerLabel": "UNCERTAIN",
+   "expectedDecision": "PROBABLE_VERSION",
+   "rationale": "Same four authors, book chapters in 2017 and 2019 with different DOIs; may be a republished chapter.",
+   "a": {
+    "doi": "10.4018/978-1-5225-8903-7.ch007",
+    "year": 2019,
+    "title": "Protein Structure Prediction",
+    "source": "Biotechnology",
+    "authors": [
+     {
+      "id": "A5025390051",
+      "name": "Hirak Jyoti Chakraborty"
+     },
+     {
+      "id": "A5060837852",
+      "name": "Aditi Gangopadhyay"
+     },
+     {
+      "id": "A5017266613",
+      "name": "Sayak Ganguli"
+     },
+     {
+      "id": "A5034795112",
+      "name": "Abhijit Datta"
+     }
+    ],
+    "workType": "book-chapter",
+    "openalexId": "W4211054415",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "protein structure prediction",
+    "hasOpenAccessLink": false,
+    "metadataCompleteness": 5
+   },
+   "b": {
+    "doi": "10.4018/978-1-5225-2607-0.ch003",
+    "year": 2017,
+    "title": "Protein Structure Prediction",
+    "source": "Advances in bioinformatics and biomedical engineering book series",
+    "authors": [
+     {
+      "id": "A5025390051",
+      "name": "Hirak Jyoti Chakraborty"
+     },
+     {
+      "id": "A5060837852",
+      "name": "Aditi Gangopadhyay"
+     },
+     {
+      "id": "A5017266613",
+      "name": "Sayak Ganguli"
+     },
+     {
+      "id": "A5034795112",
+      "name": "Abhijit Datta"
+     }
+    ],
+    "workType": "book-chapter",
+    "openalexId": "W2625160262",
+    "hasAbstract": true,
+    "hasSourceLink": true,
+    "normalizedTitle": "protein structure prediction",
+    "hasOpenAccessLink": false,
+    "metadataCompleteness": 5
+   }
+  }
+ ]
+}
