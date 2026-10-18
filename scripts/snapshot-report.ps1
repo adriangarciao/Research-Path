@@ -59,8 +59,35 @@ $(Row 'Non-empty reference list' $a.withReferences)
 - Distinct topics: $($c.distinctTopics); distinct keywords: $($c.distinctKeywords) (no confidence threshold)
 - Most common primary topic: $($c.mostCommonPrimaryTopic) ($($c.mostCommonPrimaryTopicCount) of $($s.storedCount))
 - Citation edges between members: $($s.internalCitationEdges)
-- Possible duplicate pairs (evidence only, not merged): $($s.possibleDuplicatePairs)
+- Possible duplicate pairs flagged (evidence): $($s.possibleDuplicatePairs)
 - Retrieval notes (rejections / page drift): $(@($s.retrievalNotes).Count)
 
 Counts describe this retrieved pool only; they are not relevance or quality judgments.
 "@
+
+''
+'## Identity resolution (conservative policy, decision D06)'
+''
+$i = $s.identity
+if ($null -eq $i) {
+    'Not evaluated: this snapshot was created before identity resolution existed.'
+    exit 0
+}
+"- Policy v$($i.policyVersion): SAME_WORK $($i.sameWorkPairs) · PROBABLE_VERSION $($i.probableVersionPairs) · DISTINCT $($i.distinctPairs) · UNRESOLVED $($i.unresolvedPairs) (work pairs)"
+"- Candidates after suppression: $($i.canonicalMembers) of $($s.storedCount); suppressed obvious duplicates: $($i.suppressedMembers) (kept as provenance)"
+
+$d = Invoke-RestMethod "$BaseUrl/api/dev/snapshots/$($s.id)/identity" -TimeoutSec 60
+if (@($d.suppressed).Count -gt 0) {
+    ''
+    '| Suppressed | Canonical (kept) | Title |'
+    '|---|---|---|'
+    foreach ($x in $d.suppressed) { "| $($x.openalexId) | $($x.canonicalOpenalexId) | $($x.canonicalTitle) |" }
+}
+$versions = @($d.decisions | Where-Object decision -eq 'PROBABLE_VERSION')
+if ($versions.Count -gt 0) {
+    ''
+    'Probable versions (both kept, flagged for review):'
+    foreach ($v in $versions) {
+        "- $($v.a.openalexId) ($($v.a.year), $($v.a.workType)) / $($v.b.openalexId) ($($v.b.year), $($v.b.workType)): $($v.a.title)"
+    }
+}
