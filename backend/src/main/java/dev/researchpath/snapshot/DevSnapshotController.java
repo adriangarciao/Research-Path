@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import dev.researchpath.benchmark.DatasetExportService;
+import dev.researchpath.benchmark.DatasetIo;
 import dev.researchpath.concept.ConceptModel;
 import dev.researchpath.concept.ConceptService;
 import dev.researchpath.identity.IdentityDiagnostics;
@@ -41,11 +44,14 @@ class DevSnapshotController {
 
 	private final IdentityRepository identity;
 	private final ConceptService concepts;
+	private final DatasetExportService exports;
 
-	DevSnapshotController(CandidateSnapshotService service, IdentityRepository identity, ConceptService concepts) {
+	DevSnapshotController(CandidateSnapshotService service, IdentityRepository identity, ConceptService concepts,
+			DatasetExportService exports) {
 		this.service = service;
 		this.identity = identity;
 		this.concepts = concepts;
+		this.exports = exports;
 	}
 
 	record CreateSnapshotRequest(
@@ -76,6 +82,12 @@ class DevSnapshotController {
 	ResponseEntity<ConceptModel> concepts(@PathVariable UUID id,
 			@RequestParam(defaultValue = "COMBINED") ConceptModel.Representation representation) {
 		return ResponseEntity.of(concepts.build(id, representation));
+	}
+
+	/** Benchmark dataset (stable JSON, as written to data/benchmarks) built from frozen inputs. */
+	@GetMapping(value = "/{id}/export", produces = MediaType.APPLICATION_JSON_VALUE)
+	ResponseEntity<String> export(@PathVariable UUID id) {
+		return ResponseEntity.of(exports.export(id).map(DatasetIo::toJson));
 	}
 
 	/** Frozen identity decisions (with evidence) and suppressed duplicates for one snapshot. */

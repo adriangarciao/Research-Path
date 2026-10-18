@@ -22,6 +22,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import dev.researchpath.benchmark.DatasetExportService;
 import dev.researchpath.concept.ConceptModel;
 import dev.researchpath.concept.ConceptService;
 import dev.researchpath.identity.IdentityDiagnostics;
@@ -44,6 +45,9 @@ class DevSnapshotControllerTests {
 
 	@MockitoBean
 	ConceptService concepts;
+
+	@MockitoBean
+	DatasetExportService exports;
 
 	private static SnapshotSummary summary(UUID id) {
 		return new SnapshotSummary(id, "graph neural networks", Instant.parse("2026-10-17T12:00:00Z"), "OPENALEX", 10,
