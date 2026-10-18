@@ -22,6 +22,8 @@ import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
 import dev.researchpath.TestcontainersConfiguration;
+import dev.researchpath.identity.IdentityDiagnostics;
+import dev.researchpath.identity.IdentityRepository;
 import dev.researchpath.openalex.OpenAlexClient;
 
 /** M05: conservative identity resolution applied and frozen at snapshot creation (real PostgreSQL 17). */
@@ -153,6 +155,31 @@ class SnapshotIdentityResolutionTests {
 				""").query(Long.class).single()).isZero();
 	}
 
+	@Autowired
+	IdentityRepository identityRepository;
+
+	@Test
+	void diagnosticsListFrozenDecisionsWithEvidenceAndSuppressedMembers() {
+		SnapshotSummary s = snapshot("diag",
+				work("W1", TITLE).year(2020).doi("10.1/a").author("A1", "Ann Lee"),
+				work("W2", TITLE).year(2020).author("A1", "Ann Lee"),
+				work("W3", TITLE).year(2020).author("A7", "Other Person"));
+
+		IdentityDiagnostics d = identityRepository.diagnostics(s.id()).orElseThrow();
+		assertThat(d.policyVersion()).isEqualTo(1);
+		assertThat(d.decisions()).extracting(IdentityDiagnostics.Decision::decision)
+				.containsExactly("SAME_WORK", "DISTINCT", "DISTINCT"); // SAME_WORK listed first
+		IdentityDiagnostics.Decision same = d.decisions().get(0);
+		assertThat(same.rule()).isEqualTo("TITLE_AUTHORS_YEAR");
+		assertThat(same.details().path("sharedAuthorIds").intValue()).isEqualTo(1);
+		assertThat(same.a().openalexId()).isEqualTo("W1");
+		assertThat(d.suppressed()).singleElement().satisfies(x -> {
+			assertThat(x.openalexId()).isEqualTo("W2");
+			assertThat(x.canonicalOpenalexId()).isEqualTo("W1");
+		});
+		assertThat(identityRepository.diagnostics(UUID.randomUUID())).isEmpty();
+	}
+
 	@Test
 	void snapshotsCreatedBeforeIdentityResolutionReportNoIdentityBlock() {
 		UUID legacy = UUID.randomUUID();
@@ -163,6 +190,9 @@ class SnapshotIdentityResolutionTests {
 				""").param("id", legacy).param("at", Timestamp.from(Instant.parse("2026-10-17T12:00:00Z"))).update();
 
 		assertThat(service.findSummary(legacy).orElseThrow().identity()).isNull();
+		IdentityDiagnostics d = identityRepository.diagnostics(legacy).orElseThrow();
+		assertThat(d.policyVersion()).isNull();
+		assertThat(d.decisions()).isEmpty();
 	}
 
 }

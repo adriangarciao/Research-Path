@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import dev.researchpath.identity.IdentityDiagnostics;
+import dev.researchpath.identity.IdentityRepository;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -32,8 +34,11 @@ class DevSnapshotController {
 
 	private final CandidateSnapshotService service;
 
-	DevSnapshotController(CandidateSnapshotService service) {
+	private final IdentityRepository identity;
+
+	DevSnapshotController(CandidateSnapshotService service, IdentityRepository identity) {
 		this.service = service;
+		this.identity = identity;
 	}
 
 	record CreateSnapshotRequest(
@@ -50,6 +55,12 @@ class DevSnapshotController {
 	@GetMapping("/{id}")
 	ResponseEntity<SnapshotSummary> get(@PathVariable UUID id) {
 		return ResponseEntity.of(service.findSummary(id));
+	}
+
+	/** Frozen identity decisions (with evidence) and suppressed duplicates for one snapshot. */
+	@GetMapping("/{id}/identity")
+	ResponseEntity<IdentityDiagnostics> identity(@PathVariable UUID id) {
+		return ResponseEntity.of(identity.diagnostics(id));
 	}
 
 }

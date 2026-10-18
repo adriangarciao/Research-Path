@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 
@@ -83,6 +84,53 @@ public class IdentityRepository {
 				.param("id", snapshotId)
 				.query((rs, n) -> new CandidatePair(rs.getLong(1), rs.getLong(2), rs.getLong(3)))
 				.list();
+	}
+
+	/** Frozen decisions and suppressed members for a snapshot; empty if the snapshot does not exist. */
+	public Optional<IdentityDiagnostics> diagnostics(UUID snapshotId) {
+		// Wrapped so "snapshot exists, version NULL (pre-M05)" is not confused with "no such snapshot".
+		record Version(Integer value) {
+		}
+		Optional<Version> version = jdbc.sql("SELECT identity_policy_version FROM candidate_snapshot WHERE id = :id")
+				.param("id", snapshotId)
+				.query((rs, n) -> new Version((Integer) rs.getObject(1)))
+				.optional();
+		if (version.isEmpty()) {
+			return Optional.empty();
+		}
+		List<IdentityDiagnostics.Decision> decisions = jdbc.sql("""
+				SELECT d.pair_id, ic.match_type, d.decision, d.rule, d.details::text AS details,
+				       a.openalex_id a_id, a.title a_title, a.publication_year a_year, a.work_type a_type, a.doi a_doi,
+				       b.openalex_id b_id, b.title b_title, b.publication_year b_year, b.work_type b_type, b.doi b_doi
+				FROM snapshot_identity_decision d
+				JOIN publication_identity_candidate ic ON ic.id = d.pair_id
+				JOIN publication a ON a.id = ic.publication_a_id
+				JOIN publication b ON b.id = ic.publication_b_id
+				WHERE d.snapshot_id = :id
+				ORDER BY CASE d.decision WHEN 'SAME_WORK' THEN 0 WHEN 'PROBABLE_VERSION' THEN 1
+				         WHEN 'UNRESOLVED' THEN 2 ELSE 3 END, d.pair_id
+				""")
+				.param("id", snapshotId)
+				.query((rs, n) -> new IdentityDiagnostics.Decision(rs.getLong("pair_id"), rs.getString("match_type"),
+						rs.getString("decision"), rs.getString("rule"), jsonMapper.readTree(rs.getString("details")),
+						new IdentityDiagnostics.Work(rs.getString("a_id"), rs.getString("a_title"),
+								(Integer) rs.getObject("a_year"), rs.getString("a_type"), rs.getString("a_doi")),
+						new IdentityDiagnostics.Work(rs.getString("b_id"), rs.getString("b_title"),
+								(Integer) rs.getObject("b_year"), rs.getString("b_type"), rs.getString("b_doi"))))
+				.list();
+		List<IdentityDiagnostics.Suppressed> suppressed = jdbc.sql("""
+				SELECT p.openalex_id, p.title, c.openalex_id AS c_id, c.title AS c_title
+				FROM snapshot_membership m
+				JOIN publication p ON p.id = m.publication_id
+				JOIN publication c ON c.id = m.canonical_publication_id
+				WHERE m.snapshot_id = :id AND m.canonical_publication_id <> m.publication_id
+				ORDER BY m.provider_rank
+				""")
+				.param("id", snapshotId)
+				.query((rs, n) -> new IdentityDiagnostics.Suppressed(rs.getString(1), rs.getString(2), rs.getString(3),
+						rs.getString(4)))
+				.list();
+		return Optional.of(new IdentityDiagnostics(snapshotId, version.get().value(), decisions, suppressed));
 	}
 
 	/** Persists the frozen decisions and canonical mapping. Must run inside the snapshot transaction. */
