@@ -28,6 +28,7 @@ public record SnapshotSummary(
 		long internalCitationEdges,
 		long possibleDuplicatePairs,
 		Identity identity,
+		Relevance relevance,
 		JsonNode retrievalNotes) {
 
 	/**
@@ -46,6 +47,14 @@ public record SnapshotSummary(
 	 */
 	public record Identity(int policyVersion, int sameWorkPairs, int probableVersionPairs, int distinctPairs,
 			int unresolvedPairs, int canonicalMembers, int suppressedMembers) {
+	}
+
+	/**
+	 * Relevance gate (D07); null for snapshots created before it existed. {@code optimizationCandidates}
+	 * = eligible members not suppressed as duplicates: the pool later milestones may select from.
+	 */
+	public record Relevance(int policyVersion, int eligible, int tangential, int borderline, int ineligible,
+			int optimizationCandidates, JsonNode warnings) {
 	}
 
 	/**

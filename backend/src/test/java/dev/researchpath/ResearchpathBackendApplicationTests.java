@@ -36,7 +36,7 @@ class ResearchpathBackendApplicationTests {
 	void flywayAppliedAllMigrations() {
 		MigrationInfo current = flyway.info().current();
 		assertThat(current).isNotNull();
-		assertThat(current.getVersion().getVersion()).isEqualTo("4");
+		assertThat(current.getVersion().getVersion()).isEqualTo("5");
 		assertThat(flyway.info().pending()).isEmpty();
 		assertThat(flyway.info().applied()).allSatisfy(m -> assertThat(m.getState().isFailed()).isFalse());
 	}
