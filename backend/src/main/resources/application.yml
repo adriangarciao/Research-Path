@@ -35,3 +35,9 @@ researchpath:
     base-url: https://api.openalex.org
     # Server-side only. Supplied via the OPENALEX_API_KEY environment variable; may be empty.
     api-key: ${OPENALEX_API_KEY:}
+    connect-timeout: 5s
+    read-timeout: 30s
+    max-attempts: 3
+    initial-backoff: 1s
+    max-backoff: 30s
+    max-per-page: 100
