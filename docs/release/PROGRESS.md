@@ -106,3 +106,17 @@ returned the same path in 15 ms with no second provider call.
 **Remaining:** owner confirmation of the measured limits (R5). Measurements were taken against a local DB; repeat
 one timing on Railway before launch (part of the GO checklist).
 **Next:** M3 — informational broader-topic hint for small eligible pools.
+
+## R-R5 — Time limits finalized — 2026-10-20
+**Status:** R5 FINALIZED by the owner for the current implementation (30 s provider budget per generation, 10 s read
+timeout, 45 s UI timeout, 503 + `Retry-After: 10`, idempotency key kept across retries); hosted validation pending.
+Server-side cancellation on browser timeout is deferred and documented.
+**Added:** `scripts/hosted-check.ps1` and runbook gate G4 for the two pre-launch requirements: (1) uncached
+200-candidate paths on Railway with managed PostgreSQL, timing the complete request; (2) concurrent requests with one
+Idempotency-Key produce one path from one retrieval. Runbook migration count corrected to 8 (V8 from H2).
+**Dry run (local backend, real OpenAlex, 200 candidates):** complete request 8.1 / 9.3 / 10.2 s (min/p50/max, n=5),
+retrieval ≈ 1.3 s of it; 3 concurrent same-key requests → one path, identical snapshot `retrievedAt`, one 201, and a
+single "Created snapshot" in the server log (twice, PASS). Unit evidence:
+`PathServiceTests.idempotencyKeyReturnsTheFirstResultWithoutRetrievingAgain`.
+**Note:** the in-flight join is per process; a second replica would rely on the unique key in the database (one
+replica is required anyway, R2).

@@ -39,10 +39,16 @@ needed (one page; state in the query string).
    backups (daily) **and** run a restore test into a separate service before public traffic (gate G5).
 2. ⛔ Create the backend service from this repo with root directory `backend/` (Dockerfile build), set the variables
    above, one replica, healthcheck path, spend alerts/caps approved by the owner.
-3. Deploy; check logs for `Successfully applied 7 migrations` (first deploy) and `Started`, then
+3. Deploy; check logs for `Successfully applied 8 migrations` (first deploy) and `Started`, then
    `GET /actuator/health/readiness` → 200 `{"status":"UP"}` with no details.
 4. **Spoof test (gate G3):** create one path, then `.\scripts\spoof-test.ps1 -ApiBase https://<railway-api-domain>
    -PathId <id>` must print PASS. FAIL is a deployment blocker: unset `CLIENT_IP_HEADER` and stop.
+4b. **Timing and idempotency check (gate G4, release R5):** temporarily set `RESEARCHPATH_INGESTION_DEFAULT_CANDIDATES=200`,
+   `RESEARCHPATH_RATE_LIMIT_CREATE_BURST=20`, `RESEARCHPATH_RATE_LIMIT_CREATES_PER_HOUR=40`, redeploy, run
+   `.\scripts\hosted-check.ps1 -ApiBase https://<railway-api-domain>` (uncached 200-candidate paths, complete request
+   time; concurrent requests with one Idempotency-Key → one path, one retrieval, one 201; ≈ 11 OpenAlex calls), then
+   **remove the three variables and redeploy**. FAIL or < 10 s headroom below 45 s: report the numbers to the owner
+   before changing any limit.
 5. ⛔ Create the Vercel project (root `frontend/`), set `VITE_API_BASE_URL`, deploy to the Vercel URL; set
    `ALLOWED_ORIGINS` on Railway to that exact origin and redeploy the API.
 6. Cross-service smoke: private window → create, open a source link, rebuild with another budget, reload the link;
