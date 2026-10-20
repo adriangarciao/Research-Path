@@ -73,6 +73,9 @@ class PathServiceTests {
 	@MockitoSpyBean
 	PathRepository repository;
 
+	@Autowired
+	RetentionService retention;
+
 	@MockitoBean
 	OpenAlexClient openAlex;
 
@@ -311,13 +314,13 @@ class PathServiceTests {
 
 	@Test
 	void revisionFanOutAndConcurrentGenerationsAreBounded() {
-		PathService limited = new PathService(snapshots, repository, transaction, json, new PathProperties(4, 2));
+		PathService limited = new PathService(snapshots, repository, transaction, json, new PathProperties(4, 2), retention);
 		PathService.PathView v1 = limited.create(Q, options(Experience.INTERMEDIATE, Focus.BALANCED, 5), null);
 		limited.regenerate(v1.pathId(), options(Experience.INTERMEDIATE, Focus.BALANCED, 10), null);
 		assertThatThrownBy(() -> limited.regenerate(v1.pathId(), options(Experience.INTERMEDIATE, Focus.BALANCED, 15), null))
 				.isInstanceOf(PathExceptions.Conflict.class).hasMessageContaining("limit of 2 revisions");
 
-		PathService saturated = new PathService(snapshots, repository, transaction, json, new PathProperties(0, 50));
+		PathService saturated = new PathService(snapshots, repository, transaction, json, new PathProperties(0, 50), retention);
 		clearInvocations(openAlex);
 		assertThatThrownBy(() -> saturated.create(Q, PathOptions.DEFAULT, null)).isInstanceOf(PathExceptions.Busy.class);
 		// New options need generation capacity (an already stored revision would be returned without work).

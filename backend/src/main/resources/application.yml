@@ -60,6 +60,12 @@ researchpath:
     # PROVISIONAL (S02): local bounds; rate limits and anonymous quotas come with M13.
     max-concurrent-generations: 4
     max-revisions-per-path: 50
+  retention:
+    # PROVISIONAL (S02): anonymous paths not opened for path-days are deleted; snapshots no path uses after snapshot-days.
+    enabled: true
+    path-days: 90
+    snapshot-days: 30
+    cron: "0 17 3 * * *"
   rate-limit:
     # PROVISIONAL (S02): per connection; a new path costs provider requests, a rebuild only local work.
     enabled: true

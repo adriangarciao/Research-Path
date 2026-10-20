@@ -107,4 +107,6 @@ export interface PathResponse {
   disclosures: string[]
   access: string
   revisions: RevisionSummary[]
+  /** Retention policy at view time (not part of the stored revision); absent in older responses. */
+  retention?: { deleteAfterDaysUnviewed: number; notice: string }
 }

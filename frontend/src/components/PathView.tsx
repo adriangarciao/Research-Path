@@ -104,6 +104,7 @@ export function PathView({ path, regenerating, regenerateError, onRegenerate, on
               <p key={d}>{notice(d).text}</p>
             ))}
             <p>{path.access}</p>
+            {path.retention && <p>{path.retention.notice}</p>}
           </section>
         </aside>
       </div>
