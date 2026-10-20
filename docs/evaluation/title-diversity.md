@@ -32,5 +32,21 @@ before the constraint was implemented** (never used for any tuning).
 A failure of C2–C6 counts as a meaningful regression: then a soft title-diversity penalty is investigated (weight
 chosen on the audit topics only, validated on the fresh topics) before asking for approval.
 
+## Run 1 result (hard constraint) — recorded before the alternative was designed
+C1, C3, C4, C5, C7, C8 pass; **C2, C6 and C9 fail**: coverage loss 0.031 / 0.027 / 0.020 on "differential privacy"
+at k = 20 / 15 / 10 (removing a 1-citation 2025 book chapter titled exactly like Dwork's 2006 paper), redundancy +0.014
+there at k = 10, and the quantum k = 5 path loses its only citation link. Per the rule above this is a meaningful
+regression, so a soft penalty is investigated.
+
+## Alternative pre-registered before it was run (2026-10-20): soft title-repeat penalty
+Greedy gain of a candidate whose title key is already selected is reduced by λ (instead of being infeasible), so a
+same-titled work is still chosen when it adds more than λ, and budgets never fall short because of titles.
+Grid λ ∈ {0.005, 0.01, 0.02, 0.05, 0.1, 0.2} (for scale: one paper's quality term is at most β / k = 0.4 at k = 10).
+- **Choice topics:** the 3 audit topics plus "quantum error correction" (the motivating example, already reviewed in
+  M14). The audit topics alone contain a single repeat, so they cannot choose λ; this deviation is disclosed.
+- **Rule:** the smallest λ that leaves no repeated title on the choice topics while C2–C6 hold on them.
+- **Validation:** every other topic (including the 5 fresh M4 topics), all of C1–C9, plus the number of repeats left.
+- Also reported, as a variant only: the hard constraint with hyphen and space treated alike in the key.
+
 ## Theory: approximation guarantee
 See the section at the end (filled in with the results).
