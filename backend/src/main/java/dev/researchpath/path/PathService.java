@@ -63,11 +63,13 @@ public class PathService {
 	private final TransactionTemplate transaction;
 	private final JsonMapper json;
 	private final PathProperties properties;
+	private final RetentionService retention;
 	private final Semaphore generations;
 	private final Map<String, CompletableFuture<PathView>> inFlight = new ConcurrentHashMap<>();
 
 	public PathService(CandidateSnapshotService snapshots, PathRepository repository, TransactionTemplate transaction,
-			JsonMapper json, PathProperties properties) {
+			JsonMapper json, PathProperties properties, RetentionService retention) {
+		this.retention = retention;
 		this.snapshots = snapshots;
 		this.repository = repository;
 		this.transaction = transaction;
@@ -240,6 +242,11 @@ public class PathService {
 		String stored = repository.result(path.id(), revision).orElseThrow(PathExceptions.NotFound::new);
 		ObjectNode body = (ObjectNode) json.readTree(stored);
 		body.set("revisions", json.valueToTree(repository.revisions(path.id())));
+		// Retention is policy, not path content: stated at view time, never stored in the immutable document.
+		retention.touch(path.id(), now());
+		ObjectNode policy = body.putObject("retention");
+		policy.put("deleteAfterDaysUnviewed", retention.properties().pathDays());
+		policy.put("notice", "Paths that nobody opens for " + retention.properties().pathDays() + " days are deleted.");
 		return new PathView(path.publicId(), revision, body, created);
 	}
 

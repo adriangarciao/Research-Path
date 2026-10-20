@@ -12,7 +12,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.core.simple.JdbcClient;
 
-/** M13 DB fault: a failing migration leaves no half-applied schema and the previous version intact. */
+/**
+ * M13 DB fault: a failing migration leaves no half-applied schema and the previous version intact. The broken test
+ * migration is numbered V9999 so real migrations never collide with it.
+ */
 @Import(TestcontainersConfiguration.class)
 @SpringBootTest
 class MigrationFaultTests {
@@ -29,9 +32,9 @@ class MigrationFaultTests {
 		Flyway flyway = Flyway.configure().dataSource(dataSource).schemas("migration_fault").createSchemas(true)
 				.locations("classpath:db/migration", "classpath:broken-migration").load();
 
-		assertThatThrownBy(flyway::migrate).hasMessageContaining("V7");
+		assertThatThrownBy(flyway::migrate).hasMessageContaining("9999");
 
-		assertThat(flyway.info().current().getVersion().getVersion()).isEqualTo("6");
+		assertThat(flyway.info().current().getVersion().getVersion()).isEqualTo("7");
 		assertThat(jdbc.sql("""
 				SELECT count(*) FROM information_schema.tables
 				WHERE table_schema = 'migration_fault' AND table_name = 'half_done'
