@@ -299,6 +299,30 @@ class GreedyOptimizerTest {
 	}
 
 	@Test
+	void landmarkSeedsReserveStronglyRelevantMostCitedWorksFirst() {
+		List<OptimizerCandidate> pool = List.of(
+				new OptimizerCandidate("BROAD", 1, covers("a", "b", "c"), 1, 0.9, 2020, false, 50),
+				new OptimizerCandidate("CLASSIC", 2, covers("a"), 1, 0.99, 2010, false, 40_000),
+				new OptimizerCandidate("OFFTOPIC", 3, covers("d"), 0.5, 0.99, 2012, false, 90_000),
+				new OptimizerCandidate("OTHER", 4, covers("d"), 1, 0.9, 2021, false, 10));
+		Map<String, Double> w = equalWeights("a", "b", "c", "d");
+		GreedyOptimizer.Result none = GreedyOptimizer.select(pool, w, 2, Preferences.DEFAULT, OptimizerConfig.DEFAULT);
+		assertThat(none.selectedIds()).doesNotContain("CLASSIC");
+
+		GreedyOptimizer.Result seeded = GreedyOptimizer.select(pool, w, 2, Preferences.DEFAULT,
+				OptimizerConfig.DEFAULT.withLandmarkSeeds(2));
+		// At most max(1, k / 5) = 1 seed for k = 2; the weakly relevant 90k-citation work is never a seed.
+		assertThat(seeded.decisions().get(0).id()).isEqualTo("CLASSIC");
+		assertThat(seeded.decisions().get(0).reason()).isEqualTo(GreedyOptimizer.Reason.LANDMARK);
+		assertThat(seeded.decisions().get(1).reason()).isNotEqualTo(GreedyOptimizer.Reason.LANDMARK);
+		assertThat(seeded.objective()).isCloseTo(seeded.decisions().stream().mapToDouble(GreedyOptimizer.Decision::marginalGain).sum(),
+				org.assertj.core.data.Offset.offset(1e-5));
+		assertThat(GreedyOptimizer.landmarkSeeds(pool, 10, 3)).extracting(OptimizerCandidate::id).containsExactly("CLASSIC", "BROAD");
+		assertThat(GreedyOptimizer.landmarkSeeds(pool, 10, 0)).isEmpty();
+		assertThatThrownBy(() -> OptimizerConfig.DEFAULT.withLandmarkSeeds(6)).isInstanceOf(IllegalArgumentException.class);
+	}
+
+	@Test
 	void negativeQualityShareIsRejectedToKeepTheObjectiveMonotone() {
 		assertThatThrownBy(() -> new OptimizerConfig(-0.1)).isInstanceOf(IllegalArgumentException.class);
 		assertThatThrownBy(() -> new OptimizerConfig(1, false, 0.6)).isInstanceOf(IllegalArgumentException.class);

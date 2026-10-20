@@ -29,8 +29,16 @@ public final class GreedyOptimizer {
 		/** Chosen mainly for normalized citation influence. */
 		INFLUENCE,
 		/** Chosen mainly because it fits the requested focus or experience level. */
-		PREFERENCE_FIT
+		PREFERENCE_FIT,
+		/** Reserved landmark: among the pool's most-cited works and strongly relevant (D16 landmark seeds). */
+		LANDMARK
 	}
+
+	/** Landmark seeds are drawn from this many most-cited works of the pool. */
+	public static final int LANDMARK_POOL = 5;
+
+	/** Minimum relevance evidence for a landmark seed: all query terms in title/concepts and half in the title. */
+	public static final double LANDMARK_MIN_RELEVANCE = 0.75;
 
 	/**
 	 * One selection step with its numeric contributions.
@@ -60,13 +68,22 @@ public final class GreedyOptimizer {
 		List<OptimizerCandidate> selected = new ArrayList<>();
 		List<Decision> decisions = new ArrayList<>();
 		Map<String, Double> uncovered = new TreeMap<>();
+		List<OptimizerCandidate> seeds = landmarkSeeds(remaining, budget, config.landmarkSeeds());
 
 		while (selected.size() < budget && !remaining.isEmpty()) {
 			OptimizerCandidate best = null;
 			double bestGain = -1;
 			double bestCoverage = 0;
 			double bestQuality = 0;
-			for (OptimizerCandidate c : remaining) {
+			boolean seeded = !seeds.isEmpty();
+			if (seeded) {
+				// Reserved landmark first; its gains are still computed and recorded conditionally.
+				best = seeds.remove(0);
+				bestCoverage = objective.coverageGain(best, uncovered);
+				bestQuality = objective.qualityGain(best);
+				bestGain = bestCoverage + bestQuality;
+			}
+			for (OptimizerCandidate c : seeded ? List.<OptimizerCandidate>of() : remaining) {
 				double cov = objective.coverageGain(c, uncovered);
 				double qual = objective.qualityGain(c);
 				double gain = cov + qual;
@@ -85,7 +102,8 @@ public final class GreedyOptimizer {
 					.toList();
 			Objective.QualityParts parts = objective.quality(best);
 			decisions.add(new Decision(selected.size() + 1, best.id(), round(bestGain), round(bestCoverage),
-					round(bestQuality), parts, newConcepts, reason(newConcepts, parts, config.weights(preferences))));
+					round(bestQuality), parts, newConcepts,
+					seeded ? Reason.LANDMARK : reason(newConcepts, parts, config.weights(preferences))));
 			selected.add(best);
 			remaining.remove(best);
 			for (Map.Entry<String, Double> e : best.concepts().entrySet()) {
@@ -104,6 +122,24 @@ public final class GreedyOptimizer {
 		}
 		return new Result(VERSION, OptimizerConfig.VERSION, preferences, budget, List.copyOf(decisions),
 				round(objective.value(selected)), round(objective.coverage(selected)), List.copyOf(warnings));
+	}
+
+	/**
+	 * D16 landmark seeds: up to {@code seeds} of the pool's {@value #LANDMARK_POOL} most-cited works (known counts,
+	 * ties by provider rank) that have strong relevance evidence, at most max(1, budget / 5), in citation order.
+	 */
+	static List<OptimizerCandidate> landmarkSeeds(List<OptimizerCandidate> pool, int budget, int seeds) {
+		if (seeds <= 0 || budget <= 0) {
+			return new ArrayList<>();
+		}
+		int limit = Math.min(seeds, Math.max(1, budget / 5));
+		return new ArrayList<>(pool.stream().filter(c -> c.citations() != null)
+				.sorted(Comparator.comparingInt((OptimizerCandidate c) -> c.citations()).reversed()
+						.thenComparingInt(OptimizerCandidate::providerRank).thenComparing(OptimizerCandidate::id))
+				.limit(LANDMARK_POOL)
+				.filter(c -> c.relevance() >= LANDMARK_MIN_RELEVANCE)
+				.limit(limit)
+				.toList());
 	}
 
 	/**
