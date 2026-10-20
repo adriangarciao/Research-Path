@@ -132,7 +132,7 @@ class PathServiceTests {
 		assertThat(b1.path("disclosures").toString()).contains("ORDER_IS_HEURISTIC", "DIFFICULTY_NOT_ESTIMATED");
 		assertThat(b1.path("coverage").path("denominator").asString()).contains("eligible candidates examined");
 		assertThat(b1.path("snapshot").path("eligibleCandidates").asInt()).isEqualTo(12);
-		assertThat(b1.path("versions").path("optimizerConfig").asInt()).isEqualTo(2);
+		assertThat(b1.path("versions").path("optimizerConfig").asInt()).isEqualTo(3);
 		JsonNode first = b1.path("papers").get(0);
 		assertThat(first.path("authors").get(0).asString()).startsWith("Author ");
 		assertThat(first.path("reasons").size()).isGreaterThanOrEqualTo(1);

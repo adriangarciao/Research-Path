@@ -19,8 +19,11 @@ import dev.researchpath.optimizer.Preferences.Experience;
 public record OptimizerConfig(double qualityShare, boolean qualityWeightedCoverage, double experienceWeight,
 		double landmarkShare, int landmarkSeeds) {
 
-	/** 2: experience weight lowered to 0.02 (D09); Intermediate selections unchanged. */
-	public static final int VERSION = 2;
+	/**
+	 * 2: experience weight lowered to 0.02 (D09); Intermediate selections unchanged.
+	 * 3: two landmark seeds by default (D16).
+	 */
+	public static final int VERSION = 3;
 
 	/**
 	 * D12 (conservative, 2026-10-18): additive objective with β = 4, the smallest β in the sweep that kept
@@ -46,8 +49,13 @@ public record OptimizerConfig(double qualityShare, boolean qualityWeightedCovera
 	/** Landmark share used when none is given (decision D16). */
 	public static final double DEFAULT_LANDMARK_SHARE = 0.0;
 
-	/** Landmark seeds used when none is given (decision D16). */
-	public static final int DEFAULT_LANDMARK_SEEDS = 0;
+	/**
+	 * D16 (owner decision, 2026-10-19): two reserved landmark slots (at most max(1, k / 5)) for strongly relevant
+	 * most-cited works. Keeps a mean of 2.33 of each pool's 5 most-cited works at k = 10 on the audit topics (was 0.67)
+	 * and 3.0 on fresh validation topics (was 1.67); costs at most 0.061 weighted coverage (the pre-registered limit
+	 * was 0.05, exceeded in 3 of 14 topic/budget cases, accepted by the owner). See docs/evaluation/BENCHMARKS.md.
+	 */
+	public static final int DEFAULT_LANDMARK_SEEDS = 2;
 
 	public OptimizerConfig(double qualityShare, boolean qualityWeightedCoverage) {
 		this(qualityShare, qualityWeightedCoverage, DEFAULT_EXPERIENCE_WEIGHT);

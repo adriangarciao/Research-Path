@@ -68,9 +68,9 @@ class OptimizerBenchmarkTest {
 
 	/** Selected ids per budget for the default configuration; later milestones must not change them silently. */
 	static final java.util.Map<String, String> OPTIMIZER_FINGERPRINTS = java.util.Map.of(
-			"gnn-200", "ab74508bb84a194b6b6db2749748afbf9d893ac92d0abad7bf52d924c801eab8",
-			"rl-robotics-200", "944c7c092e981d2aaea476a5e7945cdf36e7ec37320545e2d776ffdcfc12bfa6",
-			"medical-ai-200", "c3696f0f780ea9923902f1583638592485ccdd350ba28fe1afd6fd9b00ff7ac2");
+			"gnn-200", "ffe83f76c564ab37cc3850c1f1034cd7754d165737783627139fb82825462060",
+			"rl-robotics-200", "a1d890214046daa407c3470c98612f89aa27dc21b72357b0f5daa16765b578bb",
+			"medical-ai-200", "e80f92b85208ec852ead57e00739fe6175469d79b56b580f1a1ab4bfc2bbe5fb");
 
 	@ParameterizedTest
 	@ValueSource(strings = { "gnn-200", "rl-robotics-200", "medical-ai-200" })

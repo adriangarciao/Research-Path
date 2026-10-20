@@ -104,9 +104,9 @@ class ReadingPathBenchmarkTest {
 
 	/** Reading order for the default preferences; a change must be deliberate (and the review regenerated). */
 	static final Map<String, String> PATH_FINGERPRINTS = Map.of(
-			"gnn-200", "d55aed00aca72a690eb2234f1fdd72922eec1bc4d46e1d1f008191bc4a843d69",
-			"rl-robotics-200", "eeeeadf618c88b0007b7942bdc2f8b2ad8a2b0487ee7e443a4f4ac9fb52af86c",
-			"medical-ai-200", "c67589852c7e2de80987e15f0bdd87e1a8ea2fcad12bf37f98344bc96051c495");
+			"gnn-200", "c75556deb751dbff666188b2cddcedc205dcc61aa51bda6d3d6501ac23053460",
+			"rl-robotics-200", "6efb05ec1cc676d356a7ba431dae89dbbdb7d2f8d1aea1d928345f60b26c205c",
+			"medical-ai-200", "44bdebc5747343d5303de3b91c2edd8b9d682d731b350e7fd34599fb17e8b566");
 
 	@ParameterizedTest
 	@ValueSource(strings = { "gnn-200", "rl-robotics-200", "medical-ai-200" })
