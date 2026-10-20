@@ -35,7 +35,7 @@ provider retries and response sizes. Refusals are `429`/`503` with `Retry-After`
 ## HTTP hardening
 Every response: `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: no-referrer`,
 `Content-Security-Policy: default-src 'none'; frame-ancestors 'none'` (API), `Cross-Origin-Resource-Policy:
-same-origin`. No CORS configuration (same-origin only). Actuator exposes only `health` and `info` without details
+same-origin`. CORS only for exact configured origins (`researchpath.cors.allowed-origins`; empty = same-origin), `/api/paths` only, no credentials. Actuator exposes only `health` and `info` without details
 outside the `local` profile; the dev API is off by default.
 
 ## Supply chain
@@ -43,6 +43,17 @@ Lockfile + Maven wrapper; GitHub Actions pinned by commit SHA and runner image; 
 `npm audit` gate and OSV checks for Maven (0 known vulnerabilities on 2026-10-19 after patching Tomcat and Jackson
 on top of the Spring Boot BOM).
 
+## Client identity behind a proxy
+Rate limits use the TCP connection address by default. Behind Railway's edge, `CLIENT_IP_HEADER=X-Real-IP`
+makes them use that header — only a single, strictly parsed IP literal; anything else is refused (400);
+`X-Forwarded-For`/`Forwarded` are never read. Whether the edge overwrites a client-supplied value is not
+documented, so `scripts/spoof-test.ps1` must PASS on the deployed API before launch (a FAIL blocks deployment).
+
+## Static UI (Vercel)
+`frontend/vercel.json` sends a strict CSP (`default-src 'self'`, no inline script, `frame-ancestors 'none'`,
+`object-src 'none'`), nosniff, `DENY`, `no-referrer`, Permissions-Policy, COOP and HSTS; the build adds a meta CSP
+restricting `connect-src` to the exact API origin (`VITE_API_BASE_URL`, https only).
+
 ## Before any deployment (not authorized yet)
-See the [deployment runbook](DEPLOYMENT_RUNBOOK.md): TLS, forwarded-header configuration for rate limiting behind a
+See the [deployment runbook](DEPLOYMENT_RUNBOOK.md): DB TLS on the private network,
 proxy, a CSP for the static frontend, private database, backups, monitoring.
