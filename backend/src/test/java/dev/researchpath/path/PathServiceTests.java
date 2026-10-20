@@ -104,7 +104,7 @@ class PathServiceTests {
 	void setUp() {
 		reset(repository);
 		jdbc.sql("TRUNCATE candidate_snapshot, publication, concept RESTART IDENTITY CASCADE").update();
-		when(openAlex.searchWorks(eq(Q), eq(1), anyInt())).thenReturn(pool(""));
+		when(openAlex.searchWorks(eq(Q), eq(1), anyInt(), any())).thenReturn(pool(""));
 	}
 
 	private static PathOptions options(Experience e, Focus f, int budget) {
@@ -145,7 +145,7 @@ class PathServiceTests {
 		clearInvocations(openAlex);
 		PathService.PathView v2 = paths.regenerate(v1.pathId(), options(Experience.ADVANCED, Focus.RECENT, 10), null);
 
-		verify(openAlex, never()).searchWorks(anyString(), anyInt(), anyInt());
+		verify(openAlex, never()).searchWorks(anyString(), anyInt(), anyInt(), any());
 		assertThat(v2.created()).isTrue();
 		assertThat(v2.revision()).isEqualTo(2);
 		assertThat(v2.body().path("parentRevision").asInt()).isEqualTo(1);
@@ -255,7 +255,7 @@ class PathServiceTests {
 
 	@Test
 	void idempotencyKeyReturnsTheFirstResultWithoutRetrievingAgain() throws Exception {
-		when(openAlex.searchWorks(eq(Q), eq(1), anyInt())).thenAnswer(inv -> {
+		when(openAlex.searchWorks(eq(Q), eq(1), anyInt(), any())).thenAnswer(inv -> {
 			Thread.sleep(300); // keep the first request in flight while the second arrives
 			return pool("");
 		});
@@ -265,12 +265,12 @@ class PathServiceTests {
 
 		assertThat(results.get(0).pathId()).isEqualTo(results.get(1).pathId());
 		assertThat(results.stream().filter(PathService.PathView::created)).hasSize(1);
-		verify(openAlex, times(1)).searchWorks(eq(Q), eq(1), anyInt());
+		verify(openAlex, times(1)).searchWorks(eq(Q), eq(1), anyInt(), any());
 
 		PathService.PathView replay = paths.create(Q, PathOptions.DEFAULT, key);
 		assertThat(replay.created()).isFalse();
 		assertThat(replay.pathId()).isEqualTo(results.get(0).pathId());
-		verify(openAlex, times(1)).searchWorks(eq(Q), eq(1), anyInt());
+		verify(openAlex, times(1)).searchWorks(eq(Q), eq(1), anyInt(), any());
 		assertThat(jdbc.sql("SELECT count(*) FROM reading_path").query(Integer.class).single()).isEqualTo(1);
 
 		assertThatThrownBy(() -> paths.create("graph neural networks", PathOptions.DEFAULT, key))
@@ -285,7 +285,7 @@ class PathServiceTests {
 		JsonNode original = stored(v1.pathId(), 1);
 
 		// A later retrieval of the same works with changed titles refreshes the publication cache.
-		when(openAlex.searchWorks(eq(Q), eq(1), anyInt())).thenReturn(pool("CHANGED "));
+		when(openAlex.searchWorks(eq(Q), eq(1), anyInt(), any())).thenReturn(pool("CHANGED "));
 		snapshots.createSnapshot(Q, null);
 		assertThat(jdbc.sql("SELECT title FROM publication WHERE openalex_id = 'W1'").query(String.class).single())
 				.startsWith("CHANGED");
@@ -305,7 +305,7 @@ class PathServiceTests {
 
 	@Test
 	void topicWithoutEligiblePapersStoresNoPath() {
-		when(openAlex.searchWorks(eq("sourdough baking"), eq(1), anyInt())).thenReturn(page(1, 2,
+		when(openAlex.searchWorks(eq("sourdough baking"), eq(1), anyInt(), any())).thenReturn(page(1, 2,
 				work("W90", "Reinforcement learning in robotics"), work("W91", "Graph neural networks")));
 		assertThatThrownBy(() -> paths.create("sourdough baking", PathOptions.DEFAULT, null))
 				.isInstanceOf(PathExceptions.NoEligiblePapers.class);
@@ -326,7 +326,7 @@ class PathServiceTests {
 		// New options need generation capacity (an already stored revision would be returned without work).
 		assertThatThrownBy(() -> saturated.regenerate(v1.pathId(), options(Experience.ADVANCED, Focus.RECENT, 20), null))
 				.isInstanceOf(PathExceptions.Busy.class);
-		verify(openAlex, never()).searchWorks(anyString(), anyInt(), anyInt());
+		verify(openAlex, never()).searchWorks(anyString(), anyInt(), anyInt(), any());
 	}
 
 	private static List<PathService.PathView> runConcurrently(List<Callable<PathService.PathView>> tasks) throws Exception {

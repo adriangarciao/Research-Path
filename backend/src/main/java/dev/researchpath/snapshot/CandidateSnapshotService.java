@@ -20,6 +20,7 @@ import dev.researchpath.identity.IdentityResolutionService;
 import dev.researchpath.openalex.OpenAlexClient;
 import dev.researchpath.openalex.OpenAlexProperties;
 import dev.researchpath.openalex.OpenAlexSearchPage;
+import dev.researchpath.openalex.ProviderDeadline;
 import dev.researchpath.publication.NormalizationResult;
 import dev.researchpath.publication.NormalizationResult.Accepted;
 import dev.researchpath.publication.NormalizationResult.Rejected;
@@ -94,13 +95,15 @@ public class CandidateSnapshotService {
 			throw new IllegalArgumentException("maxCandidates must be between 1 and " + ingestion.maxCandidates());
 		}
 
-		// 1. Retrieve (outside any DB transaction).
+		// 1. Retrieve (outside any DB transaction); every page and retry shares one overall time budget (R5).
+		ProviderDeadline deadline = ProviderDeadline.after(clock, openAlexProperties.generationBudget());
+		long retrievalStart = System.nanoTime();
 		int perPage = Math.min(requested, openAlexProperties.maxPerPage());
 		List<RetrievedRecord> received = new ArrayList<>();
 		List<Integer> pagesFetched = new ArrayList<>();
 		Long providerTotal = null;
 		for (int page = 1; received.size() < requested; page++) {
-			OpenAlexSearchPage result = openAlex.searchWorks(cleanTopic, page, perPage);
+			OpenAlexSearchPage result = openAlex.searchWorks(cleanTopic, page, perPage, deadline);
 			pagesFetched.add(page);
 			if (providerTotal == null) {
 				providerTotal = result.totalCount();
@@ -114,6 +117,8 @@ public class CandidateSnapshotService {
 				break; // provider has no more results
 			}
 		}
+
+		long retrievalMillis = (System.nanoTime() - retrievalStart) / 1_000_000;
 
 		// 2. Normalize; drop unusable records and within-snapshot repeats (page drift), noting both.
 		List<Map<String, Object>> notes = new ArrayList<>();
@@ -164,8 +169,8 @@ public class CandidateSnapshotService {
 			snapshots.finishRelevance(snapshotId, RelevancePolicy.VERSION,
 					json(warnings(query, snapshots.countOptimizationCandidates(snapshotId))));
 		});
-		log.info("Created snapshot {} for topic '{}': received={}, stored={}, rejected={}", snapshotId, cleanTopic,
-				received.size(), storedCount, rejectedCount);
+		log.info("Created snapshot {} for topic '{}': received={}, stored={}, rejected={}, pages={}, retrievalMs={}",
+				snapshotId, cleanTopic, received.size(), storedCount, rejectedCount, pagesFetched.size(), retrievalMillis);
 
 		return snapshots.findSummary(snapshotId).orElseThrow();
 	}

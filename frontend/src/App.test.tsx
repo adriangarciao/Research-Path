@@ -140,6 +140,27 @@ describe('App: create, inspect, regenerate', () => {
     expect(await screen.findByRole('alert')).toHaveTextContent(/could not reach the researchpath server/i)
   })
 
+  it('retrying the same search after a retryable failure reuses its key, so the server cannot search twice', async () => {
+    const calls = mockFetch(
+      problem(503, 'Research data provider too slow', 'The research data provider did not respond in time, so nothing was saved.'),
+      problem(422, 'No eligible papers', 'No eligible papers were found.'),
+      problem(422, 'No eligible papers', 'No eligible papers were found.'),
+    )
+    const user = userEvent.setup()
+    render(<App />)
+    const key = (i: number) => (calls[i].init.headers as Record<string, string>)['Idempotency-Key']
+    await startPath(user)
+    expect(await screen.findByRole('alert')).toHaveTextContent(/did not respond in time/i)
+    await user.click(screen.getByRole('button', { name: /build reading path/i }))
+    expect(await screen.findByRole('alert')).toHaveTextContent(/no eligible papers/i)
+    expect(key(1)).toBe(key(0))
+    // After a final (non-retryable) answer the next submission is a new request with a new key.
+    await user.click(screen.getByRole('button', { name: /build reading path/i }))
+    await screen.findByRole('alert')
+    expect(calls).toHaveLength(3)
+    expect(key(2)).not.toBe(key(1))
+  })
+
   it('lets the person stop waiting and returns to the form', async () => {
     mockFetch(new Promise<Response>(() => {}))
     const user = userEvent.setup()

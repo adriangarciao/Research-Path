@@ -2,6 +2,7 @@ package dev.researchpath.concept;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
@@ -78,7 +79,7 @@ class SnapshotConceptTests {
 	}
 
 	private UUID snapshot(JsonNode... works) {
-		when(openAlex.searchWorks(eq(Q), eq(1), anyInt()))
+		when(openAlex.searchWorks(eq(Q), eq(1), anyInt(), any()))
 				.thenReturn(new OpenAlexSearchPage((long) works.length, 1, List.of(works), Instant.parse("2026-10-17T12:00:00Z")));
 		return snapshots.createSnapshot(Q, 50).id();
 	}
@@ -96,7 +97,7 @@ class SnapshotConceptTests {
 
 		ConceptModel m = concepts.build(id, Representation.COMBINED).orElseThrow();
 
-		verify(openAlex, never()).searchWorks(anyString(), anyInt(), anyInt());
+		verify(openAlex, never()).searchWorks(anyString(), anyInt(), anyInt(), any());
 		assertThat(m.candidates()).isEqualTo(4); // W5 and W6 never contribute
 		assertThat(m.included()).extracting(ConceptModel.Entry::label)
 				.containsExactly("robot navigation", "sim-to-real transfer");
@@ -112,7 +113,7 @@ class SnapshotConceptTests {
 		ConceptModel before = concepts.build(id, Representation.COMBINED).orElseThrow();
 
 		// A later snapshot refreshes W1 in the cache with different keywords.
-		when(openAlex.searchWorks(eq("robot learning"), eq(1), anyInt())).thenReturn(new OpenAlexSearchPage(1L, 1,
+		when(openAlex.searchWorks(eq("robot learning"), eq(1), anyInt(), any())).thenReturn(new OpenAlexSearchPage(1L, 1,
 				List.of(work("W1", "Reinforcement learning for robot navigation", Map.of("legged locomotion", 0.9))),
 				Instant.parse("2026-10-18T12:00:00Z")));
 		snapshots.createSnapshot("robot learning", 10);

@@ -1,6 +1,7 @@
 package dev.researchpath.path;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
@@ -45,7 +46,7 @@ class RetentionServiceTests {
 	@BeforeEach
 	void setUp() {
 		jdbc.sql("TRUNCATE candidate_snapshot, publication, concept RESTART IDENTITY CASCADE").update();
-		when(openAlex.searchWorks(eq(PathServiceTests.Q), eq(1), anyInt())).thenReturn(PathServiceTests.pool(""));
+		when(openAlex.searchWorks(eq(PathServiceTests.Q), eq(1), anyInt(), any())).thenReturn(PathServiceTests.pool(""));
 	}
 
 	private UUID internalId(String publicId) {

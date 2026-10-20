@@ -18,7 +18,7 @@ No known security or data-integrity bug is open.
 | M4 | Generic same-title works | e.g. 34 "Quantum Error Correction" chapters; paths can show two or three (D17). |
 | M5 | Reading order is mostly chronological | Citation links among selected papers are sparse (0–7 per path); stage names are year ranges (D10, disclosed). |
 | M6 | Provider-limited coverage | Canonical works absent from the retrieved 200 (e.g. GCN, RoseTTAFold) cannot be selected; provider citation counts can be wrong. |
-| M7 | Synchronous generation worst case | ~5–6 s normally; currently up to ~165 s per provider page (≈ 330 s at 200 candidates) before an error. A 30 s overall provider budget is being implemented (D14, release R5). |
+| M7 | Synchronous generation worst case | **Bounded** (release R5): all provider calls of one new path share a 30 s budget (an attempt starts only if a worst-case attempt, 5 s connect + 10 s read, still fits), then 503 "try again"; the UI gives up at 45 s and a retry of the same search reuses its idempotency key. Measured normal: 4.5 s p50 at 100 candidates, 7.9 s p50 at 200 (local DB). Generation stays synchronous (D14); a browser that gives up does not stop the server, which may still store the path. |
 
 ## Low
 | # | Issue | Notes |

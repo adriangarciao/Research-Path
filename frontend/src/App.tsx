@@ -56,6 +56,9 @@ export default function App() {
   // Only the latest request may update the screen; earlier ones are aborted and ignored.
   const active = useRef<AbortController | null>(null)
   const busy = useRef(false)
+  // Retrying the exact same search after a retryable failure (e.g. a timeout) reuses its idempotency key, so the
+  // server returns the path it may still have finished instead of searching the provider again.
+  const retryKey = useRef<{ request: string; key: string } | null>(null)
 
   const begin = () => {
     active.current?.abort()
@@ -116,8 +119,12 @@ export default function App() {
     setLastTopic(topic)
     setCreateError(null)
     setScreen({ kind: 'creating', topic })
-    createPath(topic, options, newIdempotencyKey(), controller.signal)
+    const request = JSON.stringify({ topic, options })
+    const key = retryKey.current?.request === request ? retryKey.current.key : newIdempotencyKey()
+    retryKey.current = { request, key }
+    createPath(topic, options, key, controller.signal)
       .then((p) => {
+        retryKey.current = null
         if (controller.signal.aborted) return
         setPath(p)
         setRegenerateError(null)
@@ -126,7 +133,9 @@ export default function App() {
       })
       .catch((err: unknown) => {
         if (isAbort(err) || controller.signal.aborted) return
-        setCreateError(toApiError(err))
+        const error = toApiError(err)
+        if (!error.retryable) retryKey.current = null
+        setCreateError(error)
         setScreen({ kind: 'search' })
       })
       .finally(() => {

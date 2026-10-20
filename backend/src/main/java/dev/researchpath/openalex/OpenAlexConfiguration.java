@@ -21,7 +21,7 @@ class OpenAlexConfiguration {
 
 	@Bean
 	OpenAlexClient openAlexClient(RestClient.Builder builder, OpenAlexProperties properties, JsonMapper jsonMapper,
-			Clock clock, JdbcCallBudget budget) {
+			Clock clock, CallBudget budget) {
 		HttpClient httpClient = HttpClient.newBuilder()
 				.connectTimeout(properties.connectTimeout())
 				// Never follow redirects: the Bearer key must only ever reach the configured API host (M13 SSRF review).

@@ -29,7 +29,36 @@ const GENERIC: Record<number, string> = {
   503: 'The server is busy right now. Please try again in a few seconds.',
 }
 
-async function request(path: string, init: RequestInit): Promise<PathResponse> {
+/** Longest the UI waits for one API call (release decision R5): above the backend's 30 s provider budget. */
+export const REQUEST_TIMEOUT_MS = 45_000
+
+const TIMED_OUT = () =>
+  new ApiError(null, 'Timed out', 'The server took too long to respond. Please try again; repeating the same search picks up its result.')
+
+async function request(path: string, init: RequestInit, timeoutMs = REQUEST_TIMEOUT_MS): Promise<PathResponse> {
+  // One signal for both the caller's cancel and our timeout; the timer also covers reading the body.
+  const controller = new AbortController()
+  const caller = init.signal
+  const forward = () => controller.abort()
+  if (caller?.aborted) controller.abort()
+  else caller?.addEventListener('abort', forward, { once: true })
+  let timedOut = false
+  const timer = setTimeout(() => {
+    timedOut = true
+    controller.abort()
+  }, timeoutMs)
+  try {
+    return await send(path, { ...init, signal: controller.signal })
+  } catch (err) {
+    if (timedOut && !caller?.aborted) throw TIMED_OUT()
+    throw err
+  } finally {
+    clearTimeout(timer)
+    caller?.removeEventListener('abort', forward)
+  }
+}
+
+async function send(path: string, init: RequestInit): Promise<PathResponse> {
   let res: Response
   try {
     res = await fetch(`${apiBaseUrl}${path}`, {
@@ -50,19 +79,25 @@ async function request(path: string, init: RequestInit): Promise<PathResponse> {
     // 4xx details and the provider/busy messages are written for people; other 5xx details are never shown.
     const showDetail = res.status < 500 || res.status === 502 || res.status === 503
     if (showDetail && typeof problem.detail === 'string' && problem.detail.length < 500) detail = problem.detail
-  } catch {
+  } catch (err) {
+    if (init.signal?.aborted) throw err
     // Not JSON (e.g. a proxy error page): keep the generic message.
   }
   throw new ApiError(res.status, title, detail)
 }
 
-export function createPath(topic: string, options: PathOptions, idempotencyKey: string, signal?: AbortSignal) {
-  return request('/api/paths', {
-    method: 'POST',
-    headers: { 'Idempotency-Key': idempotencyKey },
-    body: JSON.stringify({ topic, ...options }),
-    signal,
-  })
+export function createPath(
+  topic: string,
+  options: PathOptions,
+  idempotencyKey: string,
+  signal?: AbortSignal,
+  timeoutMs = REQUEST_TIMEOUT_MS,
+) {
+  return request(
+    '/api/paths',
+    { method: 'POST', headers: { 'Idempotency-Key': idempotencyKey }, body: JSON.stringify({ topic, ...options }), signal },
+    timeoutMs,
+  )
 }
 
 export function getPath(pathId: string, revision?: number, signal?: AbortSignal) {
@@ -78,7 +113,7 @@ export function regeneratePath(pathId: string, options: PathOptions, parentRevis
   })
 }
 
-/** A fresh key per user submission, so a repeated or retried POST cannot create a second path. */
+/** A fresh key per new submission, so a repeated or retried POST cannot create a second path. */
 export function newIdempotencyKey(): string {
   if (typeof crypto.randomUUID === 'function') return crypto.randomUUID()
   const bytes = crypto.getRandomValues(new Uint8Array(16))

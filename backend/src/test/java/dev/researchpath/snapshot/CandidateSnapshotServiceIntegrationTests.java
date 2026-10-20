@@ -71,7 +71,7 @@ class CandidateSnapshotServiceIntegrationTests {
 
 	@Test
 	void realFixtureProducesAuditStyleSummaryAndFullPersistence() throws Exception {
-		when(openAlex.searchWorks("graph neural networks", 1, 3)).thenReturn(realFixturePage());
+		when(openAlex.searchWorks(eq("graph neural networks"), eq(1), eq(3), any())).thenReturn(realFixturePage());
 
 		SnapshotSummary s = service.createSnapshot("  graph   neural networks ", 3);
 
@@ -112,9 +112,9 @@ class CandidateSnapshotServiceIntegrationTests {
 
 	@Test
 	void laterSnapshotRefreshesCacheButEarlierSnapshotKeepsItsRecord() {
-		when(openAlex.searchWorks(eq("topic a"), eq(1), anyInt()))
+		when(openAlex.searchWorks(eq("topic a"), eq(1), anyInt(), any()))
 				.thenReturn(page(1, 1, work("W100", "Old title").year(2019)));
-		when(openAlex.searchWorks(eq("topic b"), eq(1), anyInt()))
+		when(openAlex.searchWorks(eq("topic b"), eq(1), anyInt(), any()))
 				.thenReturn(page(1, 2, work("W100", "New title").year(2019), work("W200", "Other")));
 
 		SnapshotSummary first = service.createSnapshot("topic a", 5);
@@ -131,7 +131,7 @@ class CandidateSnapshotServiceIntegrationTests {
 
 	@Test
 	void possibleDuplicatesAreRecordedNotMerged() {
-		when(openAlex.searchWorks(anyString(), eq(1), anyInt())).thenReturn(page(1, 4,
+		when(openAlex.searchWorks(anyString(), eq(1), anyInt(), any())).thenReturn(page(1, 4,
 				work("W1", "A Comprehensive Survey on Graph Neural Networks").year(2020).doi("10.1/survey"),
 				work("W2", "A comprehensive survey on graph neural networks.").year(2020),
 				work("W3", "Preprint version").doi("10.9/SAME"),
@@ -156,17 +156,17 @@ class CandidateSnapshotServiceIntegrationTests {
 		for (int i = 1; i <= 100; i++) {
 			first.add(work("W" + i, "Work " + i));
 		}
-		when(openAlex.searchWorks("big topic", 1, 100)).thenReturn(page(1, 103, first.toArray(WorkJson[]::new)));
-		when(openAlex.searchWorks("big topic", 2, 100)).thenReturn(page(2, 103,
+		when(openAlex.searchWorks(eq("big topic"), eq(1), eq(100), any())).thenReturn(page(1, 103, first.toArray(WorkJson[]::new)));
+		when(openAlex.searchWorks(eq("big topic"), eq(2), eq(100), any())).thenReturn(page(2, 103,
 				work("W100", "Work 100"), // same work again: ranking drifted between pages
 				work("W101", null), // unusable: no title
 				work("W102", "Work 102")));
 
 		SnapshotSummary s = service.createSnapshot("big topic", 150);
 
-		verify(openAlex).searchWorks("big topic", 1, 100);
-		verify(openAlex).searchWorks("big topic", 2, 100);
-		verify(openAlex, never()).searchWorks("big topic", 3, 100);
+		verify(openAlex).searchWorks(eq("big topic"), eq(1), eq(100), any());
+		verify(openAlex).searchWorks(eq("big topic"), eq(2), eq(100), any());
+		verify(openAlex, never()).searchWorks(eq("big topic"), eq(3), eq(100), any());
 		assertThat(s.receivedCount()).isEqualTo(103);
 		assertThat(s.storedCount()).isEqualTo(101);
 		assertThat(s.rejectedCount()).isEqualTo(1);
@@ -181,12 +181,12 @@ class CandidateSnapshotServiceIntegrationTests {
 
 	@Test
 	void stopsAtRequestedCount() {
-		when(openAlex.searchWorks("t", 1, 2)).thenReturn(page(1, 999, work("W1", "a"), work("W2", "b")));
+		when(openAlex.searchWorks(eq("t"), eq(1), eq(2), any())).thenReturn(page(1, 999, work("W1", "a"), work("W2", "b")));
 
 		SnapshotSummary s = service.createSnapshot("t", 2);
 
 		assertThat(s.receivedCount()).isEqualTo(2);
-		verify(openAlex, never()).searchWorks("t", 2, 2);
+		verify(openAlex, never()).searchWorks(eq("t"), eq(2), eq(2), any());
 	}
 
 	@Test
@@ -195,8 +195,8 @@ class CandidateSnapshotServiceIntegrationTests {
 		for (int i = 1; i <= 100; i++) {
 			full.add(work("W" + i, "Work " + i));
 		}
-		when(openAlex.searchWorks("t", 1, 100)).thenReturn(page(1, 500, full.toArray(WorkJson[]::new)));
-		when(openAlex.searchWorks("t", 2, 100)).thenThrow(new OpenAlexException("HTTP 429", 429, null));
+		when(openAlex.searchWorks(eq("t"), eq(1), eq(100), any())).thenReturn(page(1, 500, full.toArray(WorkJson[]::new)));
+		when(openAlex.searchWorks(eq("t"), eq(2), eq(100), any())).thenThrow(new OpenAlexException("HTTP 429", 429, null));
 
 		assertThatThrownBy(() -> service.createSnapshot("t", 200)).isInstanceOf(OpenAlexException.class);
 
@@ -206,7 +206,7 @@ class CandidateSnapshotServiceIntegrationTests {
 
 	@Test
 	void databaseFailureMidPersistRollsBackEverything() {
-		when(openAlex.searchWorks(anyString(), eq(1), anyInt()))
+		when(openAlex.searchWorks(anyString(), eq(1), anyInt(), any()))
 				.thenReturn(page(1, 3, work("W1", "a"), work("W2", "b"), work("W3", "c")));
 		// First two upserts succeed, the third fails inside the transaction.
 		doCallRealMethod().doCallRealMethod().doThrow(new IllegalStateException("simulated DB failure"))
@@ -230,7 +230,7 @@ class CandidateSnapshotServiceIntegrationTests {
 
 	@Test
 	void defaultCandidateCountIsConfigured() {
-		when(openAlex.searchWorks("t", 1, 100)).thenReturn(page(1, 1, work("W1", "a")));
+		when(openAlex.searchWorks(eq("t"), eq(1), eq(100), any())).thenReturn(page(1, 1, work("W1", "a")));
 		assertThat(service.createSnapshot("t", null).requestedCount()).isEqualTo(100);
 	}
 
@@ -245,7 +245,7 @@ class CandidateSnapshotServiceIntegrationTests {
 		JsonNode unsafeLinkOnly = WorkJson.JSON.readTree("""
 				{"id": "https://openalex.org/W3", "display_name": "c",
 				 "primary_location": {"landing_page_url": "javascript:alert(1)"}, "referenced_works": null}""");
-		when(openAlex.searchWorks(anyString(), eq(1), anyInt())).thenReturn(new OpenAlexSearchPage(3L, 1,
+		when(openAlex.searchWorks(anyString(), eq(1), anyInt(), any())).thenReturn(new OpenAlexSearchPage(3L, 1,
 				List.of(withEverything, landingOnly, unsafeLinkOnly), WorkJson.RETRIEVED));
 
 		SnapshotSummary.Availability a = service.createSnapshot("t", 10).availability();

@@ -1,6 +1,7 @@
 package dev.researchpath.snapshot;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
@@ -46,7 +47,7 @@ class ConcurrentIngestionTests {
 			works.add(WorkJson.work("W" + i, "Reinforcement learning in robotics " + i).year(2010 + i % 15)
 					.author("A" + i, "Author " + i).cites("W" + (i % 30 + 1)));
 		}
-		when(openAlex.searchWorks(anyString(), eq(1), anyInt()))
+		when(openAlex.searchWorks(anyString(), eq(1), anyInt(), any()))
 				.thenAnswer(inv -> WorkJson.page(1, 30, works.toArray(WorkJson[]::new)));
 
 		int n = 6;

@@ -2,6 +2,7 @@ package dev.researchpath.web;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.not;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
@@ -32,6 +33,7 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import dev.researchpath.TestcontainersConfiguration;
 import dev.researchpath.openalex.OpenAlexClient;
 import dev.researchpath.openalex.OpenAlexException;
+import dev.researchpath.openalex.ProviderTimeBudgetExceededException;
 import dev.researchpath.path.PathFixtures;
 
 /** M13 negative sweep over the public API, end to end (filters, MVC, handlers, database). */
@@ -62,7 +64,7 @@ class ApiHardeningTests {
 	void setUp() {
 		ip = null;
 		jdbc.sql("TRUNCATE candidate_snapshot, publication, concept RESTART IDENTITY CASCADE").update();
-		when(openAlex.searchWorks(eq(PathFixtures.Q), eq(1), anyInt())).thenReturn(PathFixtures.pool(""));
+		when(openAlex.searchWorks(eq(PathFixtures.Q), eq(1), anyInt(), any())).thenReturn(PathFixtures.pool(""));
 	}
 
 	private ResultActions send(MockHttpServletRequestBuilder request) throws Exception {
@@ -138,7 +140,7 @@ class ApiHardeningTests {
 	@Test
 	void injectionShapedTopicsAreDataNotCode() throws Exception {
 		String topic = "robotics'); DROP TABLE reading_path; -- <img src=x onerror=alert(1)>";
-		when(openAlex.searchWorks(eq(topic), eq(1), anyInt())).thenReturn(PathFixtures.pool(""));
+		when(openAlex.searchWorks(eq(topic), eq(1), anyInt(), any())).thenReturn(PathFixtures.pool(""));
 		send(post("/api/paths").contentType(MediaType.APPLICATION_JSON)
 				.content("{\"topic\": \"" + topic.replace("\"", "\\\"") + "\", \"budget\": 5}"))
 				.andExpect(status().is4xxClientError()); // no eligible papers for this topic: 422, nothing stored
@@ -149,16 +151,39 @@ class ApiHardeningTests {
 
 	@Test
 	void providerFailuresAreMappedAndStoreNothing() throws Exception {
-		when(openAlex.searchWorks(anyString(), anyInt(), anyInt())).thenThrow(new OpenAlexException("HTTP 500", 500, null));
+		when(openAlex.searchWorks(anyString(), anyInt(), anyInt(), any())).thenThrow(new OpenAlexException("HTTP 500", 500, null));
 		noInternals(send(post("/api/paths").contentType(MediaType.APPLICATION_JSON)
 				.content("{\"topic\": \"reinforcement learning in robotics\"}"))
 				.andExpect(status().isBadGateway()));
-		doThrow(new OpenAlexException("HTTP 429", 429, null)).when(openAlex).searchWorks(anyString(), anyInt(), anyInt());
+		doThrow(new OpenAlexException("HTTP 429", 429, null)).when(openAlex).searchWorks(anyString(), anyInt(), anyInt(), any());
 		noInternals(send(post("/api/paths").contentType(MediaType.APPLICATION_JSON)
 				.content("{\"topic\": \"reinforcement learning in robotics\"}"))
 				.andExpect(status().isServiceUnavailable()));
 		org.assertj.core.api.Assertions.assertThat(jdbc.sql("SELECT count(*) FROM reading_path").query(Integer.class).single())
 				.isZero();
+	}
+
+	@Test
+	void providerTimeBudgetIsARetryable503AndLeavesStoredPathsIntact() throws Exception {
+		String created = send(post("/api/paths").contentType(MediaType.APPLICATION_JSON)
+				.content("{\"topic\": \"" + PathFixtures.Q + "\", \"budget\": 5}"))
+				.andExpect(status().isCreated()).andReturn().getResponse().getContentAsString();
+		String pathId = com.jayway.jsonpath.JsonPath.read(created, "$.pathId");
+		String before = send(get("/api/paths/" + pathId)).andReturn().getResponse().getContentAsString();
+
+		when(openAlex.searchWorks(anyString(), anyInt(), anyInt(), any()))
+				.thenThrow(new ProviderTimeBudgetExceededException("OpenAlex search page 1 stopped"));
+		noInternals(send(post("/api/paths").contentType(MediaType.APPLICATION_JSON)
+				.content("{\"topic\": \"graph neural networks\"}"))
+				.andExpect(status().isServiceUnavailable())
+				.andExpect(header().string("Retry-After", "10"))
+				.andExpect(jsonPath("$.title").value("Research data provider too slow")));
+
+		org.assertj.core.api.Assertions.assertThat(jdbc.sql("SELECT count(*) FROM reading_path").query(Integer.class).single())
+				.isEqualTo(1);
+		org.assertj.core.api.Assertions.assertThat(jdbc.sql("SELECT count(*) FROM candidate_snapshot").query(Integer.class).single())
+				.isEqualTo(1);
+		send(get("/api/paths/" + pathId)).andExpect(status().isOk()).andExpect(content().string(before));
 	}
 
 }
