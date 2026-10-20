@@ -7,23 +7,23 @@ documents kept locally in `docs/` (gitignored). Project records are public: mile
 [docs/progress](docs/progress/), decisions in [docs/decisions](docs/decisions/), design notes in
 [docs/design](docs/design/), and measured evidence in [docs/evidence](docs/evidence/).
 
-> **Status: playbook milestones M00–M14 PASS** (see [docs/progress/STATUS.md](docs/progress/STATUS.md)).
-> Implemented: publication cache (topics/keywords with confidence, referenced-work IDs, missing-data flags,
-> bounded and URL-validated), live OpenAlex ingestion, frozen candidate snapshots, conservative duplicate
-> handling (obvious duplicates suppressed per snapshot, versions kept and flagged, nothing merged) and a
-> metadata-quality report, a conservative relevance gate with frozen evaluation inputs, and a filtered
-> topic + keyword concept representation for coverage, an offline benchmark harness with three ranking
-> baselines, a custom greedy marginal-gain set optimizer compared with them on committed datasets, and a cautious
-> reading-order and stage builder with grounded explanations, exposed through a path API with immutable
-> revisions and regeneration from the original snapshot (`POST /api/paths`, `GET /api/paths/{id}`,
-> `POST /api/paths/{id}/revisions`).
-> A React interface (http://localhost:5173) creates, shows and regenerates paths.
-> The API is rate-limited and hardened (see [security review](docs/evidence/security-review-m13.md)); CI runs
-> backend, frontend and secret guards on every push.
-> Evaluation: [BENCHMARKS.md](docs/evaluation/BENCHMARKS.md) — broader subtopic coverage than simple rankings on 10
-> topics (7 not used for tuning), keeping at least two of each topic's most-cited landmark papers in 10-paper paths;
-> no learning benefit is claimed.
-> **Not implemented yet:** retention job, deployment.
+> **Status: near-MVP release candidate `v0.9.0-rc.1`** — playbook milestones M00–M15 PASS
+> ([status](docs/progress/STATUS.md), [release report](docs/progress/M15.md)). Public deployment is not authorized.
+>
+> Give it a topic; it retrieves real works from OpenAlex, screens them for relevance and duplicate versions, freezes
+> the candidate pool, selects a small complementary set (custom greedy optimizer with two landmark slots), orders it
+> cautiously in stages and explains every pick from recorded evidence. Paths are immutable revisions you can
+> regenerate with other settings from the same frozen pool, without new provider calls.
+>
+> **Docs:** [architecture](docs/ARCHITECTURE.md) · [API](docs/API.md) · [security, privacy & retention](docs/SECURITY.md)
+> · [benchmarks](docs/evaluation/BENCHMARKS.md) · [known issues](docs/KNOWN_ISSUES.md) ·
+> [deployment runbook (plan only)](docs/DEPLOYMENT_RUNBOOK.md) · [decisions](docs/decisions/DECISION_REGISTER.md)
+>
+> **Honest summary of the evaluation:** broader subtopic coverage than simple rankings on 10 topics (7 not used for
+> tuning), keeping at least two of each topic's most-cited landmark papers in 10-paper paths; fewer highly cited papers
+> than a citation ranking; no learning benefit is claimed.
+
+![A generated reading path](docs/screenshots/path-desktop.png)
 
 ## Layout
 
