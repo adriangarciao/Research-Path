@@ -33,6 +33,20 @@ jobs:
         working-directory: backend
         run: sh ./mvnw -B -ntp clean verify
 
+  image:
+    name: Backend container image builds (not pushed)
+    runs-on: ubuntu-24.04 # pinned image; upgrade deliberately
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Build
+        working-directory: backend
+        run: docker build --pull -t researchpath-backend:ci .
+      - name: Runs as a non-root user
+        run: test "$(docker image inspect researchpath-backend:ci --format '{{.Config.User}}')" = app
+
   frontend:
     name: Frontend typecheck, build, lint, tests
     runs-on: ubuntu-24.04 # pinned image; upgrade deliberately

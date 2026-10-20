@@ -1,0 +1,8 @@
+# Only what the image build needs; never local secrets or build output.
+target/
+**/.env
+**/.env.*
+*.log
+.idea/
+.vscode/
+*.iml
