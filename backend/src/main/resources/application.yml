@@ -45,12 +45,16 @@ researchpath:
     # Server-side only. Supplied via the OPENALEX_API_KEY environment variable; may be empty.
     api-key: ${OPENALEX_API_KEY:}
     connect-timeout: 5s
-    read-timeout: 30s
+    # Bounds one attempt including the body (M7: 16 live pages took 0.5-1.2 s, so 10 s is ~8x the slowest).
+    read-timeout: 10s
     max-attempts: 3
     initial-backoff: 1s
     max-backoff: 30s
     max-per-page: 100
     max-response-size: 8MB   # ~4-5x a full 100-work page; larger bodies are rejected unparsed
+    # All provider calls of one generation (pages and retries) share this budget (release decision R5). An attempt
+    # or retry wait starts only if it fits, so the provider phase never exceeds it; then 503 "try again".
+    generation-budget: 30s
   ingestion:
     # PROVISIONAL (blueprint D11): 100-300 candidates is a planning target, not a tested value.
     default-candidates: 100

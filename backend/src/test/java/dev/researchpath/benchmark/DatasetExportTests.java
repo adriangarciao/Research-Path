@@ -3,6 +3,7 @@ package dev.researchpath.benchmark;
 import static dev.researchpath.snapshot.WorkJsonAccess.page;
 import static dev.researchpath.snapshot.WorkJsonAccess.work;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
@@ -51,7 +52,7 @@ class DatasetExportTests {
 
 	@Test
 	void exportContainsOnlyEligibleCanonicalCandidatesWithTheirFrozenFields() {
-		when(openAlex.searchWorks(eq(Q), eq(1), anyInt())).thenReturn(page(1, 4,
+		when(openAlex.searchWorks(eq(Q), eq(1), anyInt(), any())).thenReturn(page(1, 4,
 				work("W1", "Reinforcement learning in robotics: a survey").year(2013).doi("10.1/a").author("A1", "Jens Kober").cites("W9"),
 				work("W2", "Reinforcement learning in robotics: a survey").year(2013).author("A1", "Jens Kober"), // duplicate
 				work("W3", "Ethics of reinforcement learning in robotics"), // tangential
@@ -61,7 +62,7 @@ class DatasetExportTests {
 
 		BenchmarkDataset d = exports.export(id).orElseThrow();
 
-		verify(openAlex, never()).searchWorks(anyString(), anyInt(), anyInt());
+		verify(openAlex, never()).searchWorks(anyString(), anyInt(), anyInt(), any());
 		assertThat(d.formatVersion()).isEqualTo(BenchmarkDataset.FORMAT_VERSION);
 		assertThat(d.topic()).isEqualTo(Q);
 		assertThat(d.policies().identityPolicyVersion()).isEqualTo(1);

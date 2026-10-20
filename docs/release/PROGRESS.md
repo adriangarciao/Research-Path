@@ -64,3 +64,45 @@ today's count a new path got 503 `Retry-After: 7880` (= seconds to 00:00 UTC), n
 unchanged, rebuild 201.
 **Remaining:** per-connection buckets and in-flight de-duplication remain per process (documented; one replica).
 **Next:** M7 — bounded request time (30 s backend provider budget, 45 s frontend), measured before finalizing.
+
+## R-M7 — Bounded request time — 2026-10-20
+**Status:** implemented and verified; limits reported to the owner for confirmation (R5).
+
+**Measured first (8 fresh topics, real OpenAlex with key, local dev backend and DB):**
+
+| | n | min | p50 | p90 | max |
+|---|---|---|---|---|---|
+| Raw provider page (per_page 100, same `select`) | 16 | 0.51 s | 0.69 s | 1.17 s | 1.20 s |
+| Whole snapshot, 100 candidates (1 page) | 8 | 3.6 s | 4.5 s | 4.8 s | 4.8 s |
+| Whole snapshot, 200 candidates (2 pages) | 8 | 7.4 s | 7.9 s | 10.2 s | 10.2 s |
+
+Pages are 0.8–2.0 MB. Provider time is a small share; the rest is normalization, gates and the snapshot transaction.
+Conclusion: 30 s leaves ≥ 12× headroom for a normal provider phase (≈ 1–2.4 s) and room for one or two fast retries;
+45 s in the UI sits above 30 s + the measured local work (≤ ~6 s at 200).
+
+**Changed:** `ProviderDeadline` (one per generation, shared by every page and retry); `OpenAlexClient` checks it
+before each attempt and before each retry wait, starting either only if `wait + connect + read` still fits, so the
+provider phase never exceeds the budget and no pointless wait or request happens; `ProviderTimeBudgetExceededException`
+→ 503 "Research data provider too slow", `Retry-After: 10`; `researchpath.openalex.generation-budget: 30s` (validated
+≥ connect + read at startup); `read-timeout` 30 s → 10 s. Snapshot logs now carry `pages` and `retrievalMs`.
+Frontend: every API call times out at 45 s with a retryable "Timed out" message (a person's cancel stays a cancel);
+retrying the same search after a retryable failure reuses its idempotency key, so the server returns a path it may
+still have finished (or joins the running one) instead of searching again.
+**Cancellation:** generation is synchronous (D14); a browser that gives up does not cancel the server. The server
+either stores a complete path in one transaction or nothing (the provider phase finishes before any write), so no
+partial or corrupted path is possible; the key reuse avoids a second provider search on retry.
+**Tests:** `OpenAlexClientDeadlineTest` (retries stop when the next wait + attempt no longer fits; long Retry-After
+fails at once without waiting; expired deadline sends and reserves nothing; deadline shared across pages; unchanged
+without a deadline; too-short budget rejected; real JDK HTTP stack: the read timeout bounds a trickling body),
+`ApiHardeningTests` (503 + Retry-After 10, no internals, existing path and snapshot untouched); frontend client
+timeout/cancel/503 tests and an App test for key reuse. All mocks moved to the 4-argument `searchWorks`.
+**Regression:** `verify.ps1` PASS (336 backend tests, frontend build/typecheck/tests/lint, secret scan); live e2e 7
+passed (5 mobile-only skips, as before).
+**Live:** (1) backend pointed at a local stub that accepts and never answers: exactly 2 attempts (each ended by the
+10 s read timeout), then 503 "Research data provider too slow" at 21 s with `Retry-After: 10` — a third attempt
+(2 s wait + 15 s) no longer fitted; both attempts counted in the daily budget (may have been billed); no snapshot or
+path stored. (2) Real OpenAlex: new path 5.2 s (`retrievalMs=1007`); the same request with the same idempotency key
+returned the same path in 15 ms with no second provider call.
+**Remaining:** owner confirmation of the measured limits (R5). Measurements were taken against a local DB; repeat
+one timing on Railway before launch (part of the GO checklist).
+**Next:** M3 — informational broader-topic hint for small eligible pools.

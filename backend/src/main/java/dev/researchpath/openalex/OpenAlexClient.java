@@ -25,7 +25,9 @@ import tools.jackson.databind.json.JsonMapper;
  * Minimal OpenAlex works client: search with bounded retries.
  *
  * <p>Retries 429, 5xx and network errors up to {@code maxAttempts}, honouring Retry-After
- * (capped). Other 4xx responses fail immediately. Response bodies are size-bounded before
+ * (capped). Other 4xx responses fail immediately. A {@link ProviderDeadline} bounds all attempts of one generation:
+ * an attempt (or retry wait) starts only if it can finish before the deadline, assuming the worst-case attempt time
+ * {@code connectTimeout + readTimeout}, so the total never exceeds the budget. Response bodies are size-bounded before
  * parsing and must have the expected shape (object with a {@code results} array). The API key travels only in the
  * Authorization header, so it cannot appear in URLs, logs or exception messages.
  */
@@ -68,12 +70,18 @@ public class OpenAlexClient {
 		this.clock = clock;
 	}
 
+	/** {@link #searchWorks(String, int, int, ProviderDeadline)} without an overall deadline. */
+	public OpenAlexSearchPage searchWorks(String query, int page, int perPage) {
+		return searchWorks(query, page, perPage, ProviderDeadline.NONE);
+	}
+
 	/**
 	 * Full-text search over works (OpenAlex {@code search=} parameter), default relevance order.
 	 *
 	 * @param page 1-based page number
+	 * @param deadline shared by every page and retry of one generation
 	 */
-	public OpenAlexSearchPage searchWorks(String query, int page, int perPage) {
+	public OpenAlexSearchPage searchWorks(String query, int page, int perPage, ProviderDeadline deadline) {
 		if (perPage < 1 || perPage > properties.maxPerPage()) {
 			throw new IllegalArgumentException("perPage must be between 1 and " + properties.maxPerPage());
 		}
@@ -85,7 +93,7 @@ public class OpenAlexClient {
 				.queryParam("page", page)
 				.queryParam("per_page", perPage)
 				.queryParam("select", WORK_FIELDS)
-				.build(), "search page " + page);
+				.build(), "search page " + page, deadline);
 
 		JsonNode resultsNode = body.path("results");
 		if (!body.isObject() || !resultsNode.isArray()) {
@@ -99,9 +107,10 @@ public class OpenAlexClient {
 				clock.instant());
 	}
 
-	private JsonNode getWithRetry(Function<UriBuilder, URI> uri, String description) {
+	private JsonNode getWithRetry(Function<UriBuilder, URI> uri, String description, ProviderDeadline deadline) {
 		Duration backoff = properties.initialBackoff();
 		for (int attempt = 1;; attempt++) {
+			requireTime(deadline, Duration.ZERO, description);
 			if (!budget.tryReserve()) {
 				// Nothing is sent once today's budget is used up (also between retries).
 				throw new ProviderBudgetExhaustedException(budget.secondsUntilReset());
@@ -124,6 +133,7 @@ public class OpenAlexClient {
 				}
 				log.warn("OpenAlex {} network error (attempt {}/{}), retrying", description, attempt,
 						properties.maxAttempts());
+				requireTime(deadline, backoff, description);
 				pause(backoff);
 				backoff = next(backoff);
 				continue;
@@ -149,9 +159,24 @@ public class OpenAlexClient {
 			Duration wait = retryAfter(response.retryAfter()).orElse(backoff);
 			log.warn("OpenAlex {} HTTP {} (attempt {}/{}), retrying in {} ms", description, response.status(),
 					attempt, properties.maxAttempts(), wait.toMillis());
+			requireTime(deadline, wait, description);
 			pause(wait);
 			backoff = next(backoff);
 		}
+	}
+
+	/** Fails fast, before waiting or sending, unless {@code wait} plus a worst-case attempt fits before the deadline. */
+	private void requireTime(ProviderDeadline deadline, Duration wait, String description) {
+		Duration needed = wait.plus(attemptLimit());
+		if (deadline.remaining(clock).compareTo(needed) < 0) {
+			throw new ProviderTimeBudgetExceededException("OpenAlex " + description
+					+ " stopped: the overall provider time budget is too short for another attempt");
+		}
+	}
+
+	/** Longest one attempt can take: connecting plus the read timeout (which also bounds reading the body). */
+	Duration attemptLimit() {
+		return properties.connectTimeout().plus(properties.readTimeout());
 	}
 
 	/** Failures before a connection existed; a read timeout is not one of them (the request may have been billed). */

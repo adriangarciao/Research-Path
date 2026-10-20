@@ -2,6 +2,7 @@ package dev.researchpath.path;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.matchesPattern;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
@@ -51,7 +52,7 @@ class PathApiTests {
 	@BeforeEach
 	void setUp() {
 		jdbc.sql("TRUNCATE candidate_snapshot, publication, concept RESTART IDENTITY CASCADE").update();
-		when(openAlex.searchWorks(eq(PathServiceTests.Q), eq(1), anyInt())).thenReturn(PathServiceTests.pool(""));
+		when(openAlex.searchWorks(eq(PathServiceTests.Q), eq(1), anyInt(), any())).thenReturn(PathServiceTests.pool(""));
 	}
 
 	private String createPath(String body) throws Exception {
@@ -100,7 +101,7 @@ class PathApiTests {
 
 		mvc.perform(get("/api/paths/" + id + "/revisions/1")).andExpect(status().isOk())
 				.andExpect(jsonPath("$.revision").value(1)).andExpect(jsonPath("$.papers.length()").value(5));
-		verify(openAlex, never()).searchWorks(anyString(), anyInt(), anyInt());
+		verify(openAlex, never()).searchWorks(anyString(), anyInt(), anyInt(), any());
 	}
 
 	@Test
@@ -116,7 +117,7 @@ class PathApiTests {
 		mvc.perform(post("/api/paths").contentType(MediaType.APPLICATION_JSON)
 				.header("Idempotency-Key", "no").content("{\"topic\": \"reinforcement learning in robotics\"}"))
 				.andExpect(status().isBadRequest());
-		verify(openAlex, never()).searchWorks(anyString(), anyInt(), anyInt());
+		verify(openAlex, never()).searchWorks(anyString(), anyInt(), anyInt(), any());
 
 		mvc.perform(get("/api/paths/not-a-path")).andExpect(status().isNotFound())
 				.andExpect(jsonPath("$.title").value("Path not found"));
@@ -132,7 +133,7 @@ class PathApiTests {
 
 	@Test
 	void topicWithoutEligiblePapersIs422AndIdempotentRetryReturns200() throws Exception {
-		when(openAlex.searchWorks(eq("sourdough baking"), eq(1), anyInt()))
+		when(openAlex.searchWorks(eq("sourdough baking"), eq(1), anyInt(), any()))
 				.thenReturn(dev.researchpath.snapshot.WorkJsonAccess.page(1, 1,
 						dev.researchpath.snapshot.WorkJsonAccess.work("W90", "Graph neural networks")));
 		mvc.perform(post("/api/paths").contentType(MediaType.APPLICATION_JSON).content("{\"topic\": \"sourdough baking\"}"))

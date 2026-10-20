@@ -72,7 +72,7 @@ class OpenAlexClientBudgetTest {
 		RestClient.Builder builder = RestClient.builder().baseUrl("https://api.openalex.test");
 		server = MockRestServiceServer.bindTo(builder).build();
 		OpenAlexProperties props = new OpenAlexProperties("https://api.openalex.test", "secret-key", Duration.ofSeconds(1),
-				Duration.ofSeconds(1), maxAttempts, Duration.ofSeconds(1), Duration.ofSeconds(30), 100, DataSize.ofMegabytes(8));
+				Duration.ofSeconds(1), maxAttempts, Duration.ofSeconds(1), Duration.ofSeconds(30), 100, DataSize.ofMegabytes(8), Duration.ofSeconds(30));
 		return new OpenAlexClient(builder.build(), props, JsonMapper.builder().build(), sleeps::add,
 				Clock.fixed(Instant.parse("2026-10-20T12:00:00Z"), ZoneOffset.UTC), budget);
 	}

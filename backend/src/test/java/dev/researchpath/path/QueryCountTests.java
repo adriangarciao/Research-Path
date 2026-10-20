@@ -1,6 +1,7 @@
 package dev.researchpath.path;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
@@ -88,7 +89,7 @@ class QueryCountTests {
 	@BeforeEach
 	void setUp() {
 		jdbc.sql("TRUNCATE candidate_snapshot, publication, concept RESTART IDENTITY CASCADE").update();
-		when(openAlex.searchWorks(eq(PathServiceTests.Q), eq(1), anyInt())).thenReturn(PathServiceTests.pool(""));
+		when(openAlex.searchWorks(eq(PathServiceTests.Q), eq(1), anyInt(), any())).thenReturn(PathServiceTests.pool(""));
 	}
 
 	private int count(Runnable r) {
@@ -111,7 +112,7 @@ class QueryCountTests {
 		assertThat(regen10).as("regenerate does not grow with the number of papers").isEqualTo(regen5);
 		assertThat(regen10).as("regenerate").isLessThanOrEqualTo(15);
 		assertThat(repeat).as("identical repeat does no generation work").isLessThanOrEqualTo(get + 1);
-		verify(openAlex, never()).searchWorks(anyString(), eq(2), anyInt());
+		verify(openAlex, never()).searchWorks(anyString(), eq(2), anyInt(), any());
 	}
 
 }

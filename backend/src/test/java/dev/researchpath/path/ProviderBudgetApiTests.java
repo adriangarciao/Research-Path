@@ -1,5 +1,6 @@
 package dev.researchpath.path;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -52,7 +53,7 @@ class ProviderBudgetApiTests {
 	@Test
 	void exhaustedBudgetRefusesNewPathsButNotRebuilds() throws Exception {
 		// The first path is built from a stubbed search (no HTTP, so no budget used).
-		org.mockito.Mockito.doReturn(PathServiceTests.pool("")).when(openAlex).searchWorks(eq(PathServiceTests.Q), eq(1), anyInt());
+		org.mockito.Mockito.doReturn(PathServiceTests.pool("")).when(openAlex).searchWorks(eq(PathServiceTests.Q), eq(1), anyInt(), any());
 		String body = mvc.perform(post("/api/paths").contentType(MediaType.APPLICATION_JSON)
 				.content("{\"topic\": \"reinforcement learning in robotics\", \"budget\": 5}"))
 				.andExpect(status().isCreated()).andReturn().getResponse().getContentAsString();
@@ -61,7 +62,7 @@ class ProviderBudgetApiTests {
 		jdbc.sql("INSERT INTO provider_call_budget (day, calls, updated_at) VALUES ((now() AT TIME ZONE 'UTC')::date, 1, now())")
 				.update();
 
-		org.mockito.Mockito.doCallRealMethod().when(openAlex).searchWorks(org.mockito.ArgumentMatchers.anyString(), anyInt(), anyInt());
+		org.mockito.Mockito.doCallRealMethod().when(openAlex).searchWorks(org.mockito.ArgumentMatchers.anyString(), anyInt(), anyInt(), any());
 		int paths = jdbc.sql("SELECT count(*) FROM reading_path").query(Integer.class).single();
 		mvc.perform(post("/api/paths").contentType(MediaType.APPLICATION_JSON).content("{\"topic\": \"graph neural networks\"}"))
 				.andExpect(status().isServiceUnavailable())

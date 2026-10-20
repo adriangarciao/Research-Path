@@ -4,6 +4,7 @@ import static dev.researchpath.snapshot.WorkJson.page;
 import static dev.researchpath.snapshot.WorkJson.work;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
@@ -49,7 +50,7 @@ class SnapshotRelevanceGateTests {
 	}
 
 	private SnapshotSummary snapshot(String topic, WorkJson... works) {
-		when(openAlex.searchWorks(eq(topic), eq(1), anyInt())).thenReturn(page(1, works.length, works));
+		when(openAlex.searchWorks(eq(topic), eq(1), anyInt(), any())).thenReturn(page(1, works.length, works));
 		return service.createSnapshot(topic, 50);
 	}
 
@@ -148,7 +149,7 @@ class SnapshotRelevanceGateTests {
 	void stopwordOnlyTopicsAreRejectedBeforeAnyProviderCall() {
 		assertThatThrownBy(() -> service.createSnapshot("the of and", 10))
 				.isInstanceOf(IllegalArgumentException.class).hasMessageContaining("meaningful word");
-		verify(openAlex, never()).searchWorks(anyString(), anyInt(), anyInt());
+		verify(openAlex, never()).searchWorks(anyString(), anyInt(), anyInt(), any());
 	}
 
 	@Test

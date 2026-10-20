@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import dev.researchpath.openalex.OpenAlexException;
 import dev.researchpath.openalex.ProviderBudgetExhaustedException;
+import dev.researchpath.openalex.ProviderTimeBudgetExceededException;
 import dev.researchpath.path.PathExceptions;
 import dev.researchpath.snapshot.SnapshotNotEvaluatedException;
 
@@ -104,6 +105,16 @@ class ApiExceptionHandler {
 		problem.setTitle("Daily limit reached");
 		return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE)
 				.header(HttpHeaders.RETRY_AFTER, String.valueOf(e.retryAfterSeconds())).body(problem);
+	}
+
+	/** The generation's provider time budget ran out (R5): retryable, nothing was persisted. */
+	@ExceptionHandler(ProviderTimeBudgetExceededException.class)
+	ResponseEntity<ProblemDetail> providerTooSlow(ProviderTimeBudgetExceededException e) {
+		log.warn("OpenAlex failure: {}", e.getMessage());
+		ProblemDetail problem = ProblemDetail.forStatusAndDetail(HttpStatus.SERVICE_UNAVAILABLE,
+				"The research data provider did not respond in time, so nothing was saved. Please try again in a moment.");
+		problem.setTitle("Research data provider too slow");
+		return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).header(HttpHeaders.RETRY_AFTER, "10").body(problem);
 	}
 
 	/** Provider unavailable or rate-limited: retryable for the caller, nothing was persisted. */

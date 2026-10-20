@@ -52,7 +52,7 @@ class OpenAlexClientTest {
 		RestClient.Builder builder = RestClient.builder().baseUrl("https://api.openalex.test");
 		server = MockRestServiceServer.bindTo(builder).build();
 		OpenAlexProperties props = new OpenAlexProperties("https://api.openalex.test", apiKey, Duration.ofSeconds(1),
-				Duration.ofSeconds(1), maxAttempts, Duration.ofSeconds(1), Duration.ofSeconds(30), 100, maxResponse);
+				Duration.ofSeconds(1), maxAttempts, Duration.ofSeconds(1), Duration.ofSeconds(30), 100, maxResponse, Duration.ofSeconds(30));
 		return new OpenAlexClient(builder.build(), props, JsonMapper.builder().build(), sleeps::add,
 				Clock.fixed(NOW, ZoneOffset.UTC));
 	}
@@ -299,7 +299,7 @@ class OpenAlexClientTest {
 	@Test
 	void propertiesToStringHidesKey() {
 		OpenAlexProperties props = new OpenAlexProperties("u", SECRET, Duration.ZERO, Duration.ZERO, 1,
-				Duration.ZERO, Duration.ZERO, 100, DataSize.ofMegabytes(8));
+				Duration.ZERO, Duration.ZERO, 100, DataSize.ofMegabytes(8), Duration.ZERO);
 		assertThat(props.toString()).doesNotContain(SECRET).contains("<set>");
 	}
 
