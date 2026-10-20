@@ -20,8 +20,9 @@ documents kept locally in `docs/` (gitignored). Project records are public: mile
 > A React interface (http://localhost:5173) creates, shows and regenerates paths.
 > The API is rate-limited and hardened (see [security review](docs/evidence/security-review-m13.md)); CI runs
 > backend, frontend and secret guards on every push.
-> Evaluation: [BENCHMARKS.md](docs/evaluation/BENCHMARKS.md) — broader subtopic coverage than simple rankings on 7
-> topics (4 held out), but it often omits a topic's most-cited landmark papers; no learning benefit is claimed.
+> Evaluation: [BENCHMARKS.md](docs/evaluation/BENCHMARKS.md) — broader subtopic coverage than simple rankings on 10
+> topics (7 not used for tuning), keeping at least two of each topic's most-cited landmark papers in 10-paper paths;
+> no learning benefit is claimed.
 > **Not implemented yet:** retention job, deployment.
 
 ## Layout

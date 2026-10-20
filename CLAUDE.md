@@ -21,7 +21,7 @@ DECISION_REGISTER.md`, `docs/design/`, `docs/evidence/`.
 
 ## Active milestone
 See `docs/progress/STATUS.md`. M00–M14 PASS. **M15** (release readiness; deployment is M16 and NOT authorized) is
-next. Open owner decision: D16 (landmark retention, see `docs/evaluation/BENCHMARKS.md`).
+next. Tuning protocol (P12): fixed criteria, audit topics to choose, fresh frozen topics to validate.
 CI (`.github/workflows/ci.yml`) must stay green; the frontend renders stored results and never recomputes them. Owner's standing instruction: at HUMAN DECISION gates choose the conservative/safer option, record it
 with evidence in the decision register, and continue (not for destructive/outward-facing actions). Do not
 start a milestone until the previous gate passes.
@@ -46,7 +46,7 @@ Test classes must end in `Test`/`Tests` (Surefire ignores `*IT`).
   `identity` (conservative D06 policy), `relevance` (conservative D07 gate + shared text pipeline), `concept`
   (conservative D03/D08 coverage concepts from frozen inputs, `/{id}/concepts`), `benchmark` (offline datasets,
   baselines, metrics, runner, CLI, optimizer adapter/sweep; Spring-free), `optimizer` (pure greedy marginal-gain
-  set selection, D12 default β = 4, D09 experience weight 0.02), `sequence` (pure reading order, metadata-only
+  set selection, D12 default β = 4, D09 experience weight 0.02, D16 two landmark seeds), `sequence` (pure reading order, metadata-only
   stage names, template explanations, D10), `path` (product API `/api/paths`, immutable revisions in V6,
   regeneration from the original snapshot with no provider calls, D15), `snapshot` (service, frozen
   inputs via `optimizationCandidates`, dev-only `/api/dev/snapshots`, `/{id}/identity`, `/{id}/relevance`),

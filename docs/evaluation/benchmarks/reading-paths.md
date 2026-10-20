@@ -14,8 +14,8 @@ Always disclosed with a path:
 | k | Stages | Citation links | Cycles broken | Warnings |
 |---:|---|---:|---:|---|
 | 5 | Selected papers (5) | 0 | 0 | NO_CITATION_LINKS |
-| 10 | Papers from 1990–2015 (4) → Papers from 2016–2021 (3) → Papers from 2022–2024 (3) | 0 | 0 | NO_CITATION_LINKS |
-| 15 | Papers from 1990–2015 (5) → Papers from 2016–2019 (3) → Papers from 2021–2023 (3) → Papers from 2024–2026 (4) | 0 | 0 | NO_CITATION_LINKS |
+| 10 | Papers from 1990–2015 (4) → Papers from 2016–2020 (3) → Papers from 2021–2023 (3) | 0 | 0 | NO_CITATION_LINKS |
+| 15 | Papers from 1990–2015 (5) → Papers from 2016–2019 (3) → Papers from 2020–2022 (3) → Papers from 2023–2026 (4) | 0 | 0 | NO_CITATION_LINKS |
 | 20 | Overviews and surveys (1) → Papers from 1985–2015 (7) → Papers from 2016–2021 (6) → Papers from 2022–2026 (6) | 0 | 0 | NO_CITATION_LINKS |
 
 ### k = 10, Intermediate / Balanced
@@ -31,21 +31,21 @@ Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of th
 | 3 | Causal Inference in Urban and Regional Economics (W4211101300) | 2015 | book-chapter | Adds subtopics the selection did not yet cover: regional economics, urban economics and unobserved heterogeneity (and 2 more). | – | – |
 | 4 | Causality Inference with Observational Data in Economics (W2513629617) | 2015 | article | Adds subtopics the selection did not yet cover: regression discontinuity design, difference-in-differences and selection bias. | – | FEW_CITATIONS |
 
-**Stage 2 — Papers from 2016–2021.** Published 2016–2021; ordered by citation links among them where present, otherwise by year.
+**Stage 2 — Papers from 2016–2020.** Published 2016–2020; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 5 | Suppes’ probabilistic theory of causality and causal inference in economics (W2483709630) | 2016 | article | Adds subtopics the selection did not yet cover: Patrick Suppes, Bayesian networks and design-based inference. | – | – |
-| 6 | Causal inference in economics and marketing (W2462689321) | 2016 | article | Adds subtopics the selection did not yet cover: treatment effects. | – | – |
-| 7 | Making progress on causal inference in economics (W3187440871) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: causal graphs, covariate adjustment and causal discovery (and 3 more). | – | – |
+| 5 | Causal inference in economics and marketing (W2462689321) | 2016 | article | Included as one of the most-cited works among the papers examined for this topic (256 citations). | – | – |
+| 6 | Suppes’ probabilistic theory of causality and causal inference in economics (W2483709630) | 2016 | article | Adds subtopics the selection did not yet cover: Patrick Suppes, Bayesian networks and design-based inference. | – | – |
+| 7 | Welfare Analysis Meets Causal Inference (W3047877081) | 2020 | article | Included as one of the most-cited works among the papers examined for this topic (130 citations). | – | NO_SUBJECT_TAGS |
 
-**Stage 3 — Papers from 2022–2024.** Published 2022–2024; ordered by citation links among them where present, otherwise by year.
+**Stage 3 — Papers from 2021–2023.** Published 2021–2023; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 8 | Causal Inference and Austrian Economics (W4206718038) | 2022 | book-chapter | Adds subtopics the selection did not yet cover: generalizability, observational data and Austrian economics (and 3 more). | – | FEW_CITATIONS |
-| 9 | Causal inference and data fusion in econometrics (W2996477010) | 2023 | article | Adds subtopics the selection did not yet cover: data fusion and unmeasured confounding. | – | – |
-| 10 | A First Course in Causal Inference (W4400824990) | 2024 | book | Adds subtopics the selection did not yet cover: confounding and counterfactual reasoning. | – | – |
+| 8 | Making progress on causal inference in economics (W3187440871) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: causal graphs, covariate adjustment and causal discovery (and 3 more). | – | – |
+| 9 | Causal Inference and Austrian Economics (W4206718038) | 2022 | book-chapter | Adds subtopics the selection did not yet cover: generalizability, observational data and Austrian economics (and 3 more). | – | FEW_CITATIONS |
+| 10 | Causal inference and data fusion in econometrics (W2996477010) | 2023 | article | Adds subtopics the selection did not yet cover: data fusion and unmeasured confounding. | – | – |
 
 ### k = 10, Beginner / Balanced
 
@@ -60,21 +60,21 @@ Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of th
 | 3 | Causal Inference in Urban and Regional Economics (W4211101300) | 2015 | book-chapter | Adds subtopics the selection did not yet cover: regional economics, urban economics and unobserved heterogeneity (and 2 more). | – | – |
 | 4 | Causality Inference with Observational Data in Economics (W2513629617) | 2015 | article | Adds subtopics the selection did not yet cover: regression discontinuity design, difference-in-differences and selection bias. | – | FEW_CITATIONS |
 
-**Stage 2 — Papers from 2016–2021.** Published 2016–2021; ordered by citation links among them where present, otherwise by year.
+**Stage 2 — Papers from 2016–2020.** Published 2016–2020; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 5 | Suppes’ probabilistic theory of causality and causal inference in economics (W2483709630) | 2016 | article | Adds subtopics the selection did not yet cover: Patrick Suppes, Bayesian networks and design-based inference. | – | – |
-| 6 | Causal inference in economics and marketing (W2462689321) | 2016 | article | Adds subtopics the selection did not yet cover: treatment effects. | – | – |
-| 7 | Making progress on causal inference in economics (W3187440871) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: causal graphs, covariate adjustment and causal discovery (and 3 more). | – | – |
+| 5 | Causal inference in economics and marketing (W2462689321) | 2016 | article | Included as one of the most-cited works among the papers examined for this topic (256 citations). | – | – |
+| 6 | Suppes’ probabilistic theory of causality and causal inference in economics (W2483709630) | 2016 | article | Adds subtopics the selection did not yet cover: Patrick Suppes, Bayesian networks and design-based inference. | – | – |
+| 7 | Welfare Analysis Meets Causal Inference (W3047877081) | 2020 | article | Included as one of the most-cited works among the papers examined for this topic (130 citations). | – | NO_SUBJECT_TAGS |
 
-**Stage 3 — Papers from 2022–2024.** Published 2022–2024; ordered by citation links among them where present, otherwise by year.
+**Stage 3 — Papers from 2021–2023.** Published 2021–2023; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 8 | Causal Inference and Austrian Economics (W4206718038) | 2022 | book-chapter | Adds subtopics the selection did not yet cover: generalizability, observational data and Austrian economics (and 3 more). | – | FEW_CITATIONS |
-| 9 | Causal inference and data fusion in econometrics (W2996477010) | 2023 | article | Adds subtopics the selection did not yet cover: data fusion and unmeasured confounding. | – | – |
-| 10 | A First Course in Causal Inference (W4400824990) | 2024 | book | Adds subtopics the selection did not yet cover: confounding and counterfactual reasoning. | – | – |
+| 8 | Making progress on causal inference in economics (W3187440871) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: causal graphs, covariate adjustment and causal discovery (and 3 more). | – | – |
+| 9 | Causal Inference and Austrian Economics (W4206718038) | 2022 | book-chapter | Adds subtopics the selection did not yet cover: generalizability, observational data and Austrian economics (and 3 more). | – | FEW_CITATIONS |
+| 10 | Causal inference and data fusion in econometrics (W2996477010) | 2023 | article | Adds subtopics the selection did not yet cover: data fusion and unmeasured confounding. | – | – |
 
 ### k = 10, Advanced / Balanced
 
@@ -89,21 +89,21 @@ Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of th
 | 3 | Causal Inference in Urban and Regional Economics (W4211101300) | 2015 | book-chapter | Adds subtopics the selection did not yet cover: regional economics, urban economics and unobserved heterogeneity (and 2 more). | – | – |
 | 4 | Causality Inference with Observational Data in Economics (W2513629617) | 2015 | article | Adds subtopics the selection did not yet cover: regression discontinuity design, difference-in-differences and selection bias. | – | FEW_CITATIONS |
 
-**Stage 2 — Papers from 2016–2021.** Published 2016–2021; ordered by citation links among them where present, otherwise by year.
+**Stage 2 — Papers from 2016–2020.** Published 2016–2020; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 5 | Suppes’ probabilistic theory of causality and causal inference in economics (W2483709630) | 2016 | article | Adds subtopics the selection did not yet cover: Patrick Suppes, Bayesian networks and design-based inference. | – | – |
-| 6 | Causal inference in economics and marketing (W2462689321) | 2016 | article | Adds subtopics the selection did not yet cover: treatment effects. | – | – |
-| 7 | Making progress on causal inference in economics (W3187440871) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: causal graphs, covariate adjustment and causal discovery (and 3 more). | – | – |
+| 5 | Causal inference in economics and marketing (W2462689321) | 2016 | article | Included as one of the most-cited works among the papers examined for this topic (256 citations). | – | – |
+| 6 | Suppes’ probabilistic theory of causality and causal inference in economics (W2483709630) | 2016 | article | Adds subtopics the selection did not yet cover: Patrick Suppes, Bayesian networks and design-based inference. | – | – |
+| 7 | Welfare Analysis Meets Causal Inference (W3047877081) | 2020 | article | Included as one of the most-cited works among the papers examined for this topic (130 citations). | – | NO_SUBJECT_TAGS |
 
-**Stage 3 — Papers from 2022–2024.** Published 2022–2024; ordered by citation links among them where present, otherwise by year.
+**Stage 3 — Papers from 2021–2023.** Published 2021–2023; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 8 | Causal Inference and Austrian Economics (W4206718038) | 2022 | book-chapter | Adds subtopics the selection did not yet cover: generalizability, observational data and Austrian economics (and 3 more). | – | FEW_CITATIONS |
-| 9 | Causal inference and data fusion in econometrics (W2996477010) | 2023 | article | Adds subtopics the selection did not yet cover: data fusion and unmeasured confounding. | – | – |
-| 10 | A First Course in Causal Inference (W4400824990) | 2024 | book | Adds subtopics the selection did not yet cover: confounding and counterfactual reasoning. | – | – |
+| 8 | Making progress on causal inference in economics (W3187440871) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: causal graphs, covariate adjustment and causal discovery (and 3 more). | – | – |
+| 9 | Causal Inference and Austrian Economics (W4206718038) | 2022 | book-chapter | Adds subtopics the selection did not yet cover: generalizability, observational data and Austrian economics (and 3 more). | – | FEW_CITATIONS |
+| 10 | Causal inference and data fusion in econometrics (W2996477010) | 2023 | article | Adds subtopics the selection did not yet cover: data fusion and unmeasured confounding. | – | – |
 
 **Beginner vs Advanced (k = 10):** 10 of 10 papers shared; overview-marked papers 0 vs 0.
 
@@ -114,38 +114,38 @@ Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of th
 | k | Stages | Citation links | Cycles broken | Warnings |
 |---:|---|---:|---:|---|
 | 5 | Overviews and surveys (1) → Further papers (4) | 0 | 0 | NO_CITATION_LINKS |
-| 10 | Overviews and surveys (1) → Papers from 2010–2020 (5) → Papers from 2022–2024 (4) | 1 | 0 | – |
-| 15 | Overviews and surveys (2) → Papers from 2009–2011 (4) → Papers from 2012–2020 (5) → Papers from 2022–2024 (4) | 2 | 0 | – |
-| 20 | Overviews and surveys (2) → Papers from 2009–2012 (6) → Papers from 2013–2018 (6) → Papers from 2019–2024 (6) | 2 | 0 | – |
+| 10 | Overviews and surveys (1) → Papers from 2002–2018 (5) → Papers from 2022–2024 (4) | 0 | 0 | NO_CITATION_LINKS |
+| 15 | Overviews and surveys (2) → Papers from 2002–2011 (4) → Papers from 2011–2020 (5) → Papers from 2022–2024 (4) | 3 | 0 | – |
+| 20 | Overviews and surveys (2) → Papers from 2002–2011 (6) → Papers from 2011–2018 (6) → Papers from 2019–2024 (6) | 5 | 0 | – |
 
 ### k = 10, Intermediate / Balanced
 
-Citation links among selected papers: 1
+Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of the selected papers cite each other; the order uses review/survey metadata and publication year only
 
 **Stage 1 — Overviews and surveys.** Start with works that their metadata marks as reviews, surveys or introductions.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 1 | Climate change and Indian agriculture: A systematic review of farmers’ perception, adaptation, and transformation (W4229014251) | 2022 | review | Adds subtopics the selection did not yet cover: transformative adaptation, farmer perceptions and cropping systems (and 2 more). OpenAlex lists its publication type as review. | – | – |
+| 1 | Climate change and Indian agriculture: A systematic review of farmers’ perception, adaptation, and transformation (W4229014251) | 2022 | review | Adds subtopics the selection did not yet cover: transformative adaptation, farmer perceptions and cropping systems (and 1 more). OpenAlex lists its publication type as review. | – | – |
 
-**Stage 2 — Papers from 2010–2020.** Published 2010–2020; ordered by citation links among them where present, otherwise by year.
+**Stage 2 — Papers from 2002–2018.** Published 2002–2018; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 2 | From climate change impacts to the development of adaptation strategies: Challenges for agriculture in Europe (W2079121073) | 2011 | article | Adds subtopics the selection did not yet cover: agricultural extension, climate change impacts and climate risk. | ← #3 | – |
-| 3 | Towards adaptation of agriculture to climate change in the Mediterranean (W1991667513) | 2010 | article | Adds subtopics the selection did not yet cover: water scarcity and climate change vulnerability. | → #2 | – |
-| 4 | Technologies for climate change adaptation. Agriculture sector (W2068289448) | 2011 | article | Adds subtopics the selection did not yet cover: crop management, agricultural productivity and capacity building (and 2 more). | – | – |
-| 5 | Climate Change and Agriculture in India: Impact and Adaptation (W4240695645) | 2018 | book | Adds subtopics the selection did not yet cover: climate change mitigation, agricultural technology and India. | – | – |
-| 6 | Climate Change and Adaptation: Recommendations for Agricultural Sector (W3105307044) | 2020 | book-chapter | Adds subtopics the selection did not yet cover: adaptation strategies and climate change scenarios. | – | – |
+| 2 | Adaptation options in agriculture to climate change: a typology (W2148838277) | 2002 | article | Included as one of the most-cited works among the papers examined for this topic (1,091 citations). | – | – |
+| 3 | Farmers’ Perceptions of Climate Change and Agricultural Adaptation Strategies in Rural Sahel (W2151408602) | 2008 | article | Included as one of the most-cited works among the papers examined for this topic (981 citations). | – | – |
+| 4 | Technologies for climate change adaptation. Agriculture sector (W2068289448) | 2011 | article | Adds subtopics the selection did not yet cover: crop management, agricultural productivity and developing countries. | – | – |
+| 5 | From climate change impacts to the development of adaptation strategies: Challenges for agriculture in Europe (W2079121073) | 2011 | article | Adds subtopics the selection did not yet cover: agricultural extension, climate change impacts and climate risk. | – | – |
+| 6 | Climate Change and Agriculture in India: Impact and Adaptation (W4240695645) | 2018 | book | Adds subtopics the selection did not yet cover: climate change mitigation, agricultural technology and India. | – | – |
 
 **Stage 3 — Papers from 2022–2024.** Published 2022–2024; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
 | 7 | Climate Change Adaptation and Agricultural Livelihoods of Smallholder Farmers (W4286629437) | 2022 | book-chapter | Adds subtopics the selection did not yet cover: agricultural livelihoods, crop rotation and smallholder farmers (and 4 more). | – | – |
-| 8 | Impact, adaptation, and mitigation of climate change in Indian agriculture (W4307973157) | 2022 | article | Adds subtopics the selection did not yet cover: climate-smart agriculture, rainfed agriculture and crop yield (and 1 more). | – | – |
+| 8 | Impact, adaptation, and mitigation of climate change in Indian agriculture (W4307973157) | 2022 | article | Adds subtopics the selection did not yet cover: rainfed agriculture and conservation agriculture. | – | – |
 | 9 | Impact of Climate Change on Global Agriculture: Challenges and Adaptation (W4394919599) | 2024 | article | Adds subtopics the selection did not yet cover: climate change impacts on agriculture, food security and water management (and 4 more). | – | – |
-| 10 | Climate smart agriculture? Adaptation strategies of traditional agriculture to climate change in sub-Saharan Africa (W4391397619) | 2024 | article | Adds subtopics the selection did not yet cover: agroforestry and indigenous knowledge. | – | – |
+| 10 | Climate smart agriculture? Adaptation strategies of traditional agriculture to climate change in sub-Saharan Africa (W4391397619) | 2024 | article | Adds subtopics the selection did not yet cover: agroforestry, indigenous knowledge and capacity building (and 1 more). | – | – |
 
 ### k = 10, Beginner / Balanced
 
@@ -155,57 +155,157 @@ Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of th
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 1 | Overview of Impacts of Climate Change and Adaptation in China's Agriculture (W1534452221) | 2014 | article | Adds subtopics the selection did not yet cover: CO2 fertilization. Its title presents it as an overview (content not verified). | – | – |
-| 2 | Climate change and Indian agriculture: A systematic review of farmers’ perception, adaptation, and transformation (W4229014251) | 2022 | review | Adds subtopics the selection did not yet cover: transformative adaptation, farmer perceptions and cropping systems (and 2 more). OpenAlex lists its publication type as review. | – | – |
+| 1 | Overview of Impacts of Climate Change and Adaptation in China's Agriculture (W1534452221) | 2014 | article | Adds subtopics the selection did not yet cover: CO2 fertilization and climate change impacts. Its title presents it as an overview (content not verified). | – | – |
+| 2 | Climate change and Indian agriculture: A systematic review of farmers’ perception, adaptation, and transformation (W4229014251) | 2022 | review | Adds subtopics the selection did not yet cover: transformative adaptation, farmer perceptions and cropping systems (and 1 more). OpenAlex lists its publication type as review. | – | – |
 
-**Stage 2 — Papers from 2011–2020.** Published 2011–2020; ordered by citation links among them where present, otherwise by year.
-
-| # | Paper | Year | Type | Why it's here | Links | Flags |
-|---:|---|---:|---|---|---|---|
-| 3 | Technologies for climate change adaptation. Agriculture sector (W2068289448) | 2011 | article | Adds subtopics the selection did not yet cover: crop management, agricultural productivity and capacity building (and 2 more). | – | – |
-| 4 | From climate change impacts to the development of adaptation strategies: Challenges for agriculture in Europe (W2079121073) | 2011 | article | Adds subtopics the selection did not yet cover: agricultural extension, climate change impacts and climate risk. | – | – |
-| 5 | Climate Change and Agriculture in India: Impact and Adaptation (W4240695645) | 2018 | book | Adds subtopics the selection did not yet cover: climate change mitigation, agricultural technology and India. | – | – |
-| 6 | Climate Change and Adaptation: Recommendations for Agricultural Sector (W3105307044) | 2020 | book-chapter | Adds subtopics the selection did not yet cover: adaptation strategies and climate change scenarios. | – | – |
-
-**Stage 3 — Papers from 2022–2024.** Published 2022–2024; ordered by citation links among them where present, otherwise by year.
+**Stage 2 — Papers from 2002–2014.** Published 2002–2014; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 7 | Climate Change Adaptation and Agricultural Livelihoods of Smallholder Farmers (W4286629437) | 2022 | book-chapter | Adds subtopics the selection did not yet cover: agricultural livelihoods, crop rotation and smallholder farmers (and 4 more). | – | – |
-| 8 | Impact, adaptation, and mitigation of climate change in Indian agriculture (W4307973157) | 2022 | article | Adds subtopics the selection did not yet cover: climate-smart agriculture, rainfed agriculture and crop yield (and 1 more). | – | – |
+| 3 | Adaptation options in agriculture to climate change: a typology (W2148838277) | 2002 | article | Included as one of the most-cited works among the papers examined for this topic (1,091 citations). | – | – |
+| 4 | Farmers’ Perceptions of Climate Change and Agricultural Adaptation Strategies in Rural Sahel (W2151408602) | 2008 | article | Included as one of the most-cited works among the papers examined for this topic (981 citations). | – | – |
+| 5 | Technologies for climate change adaptation. Agriculture sector (W2068289448) | 2011 | article | Adds subtopics the selection did not yet cover: crop management, agricultural productivity and developing countries. | – | – |
+| 6 | Climate change and agriculture: Impacts and adaptation options in South Africa (W1966213234) | 2014 | article | Adds subtopics the selection did not yet cover: rainfed agriculture, climate change scenarios and water scarcity. | – | – |
+
+**Stage 3 — Papers from 2018–2024.** Published 2018–2024; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 7 | Climate Change and Agriculture in India: Impact and Adaptation (W4240695645) | 2018 | book | Adds subtopics the selection did not yet cover: climate change mitigation, agricultural technology and India. | – | – |
+| 8 | Climate Change Adaptation and Agricultural Livelihoods of Smallholder Farmers (W4286629437) | 2022 | book-chapter | Adds subtopics the selection did not yet cover: agricultural livelihoods, crop rotation and smallholder farmers (and 4 more). | – | – |
 | 9 | Impact of Climate Change on Global Agriculture: Challenges and Adaptation (W4394919599) | 2024 | article | Adds subtopics the selection did not yet cover: climate change impacts on agriculture, food security and water management (and 4 more). | – | – |
-| 10 | Climate smart agriculture? Adaptation strategies of traditional agriculture to climate change in sub-Saharan Africa (W4391397619) | 2024 | article | Adds subtopics the selection did not yet cover: agroforestry and indigenous knowledge. | – | – |
+| 10 | Climate smart agriculture? Adaptation strategies of traditional agriculture to climate change in sub-Saharan Africa (W4391397619) | 2024 | article | Adds subtopics the selection did not yet cover: agroforestry, indigenous knowledge and capacity building (and 1 more). | – | – |
 
 ### k = 10, Advanced / Balanced
 
-Citation links among selected papers: 1
+Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of the selected papers cite each other; the order uses review/survey metadata and publication year only
 
 **Stage 1 — Overviews and surveys.** Start with works that their metadata marks as reviews, surveys or introductions.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 1 | Climate change and Indian agriculture: A systematic review of farmers’ perception, adaptation, and transformation (W4229014251) | 2022 | review | Adds subtopics the selection did not yet cover: transformative adaptation, farmer perceptions and cropping systems (and 2 more). OpenAlex lists its publication type as review. | – | – |
+| 1 | Climate change and Indian agriculture: A systematic review of farmers’ perception, adaptation, and transformation (W4229014251) | 2022 | review | Adds subtopics the selection did not yet cover: transformative adaptation, farmer perceptions and cropping systems (and 1 more). OpenAlex lists its publication type as review. | – | – |
 
-**Stage 2 — Papers from 2010–2020.** Published 2010–2020; ordered by citation links among them where present, otherwise by year.
+**Stage 2 — Papers from 2002–2018.** Published 2002–2018; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 2 | From climate change impacts to the development of adaptation strategies: Challenges for agriculture in Europe (W2079121073) | 2011 | article | Adds subtopics the selection did not yet cover: agricultural extension, climate change impacts and climate risk. | ← #3 | – |
-| 3 | Towards adaptation of agriculture to climate change in the Mediterranean (W1991667513) | 2010 | article | Adds subtopics the selection did not yet cover: water scarcity and climate change vulnerability. | → #2 | – |
-| 4 | Technologies for climate change adaptation. Agriculture sector (W2068289448) | 2011 | article | Adds subtopics the selection did not yet cover: crop management, agricultural productivity and capacity building (and 2 more). | – | – |
-| 5 | Climate Change and Agriculture in India: Impact and Adaptation (W4240695645) | 2018 | book | Adds subtopics the selection did not yet cover: climate change mitigation, agricultural technology and India. | – | – |
-| 6 | Climate Change and Adaptation: Recommendations for Agricultural Sector (W3105307044) | 2020 | book-chapter | Adds subtopics the selection did not yet cover: adaptation strategies and climate change scenarios. | – | – |
+| 2 | Adaptation options in agriculture to climate change: a typology (W2148838277) | 2002 | article | Included as one of the most-cited works among the papers examined for this topic (1,091 citations). | – | – |
+| 3 | Farmers’ Perceptions of Climate Change and Agricultural Adaptation Strategies in Rural Sahel (W2151408602) | 2008 | article | Included as one of the most-cited works among the papers examined for this topic (981 citations). | – | – |
+| 4 | Technologies for climate change adaptation. Agriculture sector (W2068289448) | 2011 | article | Adds subtopics the selection did not yet cover: crop management, agricultural productivity and developing countries. | – | – |
+| 5 | From climate change impacts to the development of adaptation strategies: Challenges for agriculture in Europe (W2079121073) | 2011 | article | Adds subtopics the selection did not yet cover: agricultural extension, climate change impacts and climate risk. | – | – |
+| 6 | Climate Change and Agriculture in India: Impact and Adaptation (W4240695645) | 2018 | book | Adds subtopics the selection did not yet cover: climate change mitigation, agricultural technology and India. | – | – |
 
 **Stage 3 — Papers from 2022–2024.** Published 2022–2024; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
 | 7 | Climate Change Adaptation and Agricultural Livelihoods of Smallholder Farmers (W4286629437) | 2022 | book-chapter | Adds subtopics the selection did not yet cover: agricultural livelihoods, crop rotation and smallholder farmers (and 4 more). | – | – |
-| 8 | Impact, adaptation, and mitigation of climate change in Indian agriculture (W4307973157) | 2022 | article | Adds subtopics the selection did not yet cover: climate-smart agriculture, rainfed agriculture and crop yield (and 1 more). | – | – |
+| 8 | Impact, adaptation, and mitigation of climate change in Indian agriculture (W4307973157) | 2022 | article | Adds subtopics the selection did not yet cover: rainfed agriculture and conservation agriculture. | – | – |
 | 9 | Impact of Climate Change on Global Agriculture: Challenges and Adaptation (W4394919599) | 2024 | article | Adds subtopics the selection did not yet cover: climate change impacts on agriculture, food security and water management (and 4 more). | – | – |
-| 10 | Climate smart agriculture? Adaptation strategies of traditional agriculture to climate change in sub-Saharan Africa (W4391397619) | 2024 | article | Adds subtopics the selection did not yet cover: agroforestry and indigenous knowledge. | – | – |
+| 10 | Climate smart agriculture? Adaptation strategies of traditional agriculture to climate change in sub-Saharan Africa (W4391397619) | 2024 | article | Adds subtopics the selection did not yet cover: agroforestry, indigenous knowledge and capacity building (and 1 more). | – | – |
 
-**Beginner vs Advanced (k = 10):** 9 of 10 papers shared; overview-marked papers 2 vs 1.
+**Beginner vs Advanced (k = 10):** 8 of 10 papers shared; overview-marked papers 2 vs 1.
+
+## CRISPR gene editing
+
+### Stage structure by budget (Intermediate / Balanced)
+
+| k | Stages | Citation links | Cycles broken | Warnings |
+|---:|---|---:|---:|---|
+| 5 | Selected papers (5) | 0 | 0 | NO_CITATION_LINKS |
+| 10 | Papers from 2016–2018 (3) → Papers from 2019–2022 (5) → Papers from 2025–2026 (2) | 0 | 0 | NO_CITATION_LINKS |
+| 15 | Overviews and surveys (1) → Papers from 2016–2019 (5) → Papers from 2020–2022 (5) → Papers from 2024–2026 (4) | 1 | 0 | – |
+| 20 | Overviews and surveys (1) → Papers from 2015–2019 (7) → Papers from 2020–2023 (7) → Papers from 2024–2026 (5) | 1 | 0 | – |
+
+### k = 10, Intermediate / Balanced
+
+Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of the selected papers cite each other; the order uses review/survey metadata and publication year only
+
+**Stage 1 — Papers from 2016–2018.** Published 2016–2018; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 1 | CRISPR gene-editing tested in a person for the first time (W2556159813) | 2016 | article | Included as one of the most-cited works among the papers examined for this topic (443 citations). | – | NO_SUBJECT_TAGS |
+| 2 | Towards personalised allele-specific CRISPR gene editing to treat autosomal dominant disorders (W2769646744) | 2017 | article | Adds subtopics the selection did not yet cover: off-target cleavage and non-homologous end joining. | – | – |
+| 3 | Cas9 immunity creates challenges for CRISPR gene editing therapies (W2888449128) | 2018 | article | Included as one of the most-cited works among the papers examined for this topic (258 citations). | – | – |
+
+**Stage 2 — Papers from 2019–2022.** Published 2019–2022; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 4 | CRISPR Gene Editing (W4250793190) | 2019 | book | Adds subtopics the selection did not yet cover: CRISPR delivery and CRISPR-Cas. | – | – |
+| 5 | Ribozyme-mediated, multiplex CRISPR gene editing and CRISPR interference (CRISPRi) in rodent-infectious Plasmodium yoelii (W2942643626) | 2019 | article | Adds subtopics the selection did not yet cover: SpCas9, CRISPR interference and single guide RNA. | – | – |
+| 6 | CRISPR gene editing in human embryos wreaks chromosomal mayhem (W3037855767) | 2020 | article | Adds subtopics the selection did not yet cover: human embryo and germline editing. | – | – |
+| 7 | Advances in Delivery Mechanisms of CRISPR Gene-Editing Reagents in Plants (W4207050757) | 2022 | article | Adds subtopics the selection did not yet cover: plant genome editing, multiplex genome editing and plant breeding. | – | – |
+| 8 | CRISPR Gene Editing of Human Primary NK and T Cells for Cancer Immunotherapy (W4226147546) | 2022 | article | Adds subtopics the selection did not yet cover: cancer immunotherapy and CRISPR/Cas9 genome editing. | – | – |
+
+**Stage 3 — Papers from 2025–2026.** Published 2025–2026; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 9 | Vectors in CRISPR Gene Editing for Neurological Disorders: Challenges and Opportunities (W4407584444) | 2025 | article | Adds subtopics the selection did not yet cover: Alzheimer's disease, adeno-associated virus vectors and in vivo gene editing. | – | – |
+| 10 | INTEGRATION OF CRISPR GENE EDITING IN ADVANCED DRUG DISCOVERY AND THERAPEUTIC MOLECULAR DESIGN (W7215965136) | 2026 | article | Adds subtopics the selection did not yet cover: prime editing, CRISPR screen and guide RNA design (and 2 more). | – | FEW_CITATIONS |
+
+### k = 10, Beginner / Balanced
+
+Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of the selected papers cite each other; the order uses review/survey metadata and publication year only
+
+**Stage 1 — Overviews and surveys.** Start with works that their metadata marks as reviews, surveys or introductions.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 1 | Next-generation CRISPR gene editing tools in the precision treatment of Alzheimer’s and Parkinson’s disease (W4412891723) | 2025 | review | Adds subtopics the selection did not yet cover: prime editing, Alzheimer's disease and base editing (and 2 more). OpenAlex lists its publication type as review. | – | – |
+
+**Stage 2 — Papers from 2016–2019.** Published 2016–2019; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 2 | CRISPR gene-editing tested in a person for the first time (W2556159813) | 2016 | article | Included as one of the most-cited works among the papers examined for this topic (443 citations). | – | NO_SUBJECT_TAGS |
+| 3 | Towards personalised allele-specific CRISPR gene editing to treat autosomal dominant disorders (W2769646744) | 2017 | article | Adds subtopics the selection did not yet cover: off-target cleavage and non-homologous end joining. | – | – |
+| 4 | Cas9 immunity creates challenges for CRISPR gene editing therapies (W2888449128) | 2018 | article | Included as one of the most-cited works among the papers examined for this topic (258 citations). | – | – |
+| 5 | CRISPR gene editing : methods and protocols (W3036853145) | 2019 | book | Adds subtopics the selection did not yet cover: electroporation, guide RNA design and adeno-associated virus vectors (and 1 more). | – | – |
+| 6 | Ribozyme-mediated, multiplex CRISPR gene editing and CRISPR interference (CRISPRi) in rodent-infectious Plasmodium yoelii (W2942643626) | 2019 | article | Adds subtopics the selection did not yet cover: SpCas9, CRISPR interference and single guide RNA. | – | – |
+
+**Stage 3 — Papers from 2020–2024.** Published 2020–2024; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 7 | CRISPR gene editing in human embryos wreaks chromosomal mayhem (W3037855767) | 2020 | article | Adds subtopics the selection did not yet cover: human embryo and germline editing. | – | – |
+| 8 | CRISPR Gene Editing of Human Primary NK and T Cells for Cancer Immunotherapy (W4226147546) | 2022 | article | Adds subtopics the selection did not yet cover: cancer immunotherapy and CRISPR/Cas9 genome editing. | – | – |
+| 9 | Advances in Delivery Mechanisms of CRISPR Gene-Editing Reagents in Plants (W4207050757) | 2022 | article | Adds subtopics the selection did not yet cover: plant genome editing, multiplex genome editing and plant breeding. | – | – |
+| 10 | Leveraging CRISPR gene editing technology to optimize the efficacy, safety and accessibility of CAR T-cell therapy (W4403749986) | 2024 | article | Adds subtopics the selection did not yet cover: CRISPR screen and adverse events. | – | – |
+
+### k = 10, Advanced / Balanced
+
+Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of the selected papers cite each other; the order uses review/survey metadata and publication year only
+
+**Stage 1 — Papers from 2016–2018.** Published 2016–2018; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 1 | CRISPR gene-editing tested in a person for the first time (W2556159813) | 2016 | article | Included as one of the most-cited works among the papers examined for this topic (443 citations). | – | NO_SUBJECT_TAGS |
+| 2 | Towards personalised allele-specific CRISPR gene editing to treat autosomal dominant disorders (W2769646744) | 2017 | article | Adds subtopics the selection did not yet cover: off-target cleavage and non-homologous end joining. | – | – |
+| 3 | Cas9 immunity creates challenges for CRISPR gene editing therapies (W2888449128) | 2018 | article | Included as one of the most-cited works among the papers examined for this topic (258 citations). | – | – |
+
+**Stage 2 — Papers from 2019–2022.** Published 2019–2022; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 4 | CRISPR Gene Editing (W4250793190) | 2019 | book | Adds subtopics the selection did not yet cover: CRISPR delivery and CRISPR-Cas. | – | – |
+| 5 | Ribozyme-mediated, multiplex CRISPR gene editing and CRISPR interference (CRISPRi) in rodent-infectious Plasmodium yoelii (W2942643626) | 2019 | article | Adds subtopics the selection did not yet cover: SpCas9, CRISPR interference and single guide RNA. | – | – |
+| 6 | CRISPR gene editing in human embryos wreaks chromosomal mayhem (W3037855767) | 2020 | article | Adds subtopics the selection did not yet cover: human embryo and germline editing. | – | – |
+| 7 | Advances in Delivery Mechanisms of CRISPR Gene-Editing Reagents in Plants (W4207050757) | 2022 | article | Adds subtopics the selection did not yet cover: plant genome editing, multiplex genome editing and plant breeding. | – | – |
+| 8 | CRISPR Gene Editing of Human Primary NK and T Cells for Cancer Immunotherapy (W4226147546) | 2022 | article | Adds subtopics the selection did not yet cover: cancer immunotherapy and CRISPR/Cas9 genome editing. | – | – |
+
+**Stage 3 — Papers from 2025–2026.** Published 2025–2026; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 9 | Vectors in CRISPR Gene Editing for Neurological Disorders: Challenges and Opportunities (W4407584444) | 2025 | article | Adds subtopics the selection did not yet cover: Alzheimer's disease, adeno-associated virus vectors and in vivo gene editing. | – | – |
+| 10 | INTEGRATION OF CRISPR GENE EDITING IN ADVANCED DRUG DISCOVERY AND THERAPEUTIC MOLECULAR DESIGN (W7215965136) | 2026 | article | Adds subtopics the selection did not yet cover: prime editing, CRISPR screen and guide RNA design (and 2 more). | – | FEW_CITATIONS |
+
+**Beginner vs Advanced (k = 10):** 7 of 10 papers shared; overview-marked papers 1 vs 0.
 
 ## graph neural networks
 
@@ -213,99 +313,99 @@ Citation links among selected papers: 1
 
 | k | Stages | Citation links | Cycles broken | Warnings |
 |---:|---|---:|---:|---|
-| 5 | Overviews and surveys (1) → Further papers (4) | 0 | 0 | NO_CITATION_LINKS |
-| 10 | Overviews and surveys (1) → Papers from 2019–2021 (6) → Papers from 2022 (3) | 1 | 0 | – |
-| 15 | Overviews and surveys (2) → Papers from 2019 (4) → Papers from 2020–2021 (5) → Papers from 2022 (4) | 3 | 0 | – |
-| 20 | Overviews and surveys (3) → Papers from 2019 (4) → Papers from 2020–2021 (8) → Papers from 2022 (5) | 4 | 0 | – |
+| 5 | Overviews and surveys (2) → Further papers (3) | 1 | 0 | – |
+| 10 | Overviews and surveys (2) → Papers from 2008–2019 (3) → Papers from 2020–2022 (5) | 5 | 0 | – |
+| 15 | Overviews and surveys (2) → Papers from 2008–2019 (5) → Papers from 2020 (3) → Papers from 2021–2022 (5) | 8 | 0 | – |
+| 20 | Overviews and surveys (3) → Papers from 2008–2019 (5) → Papers from 2020–2021 (8) → Papers from 2022 (4) | 12 | 0 | – |
 
 ### k = 10, Intermediate / Balanced
 
-Citation links among selected papers: 1
+Citation links among selected papers: 5
 
 **Stage 1 — Overviews and surveys.** Start with works that their metadata marks as reviews, surveys or introductions.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 1 | Graph neural network for traffic forecasting: A survey (W3123909522) | 2022 | article | Adds subtopics the selection did not yet cover: Traffic Prediction and Management Techniques, graph attention networks and graph convolutional networks (and 1 more). Its title presents it as a survey (content not verified). | → #7 | – |
+| 1 | A Comprehensive Survey on Graph Neural Networks (W2907492528) | 2020 | article | Included as one of the most-cited works among the papers examined for this topic (10,903 citations). Its title presents it as a survey (content not verified). | → #3; ← #2 | – |
+| 2 | Graph neural network for traffic forecasting: A survey (W3123909522) | 2022 | article | Adds subtopics the selection did not yet cover: Traffic Prediction and Management Techniques, graph attention networks and traffic prediction. Its title presents it as a survey (content not verified). | → #1, #3 | – |
 
-**Stage 2 — Papers from 2019–2021.** Published 2019–2021; ordered by citation links among them where present, otherwise by year.
-
-| # | Paper | Year | Type | Why it's here | Links | Flags |
-|---:|---|---:|---|---|---|---|
-| 2 | A deeper graph neural network for recommender systems (W2971567992) | 2019 | article | Adds subtopics the selection did not yet cover: Recommender Systems and Techniques, over-smoothing and recommender systems (and 3 more). | – | – |
-| 3 | Anomaly Detection using Graph Neural Networks (W2980013009) | 2019 | conference-paper | Adds subtopics the selection did not yet cover: anomaly detection, social networks and Anomaly Detection Techniques and Applications. | – | – |
-| 4 | Graph Structure Learning for Robust Graph Neural Networks (W3081203761) | 2020 | conference-paper | Adds subtopics the selection did not yet cover: Adversarial Robustness in Machine Learning, adversarial attacks and graph structure learning (and 2 more). | – | – |
-| 5 | Towards Deeper Graph Neural Networks (W3042770487) | 2020 | conference-paper | Adds subtopics the selection did not yet cover: neighborhood aggregation and graph convolution. | – | – |
-| 6 | Graph Neural Networks in TensorFlow and Keras with Spektral [Application Notes] (W3036016037) | 2021 | article | Adds subtopics the selection did not yet cover: graph classification, graph pooling and node classification (and 2 more). | – | – |
-| 7 | Data Augmentation for Graph Neural Networks (W3035739162) | 2021 | conference-paper | Adds subtopics the selection did not yet cover: semi-supervised node classification, homophily and non-Euclidean data. | ← #1 | – |
-
-**Stage 3 — Papers from 2022.** Published 2022; ordered by citation links among them where present, otherwise by year.
+**Stage 2 — Papers from 2008–2019.** Published 2008–2019; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 8 | Molecular contrastive learning of representations via graph neural networks (W4214868967) | 2022 | article | Adds subtopics the selection did not yet cover: Computational Drug Discovery Methods, self-supervised learning and molecular property prediction (and 1 more). | – | – |
-| 9 | GraphLIME: Local Interpretable Model Explanations for Graph Neural Networks (W3000120900) | 2022 | article | Adds subtopics the selection did not yet cover: Explainable Artificial Intelligence (XAI), explainable AI and graph-structured data. | – | – |
-| 10 | Graph Neural Networks (W4206401350) | 2022 | book-chapter | Adds subtopics the selection did not yet cover: interpretability and expressiveness. | – | – |
+| 3 | The Graph Neural Network Model (W2116341502) | 2008 | article | Included as one of the most-cited works among the papers examined for this topic (9,520 citations). | ← #1, #2, #4, #9 | – |
+| 4 | A deeper graph neural network for recommender systems (W2971567992) | 2019 | article | Adds subtopics the selection did not yet cover: Recommender Systems and Techniques, over-smoothing and recommender systems (and 3 more). | → #3 | – |
+| 5 | Anomaly Detection using Graph Neural Networks (W2980013009) | 2019 | conference-paper | Adds subtopics the selection did not yet cover: anomaly detection, social networks and Anomaly Detection Techniques and Applications. | – | – |
+
+**Stage 3 — Papers from 2020–2022.** Published 2020–2022; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 6 | Graph Structure Learning for Robust Graph Neural Networks (W3081203761) | 2020 | conference-paper | Adds subtopics the selection did not yet cover: Adversarial Robustness in Machine Learning, adversarial attacks and graph structure learning (and 2 more). | – | – |
+| 7 | XGNN: Towards Model-Level Explanations of Graph Neural Networks (W3033892090) | 2020 | conference-paper | Adds subtopics the selection did not yet cover: Explainable Artificial Intelligence (XAI), explainable AI and interpretability. | – | – |
+| 8 | Towards Deeper Graph Neural Networks (W3042770487) | 2020 | conference-paper | Adds subtopics the selection did not yet cover: neighborhood aggregation and graph convolution. | – | – |
+| 9 | Graph Neural Networks in TensorFlow and Keras with Spektral [Application Notes] (W3036016037) | 2021 | article | Adds subtopics the selection did not yet cover: graph classification, graph pooling and node classification (and 1 more). | → #3 | – |
+| 10 | Molecular contrastive learning of representations via graph neural networks (W4214868967) | 2022 | article | Adds subtopics the selection did not yet cover: Computational Drug Discovery Methods, self-supervised learning and molecular property prediction (and 1 more). | – | – |
 
 ### k = 10, Beginner / Balanced
 
-Citation links among selected papers: 2
+Citation links among selected papers: 5
 
 **Stage 1 — Overviews and surveys.** Start with works that their metadata marks as reviews, surveys or introductions.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 1 | Graph neural network for traffic forecasting: A survey (W3123909522) | 2022 | article | Adds subtopics the selection did not yet cover: Traffic Prediction and Management Techniques, graph attention networks and graph convolutional networks (and 1 more). Its title presents it as a survey (content not verified). | → #9 | – |
-| 2 | Explainability in Graph Neural Networks: A Taxonomic Survey (W3116637551) | 2022 | article | Adds subtopics the selection did not yet cover: Explainable Artificial Intelligence (XAI) and interpretability. Its title presents it as a survey (content not verified). | → #7 | – |
-| 3 | Graph neural networks (W4392553889) | 2024 | review | Adds subtopics the selection did not yet cover: graph-structured data and drug repurposing. OpenAlex lists its publication type as review. | – | – |
+| 1 | A Comprehensive Survey on Graph Neural Networks (W2907492528) | 2020 | article | Included as one of the most-cited works among the papers examined for this topic (10,903 citations). Its title presents it as a survey (content not verified). | → #5; ← #2 | – |
+| 2 | Graph neural network for traffic forecasting: A survey (W3123909522) | 2022 | article | Adds subtopics the selection did not yet cover: Traffic Prediction and Management Techniques, graph attention networks and traffic prediction. Its title presents it as a survey (content not verified). | → #1, #5 | – |
+| 3 | Explainability in Graph Neural Networks: A Taxonomic Survey (W3116637551) | 2022 | article | Adds subtopics the selection did not yet cover: Explainable Artificial Intelligence (XAI) and interpretability. Its title presents it as a survey (content not verified). | – | – |
+| 4 | Graph Neural Networks for Graphs With Heterophily: A Survey (W4221150249) | 2026 | article | Adds subtopics the selection did not yet cover: heterophily and homophily. Its title presents it as a survey (content not verified). | – | – |
 
-**Stage 2 — Papers from 2019–2020.** Published 2019–2020; ordered by citation links among them where present, otherwise by year.
-
-| # | Paper | Year | Type | Why it's here | Links | Flags |
-|---:|---|---:|---|---|---|---|
-| 4 | A deeper graph neural network for recommender systems (W2971567992) | 2019 | article | Adds subtopics the selection did not yet cover: Recommender Systems and Techniques, over-smoothing and recommender systems (and 3 more). | – | – |
-| 5 | Anomaly Detection using Graph Neural Networks (W2980013009) | 2019 | conference-paper | Adds subtopics the selection did not yet cover: anomaly detection, social networks and Anomaly Detection Techniques and Applications. | – | – |
-| 6 | Graph Structure Learning for Robust Graph Neural Networks (W3081203761) | 2020 | conference-paper | Adds subtopics the selection did not yet cover: Adversarial Robustness in Machine Learning, adversarial attacks and graph structure learning (and 2 more). | – | – |
-| 7 | Towards Deeper Graph Neural Networks (W3042770487) | 2020 | conference-paper | Adds subtopics the selection did not yet cover: neighborhood aggregation and graph convolution. | ← #2 | – |
-
-**Stage 3 — Papers from 2021–2022.** Published 2021–2022; ordered by citation links among them where present, otherwise by year.
+**Stage 2 — Papers from 2008–2019.** Published 2008–2019; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 8 | Graph Neural Networks in TensorFlow and Keras with Spektral [Application Notes] (W3036016037) | 2021 | article | Adds subtopics the selection did not yet cover: graph classification, graph pooling and node classification (and 2 more). | – | – |
-| 9 | Data Augmentation for Graph Neural Networks (W3035739162) | 2021 | conference-paper | Adds subtopics the selection did not yet cover: semi-supervised node classification, homophily and non-Euclidean data. | ← #1 | – |
+| 5 | The Graph Neural Network Model (W2116341502) | 2008 | article | Included as one of the most-cited works among the papers examined for this topic (9,520 citations). | ← #1, #2, #6, #9 | – |
+| 6 | A deeper graph neural network for recommender systems (W2971567992) | 2019 | article | Adds subtopics the selection did not yet cover: Recommender Systems and Techniques, over-smoothing and recommender systems (and 3 more). | → #5 | – |
+| 7 | Anomaly Detection using Graph Neural Networks (W2980013009) | 2019 | conference-paper | Adds subtopics the selection did not yet cover: anomaly detection, social networks and Anomaly Detection Techniques and Applications. | – | – |
+
+**Stage 3 — Papers from 2020–2022.** Published 2020–2022; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 8 | Graph Structure Learning for Robust Graph Neural Networks (W3081203761) | 2020 | conference-paper | Adds subtopics the selection did not yet cover: Adversarial Robustness in Machine Learning, adversarial attacks and graph structure learning (and 2 more). | – | – |
+| 9 | Graph Neural Networks in TensorFlow and Keras with Spektral [Application Notes] (W3036016037) | 2021 | article | Adds subtopics the selection did not yet cover: graph classification, graph pooling and node classification (and 1 more). | → #5 | – |
 | 10 | Molecular contrastive learning of representations via graph neural networks (W4214868967) | 2022 | article | Adds subtopics the selection did not yet cover: Computational Drug Discovery Methods, self-supervised learning and molecular property prediction (and 1 more). | – | – |
 
 ### k = 10, Advanced / Balanced
 
-Citation links among selected papers: 1
+Citation links among selected papers: 5
 
 **Stage 1 — Overviews and surveys.** Start with works that their metadata marks as reviews, surveys or introductions.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 1 | Graph neural network for traffic forecasting: A survey (W3123909522) | 2022 | article | Adds subtopics the selection did not yet cover: Traffic Prediction and Management Techniques, graph attention networks and graph convolutional networks (and 1 more). Its title presents it as a survey (content not verified). | → #7 | – |
+| 1 | A Comprehensive Survey on Graph Neural Networks (W2907492528) | 2020 | article | Included as one of the most-cited works among the papers examined for this topic (10,903 citations). Its title presents it as a survey (content not verified). | → #3; ← #2 | – |
+| 2 | Graph neural network for traffic forecasting: A survey (W3123909522) | 2022 | article | Adds subtopics the selection did not yet cover: Traffic Prediction and Management Techniques, graph attention networks and traffic prediction. Its title presents it as a survey (content not verified). | → #1, #3 | – |
 
-**Stage 2 — Papers from 2019–2021.** Published 2019–2021; ordered by citation links among them where present, otherwise by year.
-
-| # | Paper | Year | Type | Why it's here | Links | Flags |
-|---:|---|---:|---|---|---|---|
-| 2 | A deeper graph neural network for recommender systems (W2971567992) | 2019 | article | Adds subtopics the selection did not yet cover: Recommender Systems and Techniques, over-smoothing and recommender systems (and 3 more). | – | – |
-| 3 | Anomaly Detection using Graph Neural Networks (W2980013009) | 2019 | conference-paper | Adds subtopics the selection did not yet cover: anomaly detection, social networks and Anomaly Detection Techniques and Applications. | – | – |
-| 4 | Graph Structure Learning for Robust Graph Neural Networks (W3081203761) | 2020 | conference-paper | Adds subtopics the selection did not yet cover: Adversarial Robustness in Machine Learning, adversarial attacks and graph structure learning (and 2 more). | – | – |
-| 5 | Towards Deeper Graph Neural Networks (W3042770487) | 2020 | conference-paper | Adds subtopics the selection did not yet cover: neighborhood aggregation and graph convolution. | – | – |
-| 6 | Graph Neural Networks in TensorFlow and Keras with Spektral [Application Notes] (W3036016037) | 2021 | article | Adds subtopics the selection did not yet cover: graph classification, graph pooling and node classification (and 2 more). | – | – |
-| 7 | Data Augmentation for Graph Neural Networks (W3035739162) | 2021 | conference-paper | Adds subtopics the selection did not yet cover: semi-supervised node classification, homophily and non-Euclidean data. | ← #1 | – |
-
-**Stage 3 — Papers from 2022.** Published 2022; ordered by citation links among them where present, otherwise by year.
+**Stage 2 — Papers from 2008–2019.** Published 2008–2019; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 8 | Molecular contrastive learning of representations via graph neural networks (W4214868967) | 2022 | article | Adds subtopics the selection did not yet cover: Computational Drug Discovery Methods, self-supervised learning and molecular property prediction (and 1 more). | – | – |
-| 9 | GraphLIME: Local Interpretable Model Explanations for Graph Neural Networks (W3000120900) | 2022 | article | Adds subtopics the selection did not yet cover: Explainable Artificial Intelligence (XAI), explainable AI and graph-structured data. | – | – |
-| 10 | Graph Neural Networks (W4206401350) | 2022 | book-chapter | Adds subtopics the selection did not yet cover: interpretability and expressiveness. | – | – |
+| 3 | The Graph Neural Network Model (W2116341502) | 2008 | article | Included as one of the most-cited works among the papers examined for this topic (9,520 citations). | ← #1, #2, #4, #9 | – |
+| 4 | A deeper graph neural network for recommender systems (W2971567992) | 2019 | article | Adds subtopics the selection did not yet cover: Recommender Systems and Techniques, over-smoothing and recommender systems (and 3 more). | → #3 | – |
+| 5 | Anomaly Detection using Graph Neural Networks (W2980013009) | 2019 | conference-paper | Adds subtopics the selection did not yet cover: anomaly detection, social networks and Anomaly Detection Techniques and Applications. | – | – |
 
-**Beginner vs Advanced (k = 10):** 8 of 10 papers shared; overview-marked papers 3 vs 1.
+**Stage 3 — Papers from 2020–2022.** Published 2020–2022; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 6 | Graph Structure Learning for Robust Graph Neural Networks (W3081203761) | 2020 | conference-paper | Adds subtopics the selection did not yet cover: Adversarial Robustness in Machine Learning, adversarial attacks and graph structure learning (and 2 more). | – | – |
+| 7 | XGNN: Towards Model-Level Explanations of Graph Neural Networks (W3033892090) | 2020 | conference-paper | Adds subtopics the selection did not yet cover: Explainable Artificial Intelligence (XAI), explainable AI and interpretability. | – | – |
+| 8 | Towards Deeper Graph Neural Networks (W3042770487) | 2020 | conference-paper | Adds subtopics the selection did not yet cover: neighborhood aggregation and graph convolution. | – | – |
+| 9 | Graph Neural Networks in TensorFlow and Keras with Spektral [Application Notes] (W3036016037) | 2021 | article | Adds subtopics the selection did not yet cover: graph classification, graph pooling and node classification (and 1 more). | → #3 | – |
+| 10 | Molecular contrastive learning of representations via graph neural networks (W4214868967) | 2022 | article | Adds subtopics the selection did not yet cover: Computational Drug Discovery Methods, self-supervised learning and molecular property prediction (and 1 more). | – | – |
+
+**Beginner vs Advanced (k = 10):** 8 of 10 papers shared; overview-marked papers 4 vs 2.
 
 ## AI-assisted medical diagnosis
 
@@ -314,22 +414,22 @@ Citation links among selected papers: 1
 | k | Stages | Citation links | Cycles broken | Warnings |
 |---:|---|---:|---:|---|
 | 5 | Selected papers (5) | 0 | 0 | NO_CITATION_LINKS |
-| 10 | Papers from 2022–2024 (4) → Papers from 2025 (4) → Papers from 2026 (2) | 0 | 0 | NO_CITATION_LINKS |
-| 15 | Overviews and surveys (1) → Papers from 2020–2024 (7) → Papers from 2025 (4) → Papers from 2026 (3) | 0 | 0 | NO_CITATION_LINKS |
-| 20 | Overviews and surveys (1) → Papers from 2020–2023 (4) → Papers from 2024–2025 (10) → Papers from 2026 (5) | 0 | 0 | NO_CITATION_LINKS |
+| 10 | Papers from 2020–2024 (4) → Papers from 2025 (4) → Papers from 2026 (2) | 1 | 0 | – |
+| 15 | Papers from 2020–2022 (3) → Papers from 2024 (4) → Papers from 2025 (5) → Papers from 2026 (3) | 1 | 0 | – |
+| 20 | Overviews and surveys (1) → Papers from 2020–2023 (5) → Papers from 2024–2025 (10) → Papers from 2026 (4) | 0 | 0 | NO_CITATION_LINKS |
 
 ### k = 10, Intermediate / Balanced
 
-Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of the selected papers cite each other; the order uses review/survey metadata and publication year only
+Citation links among selected papers: 1
 
-**Stage 1 — Papers from 2022–2024.** Published 2022–2024; ordered by citation links among them where present, otherwise by year.
+**Stage 1 — Papers from 2020–2024.** Published 2020–2024; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 1 | Artificial Intelligence (AI) and Internet of Medical Things (IoMT) Assisted Biomedical Systems for Intelligent Healthcare (W4287834747) | 2022 | article | Adds subtopics the selection did not yet cover: Internet of Medical Things, cancer diagnosis and robotic surgery. | – | – |
-| 2 | Importance of Patient History in Artificial Intelligence–Assisted Medical Diagnosis: Comparison Study (W4391858226) | 2024 | article | Adds subtopics the selection did not yet cover: ChatGPT, clinical vignettes and large language models. | – | – |
-| 3 | AI-Driven Diagnostic Assistance in Medical Inquiry: Reinforcement Learning Algorithm Development and Validation (W4401810439) | 2024 | article | Adds subtopics the selection did not yet cover: electronic health records and natural language processing. | – | – |
-| 4 | Covid-19 Computer-Aided Diagnosis through AI-Assisted CT Imaging Analysis: Deploying a Medical AI System (W4401750768) | 2024 | conference-paper | Adds subtopics the selection did not yet cover: computer-aided diagnosis. | – | – |
+| 1 | Improving the accuracy of medical diagnosis with causal machine learning (W3048817558) | 2020 | article | Included as one of the most-cited works among the papers examined for this topic (595 citations). | – | – |
+| 2 | Artificial Intelligence (AI) and Internet of Medical Things (IoMT) Assisted Biomedical Systems for Intelligent Healthcare (W4287834747) | 2022 | article | Included as one of the most-cited works among the papers examined for this topic (638 citations). | – | – |
+| 3 | Covid-19 Computer-Aided Diagnosis through AI-Assisted CT Imaging Analysis: Deploying a Medical AI System (W4401750768) | 2024 | conference-paper | Adds subtopics the selection did not yet cover: computer-aided diagnosis. | – | – |
+| 4 | AI-Driven Diagnostic Assistance in Medical Inquiry: Reinforcement Learning Algorithm Development and Validation (W4401810439) | 2024 | article | Adds subtopics the selection did not yet cover: natural language processing. | – | – |
 
 **Stage 2 — Papers from 2025.** Published 2025; ordered by citation links among them where present, otherwise by year.
 
@@ -337,28 +437,28 @@ Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of th
 |---:|---|---:|---|---|---|---|
 | 5 | Progress in the Application of Artificial Intelligence in Ultrasound-Assisted Medical Diagnosis (W4408403769) | 2025 | article | Adds subtopics the selection did not yet cover: convolutional neural networks, personalized treatment and diagnostic accuracy. | – | – |
 | 6 | Explainable AI in Health Care: Trust and Transparency in AI-Powered Medical Diagnosis (W4414071300) | 2025 | book-chapter | Adds subtopics the selection did not yet cover: Explainable Artificial Intelligence (XAI), interpretability and black-box models. | – | – |
-| 7 | Research Status of Multimodal Medical Image Fusion In AI-Assisted Diagnosis of Alzheimer's Disease (W7117548118) | 2025 | article | Adds subtopics the selection did not yet cover: Alzheimer's disease and early diagnosis. | – | FEW_CITATIONS |
-| 8 | Medical Misinformation in AI-Assisted Self-Diagnosis: Development of a Method (EvalPrompt) for Analyzing Large Language Models (W4406945781) | 2025 | article | Selected mainly for relevance: the query's terms appear in its title or subject tags. | – | – |
+| 7 | Medical Misinformation in AI-Assisted Self-Diagnosis: Development of a Method (EvalPrompt) for Analyzing Large Language Models (W4406945781) | 2025 | article | Adds subtopics the selection did not yet cover: ChatGPT. | ← #8 | – |
+| 8 | Knowledge Integration and Decision Support of Large Language Models in AI-Assisted Medical Diagnosis (W4416725044) | 2025 | conference-paper | Adds subtopics the selection did not yet cover: large language models and electronic health records. | → #7 | FEW_CITATIONS |
 
 **Stage 3 — Papers from 2026.** Published 2026; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 9 | Human–machine interaction in AI-assisted medical diagnosis: Challenges and future directions (W7155557682) | 2026 | book-chapter | Adds subtopics the selection did not yet cover: SHAP, lime and algorithmic bias (and 6 more). | – | FEW_CITATIONS |
-| 10 | AI-ASSISTED MEDICAL IMAGE DIAGNOSIS MOBILE APPLICATION (W7216238055) | 2026 | article | Adds subtopics the selection did not yet cover: magnetic resonance imaging, computed tomography and medical image analysis (and 3 more). | – | FEW_CITATIONS |
+| 9 | Human–machine interaction in AI-assisted medical diagnosis: Challenges and future directions (W7155557682) | 2026 | book-chapter | Adds subtopics the selection did not yet cover: SHAP, lime and algorithmic bias (and 5 more). | – | FEW_CITATIONS |
+| 10 | AI-ASSISTED MEDICAL IMAGE DIAGNOSIS MOBILE APPLICATION (W7216238055) | 2026 | article | Adds subtopics the selection did not yet cover: magnetic resonance imaging, computed tomography and medical image analysis (and 2 more). | – | FEW_CITATIONS |
 
 ### k = 10, Beginner / Balanced
 
-Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of the selected papers cite each other; the order uses review/survey metadata and publication year only
+Citation links among selected papers: 1
 
-**Stage 1 — Papers from 2022–2024.** Published 2022–2024; ordered by citation links among them where present, otherwise by year.
+**Stage 1 — Papers from 2020–2024.** Published 2020–2024; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 1 | Artificial Intelligence (AI) and Internet of Medical Things (IoMT) Assisted Biomedical Systems for Intelligent Healthcare (W4287834747) | 2022 | article | Adds subtopics the selection did not yet cover: Internet of Medical Things, cancer diagnosis and robotic surgery. | – | – |
-| 2 | Importance of Patient History in Artificial Intelligence–Assisted Medical Diagnosis: Comparison Study (W4391858226) | 2024 | article | Adds subtopics the selection did not yet cover: ChatGPT, clinical vignettes and large language models. | – | – |
-| 3 | AI-Driven Diagnostic Assistance in Medical Inquiry: Reinforcement Learning Algorithm Development and Validation (W4401810439) | 2024 | article | Adds subtopics the selection did not yet cover: electronic health records and natural language processing. | – | – |
-| 4 | Covid-19 Computer-Aided Diagnosis through AI-Assisted CT Imaging Analysis: Deploying a Medical AI System (W4401750768) | 2024 | conference-paper | Adds subtopics the selection did not yet cover: computer-aided diagnosis. | – | – |
+| 1 | Improving the accuracy of medical diagnosis with causal machine learning (W3048817558) | 2020 | article | Included as one of the most-cited works among the papers examined for this topic (595 citations). | – | – |
+| 2 | Artificial Intelligence (AI) and Internet of Medical Things (IoMT) Assisted Biomedical Systems for Intelligent Healthcare (W4287834747) | 2022 | article | Included as one of the most-cited works among the papers examined for this topic (638 citations). | – | – |
+| 3 | Covid-19 Computer-Aided Diagnosis through AI-Assisted CT Imaging Analysis: Deploying a Medical AI System (W4401750768) | 2024 | conference-paper | Adds subtopics the selection did not yet cover: computer-aided diagnosis. | – | – |
+| 4 | AI-Driven Diagnostic Assistance in Medical Inquiry: Reinforcement Learning Algorithm Development and Validation (W4401810439) | 2024 | article | Adds subtopics the selection did not yet cover: natural language processing. | – | – |
 
 **Stage 2 — Papers from 2025.** Published 2025; ordered by citation links among them where present, otherwise by year.
 
@@ -366,28 +466,28 @@ Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of th
 |---:|---|---:|---|---|---|---|
 | 5 | Progress in the Application of Artificial Intelligence in Ultrasound-Assisted Medical Diagnosis (W4408403769) | 2025 | article | Adds subtopics the selection did not yet cover: convolutional neural networks, personalized treatment and diagnostic accuracy. | – | – |
 | 6 | Explainable AI in Health Care: Trust and Transparency in AI-Powered Medical Diagnosis (W4414071300) | 2025 | book-chapter | Adds subtopics the selection did not yet cover: Explainable Artificial Intelligence (XAI), interpretability and black-box models. | – | – |
-| 7 | Research Status of Multimodal Medical Image Fusion In AI-Assisted Diagnosis of Alzheimer's Disease (W7117548118) | 2025 | article | Adds subtopics the selection did not yet cover: Alzheimer's disease and early diagnosis. | – | FEW_CITATIONS |
-| 8 | Medical Misinformation in AI-Assisted Self-Diagnosis: Development of a Method (EvalPrompt) for Analyzing Large Language Models (W4406945781) | 2025 | article | Selected mainly for relevance: the query's terms appear in its title or subject tags. | – | – |
+| 7 | Medical Misinformation in AI-Assisted Self-Diagnosis: Development of a Method (EvalPrompt) for Analyzing Large Language Models (W4406945781) | 2025 | article | Adds subtopics the selection did not yet cover: ChatGPT. | ← #8 | – |
+| 8 | Knowledge Integration and Decision Support of Large Language Models in AI-Assisted Medical Diagnosis (W4416725044) | 2025 | conference-paper | Adds subtopics the selection did not yet cover: large language models and electronic health records. | → #7 | FEW_CITATIONS |
 
 **Stage 3 — Papers from 2026.** Published 2026; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 9 | Human–machine interaction in AI-assisted medical diagnosis: Challenges and future directions (W7155557682) | 2026 | book-chapter | Adds subtopics the selection did not yet cover: SHAP, lime and algorithmic bias (and 6 more). | – | FEW_CITATIONS |
-| 10 | AI-ASSISTED MEDICAL IMAGE DIAGNOSIS MOBILE APPLICATION (W7216238055) | 2026 | article | Adds subtopics the selection did not yet cover: magnetic resonance imaging, computed tomography and medical image analysis (and 3 more). | – | FEW_CITATIONS |
+| 9 | Human–machine interaction in AI-assisted medical diagnosis: Challenges and future directions (W7155557682) | 2026 | book-chapter | Adds subtopics the selection did not yet cover: SHAP, lime and algorithmic bias (and 5 more). | – | FEW_CITATIONS |
+| 10 | AI-ASSISTED MEDICAL IMAGE DIAGNOSIS MOBILE APPLICATION (W7216238055) | 2026 | article | Adds subtopics the selection did not yet cover: magnetic resonance imaging, computed tomography and medical image analysis (and 2 more). | – | FEW_CITATIONS |
 
 ### k = 10, Advanced / Balanced
 
-Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of the selected papers cite each other; the order uses review/survey metadata and publication year only
+Citation links among selected papers: 1
 
-**Stage 1 — Papers from 2022–2024.** Published 2022–2024; ordered by citation links among them where present, otherwise by year.
+**Stage 1 — Papers from 2020–2024.** Published 2020–2024; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 1 | Artificial Intelligence (AI) and Internet of Medical Things (IoMT) Assisted Biomedical Systems for Intelligent Healthcare (W4287834747) | 2022 | article | Adds subtopics the selection did not yet cover: Internet of Medical Things, cancer diagnosis and robotic surgery. | – | – |
-| 2 | Importance of Patient History in Artificial Intelligence–Assisted Medical Diagnosis: Comparison Study (W4391858226) | 2024 | article | Adds subtopics the selection did not yet cover: ChatGPT, clinical vignettes and large language models. | – | – |
-| 3 | AI-Driven Diagnostic Assistance in Medical Inquiry: Reinforcement Learning Algorithm Development and Validation (W4401810439) | 2024 | article | Adds subtopics the selection did not yet cover: electronic health records and natural language processing. | – | – |
-| 4 | Covid-19 Computer-Aided Diagnosis through AI-Assisted CT Imaging Analysis: Deploying a Medical AI System (W4401750768) | 2024 | conference-paper | Adds subtopics the selection did not yet cover: computer-aided diagnosis. | – | – |
+| 1 | Improving the accuracy of medical diagnosis with causal machine learning (W3048817558) | 2020 | article | Included as one of the most-cited works among the papers examined for this topic (595 citations). | – | – |
+| 2 | Artificial Intelligence (AI) and Internet of Medical Things (IoMT) Assisted Biomedical Systems for Intelligent Healthcare (W4287834747) | 2022 | article | Included as one of the most-cited works among the papers examined for this topic (638 citations). | – | – |
+| 3 | Covid-19 Computer-Aided Diagnosis through AI-Assisted CT Imaging Analysis: Deploying a Medical AI System (W4401750768) | 2024 | conference-paper | Adds subtopics the selection did not yet cover: computer-aided diagnosis. | – | – |
+| 4 | AI-Driven Diagnostic Assistance in Medical Inquiry: Reinforcement Learning Algorithm Development and Validation (W4401810439) | 2024 | article | Adds subtopics the selection did not yet cover: natural language processing. | – | – |
 
 **Stage 2 — Papers from 2025.** Published 2025; ordered by citation links among them where present, otherwise by year.
 
@@ -395,15 +495,115 @@ Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of th
 |---:|---|---:|---|---|---|---|
 | 5 | Progress in the Application of Artificial Intelligence in Ultrasound-Assisted Medical Diagnosis (W4408403769) | 2025 | article | Adds subtopics the selection did not yet cover: convolutional neural networks, personalized treatment and diagnostic accuracy. | – | – |
 | 6 | Explainable AI in Health Care: Trust and Transparency in AI-Powered Medical Diagnosis (W4414071300) | 2025 | book-chapter | Adds subtopics the selection did not yet cover: Explainable Artificial Intelligence (XAI), interpretability and black-box models. | – | – |
-| 7 | Research Status of Multimodal Medical Image Fusion In AI-Assisted Diagnosis of Alzheimer's Disease (W7117548118) | 2025 | article | Adds subtopics the selection did not yet cover: Alzheimer's disease and early diagnosis. | – | FEW_CITATIONS |
-| 8 | Medical Misinformation in AI-Assisted Self-Diagnosis: Development of a Method (EvalPrompt) for Analyzing Large Language Models (W4406945781) | 2025 | article | Selected mainly for relevance: the query's terms appear in its title or subject tags. | – | – |
+| 7 | Medical Misinformation in AI-Assisted Self-Diagnosis: Development of a Method (EvalPrompt) for Analyzing Large Language Models (W4406945781) | 2025 | article | Adds subtopics the selection did not yet cover: ChatGPT. | ← #8 | – |
+| 8 | Knowledge Integration and Decision Support of Large Language Models in AI-Assisted Medical Diagnosis (W4416725044) | 2025 | conference-paper | Adds subtopics the selection did not yet cover: large language models and electronic health records. | → #7 | FEW_CITATIONS |
 
 **Stage 3 — Papers from 2026.** Published 2026; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 9 | Human–machine interaction in AI-assisted medical diagnosis: Challenges and future directions (W7155557682) | 2026 | book-chapter | Adds subtopics the selection did not yet cover: SHAP, lime and algorithmic bias (and 6 more). | – | FEW_CITATIONS |
-| 10 | AI-ASSISTED MEDICAL IMAGE DIAGNOSIS MOBILE APPLICATION (W7216238055) | 2026 | article | Adds subtopics the selection did not yet cover: magnetic resonance imaging, computed tomography and medical image analysis (and 3 more). | – | FEW_CITATIONS |
+| 9 | Human–machine interaction in AI-assisted medical diagnosis: Challenges and future directions (W7155557682) | 2026 | book-chapter | Adds subtopics the selection did not yet cover: SHAP, lime and algorithmic bias (and 5 more). | – | FEW_CITATIONS |
+| 10 | AI-ASSISTED MEDICAL IMAGE DIAGNOSIS MOBILE APPLICATION (W7216238055) | 2026 | article | Adds subtopics the selection did not yet cover: magnetic resonance imaging, computed tomography and medical image analysis (and 2 more). | – | FEW_CITATIONS |
+
+**Beginner vs Advanced (k = 10):** 10 of 10 papers shared; overview-marked papers 0 vs 0.
+
+## neural machine translation
+
+### Stage structure by budget (Intermediate / Balanced)
+
+| k | Stages | Citation links | Cycles broken | Warnings |
+|---:|---|---:|---:|---|
+| 5 | Selected papers (5) | 3 | 0 | – |
+| 10 | Papers from 2014–2015 (4) → Papers from 2017 (3) → Papers from 2018–2019 (3) | 9 | 0 | – |
+| 15 | Papers from 2014–2015 (4) → Papers from 2016–2017 (5) → Papers from 2018–2019 (4) → Papers from 2020 (2) | 19 | 0 | – |
+| 20 | Papers from 2014–2016 (5) → Papers from 2017 (5) → Papers from 2018–2019 (5) → Papers from 2019–2021 (5) | 26 | 0 | – |
+
+### k = 10, Intermediate / Balanced
+
+Citation links among selected papers: 9
+
+**Stage 1 — Papers from 2014–2015.** Published 2014–2015; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 1 | On the Properties of Neural Machine Translation: Encoder–Decoder Approaches (W2964199361) | 2014 | conference-paper | Adds subtopics the selection did not yet cover: statistical machine translation, recurrent neural networks and out-of-vocabulary words. | ← #2 | – |
+| 2 | Neural Machine Translation by Jointly Learning to Align and Translate (W2133564696) | 2014 | preprint | Included as one of the most-cited works among the papers examined for this topic (16,219 citations). | → #1; ← #3, #4, #6, #7, #8, #9 | INFLUENCE_UNKNOWN |
+| 3 | Effective Approaches to Attention-based Neural Machine Translation (W1902237438) | 2015 | conference-paper | Included as one of the most-cited works among the papers examined for this topic (8,376 citations). | → #2; ← #9 | – |
+| 4 | Montreal Neural Machine Translation Systems for WMT’15 (W2252272516) | 2015 | conference-paper | Adds subtopics the selection did not yet cover: human evaluation and multilingual translation. | → #2 | – |
+
+**Stage 2 — Papers from 2017.** Published 2017; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 5 | Six Challenges for Neural Machine Translation (W2625092622) | 2017 | conference-paper | Adds subtopics the selection did not yet cover: beam search, word alignment and rare words (and 2 more). | – | – |
+| 6 | Regularization techniques for fine-tuning in neural machine translation (W2740905737) | 2017 | conference-paper | Adds subtopics the selection did not yet cover: English-Russian translation, transfer learning and fine-tuning. | → #2 | – |
+| 7 | On integrating a language model into neural machine translation (W2597891111) | 2017 | article | Adds subtopics the selection did not yet cover: German-English translation and Turkish-English translation. | → #2 | – |
+
+**Stage 3 — Papers from 2018–2019.** Published 2018–2019; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 8 | Semi-supervised Learning for Neural Machine Translation (W2422843715) | 2019 | book-chapter | Adds subtopics the selection did not yet cover: monolingual corpora and autoencoder. | → #2; ← #9 | – |
+| 9 | Joint Training for Neural Machine Translation Models with Monolingual Data (W2963109507) | 2018 | conference-paper | Adds subtopics the selection did not yet cover: monolingual data, domain adaptation and Chinese-English translation (and 2 more). | → #2, #3, #8 | – |
+| 10 | Scaling Neural Machine Translation (W2806311723) | 2018 | conference-paper | Adds subtopics the selection did not yet cover: sequence-to-sequence models, training efficiency and BLEU. | – | – |
+
+### k = 10, Beginner / Balanced
+
+Citation links among selected papers: 9
+
+**Stage 1 — Papers from 2014–2015.** Published 2014–2015; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 1 | On the Properties of Neural Machine Translation: Encoder–Decoder Approaches (W2964199361) | 2014 | conference-paper | Adds subtopics the selection did not yet cover: statistical machine translation, recurrent neural networks and out-of-vocabulary words. | ← #2 | – |
+| 2 | Neural Machine Translation by Jointly Learning to Align and Translate (W2133564696) | 2014 | preprint | Included as one of the most-cited works among the papers examined for this topic (16,219 citations). | → #1; ← #3, #4, #6, #7, #8, #9 | INFLUENCE_UNKNOWN |
+| 3 | Effective Approaches to Attention-based Neural Machine Translation (W1902237438) | 2015 | conference-paper | Included as one of the most-cited works among the papers examined for this topic (8,376 citations). | → #2; ← #9 | – |
+| 4 | Montreal Neural Machine Translation Systems for WMT’15 (W2252272516) | 2015 | conference-paper | Adds subtopics the selection did not yet cover: human evaluation and multilingual translation. | → #2 | – |
+
+**Stage 2 — Papers from 2017.** Published 2017; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 5 | Six Challenges for Neural Machine Translation (W2625092622) | 2017 | conference-paper | Adds subtopics the selection did not yet cover: beam search, word alignment and rare words (and 2 more). | – | – |
+| 6 | Regularization techniques for fine-tuning in neural machine translation (W2740905737) | 2017 | conference-paper | Adds subtopics the selection did not yet cover: English-Russian translation, transfer learning and fine-tuning. | → #2 | – |
+| 7 | On integrating a language model into neural machine translation (W2597891111) | 2017 | article | Adds subtopics the selection did not yet cover: German-English translation and Turkish-English translation. | → #2 | – |
+
+**Stage 3 — Papers from 2018–2019.** Published 2018–2019; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 8 | Semi-supervised Learning for Neural Machine Translation (W2422843715) | 2019 | book-chapter | Adds subtopics the selection did not yet cover: monolingual corpora and autoencoder. | → #2; ← #9 | – |
+| 9 | Joint Training for Neural Machine Translation Models with Monolingual Data (W2963109507) | 2018 | conference-paper | Adds subtopics the selection did not yet cover: monolingual data, domain adaptation and Chinese-English translation (and 2 more). | → #2, #3, #8 | – |
+| 10 | Scaling Neural Machine Translation (W2806311723) | 2018 | conference-paper | Adds subtopics the selection did not yet cover: sequence-to-sequence models, training efficiency and BLEU. | – | – |
+
+### k = 10, Advanced / Balanced
+
+Citation links among selected papers: 9
+
+**Stage 1 — Papers from 2014–2015.** Published 2014–2015; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 1 | On the Properties of Neural Machine Translation: Encoder–Decoder Approaches (W2964199361) | 2014 | conference-paper | Adds subtopics the selection did not yet cover: statistical machine translation, recurrent neural networks and out-of-vocabulary words. | ← #2 | – |
+| 2 | Neural Machine Translation by Jointly Learning to Align and Translate (W2133564696) | 2014 | preprint | Included as one of the most-cited works among the papers examined for this topic (16,219 citations). | → #1; ← #3, #4, #6, #7, #8, #9 | INFLUENCE_UNKNOWN |
+| 3 | Effective Approaches to Attention-based Neural Machine Translation (W1902237438) | 2015 | conference-paper | Included as one of the most-cited works among the papers examined for this topic (8,376 citations). | → #2; ← #9 | – |
+| 4 | Montreal Neural Machine Translation Systems for WMT’15 (W2252272516) | 2015 | conference-paper | Adds subtopics the selection did not yet cover: human evaluation and multilingual translation. | → #2 | – |
+
+**Stage 2 — Papers from 2017.** Published 2017; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 5 | Six Challenges for Neural Machine Translation (W2625092622) | 2017 | conference-paper | Adds subtopics the selection did not yet cover: beam search, word alignment and rare words (and 2 more). | – | – |
+| 6 | Regularization techniques for fine-tuning in neural machine translation (W2740905737) | 2017 | conference-paper | Adds subtopics the selection did not yet cover: English-Russian translation, transfer learning and fine-tuning. | → #2 | – |
+| 7 | On integrating a language model into neural machine translation (W2597891111) | 2017 | article | Adds subtopics the selection did not yet cover: German-English translation and Turkish-English translation. | → #2 | – |
+
+**Stage 3 — Papers from 2018–2019.** Published 2018–2019; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 8 | Semi-supervised Learning for Neural Machine Translation (W2422843715) | 2019 | book-chapter | Adds subtopics the selection did not yet cover: monolingual corpora and autoencoder. | → #2; ← #9 | – |
+| 9 | Joint Training for Neural Machine Translation Models with Monolingual Data (W2963109507) | 2018 | conference-paper | Adds subtopics the selection did not yet cover: monolingual data, domain adaptation and Chinese-English translation (and 2 more). | → #2, #3, #8 | – |
+| 10 | Scaling Neural Machine Translation (W2806311723) | 2018 | conference-paper | Adds subtopics the selection did not yet cover: sequence-to-sequence models, training efficiency and BLEU. | – | – |
 
 **Beginner vs Advanced (k = 10):** 10 of 10 papers shared; overview-marked papers 0 vs 0.
 
@@ -413,99 +613,99 @@ Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of th
 
 | k | Stages | Citation links | Cycles broken | Warnings |
 |---:|---|---:|---:|---|
-| 5 | Selected papers (5) | 3 | 0 | – |
-| 10 | Papers from 2001–2004 (3) → Papers from 2005–2019 (4) → Papers from 2021–2025 (3) | 2 | 0 | – |
-| 15 | Overviews and surveys (1) → Papers from 1995–2001 (5) → Papers from 2004–2009 (4) → Papers from 2019–2025 (5) | 1 | 0 | – |
-| 20 | Overviews and surveys (1) → Papers from 1996–2004 (6) → Papers from 2005–2019 (7) → Papers from 2021–2025 (6) | 12 | 0 | – |
+| 5 | Selected papers (5) | 1 | 0 | – |
+| 10 | Papers from 2003–2009 (4) → Papers from 2019–2021 (4) → Papers from 2022–2024 (2) | 9 | 0 | – |
+| 15 | Papers from 1999–2003 (4) → Papers from 2004–2009 (5) → Papers from 2019–2021 (4) → Papers from 2022–2024 (2) | 12 | 0 | – |
+| 20 | Overviews and surveys (1) → Papers from 1996–2003 (6) → Papers from 2004–2019 (7) → Papers from 2021–2024 (6) | 14 | 0 | – |
 
 ### k = 10, Intermediate / Balanced
 
-Citation links among selected papers: 2
+Citation links among selected papers: 9
 
-**Stage 1 — Papers from 2001–2004.** Published 2001–2004; ordered by citation links among them where present, otherwise by year.
-
-| # | Paper | Year | Type | Why it's here | Links | Flags |
-|---:|---|---:|---|---|---|---|
-| 1 | Rosetta in CASP4: Progress in ab initio protein structure prediction (W2141216359) | 2001 | article | Adds subtopics the selection did not yet cover: ab initio protein structure prediction, caspase-4 and Rosetta (and 2 more). | – | – |
-| 2 | Protein Structure Prediction and Structural Genomics (W2170471837) | 2001 | article | Adds subtopics the selection did not yet cover: structural genomics and protein function. | – | – |
-| 3 | Protein structure prediction and analysis using the Robetta server (W2115167726) | 2004 | article | Adds subtopics the selection did not yet cover: de novo structure prediction and protein design. | – | – |
-
-**Stage 2 — Papers from 2005–2019.** Published 2005–2019; ordered by citation links among them where present, otherwise by year.
+**Stage 1 — Papers from 2003–2009.** Published 2003–2009; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 4 | Protein Structure Prediction: Inroads to Biology (W2066162606) | 2005 | article | Adds subtopics the selection did not yet cover: amino acid sequence and protein 3D structure. | – | – |
-| 5 | SAM-T08, HMM-based protein structure prediction (W2141120048) | 2009 | article | Adds subtopics the selection did not yet cover: hidden Markov models, web server and multiple sequence alignment. | – | – |
-| 6 | Ab Initio Protein Structure Prediction (W4210958064) | 2017 | book-chapter | Adds subtopics the selection did not yet cover: conformational search and model selection. | ← #9 | – |
-| 7 | Critical assessment of methods of protein structure prediction (CASP)—Round XIII (W3199799076) | 2019 | article | Adds subtopics the selection did not yet cover: CASP13, template-based modeling and ab initio structure prediction (and 1 more). | ← #8 | – |
+| 1 | EVA: evaluation of protein structure prediction servers (W2153414768) | 2003 | article | Adds subtopics the selection did not yet cover: contact prediction, protein fold recognition and secondary structure prediction (and 2 more). | – | – |
+| 2 | Ab Initio Protein Structure Prediction (W2144981983) | 2008 | book-chapter | Adds subtopics the selection did not yet cover: conformational search, ab initio protein structure prediction and model selection (and 2 more). | – | – |
+| 3 | Protein structure prediction on the Web: a case study using the Phyre server (W2060259273) | 2009 | article | Included as one of the most-cited works among the papers examined for this topic (4,175 citations). | ← #7 | – |
+| 4 | SAM-T08, HMM-based protein structure prediction (W2141120048) | 2009 | article | Adds subtopics the selection did not yet cover: hidden Markov models and multiple sequence alignment. | – | – |
 
-**Stage 3 — Papers from 2021–2025.** Published 2021–2025; ordered by citation links among them where present, otherwise by year.
+**Stage 2 — Papers from 2019–2021.** Published 2019–2021; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 8 | Critical assessment of methods of protein structure prediction (CASP)—Round XIV (W3198923619) | 2021 | article | Adds subtopics the selection did not yet cover: structure refinement, CASP14 and model accuracy assessment. | → #7 | – |
-| 9 | AI-Driven Deep Learning Techniques in Protein Structure Prediction (W4401209403) | 2024 | article | Adds subtopics the selection did not yet cover: protein threading, AlphaFold and protein-protein interaction (and 1 more). | → #6 | – |
-| 10 | Protein Structure Prediction (W7117761473) | 2025 | book-chapter | Adds subtopics the selection did not yet cover: contact prediction, AlphaFold2 and homology modeling (and 4 more). | – | FEW_CITATIONS |
+| 5 | Critical assessment of methods of protein structure prediction (CASP)—Round XIII (W3199799076) | 2019 | article | Adds subtopics the selection did not yet cover: CASP13, template-based modeling and ab initio structure prediction (and 1 more). | ← #6, #7, #8 | – |
+| 6 | Highly accurate protein structure prediction with AlphaFold (W3177828909) | 2021 | article | Included as one of the most-cited works among the papers examined for this topic (43,412 citations). | → #5; ← #7, #8, #9, #10 | – |
+| 7 | The trRosetta server for fast and accurate protein structure prediction (W3212854871) | 2021 | article | Adds subtopics the selection did not yet cover: de novo structure prediction, Rosetta and web server (and 1 more). | → #3, #5, #6; ← #10 | – |
+| 8 | Critical assessment of methods of protein structure prediction (CASP)—Round XIV (W3198923619) | 2021 | article | Adds subtopics the selection did not yet cover: structure refinement and model accuracy assessment. | → #5, #6 | – |
+
+**Stage 3 — Papers from 2022–2024.** Published 2022–2024; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 9 | Ins and outs of AlphaFold2 transmembrane protein structure predictions (W4205172550) | 2022 | article | Adds subtopics the selection did not yet cover: AlphaFold2, transmembrane proteins and structural genomics. | → #6 | – |
+| 10 | AI-Driven Deep Learning Techniques in Protein Structure Prediction (W4401209403) | 2024 | article | Adds subtopics the selection did not yet cover: protein threading, protein-protein interaction and CASP. | → #6, #7 | – |
 
 ### k = 10, Beginner / Balanced
 
-Citation links among selected papers: 1
+Citation links among selected papers: 9
 
 **Stage 1 — Overviews and surveys.** Start with works that their metadata marks as reviews, surveys or introductions.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 1 | Progress and challenges in protein structure prediction (W2115213105) | 2008 | review | Adds subtopics the selection did not yet cover: conformational search, template-based modeling and structure refinement. OpenAlex lists its publication type as review. | – | – |
+| 1 | Progress and challenges in protein structure prediction (W2115213105) | 2008 | review | Adds subtopics the selection did not yet cover: conformational search, template-based modeling and threading (and 2 more). OpenAlex lists its publication type as review. | ← #5 | – |
 
-**Stage 2 — Papers from 2001–2009.** Published 2001–2009; ordered by citation links among them where present, otherwise by year.
-
-| # | Paper | Year | Type | Why it's here | Links | Flags |
-|---:|---|---:|---|---|---|---|
-| 2 | Rosetta in CASP4: Progress in ab initio protein structure prediction (W2141216359) | 2001 | article | Adds subtopics the selection did not yet cover: ab initio protein structure prediction, caspase-4 and Rosetta (and 2 more). | – | – |
-| 3 | Protein Structure Prediction and Structural Genomics (W2170471837) | 2001 | article | Adds subtopics the selection did not yet cover: structural genomics, ab initio structure prediction and protein function. | – | – |
-| 4 | Protein structure prediction and analysis using the Robetta server (W2115167726) | 2004 | article | Adds subtopics the selection did not yet cover: de novo structure prediction and protein design. | – | – |
-| 5 | Protein Structure Prediction: Inroads to Biology (W2066162606) | 2005 | article | Adds subtopics the selection did not yet cover: amino acid sequence and protein 3D structure. | – | – |
-| 6 | SAM-T08, HMM-based protein structure prediction (W2141120048) | 2009 | article | Adds subtopics the selection did not yet cover: hidden Markov models, web server and multiple sequence alignment. | – | – |
-
-**Stage 3 — Papers from 2019–2025.** Published 2019–2025; ordered by citation links among them where present, otherwise by year.
+**Stage 2 — Papers from 2003–2019.** Published 2003–2019; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 7 | Critical assessment of methods of protein structure prediction (CASP)—Round XIII (W3199799076) | 2019 | article | Adds subtopics the selection did not yet cover: CASP13 and model refinement. | ← #8 | – |
-| 8 | Critical assessment of methods of protein structure prediction (CASP)—Round XIV (W3198923619) | 2021 | article | Adds subtopics the selection did not yet cover: CASP14 and model accuracy assessment. | → #7 | – |
-| 9 | AI-Driven Deep Learning Techniques in Protein Structure Prediction (W4401209403) | 2024 | article | Adds subtopics the selection did not yet cover: protein threading, AlphaFold and protein-protein interaction (and 1 more). | – | – |
-| 10 | Protein Structure Prediction (W7117761473) | 2025 | book-chapter | Adds subtopics the selection did not yet cover: contact prediction, AlphaFold2 and homology modeling (and 4 more). | – | FEW_CITATIONS |
+| 2 | EVA: evaluation of protein structure prediction servers (W2153414768) | 2003 | article | Adds subtopics the selection did not yet cover: contact prediction, protein fold recognition and secondary structure prediction (and 1 more). | – | – |
+| 3 | Protein structure prediction on the Web: a case study using the Phyre server (W2060259273) | 2009 | article | Included as one of the most-cited works among the papers examined for this topic (4,175 citations). | ← #8 | – |
+| 4 | SAM-T08, HMM-based protein structure prediction (W2141120048) | 2009 | article | Adds subtopics the selection did not yet cover: hidden Markov models and multiple sequence alignment. | – | – |
+| 5 | Ab Initio Protein Structure Prediction (W4210958064) | 2017 | book-chapter | Adds subtopics the selection did not yet cover: ab initio protein structure prediction and model selection. | → #1; ← #10 | – |
+| 6 | Critical assessment of methods of protein structure prediction (CASP)—Round XIII (W3199799076) | 2019 | article | Adds subtopics the selection did not yet cover: CASP13, ab initio structure prediction and model refinement. | ← #7, #8 | – |
+
+**Stage 3 — Papers from 2021–2024.** Published 2021–2024; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 7 | Highly accurate protein structure prediction with AlphaFold (W3177828909) | 2021 | article | Included as one of the most-cited works among the papers examined for this topic (43,412 citations). | → #6; ← #8, #9, #10 | – |
+| 8 | The trRosetta server for fast and accurate protein structure prediction (W3212854871) | 2021 | article | Adds subtopics the selection did not yet cover: de novo structure prediction, Rosetta and web server (and 1 more). | → #3, #6, #7; ← #10 | – |
+| 9 | Ins and outs of AlphaFold2 transmembrane protein structure predictions (W4205172550) | 2022 | article | Adds subtopics the selection did not yet cover: AlphaFold2, transmembrane proteins and structural genomics. | → #7 | – |
+| 10 | AI-Driven Deep Learning Techniques in Protein Structure Prediction (W4401209403) | 2024 | article | Adds subtopics the selection did not yet cover: protein threading, protein-protein interaction and CASP. | → #5, #7, #8 | – |
 
 ### k = 10, Advanced / Balanced
 
-Citation links among selected papers: 2
+Citation links among selected papers: 9
 
-**Stage 1 — Papers from 2001–2004.** Published 2001–2004; ordered by citation links among them where present, otherwise by year.
-
-| # | Paper | Year | Type | Why it's here | Links | Flags |
-|---:|---|---:|---|---|---|---|
-| 1 | Rosetta in CASP4: Progress in ab initio protein structure prediction (W2141216359) | 2001 | article | Adds subtopics the selection did not yet cover: ab initio protein structure prediction, caspase-4 and Rosetta (and 2 more). | – | – |
-| 2 | Protein Structure Prediction and Structural Genomics (W2170471837) | 2001 | article | Adds subtopics the selection did not yet cover: structural genomics and protein function. | – | – |
-| 3 | Protein structure prediction and analysis using the Robetta server (W2115167726) | 2004 | article | Adds subtopics the selection did not yet cover: de novo structure prediction and protein design. | – | – |
-
-**Stage 2 — Papers from 2005–2019.** Published 2005–2019; ordered by citation links among them where present, otherwise by year.
+**Stage 1 — Papers from 2003–2009.** Published 2003–2009; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 4 | Protein Structure Prediction: Inroads to Biology (W2066162606) | 2005 | article | Adds subtopics the selection did not yet cover: amino acid sequence and protein 3D structure. | – | – |
-| 5 | SAM-T08, HMM-based protein structure prediction (W2141120048) | 2009 | article | Adds subtopics the selection did not yet cover: hidden Markov models, web server and multiple sequence alignment. | – | – |
-| 6 | Ab Initio Protein Structure Prediction (W4210958064) | 2017 | book-chapter | Adds subtopics the selection did not yet cover: conformational search and model selection. | ← #9 | – |
-| 7 | Critical assessment of methods of protein structure prediction (CASP)—Round XIII (W3199799076) | 2019 | article | Adds subtopics the selection did not yet cover: CASP13, template-based modeling and ab initio structure prediction (and 1 more). | ← #8 | – |
+| 1 | EVA: evaluation of protein structure prediction servers (W2153414768) | 2003 | article | Adds subtopics the selection did not yet cover: contact prediction, protein fold recognition and secondary structure prediction (and 2 more). | – | – |
+| 2 | Ab Initio Protein Structure Prediction (W2144981983) | 2008 | book-chapter | Adds subtopics the selection did not yet cover: conformational search, ab initio protein structure prediction and model selection (and 2 more). | – | – |
+| 3 | Protein structure prediction on the Web: a case study using the Phyre server (W2060259273) | 2009 | article | Included as one of the most-cited works among the papers examined for this topic (4,175 citations). | ← #7 | – |
+| 4 | SAM-T08, HMM-based protein structure prediction (W2141120048) | 2009 | article | Adds subtopics the selection did not yet cover: hidden Markov models and multiple sequence alignment. | – | – |
 
-**Stage 3 — Papers from 2021–2025.** Published 2021–2025; ordered by citation links among them where present, otherwise by year.
+**Stage 2 — Papers from 2019–2021.** Published 2019–2021; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 8 | Critical assessment of methods of protein structure prediction (CASP)—Round XIV (W3198923619) | 2021 | article | Adds subtopics the selection did not yet cover: structure refinement, CASP14 and model accuracy assessment. | → #7 | – |
-| 9 | AI-Driven Deep Learning Techniques in Protein Structure Prediction (W4401209403) | 2024 | article | Adds subtopics the selection did not yet cover: protein threading, AlphaFold and protein-protein interaction (and 1 more). | → #6 | – |
-| 10 | Protein Structure Prediction (W7117761473) | 2025 | book-chapter | Adds subtopics the selection did not yet cover: contact prediction, AlphaFold2 and homology modeling (and 4 more). | – | FEW_CITATIONS |
+| 5 | Critical assessment of methods of protein structure prediction (CASP)—Round XIII (W3199799076) | 2019 | article | Adds subtopics the selection did not yet cover: CASP13, template-based modeling and ab initio structure prediction (and 1 more). | ← #6, #7, #8 | – |
+| 6 | Highly accurate protein structure prediction with AlphaFold (W3177828909) | 2021 | article | Included as one of the most-cited works among the papers examined for this topic (43,412 citations). | → #5; ← #7, #8, #9, #10 | – |
+| 7 | The trRosetta server for fast and accurate protein structure prediction (W3212854871) | 2021 | article | Adds subtopics the selection did not yet cover: de novo structure prediction, Rosetta and web server (and 1 more). | → #3, #5, #6; ← #10 | – |
+| 8 | Critical assessment of methods of protein structure prediction (CASP)—Round XIV (W3198923619) | 2021 | article | Adds subtopics the selection did not yet cover: structure refinement and model accuracy assessment. | → #5, #6 | – |
 
-**Beginner vs Advanced (k = 10):** 9 of 10 papers shared; overview-marked papers 1 vs 0.
+**Stage 3 — Papers from 2022–2024.** Published 2022–2024; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 9 | Ins and outs of AlphaFold2 transmembrane protein structure predictions (W4205172550) | 2022 | article | Adds subtopics the selection did not yet cover: AlphaFold2, transmembrane proteins and structural genomics. | → #6 | – |
+| 10 | AI-Driven Deep Learning Techniques in Protein Structure Prediction (W4401209403) | 2024 | article | Adds subtopics the selection did not yet cover: protein threading, protein-protein interaction and CASP. | → #6, #7 | – |
+
+**Beginner vs Advanced (k = 10):** 8 of 10 papers shared; overview-marked papers 1 vs 0.
 
 ## quantum error correction
 
@@ -513,43 +713,43 @@ Citation links among selected papers: 2
 
 | k | Stages | Citation links | Cycles broken | Warnings |
 |---:|---|---:|---:|---|
-| 5 | Selected papers (5) | 0 | 0 | NO_CITATION_LINKS |
-| 10 | Papers from 1996–2015 (3) → Papers from 2018–2020 (4) → Papers from 2021–2024 (3) | 1 | 0 | – |
-| 15 | Papers from 1996–2015 (5) → Papers from 2017–2019 (4) → Papers from 2020–2021 (3) → Papers from 2022–2024 (3) | 4 | 0 | – |
-| 20 | Papers from 1996–2012 (5) → Papers from 2013–2020 (5) → Papers from 2017–2019 (4) → Papers from 2021–2024 (6) | 14 | 0 | – |
+| 5 | Selected papers (5) | 1 | 0 | – |
+| 10 | Papers from 1996–2012 (3) → Papers from 2015–2020 (4) → Papers from 2021–2024 (3) | 4 | 0 | – |
+| 15 | Papers from 1996–2013 (4) → Papers from 2014–2019 (5) → Papers from 2020–2021 (4) → Papers from 2022–2024 (2) | 7 | 0 | – |
+| 20 | Papers from 1996–2012 (5) → Papers from 2013–2020 (5) → Papers from 2015–2019 (4) → Papers from 2021–2024 (6) | 17 | 0 | – |
 
 ### k = 10, Intermediate / Balanced
 
-Citation links among selected papers: 1
+Citation links among selected papers: 4
 
-**Stage 1 — Papers from 1996–2015.** Published 1996–2015; ordered by citation links among them where present, otherwise by year.
-
-| # | Paper | Year | Type | Why it's here | Links | Flags |
-|---:|---|---:|---|---|---|---|
-| 1 | Mixed-state entanglement and quantum error correction (W2060887031) | 1996 | article | Adds subtopics the selection did not yet cover: Quantum Information and Cryptography, depolarizing channel and noisy quantum channels. | ← #9 | – |
-| 2 | Quantum error-correction (W571950922) | 2012 | book-chapter | Adds subtopics the selection did not yet cover: quantum cryptography, quantum information and quantum computing hardware (and 1 more). | – | – |
-| 3 | Bulk locality and quantum error correction in AdS/CFT (W2098838878) | 2015 | article | Adds subtopics the selection did not yet cover: Black Holes and Theoretical Physics and AdS/CFT correspondence. | – | – |
-
-**Stage 2 — Papers from 2018–2020.** Published 2018–2020; ordered by citation links among them where present, otherwise by year.
+**Stage 1 — Papers from 1996–2012.** Published 1996–2012; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 4 | Achieving the Heisenberg limit in quantum metrology using quantum error correction (W2622552587) | 2018 | article | Adds subtopics the selection did not yet cover: quantum metrology. | – | – |
-| 5 | Performance of quantum error correction with coherent errors (W2803105322) | 2019 | article | Adds subtopics the selection did not yet cover: Shor code, concatenated codes and coherent errors (and 1 more). | – | – |
+| 1 | Mixed-state entanglement and quantum error correction (W2060887031) | 1996 | article | Included as one of the most-cited works among the papers examined for this topic (5,273 citations). | ← #2, #9 | – |
+| 2 | Quantum error correction via codes over GF(4) (W2167413626) | 1998 | article | Included as one of the most-cited works among the papers examined for this topic (1,744 citations). | → #1; ← #5, #9 | – |
+| 3 | Quantum error-correction (W571950922) | 2012 | book-chapter | Adds subtopics the selection did not yet cover: quantum cryptography, quantum information and quantum computing hardware (and 1 more). | – | – |
+
+**Stage 2 — Papers from 2015–2020.** Published 2015–2020; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 4 | Bulk locality and quantum error correction in AdS/CFT (W2098838878) | 2015 | article | Adds subtopics the selection did not yet cover: Black Holes and Theoretical Physics and AdS/CFT correspondence. | – | – |
+| 5 | Performance of quantum error correction with coherent errors (W2803105322) | 2019 | article | Adds subtopics the selection did not yet cover: Shor code, concatenated codes and coherent errors (and 1 more). | → #2 | – |
 | 6 | Quantum error correction with the toric Gottesman-Kitaev-Preskill code (W2893961856) | 2019 | article | Adds subtopics the selection did not yet cover: Gottesman-Kitaev-Preskill code, error threshold and continuous-variable quantum error correction. | – | – |
-| 7 | Quantum Error Correction (W3033331243) | 2020 | reference-entry | Adds subtopics the selection did not yet cover: noiseless subsystems, decoherence-free subspace and decoherence (and 9 more). | – | INFLUENCE_UNKNOWN |
+| 7 | Quantum Error Correction (W3033331243) | 2020 | reference-entry | Adds subtopics the selection did not yet cover: noiseless subsystems, decoherence-free subspace and decoherence (and 7 more). | – | INFLUENCE_UNKNOWN |
 
 **Stage 3 — Papers from 2021–2024.** Published 2021–2024; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
 | 8 | Quantum Error Correction (W3176428101) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: surface code, stabilizer formalism and CSS codes (and 4 more). | – | FEW_CITATIONS |
-| 9 | Quantum Error Correction (W4210753780) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: amplitude damping channel and Calderbank-Shor-Steane codes. | → #1 | – |
+| 9 | Quantum Error Correction (W4210753780) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: amplitude damping channel and Calderbank-Shor-Steane codes. | → #1, #2 | – |
 | 10 | Quantum error correction below the surface code threshold (W4405183524) | 2024 | article | Adds subtopics the selection did not yet cover: correlated errors, quantum memory and logical error rate. | – | – |
 
 ### k = 10, Beginner / Balanced
 
-Citation links among selected papers: 2
+Citation links among selected papers: 5
 
 **Stage 1 — Overviews and surveys.** Start with works that their metadata marks as reviews, surveys or introductions.
 
@@ -561,48 +761,48 @@ Citation links among selected papers: 2
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 2 | Mixed-state entanglement and quantum error correction (W2060887031) | 1996 | article | Adds subtopics the selection did not yet cover: Quantum Information and Cryptography, depolarizing channel and noisy quantum channels. | ← #1, #9 | – |
-| 3 | Quantum error-correction (W571950922) | 2012 | book-chapter | Adds subtopics the selection did not yet cover: quantum cryptography, quantum information and quantum computing hardware (and 1 more). | – | – |
-| 4 | Achieving the Heisenberg limit in quantum metrology using quantum error correction (W2622552587) | 2018 | article | Adds subtopics the selection did not yet cover: quantum metrology. | – | – |
-| 5 | Performance of quantum error correction with coherent errors (W2803105322) | 2019 | article | Adds subtopics the selection did not yet cover: Shor code, concatenated codes and coherent errors (and 1 more). | – | – |
+| 2 | Mixed-state entanglement and quantum error correction (W2060887031) | 1996 | article | Included as one of the most-cited works among the papers examined for this topic (5,273 citations). | ← #1, #3, #9 | – |
+| 3 | Quantum error correction via codes over GF(4) (W2167413626) | 1998 | article | Included as one of the most-cited works among the papers examined for this topic (1,744 citations). | → #2; ← #5, #9 | – |
+| 4 | Quantum error-correction (W571950922) | 2012 | book-chapter | Adds subtopics the selection did not yet cover: quantum cryptography, quantum information and quantum computing hardware (and 1 more). | – | – |
+| 5 | Performance of quantum error correction with coherent errors (W2803105322) | 2019 | article | Adds subtopics the selection did not yet cover: Shor code, concatenated codes and coherent errors (and 1 more). | → #3 | – |
 | 6 | Quantum error correction with the toric Gottesman-Kitaev-Preskill code (W2893961856) | 2019 | article | Adds subtopics the selection did not yet cover: Gottesman-Kitaev-Preskill code, error threshold and continuous-variable quantum error correction. | – | – |
 
 **Stage 3 — Papers from 2020–2024.** Published 2020–2024; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 7 | Quantum Error Correction (W3033331243) | 2020 | reference-entry | Adds subtopics the selection did not yet cover: noiseless subsystems, decoherence-free subspace and decoherence (and 9 more). | – | INFLUENCE_UNKNOWN |
+| 7 | Quantum Error Correction (W3033331243) | 2020 | reference-entry | Adds subtopics the selection did not yet cover: noiseless subsystems, decoherence-free subspace and decoherence (and 7 more). | – | INFLUENCE_UNKNOWN |
 | 8 | Quantum Error Correction (W3176428101) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: surface code, stabilizer formalism and CSS codes (and 4 more). | – | FEW_CITATIONS |
-| 9 | Quantum Error Correction (W4210753780) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: amplitude damping channel and Calderbank-Shor-Steane codes. | → #2 | – |
+| 9 | Quantum Error Correction (W4210753780) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: amplitude damping channel and Calderbank-Shor-Steane codes. | → #2, #3 | – |
 | 10 | Quantum error correction below the surface code threshold (W4405183524) | 2024 | article | Adds subtopics the selection did not yet cover: correlated errors, quantum memory and logical error rate. | – | – |
 
 ### k = 10, Advanced / Balanced
 
-Citation links among selected papers: 1
+Citation links among selected papers: 4
 
-**Stage 1 — Papers from 1996–2015.** Published 1996–2015; ordered by citation links among them where present, otherwise by year.
-
-| # | Paper | Year | Type | Why it's here | Links | Flags |
-|---:|---|---:|---|---|---|---|
-| 1 | Mixed-state entanglement and quantum error correction (W2060887031) | 1996 | article | Adds subtopics the selection did not yet cover: Quantum Information and Cryptography, depolarizing channel and noisy quantum channels. | ← #9 | – |
-| 2 | Quantum error-correction (W571950922) | 2012 | book-chapter | Adds subtopics the selection did not yet cover: quantum cryptography, quantum information and quantum computing hardware (and 1 more). | – | – |
-| 3 | Bulk locality and quantum error correction in AdS/CFT (W2098838878) | 2015 | article | Adds subtopics the selection did not yet cover: Black Holes and Theoretical Physics and AdS/CFT correspondence. | – | – |
-
-**Stage 2 — Papers from 2018–2020.** Published 2018–2020; ordered by citation links among them where present, otherwise by year.
+**Stage 1 — Papers from 1996–2012.** Published 1996–2012; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 4 | Achieving the Heisenberg limit in quantum metrology using quantum error correction (W2622552587) | 2018 | article | Adds subtopics the selection did not yet cover: quantum metrology. | – | – |
-| 5 | Performance of quantum error correction with coherent errors (W2803105322) | 2019 | article | Adds subtopics the selection did not yet cover: Shor code, concatenated codes and coherent errors (and 1 more). | – | – |
+| 1 | Mixed-state entanglement and quantum error correction (W2060887031) | 1996 | article | Included as one of the most-cited works among the papers examined for this topic (5,273 citations). | ← #2, #9 | – |
+| 2 | Quantum error correction via codes over GF(4) (W2167413626) | 1998 | article | Included as one of the most-cited works among the papers examined for this topic (1,744 citations). | → #1; ← #5, #9 | – |
+| 3 | Quantum error-correction (W571950922) | 2012 | book-chapter | Adds subtopics the selection did not yet cover: quantum cryptography, quantum information and quantum computing hardware (and 1 more). | – | – |
+
+**Stage 2 — Papers from 2015–2020.** Published 2015–2020; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 4 | Bulk locality and quantum error correction in AdS/CFT (W2098838878) | 2015 | article | Adds subtopics the selection did not yet cover: Black Holes and Theoretical Physics and AdS/CFT correspondence. | – | – |
+| 5 | Performance of quantum error correction with coherent errors (W2803105322) | 2019 | article | Adds subtopics the selection did not yet cover: Shor code, concatenated codes and coherent errors (and 1 more). | → #2 | – |
 | 6 | Quantum error correction with the toric Gottesman-Kitaev-Preskill code (W2893961856) | 2019 | article | Adds subtopics the selection did not yet cover: Gottesman-Kitaev-Preskill code, error threshold and continuous-variable quantum error correction. | – | – |
-| 7 | Quantum Error Correction (W3033331243) | 2020 | reference-entry | Adds subtopics the selection did not yet cover: noiseless subsystems, decoherence-free subspace and decoherence (and 9 more). | – | INFLUENCE_UNKNOWN |
+| 7 | Quantum Error Correction (W3033331243) | 2020 | reference-entry | Adds subtopics the selection did not yet cover: noiseless subsystems, decoherence-free subspace and decoherence (and 7 more). | – | INFLUENCE_UNKNOWN |
 
 **Stage 3 — Papers from 2021–2024.** Published 2021–2024; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
 | 8 | Quantum Error Correction (W3176428101) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: surface code, stabilizer formalism and CSS codes (and 4 more). | – | FEW_CITATIONS |
-| 9 | Quantum Error Correction (W4210753780) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: amplitude damping channel and Calderbank-Shor-Steane codes. | → #1 | – |
+| 9 | Quantum Error Correction (W4210753780) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: amplitude damping channel and Calderbank-Shor-Steane codes. | → #1, #2 | – |
 | 10 | Quantum error correction below the surface code threshold (W4405183524) | 2024 | article | Adds subtopics the selection did not yet cover: correlated errors, quantum memory and logical error rate. | – | – |
 
 **Beginner vs Advanced (k = 10):** 9 of 10 papers shared; overview-marked papers 1 vs 0.
@@ -613,36 +813,112 @@ Citation links among selected papers: 1
 
 | k | Stages | Citation links | Cycles broken | Warnings |
 |---:|---|---:|---:|---|
-| 5 | Overviews and surveys (3) → Further papers (2) | 0 | 0 | NO_CITATION_LINKS |
-| 10 | Overviews and surveys (5) → Further papers (5) | 2 | 0 | – |
-| 15 | Overviews and surveys (4) → Papers from 1992–2019 (4) → Papers from 2020–2023 (3) → Papers from 2024–2026 (4) | 7 | 0 | – |
-| 20 | Overviews and surveys (7) → Papers from 1992–2018 (5) → Papers from 2019–2023 (5) → Papers from 2025–2026 (3) | 3 | 0 | – |
+| 5 | Overviews and surveys (4) → Further papers (1) | 2 | 0 | – |
+| 10 | Overviews and surveys (4) → Papers from 2007–2017 (3) → Papers from 2018–2023 (3) | 5 | 0 | – |
+| 15 | Overviews and surveys (5) → Papers from 1992–2017 (3) → Papers from 2018–2021 (4) → Papers from 2023–2026 (3) | 7 | 0 | – |
+| 20 | Overviews and surveys (7) → Papers from 1992–2018 (5) → Papers from 2019–2023 (5) → Papers from 2024–2026 (3) | 9 | 0 | – |
 
 ### k = 10, Intermediate / Balanced
 
-Citation links among selected papers: 2
+Citation links among selected papers: 5
 
 **Stage 1 — Overviews and surveys.** Start with works that their metadata marks as reviews, surveys or introductions.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 1 | Reinforcement Learning in Robotics: A Survey (W4211089519) | 2012 | book-chapter | Adds subtopics the selection did not yet cover: policy search. Its title presents it as a survey (content not verified). | → #6 | – |
-| 2 | Sim-to-Real Transfer in Deep Reinforcement Learning for Robotics: a Survey (W3088310808) | 2020 | conference-paper | Adds subtopics the selection did not yet cover: domain adaptation, sim-to-real transfer and domain randomization. Its title presents it as a survey (content not verified). | – | – |
-| 3 | Reinforcement learning in robotic applications: a comprehensive survey (W3152878473) | 2021 | article | Adds subtopics the selection did not yet cover: multi-agent reinforcement learning, underwater robots and autonomous robots. Its title presents it as a survey (content not verified). | ← #5 | – |
-| 4 | Advancements in Reinforcement Learning for Robotics: A Comprehensive Review and Future Directions (W7161785288) | 2026 | book-chapter | Adds subtopics the selection did not yet cover: reward shaping, imitation learning and deep reinforcement learning (and 6 more). Its title presents it as a review (content not verified). | – | FEW_CITATIONS |
-| 5 | Advancements in reinforcement learning for robotic control: A comprehensive review (W7213498318) | 2026 | article | Adds subtopics the selection did not yet cover: human-robot interaction, mobile robots and robot manipulators. Its title presents it as a review (content not verified). | → #3 | FEW_CITATIONS |
+| 1 | Reinforcement learning in robotics: A survey (W1977655452) | 2013 | article | Included as one of the most-cited works among the papers examined for this topic (3,152 citations). Its title presents it as a survey (content not verified). | → #5; ← #2, #3, #7, #8 | – |
+| 2 | Sim-to-Real Transfer in Deep Reinforcement Learning for Robotics: a Survey (W3088310808) | 2020 | conference-paper | Adds subtopics the selection did not yet cover: domain adaptation, sim-to-real transfer and imitation learning (and 1 more). Its title presents it as a survey (content not verified). | → #1 | – |
+| 3 | Reinforcement learning in robotic applications: a comprehensive survey (W3152878473) | 2021 | article | Adds subtopics the selection did not yet cover: multi-agent reinforcement learning and underwater robots. Its title presents it as a survey (content not verified). | → #1 | – |
+| 4 | Applications for Reinforcement Learning in Robotics: A Comprehensive Review (W4410293891) | 2025 | article | Adds subtopics the selection did not yet cover: multi-robot cooperation, human-robot interaction and sample efficiency (and 3 more). Its title presents it as a review (content not verified). | – | FEW_CITATIONS |
 
-**Stage 2 — Further papers.** Ordered by citation links among them where present, otherwise by publication year.
+**Stage 2 — Papers from 2007–2017.** Published 2007–2017; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 6 | Application of reinforcement learning in robot soccer (W1967499360) | 2007 | article | Adds subtopics the selection did not yet cover: robot soccer, action selection and hierarchical learning. | ← #1 | – |
-| 7 | Deep Reinforcement Learning for Robotic Assembly of Mixed Deformable and Rigid Objects (W2909718913) | 2018 | conference-paper | Adds subtopics the selection did not yet cover: admittance control and robotic assembly. | – | – |
-| 8 | Deep Reinforcement Learning for Robotic Pushing and Picking in Cluttered Environment (W3004091482) | 2019 | conference-paper | Adds subtopics the selection did not yet cover: robotic grasping, Robot Manipulation and Learning and deep Q-network (and 1 more). | – | – |
-| 9 | Hierarchies of Planning and Reinforcement Learning for Robot Navigation (W3199192745) | 2021 | conference-paper | Adds subtopics the selection did not yet cover: robot navigation, hierarchical reinforcement learning and path planning (and 1 more). | – | – |
-| 10 | Deep Reinforcement Learning for Robotic Hand Manipulation (W3162902697) | 2021 | conference-paper | Adds subtopics the selection did not yet cover: proximal policy optimization, deep deterministic policy gradient and continuous control. | – | – |
+| 5 | Application of reinforcement learning in robot soccer (W1967499360) | 2007 | article | Adds subtopics the selection did not yet cover: robot soccer, action selection and hierarchical learning. | ← #1 | – |
+| 6 | A reinforcement learning based robotic navigation system (W2087751887) | 2014 | conference-paper | Adds subtopics the selection did not yet cover: Q-learning, mobile robots and unknown environments (and 3 more). | – | – |
+| 7 | Deep reinforcement learning for robotic manipulation with asynchronous off-policy updates (W2575705757) | 2017 | conference-paper | Included as one of the most-cited works among the papers examined for this topic (1,484 citations). | → #1 | – |
+
+**Stage 3 — Papers from 2018–2023.** Published 2018–2023; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 8 | Deep Reinforcement Learning for Robotic Assembly of Mixed Deformable and Rigid Objects (W2909718913) | 2018 | conference-paper | Adds subtopics the selection did not yet cover: admittance control, robotic assembly and industrial robots (and 1 more). | → #1 | – |
+| 9 | Deep Reinforcement Learning for Robotic Hand Manipulation (W3162902697) | 2021 | conference-paper | Adds subtopics the selection did not yet cover: proximal policy optimization, deep deterministic policy gradient and sparse rewards (and 1 more). | – | – |
+| 10 | Generalization in Deep Reinforcement Learning for Robotic Navigation by Reward Shaping (W4383220085) | 2023 | article | Adds subtopics the selection did not yet cover: reward shaping and collision avoidance. | – | – |
 
 ### k = 10, Beginner / Balanced
+
+Citation links among selected papers: 5
+
+**Stage 1 — Overviews and surveys.** Start with works that their metadata marks as reviews, surveys or introductions.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 1 | Reinforcement learning in robotics: A survey (W1977655452) | 2013 | article | Included as one of the most-cited works among the papers examined for this topic (3,152 citations). Its title presents it as a survey (content not verified). | → #5; ← #2, #3, #7, #8 | – |
+| 2 | Sim-to-Real Transfer in Deep Reinforcement Learning for Robotics: a Survey (W3088310808) | 2020 | conference-paper | Adds subtopics the selection did not yet cover: domain adaptation, sim-to-real transfer and imitation learning (and 1 more). Its title presents it as a survey (content not verified). | → #1 | – |
+| 3 | Reinforcement learning in robotic applications: a comprehensive survey (W3152878473) | 2021 | article | Adds subtopics the selection did not yet cover: multi-agent reinforcement learning and underwater robots. Its title presents it as a survey (content not verified). | → #1 | – |
+| 4 | Applications for Reinforcement Learning in Robotics: A Comprehensive Review (W4410293891) | 2025 | article | Adds subtopics the selection did not yet cover: multi-robot cooperation, human-robot interaction and sample efficiency (and 3 more). Its title presents it as a review (content not verified). | – | FEW_CITATIONS |
+
+**Stage 2 — Papers from 2007–2017.** Published 2007–2017; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 5 | Application of reinforcement learning in robot soccer (W1967499360) | 2007 | article | Adds subtopics the selection did not yet cover: robot soccer, action selection and hierarchical learning. | ← #1 | – |
+| 6 | A reinforcement learning based robotic navigation system (W2087751887) | 2014 | conference-paper | Adds subtopics the selection did not yet cover: Q-learning, mobile robots and unknown environments (and 3 more). | – | – |
+| 7 | Deep reinforcement learning for robotic manipulation with asynchronous off-policy updates (W2575705757) | 2017 | conference-paper | Included as one of the most-cited works among the papers examined for this topic (1,484 citations). | → #1 | – |
+
+**Stage 3 — Papers from 2018–2023.** Published 2018–2023; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 8 | Deep Reinforcement Learning for Robotic Assembly of Mixed Deformable and Rigid Objects (W2909718913) | 2018 | conference-paper | Adds subtopics the selection did not yet cover: admittance control, robotic assembly and industrial robots (and 1 more). | → #1 | – |
+| 9 | Deep Reinforcement Learning for Robotic Hand Manipulation (W3162902697) | 2021 | conference-paper | Adds subtopics the selection did not yet cover: proximal policy optimization, deep deterministic policy gradient and sparse rewards (and 1 more). | – | – |
+| 10 | Generalization in Deep Reinforcement Learning for Robotic Navigation by Reward Shaping (W4383220085) | 2023 | article | Adds subtopics the selection did not yet cover: reward shaping and collision avoidance. | – | – |
+
+### k = 10, Advanced / Balanced
+
+Citation links among selected papers: 4
+
+**Stage 1 — Overviews and surveys.** Start with works that their metadata marks as reviews, surveys or introductions.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 1 | Reinforcement learning in robotics: A survey (W1977655452) | 2013 | article | Included as one of the most-cited works among the papers examined for this topic (3,152 citations). Its title presents it as a survey (content not verified). | → #4; ← #2, #5, #6 | – |
+| 2 | Reinforcement learning in robotic applications: a comprehensive survey (W3152878473) | 2021 | article | Adds subtopics the selection did not yet cover: multi-agent reinforcement learning and underwater robots. Its title presents it as a survey (content not verified). | → #1 | – |
+| 3 | Deep Reinforcement Learning for Robotics: A Survey of Real-World Successes (W4409348659) | 2025 | conference-paper | Adds subtopics the selection did not yet cover: human-robot interaction and sample efficiency. Its title presents it as a survey (content not verified). | – | – |
+
+**Stage 2 — Papers from 2007–2019.** Published 2007–2019; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 4 | Application of reinforcement learning in robot soccer (W1967499360) | 2007 | article | Adds subtopics the selection did not yet cover: robot soccer, action selection and hierarchical learning. | ← #1 | – |
+| 5 | Deep reinforcement learning for robotic manipulation with asynchronous off-policy updates (W2575705757) | 2017 | conference-paper | Included as one of the most-cited works among the papers examined for this topic (1,484 citations). | → #1 | – |
+| 6 | Deep Reinforcement Learning for Robotic Assembly of Mixed Deformable and Rigid Objects (W2909718913) | 2018 | conference-paper | Adds subtopics the selection did not yet cover: admittance control, robotic assembly and industrial robots (and 1 more). | → #1 | – |
+| 7 | Deep Reinforcement Learning for Robotic Pushing and Picking in Cluttered Environment (W3004091482) | 2019 | conference-paper | Adds subtopics the selection did not yet cover: robotic grasping. | – | – |
+
+**Stage 3 — Papers from 2021–2026.** Published 2021–2026; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 8 | Deep Reinforcement Learning for Robotic Hand Manipulation (W3162902697) | 2021 | conference-paper | Adds subtopics the selection did not yet cover: proximal policy optimization, deep deterministic policy gradient and sparse rewards (and 1 more). | – | – |
+| 9 | Reward shaping in reinforcement learning for robotic hand manipulation (W4409336028) | 2025 | article | Adds subtopics the selection did not yet cover: reward shaping, domain randomization and reward function design (and 1 more). | – | – |
+| 10 | APPLICATION OF REINFORCEMENT LEARNING IN ROBOTIC NAVIGATION AND CONTROL SYSTEMS (W7154348217) | 2026 | article | Adds subtopics the selection did not yet cover: obstacle avoidance, Q-learning and path planning (and 5 more). | – | FEW_CITATIONS |
+
+**Beginner vs Advanced (k = 10):** 6 of 10 papers shared; overview-marked papers 4 vs 3.
+
+## urban heat island mitigation
+
+### Stage structure by budget (Intermediate / Balanced)
+
+| k | Stages | Citation links | Cycles broken | Warnings |
+|---:|---|---:|---:|---|
+| 5 | Overviews and surveys (2) → Further papers (3) | 0 | 0 | NO_CITATION_LINKS |
+| 10 | Overviews and surveys (2) → Papers from 2014–2019 (4) → Papers from 2020–2023 (4) | 1 | 0 | – |
+| 15 | Overviews and surveys (4) → Papers from 2014–2015 (4) → Papers from 2019–2021 (3) → Papers from 2022–2023 (4) | 5 | 0 | – |
+| 20 | Overviews and surveys (4) → Papers from 2013–2015 (7) → Papers from 2017–2021 (5) → Papers from 2022–2025 (4) | 9 | 0 | – |
+
+### k = 10, Intermediate / Balanced
 
 Citation links among selected papers: 1
 
@@ -650,49 +926,83 @@ Citation links among selected papers: 1
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 1 | Reinforcement Learning in Robotics: A Survey (W4211089519) | 2012 | book-chapter | Adds subtopics the selection did not yet cover: policy search. Its title presents it as a survey (content not verified). | → #7 | – |
-| 2 | Sim-to-Real Transfer in Deep Reinforcement Learning for Robotics: a Survey (W3088310808) | 2020 | conference-paper | Adds subtopics the selection did not yet cover: domain adaptation, sim-to-real transfer and domain randomization. Its title presents it as a survey (content not verified). | – | – |
-| 3 | Reinforcement learning in robotic applications: a comprehensive survey (W3152878473) | 2021 | article | Adds subtopics the selection did not yet cover: multi-agent reinforcement learning, underwater robots and autonomous robots. Its title presents it as a survey (content not verified). | – | – |
-| 4 | Deep Reinforcement Learning for Robotics: A Survey of Real-World Successes (W4409348659) | 2025 | conference-paper | Adds subtopics the selection did not yet cover: human-robot interaction and robot navigation. Its title presents it as a survey (content not verified). | – | – |
-| 5 | Applications for Reinforcement Learning in Robotics: A Comprehensive Review (W4410293891) | 2025 | article | Adds subtopics the selection did not yet cover: multi-robot cooperation, path planning and robot autonomy. Its title presents it as a review (content not verified). | – | FEW_CITATIONS |
-| 6 | Advancements in Reinforcement Learning for Robotics: A Comprehensive Review and Future Directions (W7161785288) | 2026 | book-chapter | Adds subtopics the selection did not yet cover: reward shaping, imitation learning and deep reinforcement learning (and 6 more). Its title presents it as a review (content not verified). | – | FEW_CITATIONS |
+| 1 | Urban heat island mitigation strategies: A state-of-the-art review on Kuala Lumpur, Singapore and Hong Kong (W2519191861) | 2016 | article | Adds subtopics the selection did not yet cover: Singapore, urban greening and mean radiant temperature (and 2 more). Its title presents it as a review (content not verified). | → #5 | – |
+| 2 | A review on the heat transfer in asphalt pavements and urban heat island mitigation methods (W4308155830) | 2022 | article | Adds subtopics the selection did not yet cover: albedo, asphalt pavement and pavement surface temperature. Its title presents it as a review (content not verified). | – | – |
 
-**Stage 2 — Further papers.** Ordered by citation links among them where present, otherwise by publication year.
+**Stage 2 — Papers from 2014–2019.** Published 2014–2019; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 7 | Application of reinforcement learning in robot soccer (W1967499360) | 2007 | article | Adds subtopics the selection did not yet cover: robot soccer, action selection and hierarchical learning. | ← #1 | – |
-| 8 | Deep Reinforcement Learning for Robotic Pushing and Picking in Cluttered Environment (W3004091482) | 2019 | conference-paper | Adds subtopics the selection did not yet cover: robotic grasping, Robot Manipulation and Learning and deep Q-network (and 1 more). | – | – |
-| 9 | Data-Efficient Hierarchical Reinforcement Learning for Robotic Assembly Control Applications (W3109467707) | 2020 | article | Adds subtopics the selection did not yet cover: hierarchical reinforcement learning, data efficiency and robotic assembly. | – | – |
-| 10 | Deep Reinforcement Learning for Robotic Hand Manipulation (W3162902697) | 2021 | conference-paper | Adds subtopics the selection did not yet cover: proximal policy optimization, deep deterministic policy gradient and sparse rewards (and 1 more). | – | – |
+| 3 | A holistic view of the effects of urban heat island mitigation (W2300225270) | 2014 | book-chapter | Adds subtopics the selection did not yet cover: urban climate, evaporative cooling and solar reflectance (and 1 more). | – | – |
+| 4 | The effectiveness of cool and green roofs as urban heat island mitigation strategies (W2163627290) | 2014 | article | Adds subtopics the selection did not yet cover: heat waves and urban air temperature. | – | – |
+| 5 | LOCAL CLIMATE CHANGE AND URBAN HEAT ISLAND MITIGATION TECHNIQUES – THE STATE OF THE ART (W2201123216) | 2015 | article | Included as one of the most-cited works among the papers examined for this topic (516 citations). | ← #1 | – |
+| 6 | The use of permeable and reflective pavements as a potential strategy for urban heat island mitigation (W2984945449) | 2019 | article | Adds subtopics the selection did not yet cover: reflective pavements, thermal comfort and urban microclimate (and 3 more). | – | – |
 
-### k = 10, Advanced / Balanced
+**Stage 3 — Papers from 2020–2023.** Published 2020–2023; ordered by citation links among them where present, otherwise by year.
 
-Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of the selected papers cite each other; the order uses review/survey metadata and publication year only
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 7 | URBAN HEAT ISLAND MITIGATION DUE TO ENHANCED EVAPOTRANSPIRATION IN AN URBAN GARDEN IN SAINT PAUL, MINNESOTA, USA (W3107979028) | 2020 | conference-paper | Adds subtopics the selection did not yet cover: evapotranspiration and air temperature. | – | – |
+| 8 | Urban heat island mitigation by green infrastructure in European Functional Urban Areas (W3216255298) | 2021 | article | Included as one of the most-cited works among the papers examined for this topic (527 citations). | – | – |
+| 9 | Assessing the Cooling Effect of Blue-Green Spaces: Implications for Urban Heat Island Mitigation (W4386007978) | 2023 | article | Adds subtopics the selection did not yet cover: nature-based solutions, land surface temperature and urban cooling (and 3 more). | – | – |
+| 10 | Street-level urban heat island mitigation: Assessing the cooling effect of green infrastructure using urban IoT sensor big data (W4387868543) | 2023 | article | Adds subtopics the selection did not yet cover: outdoor thermal comfort and green infrastructure. | – | – |
+
+### k = 10, Beginner / Balanced
+
+Citation links among selected papers: 2
 
 **Stage 1 — Overviews and surveys.** Start with works that their metadata marks as reviews, surveys or introductions.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 1 | Reinforcement learning in robotic applications: a comprehensive survey (W3152878473) | 2021 | article | Adds subtopics the selection did not yet cover: multi-agent reinforcement learning, underwater robots and autonomous robots. Its title presents it as a survey (content not verified). | – | – |
-| 2 | Advancements in Reinforcement Learning for Robotics: A Comprehensive Review and Future Directions (W7161785288) | 2026 | book-chapter | Adds subtopics the selection did not yet cover: reward shaping, imitation learning and deep reinforcement learning (and 6 more). Its title presents it as a review (content not verified). | – | FEW_CITATIONS |
+| 1 | Urban heat island mitigation strategies: A state-of-the-art review on Kuala Lumpur, Singapore and Hong Kong (W2519191861) | 2016 | article | Adds subtopics the selection did not yet cover: Singapore, urban greening and mean radiant temperature (and 2 more). Its title presents it as a review (content not verified). | → #6; ← #3 | – |
+| 2 | A review on the heat transfer in asphalt pavements and urban heat island mitigation methods (W4308155830) | 2022 | article | Adds subtopics the selection did not yet cover: solar reflectance, albedo and asphalt pavement (and 1 more). Its title presents it as a review (content not verified). | – | – |
+| 3 | Application of digital twin technology for Urban Heat Island mitigation: review and conceptual framework (W4402984708) | 2024 | article | Adds subtopics the selection did not yet cover: sustainable urban development. Its title presents it as a review (content not verified). | → #1 | – |
 
-**Stage 2 — Papers from 2007–2021.** Published 2007–2021; ordered by citation links among them where present, otherwise by year.
-
-| # | Paper | Year | Type | Why it's here | Links | Flags |
-|---:|---|---:|---|---|---|---|
-| 3 | Application of reinforcement learning in robot soccer (W1967499360) | 2007 | article | Adds subtopics the selection did not yet cover: robot soccer, action selection and hierarchical learning. | – | – |
-| 4 | Deep Reinforcement Learning for Robotic Assembly of Mixed Deformable and Rigid Objects (W2909718913) | 2018 | conference-paper | Adds subtopics the selection did not yet cover: admittance control and robotic assembly. | – | – |
-| 5 | Deep Reinforcement Learning for Robotic Pushing and Picking in Cluttered Environment (W3004091482) | 2019 | conference-paper | Adds subtopics the selection did not yet cover: robotic grasping, Robot Manipulation and Learning and deep Q-network (and 1 more). | – | – |
-| 6 | Hierarchies of Planning and Reinforcement Learning for Robot Navigation (W3199192745) | 2021 | conference-paper | Adds subtopics the selection did not yet cover: robot navigation, hierarchical reinforcement learning and path planning (and 1 more). | – | – |
-| 7 | Deep Reinforcement Learning for Robotic Hand Manipulation (W3162902697) | 2021 | conference-paper | Adds subtopics the selection did not yet cover: proximal policy optimization, deep deterministic policy gradient and continuous control. | – | – |
-
-**Stage 3 — Papers from 2023–2026.** Published 2023–2026; ordered by citation links among them where present, otherwise by year.
+**Stage 2 — Papers from 2014–2019.** Published 2014–2019; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 8 | Foresight Social-aware Reinforcement Learning for Robot Navigation (W4389250925) | 2023 | conference-paper | Adds subtopics the selection did not yet cover: collision avoidance, human-robot interaction and mobile robots. | – | – |
-| 9 | Reward shaping in reinforcement learning for robotic hand manipulation (W4409336028) | 2025 | article | Adds subtopics the selection did not yet cover: domain randomization and training efficiency. | – | – |
-| 10 | TRANSFER LEARNING TECHNIQUES FOR ACCELERATING REINFORCEMENT LEARNING IN ROBOTICS (W7196959258) | 2026 | book-chapter | Adds subtopics the selection did not yet cover: transfer learning, sim-to-real transfer and domain adaptation (and 1 more). | – | FEW_CITATIONS |
+| 4 | A holistic view of the effects of urban heat island mitigation (W2300225270) | 2014 | book-chapter | Adds subtopics the selection did not yet cover: urban climate, evaporative cooling and air quality. | – | – |
+| 5 | The effectiveness of cool and green roofs as urban heat island mitigation strategies (W2163627290) | 2014 | article | Adds subtopics the selection did not yet cover: heat waves and urban air temperature. | – | – |
+| 6 | LOCAL CLIMATE CHANGE AND URBAN HEAT ISLAND MITIGATION TECHNIQUES – THE STATE OF THE ART (W2201123216) | 2015 | article | Included as one of the most-cited works among the papers examined for this topic (516 citations). | ← #1 | – |
+| 7 | The use of permeable and reflective pavements as a potential strategy for urban heat island mitigation (W2984945449) | 2019 | article | Adds subtopics the selection did not yet cover: reflective pavements, thermal comfort and urban microclimate (and 3 more). | – | – |
 
-**Beginner vs Advanced (k = 10):** 5 of 10 papers shared; overview-marked papers 6 vs 2.
+**Stage 3 — Papers from 2021–2023.** Published 2021–2023; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 8 | Urban heat island mitigation by green infrastructure in European Functional Urban Areas (W3216255298) | 2021 | article | Included as one of the most-cited works among the papers examined for this topic (527 citations). | – | – |
+| 9 | Assessing the Cooling Effect of Blue-Green Spaces: Implications for Urban Heat Island Mitigation (W4386007978) | 2023 | article | Adds subtopics the selection did not yet cover: nature-based solutions, land surface temperature and urban cooling (and 3 more). | – | – |
+| 10 | Street-level urban heat island mitigation: Assessing the cooling effect of green infrastructure using urban IoT sensor big data (W4387868543) | 2023 | article | Adds subtopics the selection did not yet cover: outdoor thermal comfort and green infrastructure. | – | – |
+
+### k = 10, Advanced / Balanced
+
+Citation links among selected papers: 5
+
+**Stage 1 — Overviews and surveys.** Start with works that their metadata marks as reviews, surveys or introductions.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 1 | Urban heat island mitigation strategies: A state-of-the-art review on Kuala Lumpur, Singapore and Hong Kong (W2519191861) | 2016 | article | Adds subtopics the selection did not yet cover: Singapore, urban greening and mean radiant temperature (and 2 more). Its title presents it as a review (content not verified). | → #3, #4, #5 | – |
+
+**Stage 2 — Papers from 2014–2016.** Published 2014–2016; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 2 | A holistic view of the effects of urban heat island mitigation (W2300225270) | 2014 | book-chapter | Adds subtopics the selection did not yet cover: urban climate, evaporative cooling and solar reflectance (and 1 more). | ← #5 | – |
+| 3 | LOCAL CLIMATE CHANGE AND URBAN HEAT ISLAND MITIGATION TECHNIQUES – THE STATE OF THE ART (W2201123216) | 2015 | article | Included as one of the most-cited works among the papers examined for this topic (516 citations). | ← #1 | – |
+| 4 | Experimental in-lab and in-field analysis of waterproof membranes for cool roof application and urban heat island mitigation (W327144404) | 2015 | article | Adds subtopics the selection did not yet cover: building energy efficiency and albedo. | ← #1 | – |
+| 5 | Comparing the effects of urban heat island mitigation strategies for Toronto, Canada (W784453912) | 2015 | article | Adds subtopics the selection did not yet cover: building density. | → #2; ← #1 | – |
+| 6 | The effects of street tree planting on Urban Heat Island mitigation in Montreal (W2343132062) | 2016 | article | Adds subtopics the selection did not yet cover: evapotranspiration and urban air temperature. | ← #8 | – |
+
+**Stage 3 — Papers from 2019–2023.** Published 2019–2023; ordered by citation links among them where present, otherwise by year.
+
+| # | Paper | Year | Type | Why it's here | Links | Flags |
+|---:|---|---:|---|---|---|---|
+| 7 | The use of permeable and reflective pavements as a potential strategy for urban heat island mitigation (W2984945449) | 2019 | article | Adds subtopics the selection did not yet cover: reflective pavements, thermal comfort and urban microclimate (and 3 more). | – | – |
+| 8 | Urban heat island mitigation by green infrastructure in European Functional Urban Areas (W3216255298) | 2021 | article | Included as one of the most-cited works among the papers examined for this topic (527 citations). | → #6 | – |
+| 9 | Assessing the Cooling Effect of Blue-Green Spaces: Implications for Urban Heat Island Mitigation (W4386007978) | 2023 | article | Adds subtopics the selection did not yet cover: nature-based solutions, land surface temperature and urban cooling (and 3 more). | – | – |
+| 10 | Street-level urban heat island mitigation: Assessing the cooling effect of green infrastructure using urban IoT sensor big data (W4387868543) | 2023 | article | Adds subtopics the selection did not yet cover: outdoor thermal comfort and green infrastructure. | – | – |
+
+**Beginner vs Advanced (k = 10):** 7 of 10 papers shared; overview-marked papers 3 vs 1.

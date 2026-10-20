@@ -19,7 +19,7 @@ Last updated: 2026-10-17. Owner instruction: at HUMAN DECISION gates take the co
 | M11 | Saved revisions & regeneration | **PASS** (2026-10-18) — D15 confirmed; zero provider calls on regenerate (live) | [M11.md](M11.md) |
 | M12 | User-facing flow | **PASS** (2026-10-18) — live browser flow (desktop + mobile) against real backend | [M12.md](M12.md) |
 | M13 | Hardening & performance | **PASS** (2026-10-18) — limits/429, safe errors, CVE patches, CI green; D14 synchronous | [M13.md](M13.md), [security](../evidence/security-review-m13.md), [performance](../evaluation/performance-m13.md) |
-| M14 | Evaluation & manual quality | **PASS** (2026-10-18) — breadth gain on 7 topics incl. 4 held-out; landmark gap recorded (D16 OPEN) | [M14.md](M14.md), [BENCHMARKS](../evaluation/BENCHMARKS.md) |
+| M14 | Evaluation & manual quality | **PASS** (2026-10-18; D16 addendum 2026-10-19) — breadth gain on 10 topics; landmark gap fixed with 2 seeds (owner) | [M14.md](M14.md), [BENCHMARKS](../evaluation/BENCHMARKS.md) |
 | M15 | Near-MVP release candidate | **NEXT — NOT STARTED** | — |
 | M16 | Optional deployment | NOT AUTHORIZED | Separate user approval required |
 
