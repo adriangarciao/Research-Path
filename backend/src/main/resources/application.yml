@@ -66,6 +66,9 @@ researchpath:
     path-days: 90
     snapshot-days: 30
     cron: "0 17 3 * * *"
+  cors:
+    # Exact browser origins allowed to call /api/paths cross-origin. Empty = same-origin only (default).
+    allowed-origins: []
   client-ip:
     # Empty = rate-limit by TCP connection address and ignore client-supplied headers (default).
     trusted-header: ""
