@@ -259,7 +259,7 @@ class GreedyOptimizerTest {
 				new OptimizerCandidate("MID", 2, covers("a"), 1, 1.0, 2020, false, 400),
 				new OptimizerCandidate("NONE", 3, covers("a"), 1, 1.0, 2020, false, 0),
 				new OptimizerCandidate("UNKNOWN", 4, covers("a"), 1, 1.0, 2020, false, null));
-		Objective f = new Objective(Map.of("a", 1.0), pool, 1, Preferences.DEFAULT, new OptimizerConfig(4, false, 0.02, 0.5));
+		Objective f = new Objective(Map.of("a", 1.0), pool, 1, Preferences.DEFAULT, new OptimizerConfig(4, false, 0.02, 0.5, 0));
 		assertThat(f.landmark(pool.get(0))).isEqualTo(1.0);
 		assertThat(f.landmark(pool.get(1))).isCloseTo(Math.log1p(400) / Math.log1p(40_000), org.assertj.core.data.Offset.offset(1e-12));
 		assertThat(f.landmark(pool.get(2))).isZero();
@@ -272,9 +272,9 @@ class GreedyOptimizerTest {
 		List<OptimizerCandidate> pool = List.of(
 				new OptimizerCandidate("FEW", 1, covers("a"), 1, 0.99, 2020, false, 300),
 				new OptimizerCandidate("LANDMARK", 2, covers("a"), 1, 0.99, 2020, false, 43_000));
-		assertThat(GreedyOptimizer.select(pool, Map.of("a", 1.0), 1, Preferences.DEFAULT, new OptimizerConfig(4, false, 0.02, 0))
+		assertThat(GreedyOptimizer.select(pool, Map.of("a", 1.0), 1, Preferences.DEFAULT, new OptimizerConfig(4, false, 0.02, 0, 0))
 				.selectedIds()).as("percentile only: tie broken by provider rank").containsExactly("FEW");
-		assertThat(GreedyOptimizer.select(pool, Map.of("a", 1.0), 1, Preferences.DEFAULT, new OptimizerConfig(4, false, 0.02, 0.5))
+		assertThat(GreedyOptimizer.select(pool, Map.of("a", 1.0), 1, Preferences.DEFAULT, new OptimizerConfig(4, false, 0.02, 0.5, 0))
 				.selectedIds()).containsExactly("LANDMARK");
 	}
 
@@ -306,7 +306,8 @@ class GreedyOptimizerTest {
 				new OptimizerCandidate("OFFTOPIC", 3, covers("d"), 0.5, 0.99, 2012, false, 90_000),
 				new OptimizerCandidate("OTHER", 4, covers("d"), 1, 0.9, 2021, false, 10));
 		Map<String, Double> w = equalWeights("a", "b", "c", "d");
-		GreedyOptimizer.Result none = GreedyOptimizer.select(pool, w, 2, Preferences.DEFAULT, OptimizerConfig.DEFAULT);
+		GreedyOptimizer.Result none = GreedyOptimizer.select(pool, w, 2, Preferences.DEFAULT,
+				OptimizerConfig.DEFAULT.withLandmarkSeeds(0));
 		assertThat(none.selectedIds()).doesNotContain("CLASSIC");
 
 		GreedyOptimizer.Result seeded = GreedyOptimizer.select(pool, w, 2, Preferences.DEFAULT,

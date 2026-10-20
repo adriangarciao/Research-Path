@@ -247,6 +247,17 @@ class SequenceBuilderTest {
 	}
 
 	@Test
+	void landmarkReasonNamesTheCitationCountOnly() {
+		PathPaper p = new PathPaper("L", "Highly accurate protein structure prediction", 2021, "article", 43_412, 1.0,
+				null, null, null, List.of(), List.of(),
+				new GreedyOptimizer.Decision(1, "L", 0.2, 0.1, 0.1, NEUTRAL, List.of(), Reason.LANDMARK));
+		ReadingPath.Explanation e = build(List.of(p)).items().get(0).reasons().get(0);
+		assertThat(e.code()).isEqualTo("LANDMARK");
+		assertThat(e.text()).isEqualTo(
+				"Included as one of the most-cited works among the papers examined for this topic (43,412 citations).");
+	}
+
+	@Test
 	void missingAbstractsAreFlaggedButDoNotChangeTheOrder() {
 		List<PathPaper> known = List.of(paper("A", 2012), paper("B", 2016, "A"), paper("C", 2014));
 		List<PathPaper> missing = known.stream().map(p -> new PathPaper(p.id(), p.title(), p.year(), p.workType(),
