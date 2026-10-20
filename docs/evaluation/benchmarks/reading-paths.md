@@ -316,7 +316,7 @@ Citation links among selected papers: 0; warnings: NO_CITATION_LINKS: none of th
 | 5 | Overviews and surveys (2) → Further papers (3) | 1 | 0 | – |
 | 10 | Overviews and surveys (2) → Papers from 2008–2019 (3) → Papers from 2020–2022 (5) | 5 | 0 | – |
 | 15 | Overviews and surveys (2) → Papers from 2008–2019 (5) → Papers from 2020 (3) → Papers from 2021–2022 (5) | 8 | 0 | – |
-| 20 | Overviews and surveys (3) → Papers from 2008–2019 (5) → Papers from 2020–2021 (8) → Papers from 2022 (4) | 12 | 0 | – |
+| 20 | Overviews and surveys (3) → Papers from 2008–2019 (5) → Papers from 2020 (5) → Papers from 2021–2022 (7) | 13 | 0 | – |
 
 ### k = 10, Intermediate / Balanced
 
@@ -713,10 +713,10 @@ Citation links among selected papers: 9
 
 | k | Stages | Citation links | Cycles broken | Warnings |
 |---:|---|---:|---:|---|
-| 5 | Selected papers (5) | 1 | 0 | – |
-| 10 | Papers from 1996–2012 (3) → Papers from 2015–2020 (4) → Papers from 2021–2024 (3) | 4 | 0 | – |
-| 15 | Papers from 1996–2013 (4) → Papers from 2014–2019 (5) → Papers from 2020–2021 (4) → Papers from 2022–2024 (2) | 7 | 0 | – |
-| 20 | Papers from 1996–2012 (5) → Papers from 2013–2020 (5) → Papers from 2015–2019 (4) → Papers from 2021–2024 (6) | 17 | 0 | – |
+| 5 | Selected papers (5) | 0 | 0 | NO_CITATION_LINKS |
+| 10 | Papers from 1996–2012 (3) → Papers from 2015–2019 (4) → Papers from 2020–2024 (3) | 4 | 0 | – |
+| 15 | Papers from 1996–2013 (4) → Papers from 2014–2017 (4) → Papers from 2019–2020 (4) → Papers from 2022–2024 (3) | 6 | 0 | – |
+| 20 | Papers from 1996–2006 (5) → Papers from 2012–2015 (5) → Papers from 2015–2020 (5) → Papers from 2020–2024 (5) | 17 | 0 | – |
 
 ### k = 10, Intermediate / Balanced
 
@@ -727,54 +727,54 @@ Citation links among selected papers: 4
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
 | 1 | Mixed-state entanglement and quantum error correction (W2060887031) | 1996 | article | Included as one of the most-cited works among the papers examined for this topic (5,273 citations). | ← #2, #9 | – |
-| 2 | Quantum error correction via codes over GF(4) (W2167413626) | 1998 | article | Included as one of the most-cited works among the papers examined for this topic (1,744 citations). | → #1; ← #5, #9 | – |
+| 2 | Quantum error correction via codes over GF(4) (W2167413626) | 1998 | article | Included as one of the most-cited works among the papers examined for this topic (1,744 citations). | → #1; ← #6, #9 | – |
 | 3 | Quantum error-correction (W571950922) | 2012 | book-chapter | Adds subtopics the selection did not yet cover: quantum cryptography, quantum information and quantum computing hardware (and 1 more). | – | – |
 
-**Stage 2 — Papers from 2015–2020.** Published 2015–2020; ordered by citation links among them where present, otherwise by year.
+**Stage 2 — Papers from 2015–2019.** Published 2015–2019; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 4 | Bulk locality and quantum error correction in AdS/CFT (W2098838878) | 2015 | article | Adds subtopics the selection did not yet cover: Black Holes and Theoretical Physics and AdS/CFT correspondence. | – | – |
-| 5 | Performance of quantum error correction with coherent errors (W2803105322) | 2019 | article | Adds subtopics the selection did not yet cover: Shor code, concatenated codes and coherent errors (and 1 more). | → #2 | – |
-| 6 | Quantum error correction with the toric Gottesman-Kitaev-Preskill code (W2893961856) | 2019 | article | Adds subtopics the selection did not yet cover: Gottesman-Kitaev-Preskill code, error threshold and continuous-variable quantum error correction. | – | – |
-| 7 | Quantum Error Correction (W3033331243) | 2020 | reference-entry | Adds subtopics the selection did not yet cover: noiseless subsystems, decoherence-free subspace and decoherence (and 7 more). | – | INFLUENCE_UNKNOWN |
+| 4 | Single-Shot Fault-Tolerant Quantum Error Correction (W142413548) | 2015 | article | Adds subtopics the selection did not yet cover: fault tolerance and quantum noise. | – | – |
+| 5 | Bulk locality and quantum error correction in AdS/CFT (W2098838878) | 2015 | article | Adds subtopics the selection did not yet cover: Black Holes and Theoretical Physics and AdS/CFT correspondence. | – | – |
+| 6 | Performance of quantum error correction with coherent errors (W2803105322) | 2019 | article | Adds subtopics the selection did not yet cover: Shor code, concatenated codes and coherent errors. | → #2 | – |
+| 7 | Quantum error correction with the toric Gottesman-Kitaev-Preskill code (W2893961856) | 2019 | article | Adds subtopics the selection did not yet cover: Gottesman-Kitaev-Preskill code, error threshold and continuous-variable quantum error correction. | – | – |
 
-**Stage 3 — Papers from 2021–2024.** Published 2021–2024; ordered by citation links among them where present, otherwise by year.
+**Stage 3 — Papers from 2020–2024.** Published 2020–2024; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 8 | Quantum Error Correction (W3176428101) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: surface code, stabilizer formalism and CSS codes (and 4 more). | – | FEW_CITATIONS |
-| 9 | Quantum Error Correction (W4210753780) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: amplitude damping channel and Calderbank-Shor-Steane codes. | → #1, #2 | – |
-| 10 | Quantum error correction below the surface code threshold (W4405183524) | 2024 | article | Adds subtopics the selection did not yet cover: correlated errors, quantum memory and logical error rate. | – | – |
+| 8 | Quantum Error Correction (W3033331243) | 2020 | reference-entry | Adds subtopics the selection did not yet cover: noiseless subsystems, decoherence-free subspace and decoherence (and 7 more). | – | INFLUENCE_UNKNOWN |
+| 9 | Quantum error correction fundamentals (W4286600165) | 2022 | book-chapter | Adds subtopics the selection did not yet cover: Calderbank-Shor-Steane codes, stabilizer formalism and amplitude damping channel (and 1 more). | → #1, #2 | FEW_CITATIONS |
+| 10 | Quantum error correction below the surface code threshold (W4405183524) | 2024 | article | Adds subtopics the selection did not yet cover: surface code, correlated errors and superconducting qubits (and 3 more). | – | – |
 
 ### k = 10, Beginner / Balanced
 
-Citation links among selected papers: 5
+Citation links among selected papers: 7
 
 **Stage 1 — Overviews and surveys.** Start with works that their metadata marks as reviews, surveys or introductions.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 1 | Holographic tensor network models and quantum error correction: a topical review (W3126425107) | 2021 | article | Adds subtopics the selection did not yet cover: Black Holes and Theoretical Physics and AdS/CFT correspondence. Its title presents it as a review (content not verified). | → #2 | – |
+| 1 | Holographic tensor network models and quantum error correction: a topical review (W3126425107) | 2021 | article | Adds subtopics the selection did not yet cover: Black Holes and Theoretical Physics and AdS/CFT correspondence. Its title presents it as a review (content not verified). | → #3 | – |
+| 2 | Introduction to quantum error correction and fault tolerance (W3213181027) | 2023 | article | Adds subtopics the selection did not yet cover: fault tolerance and continuous-variable quantum error correction. Its title presents it as an introduction (content not verified). | → #3, #8 | – |
 
 **Stage 2 — Papers from 1996–2019.** Published 1996–2019; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 2 | Mixed-state entanglement and quantum error correction (W2060887031) | 1996 | article | Included as one of the most-cited works among the papers examined for this topic (5,273 citations). | ← #1, #3, #9 | – |
-| 3 | Quantum error correction via codes over GF(4) (W2167413626) | 1998 | article | Included as one of the most-cited works among the papers examined for this topic (1,744 citations). | → #2; ← #5, #9 | – |
-| 4 | Quantum error-correction (W571950922) | 2012 | book-chapter | Adds subtopics the selection did not yet cover: quantum cryptography, quantum information and quantum computing hardware (and 1 more). | – | – |
-| 5 | Performance of quantum error correction with coherent errors (W2803105322) | 2019 | article | Adds subtopics the selection did not yet cover: Shor code, concatenated codes and coherent errors (and 1 more). | → #3 | – |
-| 6 | Quantum error correction with the toric Gottesman-Kitaev-Preskill code (W2893961856) | 2019 | article | Adds subtopics the selection did not yet cover: Gottesman-Kitaev-Preskill code, error threshold and continuous-variable quantum error correction. | – | – |
+| 3 | Mixed-state entanglement and quantum error correction (W2060887031) | 1996 | article | Included as one of the most-cited works among the papers examined for this topic (5,273 citations). | ← #1, #2, #4, #9 | – |
+| 4 | Quantum error correction via codes over GF(4) (W2167413626) | 1998 | article | Included as one of the most-cited works among the papers examined for this topic (1,744 citations). | → #3; ← #6, #9 | – |
+| 5 | Quantum error-correction (W571950922) | 2012 | book-chapter | Adds subtopics the selection did not yet cover: quantum cryptography, quantum information and quantum computing hardware (and 1 more). | – | – |
+| 6 | Performance of quantum error correction with coherent errors (W2803105322) | 2019 | article | Adds subtopics the selection did not yet cover: Shor code, concatenated codes and coherent errors. | → #4 | – |
 
 **Stage 3 — Papers from 2020–2024.** Published 2020–2024; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
 | 7 | Quantum Error Correction (W3033331243) | 2020 | reference-entry | Adds subtopics the selection did not yet cover: noiseless subsystems, decoherence-free subspace and decoherence (and 7 more). | – | INFLUENCE_UNKNOWN |
-| 8 | Quantum Error Correction (W3176428101) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: surface code, stabilizer formalism and CSS codes (and 4 more). | – | FEW_CITATIONS |
-| 9 | Quantum Error Correction (W4210753780) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: amplitude damping channel and Calderbank-Shor-Steane codes. | → #2, #3 | – |
-| 10 | Quantum error correction below the surface code threshold (W4405183524) | 2024 | article | Adds subtopics the selection did not yet cover: correlated errors, quantum memory and logical error rate. | – | – |
+| 8 | Bosonic quantum error correction codes in superconducting quantum circuits (W3092842034) | 2021 | article | Adds subtopics the selection did not yet cover: Gottesman-Kitaev-Preskill code and quantum metrology. | ← #2 | – |
+| 9 | Quantum error correction fundamentals (W4286600165) | 2022 | book-chapter | Adds subtopics the selection did not yet cover: Calderbank-Shor-Steane codes, stabilizer formalism and amplitude damping channel (and 1 more). | → #3, #4 | FEW_CITATIONS |
+| 10 | Quantum error correction below the surface code threshold (W4405183524) | 2024 | article | Adds subtopics the selection did not yet cover: surface code, correlated errors and superconducting qubits (and 3 more). | – | – |
 
 ### k = 10, Advanced / Balanced
 
@@ -785,27 +785,27 @@ Citation links among selected papers: 4
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
 | 1 | Mixed-state entanglement and quantum error correction (W2060887031) | 1996 | article | Included as one of the most-cited works among the papers examined for this topic (5,273 citations). | ← #2, #9 | – |
-| 2 | Quantum error correction via codes over GF(4) (W2167413626) | 1998 | article | Included as one of the most-cited works among the papers examined for this topic (1,744 citations). | → #1; ← #5, #9 | – |
+| 2 | Quantum error correction via codes over GF(4) (W2167413626) | 1998 | article | Included as one of the most-cited works among the papers examined for this topic (1,744 citations). | → #1; ← #6, #9 | – |
 | 3 | Quantum error-correction (W571950922) | 2012 | book-chapter | Adds subtopics the selection did not yet cover: quantum cryptography, quantum information and quantum computing hardware (and 1 more). | – | – |
 
-**Stage 2 — Papers from 2015–2020.** Published 2015–2020; ordered by citation links among them where present, otherwise by year.
+**Stage 2 — Papers from 2015–2019.** Published 2015–2019; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 4 | Bulk locality and quantum error correction in AdS/CFT (W2098838878) | 2015 | article | Adds subtopics the selection did not yet cover: Black Holes and Theoretical Physics and AdS/CFT correspondence. | – | – |
-| 5 | Performance of quantum error correction with coherent errors (W2803105322) | 2019 | article | Adds subtopics the selection did not yet cover: Shor code, concatenated codes and coherent errors (and 1 more). | → #2 | – |
-| 6 | Quantum error correction with the toric Gottesman-Kitaev-Preskill code (W2893961856) | 2019 | article | Adds subtopics the selection did not yet cover: Gottesman-Kitaev-Preskill code, error threshold and continuous-variable quantum error correction. | – | – |
-| 7 | Quantum Error Correction (W3033331243) | 2020 | reference-entry | Adds subtopics the selection did not yet cover: noiseless subsystems, decoherence-free subspace and decoherence (and 7 more). | – | INFLUENCE_UNKNOWN |
+| 4 | Single-Shot Fault-Tolerant Quantum Error Correction (W142413548) | 2015 | article | Adds subtopics the selection did not yet cover: fault tolerance and quantum noise. | – | – |
+| 5 | Bulk locality and quantum error correction in AdS/CFT (W2098838878) | 2015 | article | Adds subtopics the selection did not yet cover: Black Holes and Theoretical Physics and AdS/CFT correspondence. | – | – |
+| 6 | Performance of quantum error correction with coherent errors (W2803105322) | 2019 | article | Adds subtopics the selection did not yet cover: Shor code, concatenated codes and coherent errors. | → #2 | – |
+| 7 | Quantum error correction with the toric Gottesman-Kitaev-Preskill code (W2893961856) | 2019 | article | Adds subtopics the selection did not yet cover: Gottesman-Kitaev-Preskill code, error threshold and continuous-variable quantum error correction. | – | – |
 
-**Stage 3 — Papers from 2021–2024.** Published 2021–2024; ordered by citation links among them where present, otherwise by year.
+**Stage 3 — Papers from 2020–2024.** Published 2020–2024; ordered by citation links among them where present, otherwise by year.
 
 | # | Paper | Year | Type | Why it's here | Links | Flags |
 |---:|---|---:|---|---|---|---|
-| 8 | Quantum Error Correction (W3176428101) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: surface code, stabilizer formalism and CSS codes (and 4 more). | – | FEW_CITATIONS |
-| 9 | Quantum Error Correction (W4210753780) | 2021 | book-chapter | Adds subtopics the selection did not yet cover: amplitude damping channel and Calderbank-Shor-Steane codes. | → #1, #2 | – |
-| 10 | Quantum error correction below the surface code threshold (W4405183524) | 2024 | article | Adds subtopics the selection did not yet cover: correlated errors, quantum memory and logical error rate. | – | – |
+| 8 | Quantum Error Correction (W3033331243) | 2020 | reference-entry | Adds subtopics the selection did not yet cover: noiseless subsystems, decoherence-free subspace and decoherence (and 7 more). | – | INFLUENCE_UNKNOWN |
+| 9 | Quantum error correction fundamentals (W4286600165) | 2022 | book-chapter | Adds subtopics the selection did not yet cover: Calderbank-Shor-Steane codes, stabilizer formalism and amplitude damping channel (and 1 more). | → #1, #2 | FEW_CITATIONS |
+| 10 | Quantum error correction below the surface code threshold (W4405183524) | 2024 | article | Adds subtopics the selection did not yet cover: surface code, correlated errors and superconducting qubits (and 3 more). | – | – |
 
-**Beginner vs Advanced (k = 10):** 9 of 10 papers shared; overview-marked papers 1 vs 0.
+**Beginner vs Advanced (k = 10):** 7 of 10 papers shared; overview-marked papers 2 vs 0.
 
 ## reinforcement learning in robotics
 

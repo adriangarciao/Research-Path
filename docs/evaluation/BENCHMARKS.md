@@ -1,7 +1,7 @@
 # ResearchPath benchmarks — what the optimizer improves, what it worsens, what is unproven
 
-Date: 2026-10-19 · Code: `main` (GreedyOptimizer v1, OptimizerConfig **v3** = β 4, experience 0.02, **2 landmark
-seeds**; ConceptPolicy v1; SequenceBuilder v1) · Reviewer: Claude Code (owner spot-check welcome).
+Date: 2026-10-19, updated 2026-10-20 · Code: `main` (GreedyOptimizer v1, OptimizerConfig **v4** = β 4, experience
+0.02, **2 landmark seeds**, **one paper per title**; ConceptPolicy v1; SequenceBuilder v1) · Reviewer: Claude Code (owner spot-check welcome).
 
 ## Short answer
 - **Improves:** breadth. On all 10 topics and both budgets, the optimizer's selections cover far more of the
@@ -43,7 +43,7 @@ seeds**; ConceptPolicy v1; SequenceBuilder v1) · Reviewer: Claude Code (owner s
 | Topic (pool) | k | Coverage opt / best baseline | Percentile median | Citations median opt / baseline | Redundancy opt / baseline | Landmarks opt / baseline |
 |---|---:|---|---|---|---|---|
 | graph neural networks (198) | 10 | **0.724** / 0.459 relevance | 1.00 / 1.00 | 614 / 1080 | 0.012 / 0.032 | 2 / 2 |
-| | 20 | **0.969** / 0.719 relevance | 1.00 / 1.00 | 342 / 773 | 0.025 / 0.032 | 2 / 3 |
+| | 20 | **0.986** / 0.719 relevance | 1.00 / 1.00 | 342 / 773 | 0.026 / 0.032 | 2 / 3 |
 | reinforcement learning in robotics (200) | 10 | **0.744** / 0.412 citation | 0.99 / 0.99 | 80 / 477 | 0.063 / 0.060 | 3 / 5 |
 | | 20 | **0.957** / 0.583 citation | 0.94 / 0.99 | 62 / 257 | 0.045 / 0.048 | 4 / 5 |
 | AI-assisted medical diagnosis (167) | 10 | **0.652** / 0.546 relevance | 0.98 / 0.90 | 16 / 1 | 0.044 / 0.026 | 2 / 0 |
@@ -51,9 +51,9 @@ seeds**; ConceptPolicy v1; SequenceBuilder v1) · Reviewer: Claude Code (owner s
 | *held-out:* protein structure prediction (200) | 10 | **0.689** / 0.433 relevance | 1.00 / 1.00 | 335 / 1298 | 0.046 / 0.063 | 2 / 2 |
 | | 20 | **0.933** / 0.593 citation | 0.98 / 1.00 | 225 / 1211 | 0.047 / 0.025 | 2 / 5 |
 | *held-out:* causal inference in economics (62) | 10 | **0.672** / 0.419 relevance | 0.98 / 0.69 | 9.5 / 1 | 0.010 / 0.037 | 3 / 1 |
-| | 20 | **0.926** / 0.718 relevance | 0.91 / 0.84 | 9.5 / 1 | 0.012 / 0.040 | 4 / 2 |
-| *held-out:* quantum error correction (198) | 10 | **0.820** / 0.471 citation | 0.98 / 1.00 | 195 / 1052 | 0.030 / 0.053 | 2 / 5 |
-| | 20 | **0.982** / 0.608 citation | 0.98 / 1.00 | 195 / 757 | 0.037 / 0.078 | 3 / 5 |
+| | 20 | **0.926** / 0.718 relevance | 0.91 / 0.84 | 7 / 1 | 0.009 / 0.040 | 4 / 2 |
+| *held-out:* quantum error correction (198) | 10 | **0.807** / 0.471 citation | 0.98 / 1.00 | 206 / 1052 | 0.022 / 0.053 | 2 / 5 |
+| | 20 | **0.985** / 0.608 citation | 0.98 / 1.00 | 124 / 757 | 0.034 / 0.078 | 3 / 5 |
 | *held-out:* climate adaptation in agriculture (183) | 10 | **0.762** / 0.449 citation | 0.98 / 1.00 | 119 / 748 | 0.039 / 0.048 | 2 / 5 |
 | | 20 | **0.947** / 0.565 citation | 0.98 / 1.00 | 166 / 490 | 0.033 / 0.054 | 2 / 5 |
 | *fresh:* neural machine translation (199) | 10 | **0.720** / 0.459 relevance | 0.99 / 0.99 | 152 / 437 | 0.062 / 0.029 | 3 / 2 |
@@ -83,6 +83,15 @@ Criteria fixed before any sweep, judged on the 3 audit topics only: mean landmar
    examined for this topic (N citations)". Live check: the real "protein structure prediction" path now includes
    AlphaFold 2 (43,416 citations) and the Phyre server paper (4,175).
 
+## D18 — one paper per title ([report](title-diversity.md), [before/after](benchmarks/title-diversity.md))
+Criteria fixed first; 5 fresh topics frozen before the constraint existed. The constraint removed all 19 repeated
+titles in 60 selections (quantum: "Quantum Error Correction" 2–4 times per path → once) and left relevance, budgets,
+landmarks at k = 10 and runtime unchanged; selections are identical on 9 of 15 topics. It exceeded the limits on one
+fresh topic (differential privacy: coverage −0.031, redundancy +0.014) and removed the only citation link of the
+quantum k = 5 path; a soft penalty could not avoid the trade-off. **Owner decision (2026-10-20): adopt** (config v4).
+The table above and the generated reports now include the constraint; sweeps of non-default settings (β, λ, seeds)
+were re-run with it, and their D12/D16 acceptance rows on the audit topics are unchanged.
+
 ## Ablation: which parts matter ([full table](benchmarks/ablation.md))
 Measured on the earlier default (no seeds) in M14; the conclusions are unchanged by D16:
 - **The coverage term is the source of the breadth gain** (quality only loses 0.18–0.47 coverage) and the reason
@@ -105,7 +114,7 @@ individual works per topic.
   adaptation works); addressed by D16 above. Some canonical works (GCN, GAT, RoseTTAFold) are not in the retrieved
   pools at all — a retrieval limit, not a selection one.
 - **Duplicate-looking items:** the quantum pool contains 34 different works titled just "Quantum Error Correction";
-  identity policy correctly keeps them distinct, but paths can show two or three (D17, open).
+  identity policy correctly keeps them distinct, but paths could show two or three — resolved by D18 (one per title).
 - **Relevance-gate recall:** "causal inference in economics" keeps 62 of 200 candidates; general methods works
   without "economics" in the title are BORDERLINE (D17, open).
 - **Sequencing:** orders are chronological where citations are sparse; stage names are accurate year ranges;

@@ -235,11 +235,11 @@ Optimizer: default preferences (Intermediate/Balanced) and default configuration
 | 1 | ★ Mixed-state entanglement and quantum error correction (W2060887031) | 1996 | 5273 (1.00) | LANDMARK | 0.052 + 0.360 | depolarizing channel, noisy quantum channels, Quantum Information and Cryptography |
 | 2 | ★ Quantum error correction via codes over GF(4) (W2167413626) | 1998 | 1744 (1.00) | LANDMARK | 0.046 + 0.360 | quantum error-correcting codes, qubits |
 | 3 | Quantum Error Correction (W3033331243) | 2020 | 248 (?) | ADDS_NEW_CONCEPTS | 0.204 + 0.300 | code distance, decoherence, decoherence-free subspace, entanglement, error syndromes, fault-tolerant quantum computing, noiseless subsystems, Pauli operators, quantum communication, stabilizer codes |
-| 4 | Quantum Error Correction (W3176428101) | 2021 | 3 (0.76) | ADDS_NEW_CONCEPTS | 0.134 + 0.331 | bit-flip errors, CSS codes, fault tolerance, measurement error, stabilizer formalism, superconducting qubits, surface code |
-| 5 | Quantum error-correction (W571950922) | 2012 | 22 (0.92) | ADDS_NEW_CONCEPTS | 0.075 + 0.351 | quantum computing, quantum computing hardware, quantum cryptography, quantum information |
-| 6 | Performance of quantum error correction with coherent errors (W2803105322) | 2019 | 76 (0.92) | ADDS_NEW_CONCEPTS | 0.071 + 0.351 | coherent errors, concatenated codes, repetition codes, Shor code |
-| 7 | ★ Quantum error correction below the surface code threshold (W4405183524) | 2024 | 762 (1.00) | ADDS_NEW_CONCEPTS | 0.049 + 0.360 | correlated errors, logical error rate, quantum memory |
-| 8 | Quantum Error Correction (W4210753780) | 2021 | 18 (0.97) | ADDS_NEW_CONCEPTS | 0.039 + 0.357 | amplitude damping channel, Calderbank-Shor-Steane codes |
+| 4 | ★ Quantum error correction below the surface code threshold (W4405183524) | 2024 | 762 (1.00) | ADDS_NEW_CONCEPTS | 0.098 + 0.360 | correlated errors, logical error rate, quantum memory, repetition codes, superconducting qubits, surface code |
+| 5 | Quantum error-correction (W571950922) | 2012 | 22 (0.92) | ADDS_NEW_CONCEPTS | 0.072 + 0.351 | quantum computing, quantum computing hardware, quantum cryptography, quantum information |
+| 6 | Performance of quantum error correction with coherent errors (W2803105322) | 2019 | 76 (0.92) | ADDS_NEW_CONCEPTS | 0.064 + 0.351 | coherent errors, concatenated codes, Shor code |
+| 7 | Quantum error correction fundamentals (W4286600165) | 2022 | 2 (0.78) | ADDS_NEW_CONCEPTS | 0.069 + 0.334 | amplitude damping channel, Calderbank-Shor-Steane codes, quantum channels, stabilizer formalism |
+| 8 | Single-Shot Fault-Tolerant Quantum Error Correction (W142413548) | 2015 | 163 (0.97) | ADDS_NEW_CONCEPTS | 0.043 + 0.357 | fault tolerance, quantum noise |
 | 9 | ★ Bulk locality and quantum error correction in AdS/CFT (W2098838878) | 2015 | 803 (1.00) | ADDS_NEW_CONCEPTS | 0.035 + 0.360 | AdS/CFT correspondence, Black Holes and Theoretical Physics |
 | 10 | Quantum error correction with the toric Gottesman-Kitaev-Preskill code (W2893961856) | 2019 | 142 (0.98) | ADDS_NEW_CONCEPTS | 0.035 + 0.358 | continuous-variable quantum error correction, error threshold, Gottesman-Kitaev-Preskill code |
 

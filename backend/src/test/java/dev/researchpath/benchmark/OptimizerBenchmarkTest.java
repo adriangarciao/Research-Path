@@ -68,7 +68,7 @@ class OptimizerBenchmarkTest {
 
 	/** Selected ids per budget for the default configuration; later milestones must not change them silently. */
 	static final java.util.Map<String, String> OPTIMIZER_FINGERPRINTS = java.util.Map.of(
-			"gnn-200", "ffe83f76c564ab37cc3850c1f1034cd7754d165737783627139fb82825462060",
+			"gnn-200", "326e12a70438b56ca050b9ffa0f71e82b5c9094483c86e3e88399222758e030d", // D18: one paper changes at k = 20
 			"rl-robotics-200", "a1d890214046daa407c3470c98612f89aa27dc21b72357b0f5daa16765b578bb",
 			"medical-ai-200", "e80f92b85208ec852ead57e00739fe6175469d79b56b580f1a1ab4bfc2bbe5fb");
 

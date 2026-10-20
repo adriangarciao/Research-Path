@@ -10,6 +10,9 @@ F(S) = Σ_c w_c · (1 − Π_{p∈S}(1 − s_{p,c})) + (β / k) · Σ_{p∈S} q_
 (monotone submodular, diminishing returns per concept) plus a modular, non-negative quality term
 (relevance evidence, OpenAlex age/field-normalized citation percentile, recency/age by focus, weak overview cue;
 unknown = neutral 0.5). The sum is monotone submodular, so greedy has the (1 − 1/e) guarantee **for this objective**.
+Since D18 (2026-10-20) a path holds at most one work per title: the feasible sets form a matroid, for which greedy
+guarantees 1/2 of the best title-distinct set (unchanged 1 − 1/e when no title repeats; measured worst ratio 0.931 on
+80 tiny pools, see [title-diversity](title-diversity.md)).
 Evidence, not assumption: property tests on 200 seeded random pools (monotone, Δ(p|A) ≥ Δ(p|B) for A ⊆ B, F
 increments equal recorded gains); exhaustive optimum on 60 tiny pools — greedy worst ratio **0.899**, exactly
 optimal in **53/60** (config v1; 51/60 after the D09 change, see M10), never below 0.632; the bound also checked for β = 4 and for quality-weighted coverage.

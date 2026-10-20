@@ -15,15 +15,31 @@ import dev.researchpath.optimizer.Preferences.Experience;
  *     (log(1 + citations) / log(1 + pool max)) instead of the normalized citation percentile. In [0, 1]; 0 = percentile
  *     only (decision D16).
  * @param landmarkSeeds number of reserved landmark slots placed before greedy selection (D16); 0 = none
+ * @param distinctTitles at most one paper per {@link TitleKey} in a selection, a feasibility constraint inside greedy
+ *     selection (decision D18, release R7)
+ * @param titleRepeatPenalty λ ≥ 0: soft alternative to {@code distinctTitles}, evaluated for D18 and not adopted; a
+ *     candidate whose title
+ *     key is already selected has its greedy gain reduced by λ instead of being infeasible; 0 = off
  */
 public record OptimizerConfig(double qualityShare, boolean qualityWeightedCoverage, double experienceWeight,
-		double landmarkShare, int landmarkSeeds) {
+		double landmarkShare, int landmarkSeeds, boolean distinctTitles, double titleRepeatPenalty) {
 
 	/**
 	 * 2: experience weight lowered to 0.02 (D09); Intermediate selections unchanged.
 	 * 3: two landmark seeds by default (D16).
+	 * 4: at most one paper per title (D18).
 	 */
-	public static final int VERSION = 3;
+	public static final int VERSION = 4;
+
+	/**
+	 * D18 (owner decision, 2026-10-20): at most one paper per conservative title key, as a feasibility constraint
+	 * inside greedy selection. Removed all 19 repeated titles in 60 benchmark selections; relevance, landmarks at
+	 * k = 10, budgets and runtime unchanged; the owner accepted the pre-registered limits being exceeded on one fresh
+	 * topic (coverage −0.031, redundancy +0.014) and one quantum k = 5 path losing its only citation link. Greedy's
+	 * worst-case guarantee under this matroid constraint is 1/2 (1 − 1/e when no title repeats). See
+	 * docs/evaluation/title-diversity.md.
+	 */
+	public static final boolean DEFAULT_DISTINCT_TITLES = true;
 
 	/**
 	 * D12 (conservative, 2026-10-18): additive objective with β = 4, the smallest β in the sweep that kept
@@ -70,6 +86,17 @@ public record OptimizerConfig(double qualityShare, boolean qualityWeightedCovera
 		this(qualityShare, qualityWeightedCoverage, experienceWeight, landmarkShare, DEFAULT_LANDMARK_SEEDS);
 	}
 
+	public OptimizerConfig(double qualityShare, boolean qualityWeightedCoverage, double experienceWeight,
+			double landmarkShare, int landmarkSeeds) {
+		this(qualityShare, qualityWeightedCoverage, experienceWeight, landmarkShare, landmarkSeeds,
+				DEFAULT_DISTINCT_TITLES);
+	}
+
+	public OptimizerConfig(double qualityShare, boolean qualityWeightedCoverage, double experienceWeight,
+			double landmarkShare, int landmarkSeeds, boolean distinctTitles) {
+		this(qualityShare, qualityWeightedCoverage, experienceWeight, landmarkShare, landmarkSeeds, distinctTitles, 0);
+	}
+
 	public OptimizerConfig {
 		if (qualityShare < 0) {
 			throw new IllegalArgumentException("qualityShare must be >= 0 (keeps the objective monotone)");
@@ -83,21 +110,39 @@ public record OptimizerConfig(double qualityShare, boolean qualityWeightedCovera
 		if (landmarkSeeds < 0 || landmarkSeeds > 5) {
 			throw new IllegalArgumentException("landmarkSeeds must be in [0, 5]");
 		}
+		if (!(titleRepeatPenalty >= 0) || Double.isInfinite(titleRepeatPenalty)) {
+			throw new IllegalArgumentException("titleRepeatPenalty must be finite and >= 0");
+		}
 	}
 
 	/** The same configuration with another experience weight (sweeps). */
 	public OptimizerConfig withExperienceWeight(double weight) {
-		return new OptimizerConfig(qualityShare, qualityWeightedCoverage, weight, landmarkShare, landmarkSeeds);
+		return new OptimizerConfig(qualityShare, qualityWeightedCoverage, weight, landmarkShare, landmarkSeeds,
+				distinctTitles, titleRepeatPenalty);
 	}
 
 	/** The same configuration with another quality share and landmark share (sweeps). */
 	public OptimizerConfig withQualityAndLandmark(double beta, double landmark) {
-		return new OptimizerConfig(beta, qualityWeightedCoverage, experienceWeight, landmark, landmarkSeeds);
+		return new OptimizerConfig(beta, qualityWeightedCoverage, experienceWeight, landmark, landmarkSeeds,
+				distinctTitles, titleRepeatPenalty);
 	}
 
 	/** The same configuration with another number of landmark seeds (sweeps). */
 	public OptimizerConfig withLandmarkSeeds(int seeds) {
-		return new OptimizerConfig(qualityShare, qualityWeightedCoverage, experienceWeight, landmarkShare, seeds);
+		return new OptimizerConfig(qualityShare, qualityWeightedCoverage, experienceWeight, landmarkShare, seeds,
+				distinctTitles, titleRepeatPenalty);
+	}
+
+	/** The same configuration with or without the one-paper-per-title constraint (M4 comparison). */
+	public OptimizerConfig withDistinctTitles(boolean distinct) {
+		return new OptimizerConfig(qualityShare, qualityWeightedCoverage, experienceWeight, landmarkShare, landmarkSeeds,
+				distinct, titleRepeatPenalty);
+	}
+
+	/** The same configuration with a soft title-repeat penalty λ (and no hard constraint): evaluated, not adopted. */
+	public OptimizerConfig withTitleRepeatPenalty(double penalty) {
+		return new OptimizerConfig(qualityShare, qualityWeightedCoverage, experienceWeight, landmarkShare, landmarkSeeds,
+				false, penalty);
 	}
 
 	/** Weights of the quality components; each profile sums to 1 and every weight is non-negative. */

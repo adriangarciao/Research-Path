@@ -30,8 +30,9 @@ flowchart LR
    normalized record it was evaluated with, so later cache refreshes cannot change history.
 3. **Select.** `PathEngine` builds the concept model from the frozen pool (`concept`, topics + keywords), then the
    `optimizer` picks a complementary set: two reserved landmark slots for strongly relevant most-cited works (D16),
-   then greedy marginal gain on weighted concept coverage plus a quality term (β = 4, D12). The objective is
-   monotone submodular, so greedy keeps its (1 − 1/e) guarantee.
+   then greedy marginal gain on weighted concept coverage plus a quality term (β = 4, D12), with at most one work
+   per conservative title key (D18; same-titled works stay distinct records). The objective is monotone
+   submodular: greedy keeps its (1 − 1/e) guarantee where no title repeats, and 1/2 under the title constraint.
 4. **Order and explain.** `sequence` places overview-marked works first, uses citation links among the selected
    papers as weak evidence, falls back to chronology, names stages only from metadata, and writes template
    explanations from the recorded decisions (D09/D10).
