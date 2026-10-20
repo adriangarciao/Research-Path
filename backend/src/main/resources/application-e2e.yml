@@ -1,0 +1,6 @@
+# `e2e` profile: ONLY for the local Playwright suite (`.\scripts\backend.ps1 -E2E` -> profiles local,e2e).
+# The live suite creates about six paths in a row; production keeps the default burst of 3.
+# Combining this profile with `prod` stops startup (see TestProfileGuard).
+researchpath:
+  rate-limit:
+    create-burst: 20
