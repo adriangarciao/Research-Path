@@ -13,12 +13,19 @@ import java.util.Map;
  * @param influence age/field-normalized citation percentile in [0, 1], null if unknown
  * @param year publication year, null if unknown
  * @param overviewLike title/type marks a survey, review, tutorial or introduction (weak accessibility cue)
+ * @param citations raw citation count, null if unknown (only compared within the pool: landmark signal, D16)
  */
 public record OptimizerCandidate(String id, int providerRank, Map<String, Double> concepts, double relevance,
-		Double influence, Integer year, boolean overviewLike) {
+		Double influence, Integer year, boolean overviewLike, Integer citations) {
 
 	public OptimizerCandidate {
 		concepts = Map.copyOf(concepts);
+	}
+
+	/** Without a citation count (the landmark signal treats it as neutral). */
+	public OptimizerCandidate(String id, int providerRank, Map<String, Double> concepts, double relevance,
+			Double influence, Integer year, boolean overviewLike) {
+		this(id, providerRank, concepts, relevance, influence, year, overviewLike, null);
 	}
 
 }

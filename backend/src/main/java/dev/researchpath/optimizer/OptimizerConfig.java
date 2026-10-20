@@ -11,8 +11,12 @@ import dev.researchpath.optimizer.Preferences.Experience;
  *     (low-quality papers become weak coverers); still monotone submodular
  * @param experienceWeight share of the quality weight given to overview-marked works (Beginner) or to works not
  *     marked as overviews (Advanced); 0 for Intermediate. In [0, 0.5].
+ * @param landmarkShare λ: share of the influence component taken by the pool-relative raw citation signal
+ *     (log(1 + citations) / log(1 + pool max)) instead of the normalized citation percentile. In [0, 1]; 0 = percentile
+ *     only (decision D16).
  */
-public record OptimizerConfig(double qualityShare, boolean qualityWeightedCoverage, double experienceWeight) {
+public record OptimizerConfig(double qualityShare, boolean qualityWeightedCoverage, double experienceWeight,
+		double landmarkShare) {
 
 	/** 2: experience weight lowered to 0.02 (D09); Intermediate selections unchanged. */
 	public static final int VERSION = 2;
@@ -38,8 +42,15 @@ public record OptimizerConfig(double qualityShare, boolean qualityWeightedCovera
 		this(qualityShare, false);
 	}
 
+	/** Landmark share used when none is given (decision D16). */
+	public static final double DEFAULT_LANDMARK_SHARE = 0.0;
+
 	public OptimizerConfig(double qualityShare, boolean qualityWeightedCoverage) {
 		this(qualityShare, qualityWeightedCoverage, DEFAULT_EXPERIENCE_WEIGHT);
+	}
+
+	public OptimizerConfig(double qualityShare, boolean qualityWeightedCoverage, double experienceWeight) {
+		this(qualityShare, qualityWeightedCoverage, experienceWeight, DEFAULT_LANDMARK_SHARE);
 	}
 
 	public OptimizerConfig {
@@ -49,11 +60,19 @@ public record OptimizerConfig(double qualityShare, boolean qualityWeightedCovera
 		if (experienceWeight < 0 || experienceWeight > 0.5) {
 			throw new IllegalArgumentException("experienceWeight must be in [0, 0.5]");
 		}
+		if (landmarkShare < 0 || landmarkShare > 1) {
+			throw new IllegalArgumentException("landmarkShare must be in [0, 1]");
+		}
 	}
 
 	/** The same configuration with another experience weight (sweeps). */
 	public OptimizerConfig withExperienceWeight(double weight) {
-		return new OptimizerConfig(qualityShare, qualityWeightedCoverage, weight);
+		return new OptimizerConfig(qualityShare, qualityWeightedCoverage, weight, landmarkShare);
+	}
+
+	/** The same configuration with another quality share and landmark share (sweeps). */
+	public OptimizerConfig withQualityAndLandmark(double beta, double landmark) {
+		return new OptimizerConfig(beta, qualityWeightedCoverage, experienceWeight, landmark);
 	}
 
 	/** Weights of the quality components; each profile sums to 1 and every weight is non-negative. */

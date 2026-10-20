@@ -21,6 +21,8 @@ public final class Objective {
 	private final boolean qualityWeightedCoverage;
 	private final int minYear;
 	private final int maxYear;
+	private final double landmarkShare;
+	private final double maxLogCitations;
 
 	/**
 	 * @param pool all candidates (fixes year normalization for this pool)
@@ -36,6 +38,9 @@ public final class Objective {
 				.min().orElse(0);
 		this.maxYear = pool.stream().map(OptimizerCandidate::year).filter(y -> y != null).mapToInt(Integer::intValue)
 				.max().orElse(0);
+		this.landmarkShare = config.landmarkShare();
+		this.maxLogCitations = Math.log1p(pool.stream().map(OptimizerCandidate::citations).filter(c -> c != null)
+				.mapToInt(Integer::intValue).max().orElse(0));
 	}
 
 	/** Quality components in [0, 1]; unknown inputs are neutral (0.5). */
@@ -45,7 +50,9 @@ public final class Objective {
 
 	public QualityParts quality(OptimizerCandidate c) {
 		double relevance = clamp(c.relevance());
-		double influence = c.influence() == null ? 0.5 : clamp(c.influence());
+		double percentile = c.influence() == null ? 0.5 : clamp(c.influence());
+		double influence = landmarkShare == 0 ? percentile
+				: (1 - landmarkShare) * percentile + landmarkShare * landmark(c);
 		double recency = c.year() == null || maxYear == minYear ? 0.5
 				: (c.year() - minYear) / (double) (maxYear - minYear);
 		double age = 1 - recency;
@@ -55,6 +62,18 @@ public final class Objective {
 		double total = w.relevance() * relevance + w.influence() * influence + w.recency() * recency + w.age() * age
 				+ w.overview() * overview + w.technical() * technical;
 		return new QualityParts(relevance, influence, recency, age, overview, technical, total);
+	}
+
+	/**
+	 * Pool-relative citation standing in [0, 1]: log(1 + citations) / log(1 + most citations in the pool). Unlike the
+	 * normalized percentile it does not saturate, so a landmark with 40,000 citations outranks one with 400 (D16).
+	 * Unknown counts are neutral (0.5).
+	 */
+	public double landmark(OptimizerCandidate c) {
+		if (c.citations() == null || maxLogCitations == 0) {
+			return 0.5;
+		}
+		return clamp(Math.log1p(Math.max(0, c.citations())) / maxLogCitations);
 	}
 
 	/** Contribution of one paper's quality to F (β / k · q_p). */
