@@ -73,12 +73,11 @@ Reason codes: `ADDS_CONCEPTS`, `LANDMARK`, `RELEVANCE`, `INFLUENCE`, `FIT_RECENT
 | 429 | Rate limit (`Retry-After` seconds) | yes, later |
 | 400 *Client address unavailable* | A trusted client-IP header is configured but the request carries no single valid IP (rate-limited POSTs only) | no |
 | 502 | Provider request failed (nothing stored) | yes |
-| 503 | Provider rate-limited, server busy (`Retry-After`), or database unavailable | yes |
+| 503 | Provider rate-limited, server busy (`Retry-After`), database unavailable, or *Daily limit reached* (today's provider call budget is used up; `Retry-After` = seconds to 00:00 UTC; rebuilds still work) | yes |
 | 500 | Unexpected; body has an `incident` id, never internals | yes |
 
 ## Limits (defaults, `application.yml`)
-Per connection: 3 new paths at once, 10 per hour; 10 rebuilds at once, 120 per hour. Global: 500 new paths per UTC
-day. 4 concurrent generations. Bodies ≤ 8 KB. Retention: paths not opened for 90 days are deleted.
+Per connection: 3 new paths at once, 10 per hour; 10 rebuilds at once, 120 per hour. Global: a durable budget of 900 OpenAlex calls per UTC day (retries included; counted in PostgreSQL). 4 concurrent generations. Bodies ≤ 8 KB. Retention: paths not opened for 90 days are deleted.
 
 ## Development-only API
 `/api/dev/snapshots/**` (create/inspect snapshots, relevance/identity/concept diagnostics, dataset export) exists

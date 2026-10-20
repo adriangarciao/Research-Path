@@ -45,6 +45,7 @@ public class OpenAlexClient {
 	private final JsonMapper jsonMapper;
 	private final Sleeper sleeper;
 	private final Clock clock;
+	private final CallBudget budget;
 
 	@FunctionalInterface
 	public interface Sleeper {
@@ -53,6 +54,13 @@ public class OpenAlexClient {
 
 	public OpenAlexClient(RestClient restClient, OpenAlexProperties properties, JsonMapper jsonMapper,
 			Sleeper sleeper, Clock clock) {
+		this(restClient, properties, jsonMapper, sleeper, clock, CallBudget.UNLIMITED);
+	}
+
+	/** @param budget daily provider call budget; one call is reserved before every attempt, retries included */
+	public OpenAlexClient(RestClient restClient, OpenAlexProperties properties, JsonMapper jsonMapper,
+			Sleeper sleeper, Clock clock, CallBudget budget) {
+		this.budget = budget;
 		this.restClient = restClient;
 		this.properties = properties;
 		this.jsonMapper = jsonMapper;
@@ -94,6 +102,10 @@ public class OpenAlexClient {
 	private JsonNode getWithRetry(Function<UriBuilder, URI> uri, String description) {
 		Duration backoff = properties.initialBackoff();
 		for (int attempt = 1;; attempt++) {
+			if (!budget.tryReserve()) {
+				// Nothing is sent once today's budget is used up (also between retries).
+				throw new ProviderBudgetExhaustedException(budget.secondsUntilReset());
+			}
 			Response response;
 			try {
 				response = restClient.get()
@@ -103,6 +115,9 @@ public class OpenAlexClient {
 								res.getHeaders().getFirst(HttpHeaders.RETRY_AFTER), res.getHeaders().getContentLength(),
 								res.getBody()), false);
 			} catch (ResourceAccessException e) {
+				if (neverConnected(e)) {
+					budget.refund(); // the request never reached the provider, so it cannot have been billed
+				}
 				if (attempt >= properties.maxAttempts()) {
 					throw new OpenAlexException("OpenAlex " + description + " failed: network error after "
 							+ attempt + " attempt(s)", null, e);
@@ -137,6 +152,17 @@ public class OpenAlexClient {
 			pause(wait);
 			backoff = next(backoff);
 		}
+	}
+
+	/** Failures before a connection existed; a read timeout is not one of them (the request may have been billed). */
+	static boolean neverConnected(Throwable e) {
+		for (Throwable t = e; t != null; t = t.getCause()) {
+			if (t instanceof java.net.ConnectException || t instanceof java.net.UnknownHostException
+					|| t instanceof java.net.http.HttpConnectTimeoutException) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private void authenticate(HttpHeaders headers) {

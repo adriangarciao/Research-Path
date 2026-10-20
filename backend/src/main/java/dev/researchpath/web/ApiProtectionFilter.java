@@ -4,9 +4,6 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.time.Clock;
-import java.time.LocalDate;
-import java.time.ZoneOffset;
 import java.util.regex.Pattern;
 
 import org.slf4j.Logger;
@@ -48,30 +45,25 @@ class ApiProtectionFilter extends OncePerRequestFilter {
 	private final RateLimitProperties limits;
 	private final TokenBucketLimiter creates;
 	private final TokenBucketLimiter regenerations;
-	private final Clock clock;
 	private final ClientIpResolver clients;
-	private LocalDate day;
-	private int createsToday;
 
 	/** Test slices (e.g. {@code @WebMvcTest}) do not bind configuration properties: then the defaults apply. */
 	@Autowired
 	ApiProtectionFilter(ObjectProvider<RateLimitProperties> limits, ObjectProvider<ClientIpProperties> clientIp) {
 		this(limits.getIfAvailable(RateLimitProperties::defaults), clientIp.getIfAvailable(ClientIpProperties::defaults),
-				System::nanoTime, Clock.systemUTC());
+				System::nanoTime);
 	}
 
-	ApiProtectionFilter(RateLimitProperties limits, java.util.function.LongSupplier nanoClock, Clock clock) {
-		this(limits, ClientIpProperties.defaults(), nanoClock, clock);
+	ApiProtectionFilter(RateLimitProperties limits, java.util.function.LongSupplier nanoClock) {
+		this(limits, ClientIpProperties.defaults(), nanoClock);
 	}
 
-	ApiProtectionFilter(RateLimitProperties limits, ClientIpProperties clientIp, java.util.function.LongSupplier nanoClock,
-			Clock clock) {
+	ApiProtectionFilter(RateLimitProperties limits, ClientIpProperties clientIp, java.util.function.LongSupplier nanoClock) {
 		this.limits = limits;
 		this.clients = new ClientIpResolver(clientIp);
 		this.creates = new TokenBucketLimiter(limits.createBurst(), limits.createsPerHour(), limits.maxClients(), nanoClock);
 		this.regenerations = new TokenBucketLimiter(limits.regenerateBurst(), limits.regenerationsPerHour(),
 				limits.maxClients(), nanoClock);
-		this.clock = clock;
 	}
 
 	@Override
@@ -100,14 +92,8 @@ class ApiProtectionFilter extends OncePerRequestFilter {
 			}
 			String client = resolved.get();
 			if (path.equals("/api/paths")) {
+				// The global daily spend cap is the durable provider call budget (JdbcCallBudget, V8).
 				long wait = creates.tryAcquire(client);
-				if (wait == 0 && !takeDailyCreate()) {
-					log.warn("Daily new-path cap ({}) reached", limits.createsPerDay());
-					problem(response, HttpStatus.TOO_MANY_REQUESTS, "Daily limit reached",
-							"The service has reached its daily limit for new paths. Existing paths still work; try again tomorrow.",
-							secondsUntilTomorrow());
-					return;
-				}
 				if (wait > 0) {
 					problem(response, HttpStatus.TOO_MANY_REQUESTS, "Too many requests",
 							"Too many new paths from this connection. Please wait before starting another.", wait);
@@ -123,25 +109,6 @@ class ApiProtectionFilter extends OncePerRequestFilter {
 			}
 		}
 		chain.doFilter(new BoundedBodyRequest(request), response);
-	}
-
-	private synchronized boolean takeDailyCreate() {
-		LocalDate today = LocalDate.now(clock);
-		if (!today.equals(day)) {
-			day = today;
-			createsToday = 0;
-		}
-		if (createsToday >= limits.createsPerDay()) {
-			return false;
-		}
-		createsToday++;
-		return true;
-	}
-
-	private long secondsUntilTomorrow() {
-		long now = clock.instant().getEpochSecond();
-		long midnight = LocalDate.now(clock).plusDays(1).atStartOfDay(ZoneOffset.UTC).toEpochSecond();
-		return Math.max(1, midnight - now);
 	}
 
 	private static void securityHeaders(HttpServletResponse response) {

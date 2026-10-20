@@ -28,8 +28,8 @@ Not a penetration test.
   an incident id that appears in the server log.
 
 ## Abuse and cost controls
-Per-connection token buckets (new paths 3 / 10 per hour; rebuilds 10 / 120 per hour), a global 500 new paths per
-day (bounds provider spend at roughly USD 0.5 per day), 4 concurrent generations, 50 revisions per path, bounded
+Per-connection token buckets (new paths 3 / 10 per hour; rebuilds 10 / 120 per hour), a durable global budget of 900 OpenAlex calls per UTC day, retries included (reserved atomically in PostgreSQL
+before each call, so it survives restarts and cannot be double-spent by concurrent requests; ≤ USD 0.90 per day), 4 concurrent generations, 50 revisions per path, bounded
 provider retries and response sizes. Refusals are `429`/`503` with `Retry-After`.
 
 ## HTTP hardening

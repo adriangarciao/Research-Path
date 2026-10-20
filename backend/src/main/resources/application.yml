@@ -72,6 +72,11 @@ researchpath:
   client-ip:
     # Empty = rate-limit by TCP connection address and ignore client-supplied headers (default).
     trusted-header: ""
+  provider-budget:
+    # Durable daily cap on OpenAlex calls (retries included), per UTC day like the provider's allowance
+    # (free key: $1/day = 1000 searches). Counted in PostgreSQL (V8): survives restarts and redeploys.
+    enabled: true
+    daily-calls: 900
   rate-limit:
     # PROVISIONAL (S02): per connection; a new path costs provider requests, a rebuild only local work.
     enabled: true
@@ -79,7 +84,6 @@ researchpath:
     creates-per-hour: 10
     regenerate-burst: 10
     regenerations-per-hour: 120
-    creates-per-day: 500   # global cap: bounds provider spend (~USD 0.001 per new path)
     max-clients: 10000
   dev-api:
     enabled: false   # /api/dev/** endpoints; enabled in the local profile only

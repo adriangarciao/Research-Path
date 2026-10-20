@@ -2,7 +2,6 @@ package dev.researchpath.web;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.time.Clock;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.junit.jupiter.api.Test;
@@ -63,9 +62,9 @@ class ClientIpResolverTest {
 
 	@Test
 	void filterRateLimitsPerTrustedAddressAndRefusesUnusableOnes() throws Exception {
-		RateLimitProperties limits = new RateLimitProperties(true, 1, 1, 1, 1, 1000, 100);
+		RateLimitProperties limits = new RateLimitProperties(true, 1, 1, 1, 1, 100);
 		ApiProtectionFilter filter = new ApiProtectionFilter(limits, new ClientIpProperties("X-Real-IP"),
-				new AtomicLong()::get, Clock.systemUTC());
+				new AtomicLong()::get);
 
 		// Same edge connection, two different clients: independent buckets.
 		assertThat(run(filter, request("10.0.0.7", "203.0.113.9")).getStatus()).isEqualTo(200);

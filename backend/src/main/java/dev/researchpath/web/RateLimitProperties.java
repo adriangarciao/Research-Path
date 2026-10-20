@@ -9,7 +9,6 @@ import org.springframework.boot.context.properties.bind.DefaultValue;
  * Clients are identified by the connection's remote address: behind a reverse proxy, configure
  * {@code server.forward-headers-strategy} so this is the real client, never a client-supplied header.
  *
- * @param createsPerDay global cap on new paths per UTC day (bounds provider spend)
  * @param maxClients clients tracked at once (memory bound)
  */
 @ConfigurationProperties("researchpath.rate-limit")
@@ -19,11 +18,10 @@ public record RateLimitProperties(
 		@DefaultValue("10") int createsPerHour,
 		@DefaultValue("10") int regenerateBurst,
 		@DefaultValue("120") int regenerationsPerHour,
-		@DefaultValue("500") int createsPerDay,
 		@DefaultValue("10000") int maxClients) {
 
 	public static RateLimitProperties defaults() {
-		return new RateLimitProperties(true, 3, 10, 10, 120, 500, 10000);
+		return new RateLimitProperties(true, 3, 10, 10, 120, 10000);
 	}
 
 }

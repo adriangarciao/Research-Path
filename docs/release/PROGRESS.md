@@ -40,3 +40,27 @@ origins, `VITE_API_BASE_URL`) are strictly validated and fail closed.
 (G3), CORS with the real Vercel origin, CSP with the real API origin, spend caps. Deploy overlap on Railway to be
 observed.
 **Next:** H2 — durable OpenAlex spending cap in PostgreSQL.
+
+## R-H2 — Durable OpenAlex spending cap (single instance) — 2026-10-20
+**Status:** complete.
+
+**Changed:** V8 `provider_call_budget`; `CallBudget`, `JdbcCallBudget`, `ProviderBudgetProperties`,
+`ProviderBudgetExhaustedException` (openalex); `OpenAlexClient` reserves one call before every attempt and refunds only
+attempts that never connected; `ApiExceptionHandler` maps exhaustion to 503 + `Retry-After`; the in-memory
+"new paths per day" counter was removed from `ApiProtectionFilter`/`RateLimitProperties` (replaced, not weakened).
+**Why:** the old cap lived in memory and reset on every restart/redeploy.
+**Design:** unit = OpenAlex calls (what the provider bills: $0.001 per search call, $1/day free = 1000), retries
+included; reset at 00:00 UTC (the provider's reset); default 900/day. Reservation is one `INSERT … ON CONFLICT DO
+UPDATE … WHERE calls < limit RETURNING`, so concurrent requests serialize on the row (also across processes) and
+cannot share the remaining budget. Counting happens before sending: a crash can only over-count. Refund only for
+connect failures/unknown host (never reached the provider); read timeouts stay counted (may have been billed).
+**Tests run (all passed):** `JdbcCallBudgetTests` (limit + midnight-UTC reset, 60 concurrent reservations against 25
+remaining → exactly 25, restart keeps the count, refunds never negative, disabled mode), `OpenAlexClientBudgetTest`
+(every attempt reserves, nothing sent when exhausted, budget running out between retries stops them, connect failure
+refunded / read timeout not), `ProviderBudgetApiTests` (503 + Retry-After, nothing stored, refused attempt not
+counted, rebuild still works); mutation (no limit guard) fails 3 tests; `verify.ps1` PASS.
+**Live (dev backend):** V8 applied; a real new path used 1 call; the count survived a restart; with the limit at
+today's count a new path got 503 `Retry-After: 7880` (= seconds to 00:00 UTC), no path/snapshot stored, count
+unchanged, rebuild 201.
+**Remaining:** per-connection buckets and in-flight de-duplication remain per process (documented; one replica).
+**Next:** M7 — bounded request time (30 s backend provider budget, 45 s frontend), measured before finalizing.

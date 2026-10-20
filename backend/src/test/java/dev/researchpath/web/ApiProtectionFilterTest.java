@@ -3,9 +3,6 @@ package dev.researchpath.web;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import java.time.Clock;
-import java.time.Instant;
-import java.time.ZoneOffset;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -18,12 +15,12 @@ import jakarta.servlet.http.HttpServletRequest;
 
 class ApiProtectionFilterTest {
 
-	private static final RateLimitProperties LIMITS = new RateLimitProperties(true, 2, 10, 3, 60, 1000, 100);
+	private static final RateLimitProperties LIMITS = new RateLimitProperties(true, 2, 10, 3, 60, 100);
 
 	private final AtomicLong nanos = new AtomicLong();
 
-	private ApiProtectionFilter filter(RateLimitProperties limits, Clock clock) {
-		return new ApiProtectionFilter(limits, nanos::get, clock);
+	private ApiProtectionFilter filter(RateLimitProperties limits) {
+		return new ApiProtectionFilter(limits, nanos::get);
 	}
 
 	private static MockHttpServletRequest post(String uri, String ip) {
@@ -42,7 +39,7 @@ class ApiProtectionFilterTest {
 
 	@Test
 	void everyResponseCarriesSecurityHeaders() throws Exception {
-		MockHttpServletResponse r = run(filter(LIMITS, Clock.systemUTC()), new MockHttpServletRequest("GET", "/actuator/health"));
+		MockHttpServletResponse r = run(filter(LIMITS), new MockHttpServletRequest("GET", "/actuator/health"));
 		assertThat(r.getHeader("X-Content-Type-Options")).isEqualTo("nosniff");
 		assertThat(r.getHeader("X-Frame-Options")).isEqualTo("DENY");
 		assertThat(r.getHeader("Referrer-Policy")).isEqualTo("no-referrer");
@@ -51,7 +48,7 @@ class ApiProtectionFilterTest {
 
 	@Test
 	void newPathsAndRebuildsHaveSeparateLimitsPerClientAndReadsAreNotLimited() throws Exception {
-		ApiProtectionFilter f = filter(LIMITS, Clock.systemUTC());
+		ApiProtectionFilter f = filter(LIMITS);
 		assertThat(run(f, post("/api/paths", "10.0.0.1")).getStatus()).isEqualTo(200);
 		assertThat(run(f, post("/api/paths", "10.0.0.1")).getStatus()).isEqualTo(200);
 		MockHttpServletResponse limited = run(f, post("/api/paths", "10.0.0.1"));
@@ -75,38 +72,8 @@ class ApiProtectionFilterTest {
 	}
 
 	@Test
-	void globalDailyCapStopsNewPathsUntilTheNextUtcDay() throws Exception {
-		AtomicReference<Instant> now = new AtomicReference<>(Instant.parse("2026-10-18T23:00:00Z"));
-		Clock clock = new Clock() {
-			@Override
-			public ZoneOffset getZone() {
-				return ZoneOffset.UTC;
-			}
-
-			@Override
-			public Clock withZone(java.time.ZoneId zone) {
-				return this;
-			}
-
-			@Override
-			public Instant instant() {
-				return now.get();
-			}
-		};
-		ApiProtectionFilter f = filter(new RateLimitProperties(true, 100, 100, 100, 100, 2, 100), clock);
-		assertThat(run(f, post("/api/paths", "10.0.0.1")).getStatus()).isEqualTo(200);
-		assertThat(run(f, post("/api/paths", "10.0.0.2")).getStatus()).isEqualTo(200);
-		MockHttpServletResponse capped = run(f, post("/api/paths", "10.0.0.3"));
-		assertThat(capped.getStatus()).isEqualTo(429);
-		assertThat(capped.getHeader("Retry-After")).isEqualTo("3600");
-		assertThat(capped.getContentAsString()).contains("daily limit");
-		now.set(Instant.parse("2026-10-19T00:00:01Z"));
-		assertThat(run(f, post("/api/paths", "10.0.0.3")).getStatus()).isEqualTo(200);
-	}
-
-	@Test
 	void oversizedBodiesAreRefusedWithOrWithoutContentLength() throws Exception {
-		ApiProtectionFilter f = filter(LIMITS, Clock.systemUTC());
+		ApiProtectionFilter f = filter(LIMITS);
 		MockHttpServletRequest big = post("/api/paths", "10.0.0.9");
 		big.setContent(new byte[ApiProtectionFilter.MAX_BODY_BYTES + 1]);
 		MockHttpServletResponse r = run(f, big);
@@ -131,7 +98,7 @@ class ApiProtectionFilterTest {
 
 	@Test
 	void limitsCanBeDisabled() throws Exception {
-		ApiProtectionFilter f = filter(new RateLimitProperties(false, 1, 1, 1, 1, 1, 1), Clock.systemUTC());
+		ApiProtectionFilter f = filter(new RateLimitProperties(false, 1, 1, 1, 1, 1));
 		for (int i = 0; i < 5; i++) {
 			assertThat(run(f, post("/api/paths", "10.0.0.1")).getStatus()).isEqualTo(200);
 		}
