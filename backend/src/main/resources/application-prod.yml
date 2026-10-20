@@ -1,0 +1,29 @@
+# `prod` profile (Railway). Activate with SPRING_PROFILES_ACTIVE=prod. Every value comes from the platform's
+# environment; credentials have NO defaults, so a missing variable stops startup instead of running misconfigured.
+# Railway: reference the Postgres service's variables in the backend service (e.g. PGHOST=${{Postgres.PGHOST}}).
+spring:
+  datasource:
+    # Private network only. sslmode=require encrypts the connection; DB_SSLMODE can be raised to verify-full once
+    # the server certificate chain is known, or lowered only if the provider documents that TLS is unavailable.
+    url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}?sslmode=${DB_SSLMODE:require}
+    username: ${PGUSER}
+    password: ${PGPASSWORD}
+    hikari:
+      # Small pool for one instance on a small plan; measure before raising.
+      maximum-pool-size: ${DB_POOL_SIZE:5}
+      minimum-idle: 1
+  lifecycle:
+    timeout-per-shutdown-phase: 20s
+
+server:
+  port: ${PORT:8080}       # Railway injects PORT
+  shutdown: graceful
+
+management:
+  endpoint:
+    health:
+      show-details: never  # public health: status only, no DB or disk details
+
+researchpath:
+  dev-api:
+    enabled: false         # never in production
