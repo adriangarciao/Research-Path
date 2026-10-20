@@ -120,3 +120,23 @@ single "Created snapshot" in the server log (twice, PASS). Unit evidence:
 `PathServiceTests.idempotencyKeyReturnsTheFirstResultWithoutRetrievingAgain`.
 **Note:** the in-flight join is per process; a second replica would rely on the unique key in the database (one
 replica is required anyway, R2).
+
+## R-M3 — Broader-topic suggestion for small pools — 2026-10-20
+**Status:** complete. Relevance gate, selection and stored-path immutability unchanged.
+
+**Changed:** `PathDocument.smallPoolHint` adds `SMALL_POOL: only N of M retrieved papers passed the relevance check …
+a broader or differently worded topic may give a fuller path` to a new path's `warnings` when fewer than half of the
+retrieved works are eligible (N > 0; zero eligible is still the 422). The UI shows such codes in a separate, neutral
+"Suggestions" note ("A broader topic may help"), apart from the amber warnings.
+**Why this threshold:** across all evaluated dev snapshots, topics keep 84–99% of retrieved works in the eligible
+pool; "causal inference in economics" keeps 31% (62/200) and 42% (42/100). A share rather than an absolute count
+works for both 100- and 200-candidate retrievals. A small pool is not treated as invalid: the path is built as before.
+**Tests:** `PathDocumentTest` (62/200 and 49/100 hint, exactly half and typical pools do not, zero eligible/zero
+retrieved do not), `PathServiceTests.aSmallEligiblePoolAddsOnlyABroaderTopicHint` (12 on-topic + 14 gate-rejected works
+→ hint present, and papers, stages, coverage and all other warnings identical to the same 12 works without the
+off-topic ones), frontend `isHint`/notice and PathView tests (suggestion region separate from warnings; none
+without hints). `verify.ps1` PASS (339 backend tests); live e2e 7 passed (5 mobile skips, as before).
+**Live (real OpenAlex):** "causal inference in economics" → 201, 42 of 100 eligible, 10 papers, `SMALL_POOL` shown
+under Suggestions (checked in light and dark); "coral reef bleaching" → 95 of 100, no suggestion.
+**Note:** stored paths are immutable, so the hint appears on paths created from now on and on new revisions.
+**Next:** M4 — at most one paper per normalized title, evaluated under P12 before finalizing.

@@ -62,6 +62,14 @@ const WARNING_LABEL: Record<string, string> = {
   NO_CITATION_LINKS: 'No citation links',
   CITATION_CYCLE: 'Citation cycle',
   EMPTY: 'Empty path',
+  SMALL_POOL: 'A broader topic may help',
+}
+
+/** Codes that suggest rather than warn: the path is valid as it is. */
+const HINT_CODES = new Set(['SMALL_POOL'])
+
+export function isHint(raw: string): boolean {
+  return HINT_CODES.has(raw.slice(0, Math.max(0, raw.indexOf(': '))))
 }
 
 /** Backend notices are "CODE: sentence"; show a heading and the sentence. */

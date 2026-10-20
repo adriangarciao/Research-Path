@@ -51,7 +51,7 @@ made. Limits: 50 revisions per path.
 | `coverage` | `weightedCoverage`, `conceptsCovered`, `conceptsInPool`, `denominator` (text), `concepts[]` (`label`, `kind`, `weight`, `coveredBy` positions), `conceptsNotShown` |
 | `stages[]` | `number`, `kind` (`OVERVIEW`/`PERIOD`/`REMAINING`), `label`, `purpose`, `firstPosition`, `lastPosition` |
 | `papers[]` | `position`, `stage`, `openalexId`, `title`, `authors` (≤ 5), `authorCount`, `year`, `workType`, `citedByCount`, `link` (http/https only), `linkKind` (`OPEN_ACCESS`/`DOI`/`LANDING_PAGE`), `tags`, `reasons[]` (`code`, `text`), `cites`/`citedBy` (positions in this path), `flags`, `selectionStep` |
-| `warnings[]`, `disclosures[]` | `CODE: sentence` strings (e.g. `FEWER_THAN_REQUESTED`, `NO_CITATION_LINKS`, `ORDER_IS_HEURISTIC`) |
+| `warnings[]`, `disclosures[]` | `CODE: sentence` strings (e.g. `FEWER_THAN_REQUESTED`, `NO_CITATION_LINKS`, `ORDER_IS_HEURISTIC`). `SMALL_POOL` is a suggestion, not a fault: fewer than half of the retrieved works passed the relevance gate, so a broader topic may give a fuller path (the UI shows it under "Suggestions") |
 | `access` | "Anyone with this link can view this path…" |
 | `revisions[]` | All revisions of the path (`revision`, `parentRevision`, `experience`, `focus`, `budget`, `createdAt`) |
 | `retention` | `deleteAfterDaysUnviewed`, `notice` — current policy, added at view time (not stored) |

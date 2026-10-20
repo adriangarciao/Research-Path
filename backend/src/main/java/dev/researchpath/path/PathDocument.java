@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 import dev.researchpath.benchmark.BenchmarkDataset;
@@ -72,12 +73,27 @@ public final class PathDocument {
 			BenchmarkDataset pool, PathOptions options, PathEngine.Generated g, Map<String, FrozenCandidate> frozen) {
 		ReadingPath path = g.path();
 		List<Paper> papers = path.items().stream().map(i -> paper(i, frozen.get(i.id()).work())).toList();
-		List<String> warnings = Stream.concat(g.selection().warnings().stream(), path.warnings().stream()).toList();
+		List<String> warnings = Stream.concat(Stream.concat(g.selection().warnings().stream(), path.warnings().stream()),
+				smallPoolHint(summary.storedCount(), pool.candidates().size()).stream()).toList();
 		return new Result(VERSION, pathId, revision, parentRevision, summary.topic(), createdAt,
 				new Options(options.experience().name(), options.focus().name(), options.budget()),
 				new Snapshot(summary.createdAt(), summary.storedCount(), pool.candidates().size()),
 				PathEngine.versions(), options.budget(), papers.size(), coverage(pool, g), path.stages(), papers,
 				warnings, path.disclosures(), ACCESS_NOTICE);
+	}
+
+	/**
+	 * Release R6 / M3: an informational suggestion, never a filter. When fewer than half of the retrieved works pass the
+	 * relevance gate (observed: 84-99% for most topics, 31% for "causal inference in economics"), the path is still
+	 * valid but was chosen from a smaller pool, so suggest a broader topic. Selection and the gate are unchanged.
+	 */
+	static Optional<String> smallPoolHint(int retrieved, int eligible) {
+		if (eligible <= 0 || retrieved <= 0 || eligible * 2 >= retrieved) {
+			return Optional.empty();
+		}
+		return Optional.of("SMALL_POOL: only " + eligible + " of " + retrieved + " retrieved papers passed the relevance "
+				+ "check for this topic, so this path was chosen from a smaller pool than usual. A broader or differently "
+				+ "worded topic may give a fuller path");
 	}
 
 	private static Paper paper(ReadingPath.Item i, NormalizedWork w) {
