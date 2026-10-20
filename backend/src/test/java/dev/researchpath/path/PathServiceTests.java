@@ -303,6 +303,39 @@ class PathServiceTests {
 		assertThatThrownBy(() -> jdbc.sql("UPDATE reading_path SET topic = 'x'").update()).hasMessageContaining("immutable");
 	}
 
+	/** M3: a small eligible share adds an informational hint and changes nothing else. */
+	@Test
+	void aSmallEligiblePoolAddsOnlyABroaderTopicHint() {
+		PathService.PathView full = paths.create(Q, PathOptions.DEFAULT, null);
+		assertThat(full.body().path("warnings").toString()).doesNotContain("SMALL_POOL");
+
+		// The same 12 on-topic works plus 14 works the relevance gate rejects: 12 of 26 eligible (< half).
+		OpenAlexSearchPage onTopic = pool("");
+		List<WorkJsonAccess.Builder> offTopic = new ArrayList<>();
+		for (int i = 1; i <= 14; i++) {
+			offTopic.add(work("W90" + i, "Sourdough fermentation and bread crumb texture, part " + i).year(2015));
+		}
+		List<JsonNode> mixed = new ArrayList<>(onTopic.results());
+		mixed.addAll(page(1, 14, offTopic.toArray(WorkJsonAccess.Builder[]::new)).results());
+		when(openAlex.searchWorks(eq(Q), eq(1), anyInt(), any()))
+				.thenReturn(new OpenAlexSearchPage(26L, 1, mixed, onTopic.retrievedAt()));
+		PathService.PathView small = paths.create(Q, PathOptions.DEFAULT, null);
+
+		assertThat(small.body().path("snapshot").path("candidatesRetrieved").asInt()).isEqualTo(26);
+		assertThat(small.body().path("snapshot").path("eligibleCandidates").asInt()).isEqualTo(12);
+		List<String> warnings = new ArrayList<>();
+		small.body().path("warnings").forEach(w -> warnings.add(w.asString()));
+		assertThat(warnings).filteredOn(w -> w.startsWith("SMALL_POOL: ")).singleElement()
+				.satisfies(w -> assertThat(w).contains("only 12 of 26 retrieved papers").contains("broader"));
+		// Informational only: the same eligible works yield the same selection, order, stages and coverage.
+		for (String field : List.of("papers", "stages", "coverage")) {
+			assertThat(small.body().path(field)).as(field).isEqualTo(full.body().path(field));
+		}
+		List<String> fullWarnings = new ArrayList<>();
+		full.body().path("warnings").forEach(w -> fullWarnings.add(w.asString()));
+		assertThat(warnings).filteredOn(w -> !w.startsWith("SMALL_POOL")).isEqualTo(fullWarnings);
+	}
+
 	@Test
 	void topicWithoutEligiblePapersStoresNoPath() {
 		when(openAlex.searchWorks(eq("sourdough baking"), eq(1), anyInt(), any())).thenReturn(page(1, 2,

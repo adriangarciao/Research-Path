@@ -1,6 +1,6 @@
 import type { ApiError } from '../api/client'
 import type { PathOptions, PathResponse } from '../api/types'
-import { EXPERIENCE_LABEL, FOCUS_LABEL, formatDate, notice } from '../lib/format'
+import { EXPERIENCE_LABEL, FOCUS_LABEL, formatDate, isHint, notice } from '../lib/format'
 import { CoveragePanel } from './CoveragePanel'
 import { PaperCard } from './PaperCard'
 import { RegeneratePanel } from './RegeneratePanel'
@@ -15,6 +15,9 @@ interface Props {
 }
 
 export function PathView({ path, regenerating, regenerateError, onRegenerate, onOpenRevision, loadingRevision }: Props) {
+  // Suggestions (e.g. a small eligible pool) are informational and shown apart from warnings.
+  const hints = path.warnings.filter(isHint)
+  const warnings = path.warnings.filter((w) => !isHint(w))
   const settings = `${EXPERIENCE_LABEL[path.options.experience]} · ${FOCUS_LABEL[path.options.focus]} · ${path.options.budget} papers`
   return (
     <div className="path" aria-busy={regenerating}>
@@ -28,9 +31,22 @@ export function PathView({ path, regenerating, regenerateError, onRegenerate, on
         </p>
       </header>
 
-      {path.warnings.length > 0 && (
+      {hints.length > 0 && (
+        <section className="notices notices--info" aria-label="Suggestions">
+          {hints.map((w) => {
+            const n = notice(w)
+            return (
+              <p key={w}>
+                <strong>{n.heading}.</strong> {n.text}
+              </p>
+            )
+          })}
+        </section>
+      )}
+
+      {warnings.length > 0 && (
         <section className="notices notices--warn" aria-label="Warnings">
-          {path.warnings.map((w) => {
+          {warnings.map((w) => {
             const n = notice(w)
             return (
               <p key={w}>

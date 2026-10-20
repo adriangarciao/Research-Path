@@ -14,7 +14,7 @@ No known security or data-integrity bug is open.
 |---|---|---|
 | M1 | Learning benefit unproven | Coverage is the optimizer's own objective; no learning study, no independent human review ([BENCHMARKS](evaluation/BENCHMARKS.md)). |
 | M2 | Landmark seeds cost some breadth | Up to 0.061 coverage; redundancy above the best baseline on 3 of 10 topics; raw citation medians below a citation ranking (D16). |
-| M3 | Relevance gate recall on "method in domain" topics | e.g. "causal inference in economics" keeps 62 of 200 candidates (D17). |
+| M3 | Relevance gate recall on "method in domain" topics | e.g. "causal inference in economics" keeps 62 of 200 candidates (D17). Gate unchanged; such paths now carry an informational `SMALL_POOL` suggestion (fewer than half of the retrieved works eligible) to try a broader topic (release R6). |
 | M4 | Generic same-title works | e.g. 34 "Quantum Error Correction" chapters; paths can show two or three (D17). |
 | M5 | Reading order is mostly chronological | Citation links among selected papers are sparse (0–7 per path); stage names are year ranges (D10, disclosed). |
 | M6 | Provider-limited coverage | Canonical works absent from the retrieved 200 (e.g. GCN, RoseTTAFold) cannot be selected; provider citation counts can be wrong. |
