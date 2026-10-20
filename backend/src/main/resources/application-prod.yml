@@ -25,6 +25,9 @@ management:
       show-details: never  # public health: status only, no DB or disk details
 
 researchpath:
+  cors:
+    # Exact Vercel production origin(s), comma-separated, e.g. https://researchpath.vercel.app. No wildcards.
+    allowed-origins: ${ALLOWED_ORIGINS:}
   client-ip:
     # Opt in explicitly (CLIENT_IP_HEADER=X-Real-IP on Railway) and only after the live spoof-resistance test passes.
     # Unset = connection address: behind a proxy all clients would share one rate-limit bucket.
