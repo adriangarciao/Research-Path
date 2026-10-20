@@ -1,6 +1,8 @@
 # Path API (v1)
 
-Base: same origin as the UI (`/api`). JSON in and out; errors are RFC 9457 problem documents
+Base: the API origin (same origin locally; in production the Railway API, called from the Vercel UI with
+exact-origin CORS for `/api/paths/**`: methods GET/POST, request headers `Content-Type` and `Idempotency-Key`,
+exposed `Location` and `Retry-After`, no credentials). JSON in and out; errors are RFC 9457 problem documents
 (`application/problem+json`). There are no accounts: a path id is an unguessable link, not access control.
 
 ## Endpoints
@@ -69,6 +71,7 @@ Reason codes: `ADDS_CONCEPTS`, `LANDMARK`, `RELEVANCE`, `INFLUENCE`, `FIT_RECENT
 | 415 / 405 | Wrong content type / method | no |
 | 422 | The topic has no eligible papers (nothing stored) | change topic |
 | 429 | Rate limit (`Retry-After` seconds) | yes, later |
+| 400 *Client address unavailable* | A trusted client-IP header is configured but the request carries no single valid IP (rate-limited POSTs only) | no |
 | 502 | Provider request failed (nothing stored) | yes |
 | 503 | Provider rate-limited, server busy (`Retry-After`), or database unavailable | yes |
 | 500 | Unexpected; body has an `incident` id, never internals | yes |
