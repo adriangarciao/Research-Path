@@ -253,6 +253,52 @@ class GreedyOptimizerTest {
 	}
 
 	@Test
+	void landmarkSignalIsPoolRelativeLogCitationsAndNeutralWhenUnknown() {
+		List<OptimizerCandidate> pool = List.of(
+				new OptimizerCandidate("BIG", 1, covers("a"), 1, 1.0, 2020, false, 40_000),
+				new OptimizerCandidate("MID", 2, covers("a"), 1, 1.0, 2020, false, 400),
+				new OptimizerCandidate("NONE", 3, covers("a"), 1, 1.0, 2020, false, 0),
+				new OptimizerCandidate("UNKNOWN", 4, covers("a"), 1, 1.0, 2020, false, null));
+		Objective f = new Objective(Map.of("a", 1.0), pool, 1, Preferences.DEFAULT, new OptimizerConfig(4, false, 0.02, 0.5));
+		assertThat(f.landmark(pool.get(0))).isEqualTo(1.0);
+		assertThat(f.landmark(pool.get(1))).isCloseTo(Math.log1p(400) / Math.log1p(40_000), org.assertj.core.data.Offset.offset(1e-12));
+		assertThat(f.landmark(pool.get(2))).isZero();
+		assertThat(f.landmark(pool.get(3))).isEqualTo(0.5);
+	}
+
+	@Test
+	void landmarkShareSeparatesPapersTheSaturatedPercentileCannot() {
+		// Identical coverage and the same (saturated) percentile: only raw citations differ.
+		List<OptimizerCandidate> pool = List.of(
+				new OptimizerCandidate("FEW", 1, covers("a"), 1, 0.99, 2020, false, 300),
+				new OptimizerCandidate("LANDMARK", 2, covers("a"), 1, 0.99, 2020, false, 43_000));
+		assertThat(GreedyOptimizer.select(pool, Map.of("a", 1.0), 1, Preferences.DEFAULT, new OptimizerConfig(4, false, 0.02, 0))
+				.selectedIds()).as("percentile only: tie broken by provider rank").containsExactly("FEW");
+		assertThat(GreedyOptimizer.select(pool, Map.of("a", 1.0), 1, Preferences.DEFAULT, new OptimizerConfig(4, false, 0.02, 0.5))
+				.selectedIds()).containsExactly("LANDMARK");
+	}
+
+	@Test
+	void guaranteeHoldsWithTheLandmarkSignal() {
+		// The landmark term is modular and non-negative, so the objective stays monotone submodular.
+		Random rnd = new Random(16);
+		for (int trial = 0; trial < 30; trial++) {
+			List<OptimizerCandidate> pool = new ArrayList<>();
+			for (OptimizerCandidate c : randomPool(rnd, 9, 6)) {
+				pool.add(new OptimizerCandidate(c.id(), c.providerRank(), c.concepts(), c.relevance(), c.influence(), c.year(),
+						c.overviewLike(), rnd.nextInt(50_000)));
+			}
+			Map<String, Double> w = randomWeights(6);
+			int k = 1 + rnd.nextInt(4);
+			OptimizerConfig config = new OptimizerConfig(4, false, 0.02, rnd.nextDouble());
+			GreedyOptimizer.Result greedy = GreedyOptimizer.select(pool, w, k, Preferences.DEFAULT, config);
+			double opt = GreedyOptimizer.exhaustiveOptimum(pool, w, k, Preferences.DEFAULT, config);
+			assertThat(greedy.objective()).isGreaterThanOrEqualTo((1 - 1 / Math.E) * opt - 1e-6);
+		}
+		assertThatThrownBy(() -> new OptimizerConfig(4, false, 0.02, 1.5)).isInstanceOf(IllegalArgumentException.class);
+	}
+
+	@Test
 	void negativeQualityShareIsRejectedToKeepTheObjectiveMonotone() {
 		assertThatThrownBy(() -> new OptimizerConfig(-0.1)).isInstanceOf(IllegalArgumentException.class);
 		assertThatThrownBy(() -> new OptimizerConfig(1, false, 0.6)).isInstanceOf(IllegalArgumentException.class);

@@ -67,7 +67,8 @@ public final class OptimizerSelector implements Selector {
 		// Weak, documented accessibility cue (D09 OPEN): review work type or survey-like title words.
 		boolean overview = OverviewCue.of(c.workType(), c.title()) != null;
 		return new OptimizerCandidate(c.openalexId(), c.providerRank(), concepts,
-				(c.relevanceCoverage() + c.titleTermShare()) / 2, c.citationPercentile(), c.publicationYear(), overview);
+				(c.relevanceCoverage() + c.titleTermShare()) / 2, c.citationPercentile(), c.publicationYear(), overview,
+				c.citedByCount());
 	}
 
 }
