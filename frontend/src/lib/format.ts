@@ -11,6 +11,11 @@ export function safeHref(url: string | null | undefined): string | null {
   }
 }
 
+/** The work's OpenAlex record (always traceable); only well-formed work ids (W + digits) become links. */
+export function openAlexRecord(openalexId: string): string | null {
+  return /^W\d{1,15}$/.test(openalexId) ? `https://openalex.org/${openalexId}` : null
+}
+
 export const EXPERIENCE_LABEL: Record<Experience, string> = {
   BEGINNER: 'Beginner',
   INTERMEDIATE: 'Intermediate',

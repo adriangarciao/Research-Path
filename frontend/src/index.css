@@ -841,3 +841,8 @@ a:hover {
     transition: none !important;
   }
 }
+
+.record-link {
+  color: var(--ink-soft);
+}
+
