@@ -28,7 +28,9 @@ describe('PaperCard', () => {
       linkKind: 'LANDING_PAGE',
     }
     const { container } = render(<PaperCard paper={hostile} />)
-    expect(screen.queryByRole('link')).toBeNull()
+    // Only the constructed OpenAlex record link remains; the unsafe provider link is dropped.
+    expect(screen.getAllByRole('link')).toHaveLength(1)
+    expect(screen.getByRole('link')).toHaveAttribute('href', `https://openalex.org/${base.openalexId}`)
     expect(container.querySelector('img')).toBeNull()
     expect(container.querySelector('b')).toBeNull()
     expect(screen.getByText(/<img src=x/)).toBeInTheDocument()
@@ -62,5 +64,13 @@ describe('PaperCard', () => {
     render(<PaperCard paper={long} />)
     expect(screen.getByText('A, B, C, D, E and 37 more')).toBeInTheDocument()
     expect(screen.getByRole('heading', { level: 4 })).toHaveTextContent('x'.repeat(400))
+  })
+
+  it('always offers the OpenAlex record, and never for a malformed id', () => {
+    const { unmount } = render(<PaperCard paper={{ ...base, link: null, linkKind: null }} />)
+    expect(screen.getByRole('link', { name: /openalex record/i })).toHaveAttribute('href', `https://openalex.org/${base.openalexId}`)
+    unmount()
+    render(<PaperCard paper={{ ...base, link: null, linkKind: null, openalexId: 'javascript:alert(1)' }} />)
+    expect(screen.queryByRole('link')).toBeNull()
   })
 })

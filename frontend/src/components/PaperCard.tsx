@@ -1,5 +1,5 @@
 import type { Paper } from '../api/types'
-import { FLAG_LABEL, LINK_LABEL, authorLine, safeHref, workTypeLabel } from '../lib/format'
+import { FLAG_LABEL, LINK_LABEL, authorLine, openAlexRecord, safeHref, workTypeLabel } from '../lib/format'
 
 function refs(positions: number[]): string {
   return positions.map((p) => `#${p}`).join(', ')
@@ -8,6 +8,7 @@ function refs(positions: number[]): string {
 /** One paper. All provider text (title, authors, tags) is rendered as plain text, never as HTML. */
 export function PaperCard({ paper }: { paper: Paper }) {
   const href = safeHref(paper.link)
+  const record = openAlexRecord(paper.openalexId)
   const meta = [paper.year ?? 'Year unknown', workTypeLabel(paper.workType)].filter(Boolean).join(' · ')
   const citations =
     paper.citedByCount === null ? null : `${paper.citedByCount.toLocaleString()} citation${paper.citedByCount === 1 ? '' : 's'}`
@@ -33,6 +34,11 @@ export function PaperCard({ paper }: { paper: Paper }) {
           <span>{meta}</span>
           {citations && <span>{citations}</span>}
           {href && paper.linkKind && <span className={`link-kind link-kind--${paper.linkKind}`}>{LINK_LABEL[paper.linkKind]}</span>}
+          {record && (
+            <a className="record-link" href={record} target="_blank" rel="noopener noreferrer external">
+              OpenAlex record<span className="visually-hidden"> for paper {paper.position} (opens in a new tab)</span>
+            </a>
+          )}
         </p>
 
         <div className="paper__why">
