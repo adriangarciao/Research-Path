@@ -3,6 +3,7 @@ package dev.researchpath.benchmark;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.UnaryOperator;
 
 import dev.researchpath.benchmark.BenchmarkDataset.Candidate;
 import dev.researchpath.concept.ConceptModel;
@@ -10,6 +11,7 @@ import dev.researchpath.optimizer.GreedyOptimizer;
 import dev.researchpath.optimizer.OptimizerCandidate;
 import dev.researchpath.optimizer.OptimizerConfig;
 import dev.researchpath.optimizer.Preferences;
+import dev.researchpath.optimizer.TitleKey;
 import dev.researchpath.sequence.OverviewCue;
 
 /**
@@ -21,17 +23,22 @@ public final class OptimizerSelector implements Selector {
 	private final Preferences preferences;
 	private final OptimizerConfig config;
 	private final String name;
+	private final UnaryOperator<String> titleKey;
 
 	public OptimizerSelector(Preferences preferences, OptimizerConfig config) {
-		this.preferences = preferences;
-		this.config = config;
-		this.name = "OPTIMIZER";
+		this(preferences, config, "OPTIMIZER");
 	}
 
 	public OptimizerSelector(Preferences preferences, OptimizerConfig config, String name) {
+		this(preferences, config, name, TitleKey::of);
+	}
+
+	/** @param titleKey title key for the one-paper-per-title rule (variants are compared in the M4 evaluation) */
+	public OptimizerSelector(Preferences preferences, OptimizerConfig config, String name, UnaryOperator<String> titleKey) {
 		this.preferences = preferences;
 		this.config = config;
 		this.name = name;
+		this.titleKey = titleKey;
 	}
 
 	@Override
@@ -58,17 +65,21 @@ public final class OptimizerSelector implements Selector {
 		Map<String, Double> weights = new HashMap<>();
 		model.included().forEach(e -> weights.put(e.key(), e.weight()));
 		List<OptimizerCandidate> pool = dataset.candidates().stream()
-				.map(c -> candidate(c, model.paperConcepts().getOrDefault((long) c.providerRank(), Map.of())))
+				.map(c -> candidate(c, model.paperConcepts().getOrDefault((long) c.providerRank(), Map.of()), titleKey))
 				.toList();
 		return GreedyOptimizer.select(pool, weights, budget, preferences, config);
 	}
 
 	static OptimizerCandidate candidate(Candidate c, Map<String, Double> concepts) {
+		return candidate(c, concepts, TitleKey::of);
+	}
+
+	static OptimizerCandidate candidate(Candidate c, Map<String, Double> concepts, UnaryOperator<String> titleKey) {
 		// Weak, documented accessibility cue (D09 OPEN): review work type or survey-like title words.
 		boolean overview = OverviewCue.of(c.workType(), c.title()) != null;
 		return new OptimizerCandidate(c.openalexId(), c.providerRank(), concepts,
 				(c.relevanceCoverage() + c.titleTermShare()) / 2, c.citationPercentile(), c.publicationYear(), overview,
-				c.citedByCount());
+				c.citedByCount(), titleKey.apply(c.title()));
 	}
 
 }

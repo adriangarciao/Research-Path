@@ -104,7 +104,7 @@ class ReadingPathBenchmarkTest {
 
 	/** Reading order for the default preferences; a change must be deliberate (and the review regenerated). */
 	static final Map<String, String> PATH_FINGERPRINTS = Map.of(
-			"gnn-200", "c75556deb751dbff666188b2cddcedc205dcc61aa51bda6d3d6501ac23053460",
+			"gnn-200", "0c0b6247d7f2ed4e9772c3a7716428d0a752a71642bee63cb1cd8bf0dc72f75f", // M4 experiment: one paper changes at k = 20
 			"rl-robotics-200", "6efb05ec1cc676d356a7ba431dae89dbbdb7d2f8d1aea1d928345f60b26c205c",
 			"medical-ai-200", "44bdebc5747343d5303de3b91c2edd8b9d682d731b350e7fd34599fb17e8b566");
 

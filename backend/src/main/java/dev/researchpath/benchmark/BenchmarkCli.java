@@ -73,10 +73,22 @@ public final class BenchmarkCli {
 			landmarkRows.addAll(LandmarkSweep.run(d, List.of(10, 20)));
 		}
 		Files.writeString(out.resolve("landmark-sweep.md"), LandmarkSweep.markdown(landmarkRows), StandardCharsets.UTF_8);
+		List<TitleDiversityComparison.Row> titleRows = new ArrayList<>();
+		for (BenchmarkDataset d : loaded) {
+			titleRows.addAll(TitleDiversityComparison.run(d));
+		}
+		Files.writeString(out.resolve("title-diversity.md"), TitleDiversityComparison.markdown(titleRows),
+				StandardCharsets.UTF_8);
+		List<TitleDiversityComparison.Row> variantRows = new ArrayList<>();
+		for (BenchmarkDataset d : loaded) {
+			variantRows.addAll(TitleDiversityComparison.run(d, TitleDiversityComparison.variants()));
+		}
+		Files.writeString(out.resolve("title-diversity-variants.md"), TitleDiversityComparison.sweepMarkdown(variantRows),
+				StandardCharsets.UTF_8);
 		Files.writeString(out.resolve("experience-sweep.md"),
 				ExperienceSweep.markdown(experience, OptimizerConfig.DEFAULT.experienceWeight()), StandardCharsets.UTF_8);
 		System.out.println("Wrote " + md.toAbsolutePath() + ", " + json.toAbsolutePath()
-				+ ", optimizer-sweep.md, optimizer-side-by-side.md, reading-paths.md, experience-sweep.md, ablation.md and landmark-sweep.md");
+				+ ", optimizer-sweep.md, optimizer-side-by-side.md, reading-paths.md, experience-sweep.md, ablation.md, landmark-sweep.md, title-diversity.md and title-diversity-variants.md");
 	}
 
 	static List<BenchmarkRunner.Run> run(List<Path> datasets, Clock clock) throws IOException {
