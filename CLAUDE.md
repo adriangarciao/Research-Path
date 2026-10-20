@@ -20,8 +20,8 @@ Tracked project records: `docs/progress/STATUS.md` + `MXX.md` (milestone reports
 DECISION_REGISTER.md`, `docs/design/`, `docs/evidence/`.
 
 ## Active milestone
-See `docs/progress/STATUS.md`. M00–M14 PASS. **M15** (release readiness; deployment is M16 and NOT authorized) is
-next. Tuning protocol (P12): fixed criteria, audit topics to choose, fresh frozen topics to validate.
+See `docs/progress/STATUS.md`. M00–M15 PASS (near-MVP release candidate `v0.9.0-rc.1`). **M16 deployment is NOT
+authorized** — wait for an explicit owner decision; until then, work only on known issues (`docs/KNOWN_ISSUES.md`). Tuning protocol (P12): fixed criteria, audit topics to choose, fresh frozen topics to validate.
 CI (`.github/workflows/ci.yml`) must stay green; the frontend renders stored results and never recomputes them. Owner's standing instruction: at HUMAN DECISION gates choose the conservative/safer option, record it
 with evidence in the decision register, and continue (not for destructive/outward-facing actions). Do not
 start a milestone until the previous gate passes.
