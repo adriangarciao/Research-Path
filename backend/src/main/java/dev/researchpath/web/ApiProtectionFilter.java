@@ -49,17 +49,25 @@ class ApiProtectionFilter extends OncePerRequestFilter {
 	private final TokenBucketLimiter creates;
 	private final TokenBucketLimiter regenerations;
 	private final Clock clock;
+	private final ClientIpResolver clients;
 	private LocalDate day;
 	private int createsToday;
 
 	/** Test slices (e.g. {@code @WebMvcTest}) do not bind configuration properties: then the defaults apply. */
 	@Autowired
-	ApiProtectionFilter(ObjectProvider<RateLimitProperties> limits) {
-		this(limits.getIfAvailable(RateLimitProperties::defaults), System::nanoTime, Clock.systemUTC());
+	ApiProtectionFilter(ObjectProvider<RateLimitProperties> limits, ObjectProvider<ClientIpProperties> clientIp) {
+		this(limits.getIfAvailable(RateLimitProperties::defaults), clientIp.getIfAvailable(ClientIpProperties::defaults),
+				System::nanoTime, Clock.systemUTC());
 	}
 
 	ApiProtectionFilter(RateLimitProperties limits, java.util.function.LongSupplier nanoClock, Clock clock) {
+		this(limits, ClientIpProperties.defaults(), nanoClock, clock);
+	}
+
+	ApiProtectionFilter(RateLimitProperties limits, ClientIpProperties clientIp, java.util.function.LongSupplier nanoClock,
+			Clock clock) {
 		this.limits = limits;
+		this.clients = new ClientIpResolver(clientIp);
 		this.creates = new TokenBucketLimiter(limits.createBurst(), limits.createsPerHour(), limits.maxClients(), nanoClock);
 		this.regenerations = new TokenBucketLimiter(limits.regenerateBurst(), limits.regenerationsPerHour(),
 				limits.maxClients(), nanoClock);
@@ -80,8 +88,17 @@ class ApiProtectionFilter extends OncePerRequestFilter {
 					"Request bodies are limited to " + MAX_BODY_BYTES + " bytes.", null);
 			return;
 		}
-		if (limits.enabled() && "POST".equals(request.getMethod())) {
-			String client = request.getRemoteAddr();
+		boolean limited = path.equals("/api/paths") || REGENERATE.matcher(path).matches();
+		if (limits.enabled() && "POST".equals(request.getMethod()) && limited) {
+			java.util.Optional<String> resolved = clients.resolve(request);
+			if (resolved.isEmpty()) {
+				// A trusted edge always sets the header; a missing or ambiguous value is never guessed at.
+				log.warn("Rejected a rate-limited request without a single valid client address in the trusted header");
+				problem(response, HttpStatus.BAD_REQUEST, "Client address unavailable",
+						"The request could not be attributed to a client address.", null);
+				return;
+			}
+			String client = resolved.get();
 			if (path.equals("/api/paths")) {
 				long wait = creates.tryAcquire(client);
 				if (wait == 0 && !takeDailyCreate()) {

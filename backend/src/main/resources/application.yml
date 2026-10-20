@@ -66,6 +66,9 @@ researchpath:
     path-days: 90
     snapshot-days: 30
     cron: "0 17 3 * * *"
+  client-ip:
+    # Empty = rate-limit by TCP connection address and ignore client-supplied headers (default).
+    trusted-header: ""
   rate-limit:
     # PROVISIONAL (S02): per connection; a new path costs provider requests, a rebuild only local work.
     enabled: true
