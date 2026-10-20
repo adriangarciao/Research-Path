@@ -44,6 +44,7 @@ final class Explanations {
 					"Selected mainly for relevance: the query's terms appear in its title or subject tags.");
 			case INFLUENCE -> influence(p);
 			case PREFERENCE_FIT -> preferenceFit(p, weights);
+			case LANDMARK -> landmark(p);
 		};
 	}
 
@@ -65,6 +66,13 @@ final class Explanations {
 		int more = labels.size() - shown.size();
 		return new Explanation("ADDS_CONCEPTS", "Adds subtopics the selection did not yet cover: " + join(shown)
 				+ (more > 0 ? " (and " + more + " more)" : "") + ".");
+	}
+
+	private static Explanation landmark(PathPaper p) {
+		String count = p.citedByCount() == null ? "" : " (" + String.format(java.util.Locale.ROOT, "%,d", p.citedByCount())
+				+ " citations)";
+		return new Explanation("LANDMARK", "Included as one of the most-cited works among the papers examined for this "
+				+ "topic" + count + ".");
 	}
 
 	private static Explanation influence(PathPaper p) {

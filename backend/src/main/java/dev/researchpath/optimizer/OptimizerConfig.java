@@ -14,9 +14,10 @@ import dev.researchpath.optimizer.Preferences.Experience;
  * @param landmarkShare λ: share of the influence component taken by the pool-relative raw citation signal
  *     (log(1 + citations) / log(1 + pool max)) instead of the normalized citation percentile. In [0, 1]; 0 = percentile
  *     only (decision D16).
+ * @param landmarkSeeds number of reserved landmark slots placed before greedy selection (D16); 0 = none
  */
 public record OptimizerConfig(double qualityShare, boolean qualityWeightedCoverage, double experienceWeight,
-		double landmarkShare) {
+		double landmarkShare, int landmarkSeeds) {
 
 	/** 2: experience weight lowered to 0.02 (D09); Intermediate selections unchanged. */
 	public static final int VERSION = 2;
@@ -45,12 +46,20 @@ public record OptimizerConfig(double qualityShare, boolean qualityWeightedCovera
 	/** Landmark share used when none is given (decision D16). */
 	public static final double DEFAULT_LANDMARK_SHARE = 0.0;
 
+	/** Landmark seeds used when none is given (decision D16). */
+	public static final int DEFAULT_LANDMARK_SEEDS = 0;
+
 	public OptimizerConfig(double qualityShare, boolean qualityWeightedCoverage) {
 		this(qualityShare, qualityWeightedCoverage, DEFAULT_EXPERIENCE_WEIGHT);
 	}
 
 	public OptimizerConfig(double qualityShare, boolean qualityWeightedCoverage, double experienceWeight) {
 		this(qualityShare, qualityWeightedCoverage, experienceWeight, DEFAULT_LANDMARK_SHARE);
+	}
+
+	public OptimizerConfig(double qualityShare, boolean qualityWeightedCoverage, double experienceWeight,
+			double landmarkShare) {
+		this(qualityShare, qualityWeightedCoverage, experienceWeight, landmarkShare, DEFAULT_LANDMARK_SEEDS);
 	}
 
 	public OptimizerConfig {
@@ -63,16 +72,24 @@ public record OptimizerConfig(double qualityShare, boolean qualityWeightedCovera
 		if (landmarkShare < 0 || landmarkShare > 1) {
 			throw new IllegalArgumentException("landmarkShare must be in [0, 1]");
 		}
+		if (landmarkSeeds < 0 || landmarkSeeds > 5) {
+			throw new IllegalArgumentException("landmarkSeeds must be in [0, 5]");
+		}
 	}
 
 	/** The same configuration with another experience weight (sweeps). */
 	public OptimizerConfig withExperienceWeight(double weight) {
-		return new OptimizerConfig(qualityShare, qualityWeightedCoverage, weight, landmarkShare);
+		return new OptimizerConfig(qualityShare, qualityWeightedCoverage, weight, landmarkShare, landmarkSeeds);
 	}
 
 	/** The same configuration with another quality share and landmark share (sweeps). */
 	public OptimizerConfig withQualityAndLandmark(double beta, double landmark) {
-		return new OptimizerConfig(beta, qualityWeightedCoverage, experienceWeight, landmark);
+		return new OptimizerConfig(beta, qualityWeightedCoverage, experienceWeight, landmark, landmarkSeeds);
+	}
+
+	/** The same configuration with another number of landmark seeds (sweeps). */
+	public OptimizerConfig withLandmarkSeeds(int seeds) {
+		return new OptimizerConfig(qualityShare, qualityWeightedCoverage, experienceWeight, landmarkShare, seeds);
 	}
 
 	/** Weights of the quality components; each profile sums to 1 and every weight is non-negative. */
