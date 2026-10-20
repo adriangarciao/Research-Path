@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import dev.researchpath.optimizer.TitleKey;
 
-/** M4 experiment on real frozen pools: the constraint holds and the motivating example is resolved. */
+/** D18 on real frozen pools: the constraint holds and the motivating example is resolved. */
 class TitleDiversityComparisonTest {
 
 	private static BenchmarkDataset dataset(String name) throws Exception {

@@ -1,7 +1,7 @@
 # M4 / release R7 — one paper per identical title (experiment)
 
-Status: **experiment, not adopted — awaiting the owner's decision.** Branch `experiment/title-diversity` (local, not
-merged, not pushed). Full tables: [before/after](benchmarks/title-diversity.md), [variants](benchmarks/title-diversity-variants.md).
+Status: **ADOPTED 2026-10-20 by the owner (decision D18, option 1)**, accepting the C2, C6 and C9 misses below.
+OptimizerConfig v4. Full tables: [before/after](benchmarks/title-diversity.md), [variants](benchmarks/title-diversity-variants.md).
 
 ## Change under test
 Inside greedy selection (not a post-filter), a candidate whose conservative title key equals that of an already
@@ -98,6 +98,12 @@ the quantum k = 5 `NO_CITATION_LINKS` above.
 (GNN selection and reading-path fingerprints — one paper changes at k = 20 — and the stored optimizer-config version
 3 → 4); browser e2e 7 passed (5 mobile skips, as before); live: a new "quantum error correction" path (k = 10)
 contains "Quantum Error Correction" once.
+
+## Decision (owner, 2026-10-20)
+Option 1 of three presented (adopt the hard constraint / do not adopt / soft λ = 0.01): **adopt the hard
+constraint**, explicitly accepting coverage −0.031 and redundancy +0.014 on "differential privacy" and the quantum
+k = 5 citation link, as with D16. The soft penalty stays in the code for evaluation only (default 0). The hyphen
+variant is not adopted ("Quantum error-correction" can still appear next to "Quantum Error Correction").
 
 ## Note on the metrics
 Coverage is the optimizer's own objective, so a loss partly measures "different from the unconstrained greedy

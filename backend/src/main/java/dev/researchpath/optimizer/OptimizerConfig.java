@@ -16,8 +16,9 @@ import dev.researchpath.optimizer.Preferences.Experience;
  *     only (decision D16).
  * @param landmarkSeeds number of reserved landmark slots placed before greedy selection (D16); 0 = none
  * @param distinctTitles at most one paper per {@link TitleKey} in a selection, a feasibility constraint inside greedy
- *     selection (M4, release R7; EXPERIMENT)
- * @param titleRepeatPenalty λ ≥ 0: soft alternative to {@code distinctTitles} (M4 experiment); a candidate whose title
+ *     selection (decision D18, release R7)
+ * @param titleRepeatPenalty λ ≥ 0: soft alternative to {@code distinctTitles}, evaluated for D18 and not adopted; a
+ *     candidate whose title
  *     key is already selected has its greedy gain reduced by λ instead of being infeasible; 0 = off
  */
 public record OptimizerConfig(double qualityShare, boolean qualityWeightedCoverage, double experienceWeight,
@@ -26,11 +27,18 @@ public record OptimizerConfig(double qualityShare, boolean qualityWeightedCovera
 	/**
 	 * 2: experience weight lowered to 0.02 (D09); Intermediate selections unchanged.
 	 * 3: two landmark seeds by default (D16).
-	 * 4: at most one paper per title (M4 experiment, not adopted until the owner decides).
+	 * 4: at most one paper per title (D18).
 	 */
 	public static final int VERSION = 4;
 
-	/** M4 / R7 experiment: one paper per conservative title key. See docs/evaluation/title-diversity.md. */
+	/**
+	 * D18 (owner decision, 2026-10-20): at most one paper per conservative title key, as a feasibility constraint
+	 * inside greedy selection. Removed all 19 repeated titles in 60 benchmark selections; relevance, landmarks at
+	 * k = 10, budgets and runtime unchanged; the owner accepted the pre-registered limits being exceeded on one fresh
+	 * topic (coverage −0.031, redundancy +0.014) and one quantum k = 5 path losing its only citation link. Greedy's
+	 * worst-case guarantee under this matroid constraint is 1/2 (1 − 1/e when no title repeats). See
+	 * docs/evaluation/title-diversity.md.
+	 */
 	public static final boolean DEFAULT_DISTINCT_TITLES = true;
 
 	/**
@@ -131,7 +139,7 @@ public record OptimizerConfig(double qualityShare, boolean qualityWeightedCovera
 				distinct, titleRepeatPenalty);
 	}
 
-	/** The same configuration with a soft title-repeat penalty λ (and no hard constraint): M4 alternative. */
+	/** The same configuration with a soft title-repeat penalty λ (and no hard constraint): evaluated, not adopted. */
 	public OptimizerConfig withTitleRepeatPenalty(double penalty) {
 		return new OptimizerConfig(qualityShare, qualityWeightedCoverage, experienceWeight, landmarkShare, landmarkSeeds,
 				false, penalty);

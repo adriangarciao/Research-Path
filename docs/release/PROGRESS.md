@@ -140,3 +140,27 @@ without hints). `verify.ps1` PASS (339 backend tests); live e2e 7 passed (5 mobi
 under Suggestions (checked in light and dark); "coral reef bleaching" → 95 of 100, no suggestion.
 **Note:** stored paths are immutable, so the hint appears on paths created from now on and on new revisions.
 **Next:** M4 — at most one paper per normalized title, evaluated under P12 before finalizing.
+
+## R-M4 — One paper per title (D18) — 2026-10-20
+**Status:** adopted by the owner (option 1 of 3), accepting the measured misses. OptimizerConfig v4.
+
+**Process (P12):** criteria C1–C9 and the conservative title key were committed before any code; 5 fresh
+200-candidate pools (compressed sensing, differential privacy, topological insulators, photocatalytic water splitting,
+few-shot learning) were frozen before the constraint existed. Run 1 failed C2/C6/C9, so a soft title-repeat penalty
+was pre-registered and swept (λ 0.005–0.2) before asking; it could not avoid the trade-off.
+**Changed:** `TitleKey` (case, NFC, quotes/dashes, whitespace, edge punctuation only); optional `titleKey` on
+`OptimizerCandidate`; `OptimizerConfig.distinctTitles` (default on) and `titleRepeatPenalty` (default 0, evaluation
+only); `GreedyOptimizer` treats a selected title as infeasible for later picks and landmark seeds, and explains a
+shortfall ("… with distinct titles … left out because a path holds one work per title"); exhaustive search respects
+the constraint; `TitleDiversityComparison` + reports in `docs/evaluation/benchmarks/title-diversity*.md`.
+**Results:** 19 → 0 repeated titles in 60 selections; quantum "Quantum Error Correction" once per path (was 2–4);
+relevance, budgets, landmarks at k = 10 and runtime unchanged; differential privacy coverage −0.031 / redundancy
++0.014; quantum k = 5 lost its only citation link. Guarantee 1/2 under the constraint (1 − 1/e without repeats);
+measured worst 0.931 on 80 tiny pools.
+**Tests:** `TitleKeyTest`, `TitleConstraintTest` (in-selection replacement, explained shortfall, untitled works,
+seeds, determinism, ≥ 1/2 of the constrained optimum, soft penalty), `TitleDiversityComparisonTest` (real pools);
+three deliberate pins updated (GNN selection and path fingerprints, optimizer-config version 4). `verify.ps1` PASS;
+browser e2e 7 passed (5 mobile skips); live quantum path shows the topic title once.
+**Remaining:** near-identical titles (hyphen vs space) still pass by design. Generated benchmark reports regenerated
+under v4.
+**Next:** release GO/NO-GO checklist and manual Vercel/Railway steps (owner-gated).

@@ -14,7 +14,7 @@ import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
-/** M4 experiment: one paper per title as a feasibility constraint inside greedy selection, and its soft alternative. */
+/** D18: one paper per title as a feasibility constraint inside greedy selection, and its soft alternative. */
 class TitleConstraintTest {
 
 	private static final OptimizerConfig OFF = OptimizerConfig.DEFAULT.withDistinctTitles(false);

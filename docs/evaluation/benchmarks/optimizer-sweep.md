@@ -26,26 +26,26 @@ Weighted concept coverage of the optimizer vs the best baseline for the same dat
 | Advanced/Balanced (chosen) | 10 | 0.672 | 0.419 (RELEVANCE) | +0.253 | 1.00 | 0.98 | 9.5 | 2016 | 0.50 | 3/10 |
 | Advanced/Foundational (chosen) | 10 | 0.672 | 0.419 (RELEVANCE) | +0.253 | 1.00 | 0.95 | 9.5 | 2016 | 0.50 | 3/10 |
 | Advanced/Recent (chosen) | 10 | 0.674 | 0.419 (RELEVANCE) | +0.255 | 1.00 | 0.98 | 25.5 | 2022 | 0.70 | 3/10 |
-| Intermediate/Balanced additive β=0.0 | 20 | 0.981 | 0.718 (RELEVANCE) | +0.263 | 1.00 | 0.68 | 3.0 | 2020 | 0.65 | 9/20 |
-| Intermediate/Balanced additive β=0.25 | 20 | 0.981 | 0.718 (RELEVANCE) | +0.263 | 1.00 | 0.78 | 4.5 | 2020 | 0.60 | 9/20 |
-| Intermediate/Balanced additive β=1.0 | 20 | 0.963 | 0.718 (RELEVANCE) | +0.245 | 1.00 | 0.84 | 4.5 | 2019 | 0.65 | 8/20 |
-| Intermediate/Balanced additive β=2.0 | 20 | 0.926 | 0.718 (RELEVANCE) | +0.208 | 1.00 | 0.95 | 9.5 | 2017 | 0.65 | 9/20 |
-| Intermediate/Balanced additive β=4.0 | 20 | 0.926 | 0.718 (RELEVANCE) | +0.208 | 1.00 | 0.91 | 9.5 | 2019 | 0.65 | 9/20 |
-| Intermediate/Balanced additive β=8.0 | 20 | 0.907 | 0.718 (RELEVANCE) | +0.189 | 1.00 | 0.97 | 16.0 | 2018 | 0.65 | 8/20 |
-| Intermediate/Balanced QW β=0.0 | 20 | 0.944 | 0.718 (RELEVANCE) | +0.226 | 1.00 | 0.80 | 4.5 | 2019 | 0.65 | 9/20 |
-| Intermediate/Balanced QW β=0.25 | 20 | 0.926 | 0.718 (RELEVANCE) | +0.208 | 1.00 | 0.84 | 7.0 | 2018 | 0.65 | 10/20 |
-| Intermediate/Balanced QW β=1.0 | 20 | 0.944 | 0.718 (RELEVANCE) | +0.226 | 1.00 | 0.84 | 7.0 | 2019 | 0.60 | 10/20 |
-| Intermediate/Balanced QW β=2.0 | 20 | 0.926 | 0.718 (RELEVANCE) | +0.208 | 1.00 | 0.91 | 7.0 | 2018 | 0.60 | 10/20 |
-| Intermediate/Balanced QW β=4.0 | 20 | 0.926 | 0.718 (RELEVANCE) | +0.208 | 1.00 | 0.95 | 20.5 | 2019 | 0.65 | 9/20 |
-| Intermediate/Balanced QW β=8.0 | 20 | 0.870 | 0.718 (RELEVANCE) | +0.152 | 1.00 | 0.97 | 15.0 | 2018 | 0.60 | 8/20 |
-| Beginner/Balanced (chosen) | 20 | 0.926 | 0.718 (RELEVANCE) | +0.208 | 1.00 | 0.91 | 9.5 | 2019 | 0.65 | 9/20 |
-| Beginner/Foundational (chosen) | 20 | 0.888 | 0.718 (RELEVANCE) | +0.170 | 1.00 | 0.97 | 15.0 | 2015 | 0.50 | 8/20 |
-| Beginner/Recent (chosen) | 20 | 0.907 | 0.718 (RELEVANCE) | +0.189 | 1.00 | 0.86 | 4.5 | 2020 | 0.70 | 10/20 |
-| Intermediate/Foundational (chosen) | 20 | 0.888 | 0.718 (RELEVANCE) | +0.170 | 1.00 | 0.95 | 9.5 | 2015 | 0.50 | 9/20 |
-| Intermediate/Recent (chosen) | 20 | 0.907 | 0.718 (RELEVANCE) | +0.189 | 1.00 | 0.86 | 4.5 | 2020 | 0.70 | 10/20 |
-| Advanced/Balanced (chosen) | 20 | 0.926 | 0.718 (RELEVANCE) | +0.208 | 1.00 | 0.95 | 20.5 | 2019 | 0.65 | 9/20 |
-| Advanced/Foundational (chosen) | 20 | 0.888 | 0.718 (RELEVANCE) | +0.170 | 1.00 | 0.95 | 9.5 | 2015 | 0.50 | 9/20 |
-| Advanced/Recent (chosen) | 20 | 0.907 | 0.718 (RELEVANCE) | +0.189 | 1.00 | 0.86 | 4.5 | 2020 | 0.70 | 10/20 |
+| Intermediate/Balanced additive β=0.0 | 20 | 1.000 | 0.718 (RELEVANCE) | +0.282 | 1.00 | 0.63 | 2.0 | 2020 | 0.70 | 7/20 |
+| Intermediate/Balanced additive β=0.25 | 20 | 1.000 | 0.718 (RELEVANCE) | +0.282 | 1.00 | 0.78 | 4.5 | 2020 | 0.65 | 7/20 |
+| Intermediate/Balanced additive β=1.0 | 20 | 0.981 | 0.718 (RELEVANCE) | +0.263 | 1.00 | 0.80 | 4.5 | 2020 | 0.70 | 6/20 |
+| Intermediate/Balanced additive β=2.0 | 20 | 0.944 | 0.718 (RELEVANCE) | +0.226 | 1.00 | 0.91 | 7.0 | 2019 | 0.65 | 8/20 |
+| Intermediate/Balanced additive β=4.0 | 20 | 0.926 | 0.718 (RELEVANCE) | +0.208 | 1.00 | 0.91 | 7.0 | 2019 | 0.65 | 8/20 |
+| Intermediate/Balanced additive β=8.0 | 20 | 0.888 | 0.718 (RELEVANCE) | +0.170 | 1.00 | 0.97 | 15.0 | 2018 | 0.60 | 7/20 |
+| Intermediate/Balanced QW β=0.0 | 20 | 0.963 | 0.718 (RELEVANCE) | +0.245 | 1.00 | 0.84 | 4.5 | 2019 | 0.65 | 7/20 |
+| Intermediate/Balanced QW β=0.25 | 20 | 0.963 | 0.718 (RELEVANCE) | +0.245 | 1.00 | 0.84 | 4.5 | 2019 | 0.65 | 7/20 |
+| Intermediate/Balanced QW β=1.0 | 20 | 0.963 | 0.718 (RELEVANCE) | +0.245 | 1.00 | 0.91 | 5.5 | 2019 | 0.65 | 8/20 |
+| Intermediate/Balanced QW β=2.0 | 20 | 0.926 | 0.718 (RELEVANCE) | +0.208 | 1.00 | 0.95 | 9.5 | 2018 | 0.65 | 8/20 |
+| Intermediate/Balanced QW β=4.0 | 20 | 0.907 | 0.718 (RELEVANCE) | +0.189 | 1.00 | 0.97 | 16.0 | 2019 | 0.65 | 8/20 |
+| Intermediate/Balanced QW β=8.0 | 20 | 0.851 | 0.718 (RELEVANCE) | +0.133 | 1.00 | 0.97 | 9.5 | 2019 | 0.60 | 8/20 |
+| Beginner/Balanced (chosen) | 20 | 0.926 | 0.718 (RELEVANCE) | +0.208 | 1.00 | 0.91 | 7.0 | 2019 | 0.65 | 8/20 |
+| Beginner/Foundational (chosen) | 20 | 0.870 | 0.718 (RELEVANCE) | +0.152 | 1.00 | 0.97 | 15.0 | 2016 | 0.55 | 7/20 |
+| Beginner/Recent (chosen) | 20 | 0.888 | 0.718 (RELEVANCE) | +0.170 | 1.00 | 0.86 | 3.0 | 2021 | 0.70 | 9/20 |
+| Intermediate/Foundational (chosen) | 20 | 0.870 | 0.718 (RELEVANCE) | +0.152 | 1.00 | 0.97 | 15.0 | 2016 | 0.55 | 7/20 |
+| Intermediate/Recent (chosen) | 20 | 0.888 | 0.718 (RELEVANCE) | +0.170 | 1.00 | 0.86 | 3.0 | 2021 | 0.70 | 9/20 |
+| Advanced/Balanced (chosen) | 20 | 0.926 | 0.718 (RELEVANCE) | +0.208 | 1.00 | 0.95 | 9.5 | 2019 | 0.65 | 8/20 |
+| Advanced/Foundational (chosen) | 20 | 0.907 | 0.718 (RELEVANCE) | +0.189 | 1.00 | 0.98 | 9.5 | 2016 | 0.60 | 7/20 |
+| Advanced/Recent (chosen) | 20 | 0.888 | 0.718 (RELEVANCE) | +0.170 | 1.00 | 0.86 | 3.0 | 2021 | 0.70 | 9/20 |
 
 ## climate change adaptation in agriculture
 
@@ -71,14 +71,14 @@ Weighted concept coverage of the optimizer vs the best baseline for the same dat
 | Advanced/Balanced (chosen) | 10 | 0.762 | 0.449 (CITATION) | +0.313 | 1.00 | 0.98 | 118.5 | 2020 | 0.30 | 2/10 |
 | Advanced/Foundational (chosen) | 10 | 0.641 | 0.449 (CITATION) | +0.192 | 1.00 | 0.96 | 114.5 | 2007 | 0.20 | 2/10 |
 | Advanced/Recent (chosen) | 10 | 0.712 | 0.449 (CITATION) | +0.263 | 1.00 | 0.99 | 118.5 | 2022 | 0.30 | 2/10 |
-| Intermediate/Balanced additive β=0.0 | 20 | 1.000 | 0.565 (CITATION) | +0.435 | 1.00 | 0.96 | 72.0 | 2014 | 0.50 | 2/20 |
+| Intermediate/Balanced additive β=0.0 | 20 | 1.000 | 0.565 (CITATION) | +0.435 | 1.00 | 0.96 | 76.0 | 2014 | 0.50 | 3/20 |
 | Intermediate/Balanced additive β=0.25 | 20 | 1.000 | 0.565 (CITATION) | +0.435 | 1.00 | 0.96 | 76.0 | 2016 | 0.40 | 3/20 |
 | Intermediate/Balanced additive β=1.0 | 20 | 1.000 | 0.565 (CITATION) | +0.435 | 1.00 | 0.97 | 76.0 | 2017 | 0.35 | 4/20 |
 | Intermediate/Balanced additive β=2.0 | 20 | 0.983 | 0.565 (CITATION) | +0.418 | 1.00 | 0.98 | 166.0 | 2015 | 0.40 | 6/20 |
 | Intermediate/Balanced additive β=4.0 | 20 | 0.947 | 0.565 (CITATION) | +0.382 | 1.00 | 0.98 | 166.0 | 2015 | 0.50 | 5/20 |
 | Intermediate/Balanced additive β=8.0 | 20 | 0.947 | 0.565 (CITATION) | +0.382 | 1.00 | 0.98 | 166.0 | 2015 | 0.50 | 5/20 |
-| Intermediate/Balanced QW β=0.0 | 20 | 1.000 | 0.565 (CITATION) | +0.435 | 1.00 | 0.96 | 72.0 | 2014 | 0.40 | 2/20 |
-| Intermediate/Balanced QW β=0.25 | 20 | 0.983 | 0.565 (CITATION) | +0.418 | 1.00 | 0.97 | 72.0 | 2017 | 0.40 | 3/20 |
+| Intermediate/Balanced QW β=0.0 | 20 | 1.000 | 0.565 (CITATION) | +0.435 | 1.00 | 0.96 | 72.0 | 2015 | 0.45 | 2/20 |
+| Intermediate/Balanced QW β=0.25 | 20 | 1.000 | 0.565 (CITATION) | +0.435 | 1.00 | 0.97 | 72.0 | 2017 | 0.40 | 3/20 |
 | Intermediate/Balanced QW β=1.0 | 20 | 0.983 | 0.565 (CITATION) | +0.418 | 1.00 | 0.98 | 85.0 | 2017 | 0.45 | 5/20 |
 | Intermediate/Balanced QW β=2.0 | 20 | 0.983 | 0.565 (CITATION) | +0.418 | 1.00 | 0.98 | 166.0 | 2016 | 0.45 | 6/20 |
 | Intermediate/Balanced QW β=4.0 | 20 | 0.927 | 0.565 (CITATION) | +0.362 | 1.00 | 0.98 | 185.0 | 2016 | 0.50 | 6/20 |
@@ -131,7 +131,7 @@ Weighted concept coverage of the optimizer vs the best baseline for the same dat
 | Beginner/Balanced (chosen) | 20 | 0.869 | 0.600 (CITATION) | +0.269 | 1.00 | 0.94 | 48.0 | 2022 | 0.75 | 10/20 |
 | Beginner/Foundational (chosen) | 20 | 0.820 | 0.600 (CITATION) | +0.220 | 1.00 | 0.94 | 50.0 | 2019 | 0.70 | 10/20 |
 | Beginner/Recent (chosen) | 20 | 0.868 | 0.600 (CITATION) | +0.268 | 1.00 | 0.91 | 12.0 | 2025 | 0.75 | 5/20 |
-| Intermediate/Foundational (chosen) | 20 | 0.756 | 0.600 (CITATION) | +0.156 | 1.00 | 0.94 | 50.0 | 2019 | 0.70 | 10/20 |
+| Intermediate/Foundational (chosen) | 20 | 0.774 | 0.600 (CITATION) | +0.174 | 1.00 | 0.94 | 50.0 | 2019 | 0.70 | 10/20 |
 | Intermediate/Recent (chosen) | 20 | 0.868 | 0.600 (CITATION) | +0.268 | 1.00 | 0.91 | 12.0 | 2025 | 0.75 | 5/20 |
 | Advanced/Balanced (chosen) | 20 | 0.869 | 0.600 (CITATION) | +0.269 | 1.00 | 0.94 | 48.0 | 2022 | 0.75 | 10/20 |
 | Advanced/Foundational (chosen) | 20 | 0.774 | 0.600 (CITATION) | +0.174 | 1.00 | 0.94 | 50.0 | 2019 | 0.70 | 10/20 |
@@ -155,18 +155,18 @@ Weighted concept coverage of the optimizer vs the best baseline for the same dat
 | Intermediate/Balanced QW β=8.0 | 10 | 0.704 | 0.459 (RELEVANCE) | +0.245 | 1.00 | 1.00 | 371.5 | 2021 | 0.80 | 2/10 |
 | Beginner/Balanced (chosen) | 10 | 0.704 | 0.459 (RELEVANCE) | +0.245 | 1.00 | 1.00 | 637.0 | 2021 | 0.80 | 2/10 |
 | Beginner/Foundational (chosen) | 10 | 0.688 | 0.459 (RELEVANCE) | +0.229 | 1.00 | 1.00 | 769.5 | 2020 | 0.80 | 2/10 |
-| Beginner/Recent (chosen) | 10 | 0.637 | 0.459 (RELEVANCE) | +0.178 | 1.00 | 1.00 | 381.5 | 2023 | 0.70 | 3/10 |
+| Beginner/Recent (chosen) | 10 | 0.641 | 0.459 (RELEVANCE) | +0.182 | 1.00 | 1.00 | 273.0 | 2023 | 0.70 | 2/10 |
 | Intermediate/Foundational (chosen) | 10 | 0.688 | 0.459 (RELEVANCE) | +0.229 | 1.00 | 1.00 | 769.5 | 2020 | 0.80 | 2/10 |
-| Intermediate/Recent (chosen) | 10 | 0.637 | 0.459 (RELEVANCE) | +0.178 | 1.00 | 1.00 | 381.5 | 2023 | 0.70 | 3/10 |
+| Intermediate/Recent (chosen) | 10 | 0.662 | 0.459 (RELEVANCE) | +0.203 | 1.00 | 1.00 | 364.0 | 2022 | 0.80 | 2/10 |
 | Advanced/Balanced (chosen) | 10 | 0.724 | 0.459 (RELEVANCE) | +0.265 | 1.00 | 1.00 | 614.0 | 2020 | 0.80 | 3/10 |
 | Advanced/Foundational (chosen) | 10 | 0.669 | 0.459 (RELEVANCE) | +0.210 | 1.00 | 1.00 | 515.5 | 2019 | 0.80 | 2/10 |
 | Advanced/Recent (chosen) | 10 | 0.696 | 0.459 (RELEVANCE) | +0.237 | 1.00 | 1.00 | 216.0 | 2022 | 0.70 | 2/10 |
 | Intermediate/Balanced additive β=0.0 | 20 | 1.000 | 0.719 (RELEVANCE) | +0.281 | 1.00 | 1.00 | 359.0 | 2020 | 0.70 | 9/20 |
 | Intermediate/Balanced additive β=0.25 | 20 | 1.000 | 0.719 (RELEVANCE) | +0.281 | 1.00 | 1.00 | 359.0 | 2020 | 0.70 | 9/20 |
 | Intermediate/Balanced additive β=1.0 | 20 | 0.986 | 0.719 (RELEVANCE) | +0.267 | 1.00 | 1.00 | 341.5 | 2020 | 0.75 | 9/20 |
-| Intermediate/Balanced additive β=2.0 | 20 | 0.969 | 0.719 (RELEVANCE) | +0.250 | 1.00 | 1.00 | 319.5 | 2021 | 0.70 | 8/20 |
-| Intermediate/Balanced additive β=4.0 | 20 | 0.969 | 0.719 (RELEVANCE) | +0.250 | 1.00 | 1.00 | 341.5 | 2021 | 0.75 | 9/20 |
-| Intermediate/Balanced additive β=8.0 | 20 | 0.969 | 0.719 (RELEVANCE) | +0.250 | 1.00 | 1.00 | 341.5 | 2021 | 0.75 | 9/20 |
+| Intermediate/Balanced additive β=2.0 | 20 | 0.986 | 0.719 (RELEVANCE) | +0.267 | 1.00 | 1.00 | 319.5 | 2021 | 0.75 | 8/20 |
+| Intermediate/Balanced additive β=4.0 | 20 | 0.986 | 0.719 (RELEVANCE) | +0.267 | 1.00 | 1.00 | 341.5 | 2020 | 0.75 | 9/20 |
+| Intermediate/Balanced additive β=8.0 | 20 | 0.986 | 0.719 (RELEVANCE) | +0.267 | 1.00 | 1.00 | 341.5 | 2020 | 0.75 | 9/20 |
 | Intermediate/Balanced QW β=0.0 | 20 | 0.951 | 0.719 (RELEVANCE) | +0.232 | 1.00 | 1.00 | 265.5 | 2021 | 0.70 | 5/20 |
 | Intermediate/Balanced QW β=0.25 | 20 | 0.951 | 0.719 (RELEVANCE) | +0.232 | 1.00 | 1.00 | 265.5 | 2021 | 0.70 | 5/20 |
 | Intermediate/Balanced QW β=1.0 | 20 | 0.951 | 0.719 (RELEVANCE) | +0.232 | 1.00 | 1.00 | 265.5 | 2021 | 0.70 | 5/20 |
@@ -175,12 +175,12 @@ Weighted concept coverage of the optimizer vs the best baseline for the same dat
 | Intermediate/Balanced QW β=8.0 | 20 | 0.955 | 0.719 (RELEVANCE) | +0.236 | 1.00 | 1.00 | 326.0 | 2021 | 0.75 | 6/20 |
 | Beginner/Balanced (chosen) | 20 | 0.982 | 0.719 (RELEVANCE) | +0.263 | 1.00 | 1.00 | 341.5 | 2021 | 0.75 | 7/20 |
 | Beginner/Foundational (chosen) | 20 | 0.969 | 0.719 (RELEVANCE) | +0.250 | 1.00 | 0.99 | 319.5 | 2020 | 0.75 | 7/20 |
-| Beginner/Recent (chosen) | 20 | 0.949 | 0.719 (RELEVANCE) | +0.230 | 1.00 | 1.00 | 276.5 | 2022 | 0.75 | 5/20 |
+| Beginner/Recent (chosen) | 20 | 0.951 | 0.719 (RELEVANCE) | +0.232 | 1.00 | 1.00 | 276.5 | 2022 | 0.80 | 4/20 |
 | Intermediate/Foundational (chosen) | 20 | 0.973 | 0.719 (RELEVANCE) | +0.254 | 1.00 | 1.00 | 341.5 | 2020 | 0.75 | 8/20 |
-| Intermediate/Recent (chosen) | 20 | 0.951 | 0.719 (RELEVANCE) | +0.232 | 1.00 | 1.00 | 326.0 | 2022 | 0.75 | 5/20 |
-| Advanced/Balanced (chosen) | 20 | 0.969 | 0.719 (RELEVANCE) | +0.250 | 1.00 | 1.00 | 341.5 | 2021 | 0.75 | 9/20 |
+| Intermediate/Recent (chosen) | 20 | 0.955 | 0.719 (RELEVANCE) | +0.236 | 1.00 | 1.00 | 276.5 | 2022 | 0.80 | 4/20 |
+| Advanced/Balanced (chosen) | 20 | 0.986 | 0.719 (RELEVANCE) | +0.267 | 1.00 | 1.00 | 341.5 | 2020 | 0.75 | 9/20 |
 | Advanced/Foundational (chosen) | 20 | 0.973 | 0.719 (RELEVANCE) | +0.254 | 1.00 | 1.00 | 341.5 | 2020 | 0.75 | 8/20 |
-| Advanced/Recent (chosen) | 20 | 0.953 | 0.719 (RELEVANCE) | +0.234 | 1.00 | 1.00 | 271.5 | 2022 | 0.70 | 5/20 |
+| Advanced/Recent (chosen) | 20 | 0.955 | 0.719 (RELEVANCE) | +0.236 | 1.00 | 1.00 | 271.5 | 2022 | 0.75 | 4/20 |
 
 ## AI-assisted medical diagnosis
 
@@ -276,91 +276,91 @@ Weighted concept coverage of the optimizer vs the best baseline for the same dat
 
 | Setting | k | Coverage | Best baseline | Δ | Relevance mean | Citation percentile median | Citations median | Year median | OA share | Overlap |
 |---|---:|---:|---|---:|---:|---:|---:|---:|---:|---:|
-| Intermediate/Balanced additive β=0.0 | 10 | 0.700 | 0.433 (RELEVANCE) | +0.267 | 1.00 | 0.88 | 341.0 | 2013 | 0.20 | 2/10 |
-| Intermediate/Balanced additive β=0.25 | 10 | 0.686 | 0.433 (RELEVANCE) | +0.253 | 1.00 | 0.99 | 398.5 | 2013 | 0.20 | 2/10 |
-| Intermediate/Balanced additive β=1.0 | 10 | 0.690 | 0.433 (RELEVANCE) | +0.257 | 1.00 | 1.00 | 399.0 | 2013 | 0.30 | 2/10 |
+| Intermediate/Balanced additive β=0.0 | 10 | 0.656 | 0.433 (RELEVANCE) | +0.223 | 1.00 | 0.97 | 398.5 | 2009 | 0.50 | 3/10 |
+| Intermediate/Balanced additive β=0.25 | 10 | 0.663 | 0.433 (RELEVANCE) | +0.230 | 1.00 | 0.99 | 495.5 | 2007 | 0.50 | 3/10 |
+| Intermediate/Balanced additive β=1.0 | 10 | 0.660 | 0.433 (RELEVANCE) | +0.227 | 1.00 | 0.99 | 409.0 | 2009 | 0.60 | 3/10 |
 | Intermediate/Balanced additive β=2.0 | 10 | 0.654 | 0.433 (RELEVANCE) | +0.221 | 1.00 | 0.99 | 408.5 | 2009 | 0.50 | 2/10 |
 | Intermediate/Balanced additive β=4.0 | 10 | 0.689 | 0.433 (RELEVANCE) | +0.256 | 1.00 | 1.00 | 335.0 | 2020 | 0.70 | 1/10 |
 | Intermediate/Balanced additive β=8.0 | 10 | 0.650 | 0.433 (RELEVANCE) | +0.217 | 1.00 | 1.00 | 503.5 | 2020 | 0.60 | 2/10 |
-| Intermediate/Balanced QW β=0.0 | 10 | 0.692 | 0.433 (RELEVANCE) | +0.259 | 1.00 | 0.88 | 175.0 | 2009 | 0.20 | 2/10 |
-| Intermediate/Balanced QW β=0.25 | 10 | 0.697 | 0.433 (RELEVANCE) | +0.264 | 1.00 | 0.99 | 312.5 | 2009 | 0.30 | 2/10 |
-| Intermediate/Balanced QW β=1.0 | 10 | 0.647 | 0.433 (RELEVANCE) | +0.214 | 1.00 | 0.99 | 240.0 | 2008 | 0.40 | 2/10 |
+| Intermediate/Balanced QW β=0.0 | 10 | 0.654 | 0.433 (RELEVANCE) | +0.221 | 1.00 | 0.99 | 240.0 | 2009 | 0.60 | 3/10 |
+| Intermediate/Balanced QW β=0.25 | 10 | 0.654 | 0.433 (RELEVANCE) | +0.221 | 1.00 | 0.99 | 240.0 | 2009 | 0.60 | 3/10 |
+| Intermediate/Balanced QW β=1.0 | 10 | 0.641 | 0.433 (RELEVANCE) | +0.208 | 1.00 | 1.00 | 408.5 | 2009 | 0.40 | 2/10 |
 | Intermediate/Balanced QW β=2.0 | 10 | 0.689 | 0.433 (RELEVANCE) | +0.256 | 1.00 | 1.00 | 335.0 | 2020 | 0.70 | 1/10 |
 | Intermediate/Balanced QW β=4.0 | 10 | 0.650 | 0.433 (RELEVANCE) | +0.217 | 1.00 | 1.00 | 503.5 | 2020 | 0.60 | 2/10 |
 | Intermediate/Balanced QW β=8.0 | 10 | 0.650 | 0.433 (RELEVANCE) | +0.217 | 1.00 | 1.00 | 503.5 | 2020 | 0.60 | 2/10 |
 | Beginner/Balanced (chosen) | 10 | 0.658 | 0.433 (RELEVANCE) | +0.225 | 1.00 | 1.00 | 336.5 | 2018 | 0.70 | 2/10 |
 | Beginner/Foundational (chosen) | 10 | 0.572 | 0.433 (RELEVANCE) | +0.139 | 1.00 | 0.99 | 530.5 | 2001 | 0.60 | 3/10 |
-| Beginner/Recent (chosen) | 10 | 0.659 | 0.433 (RELEVANCE) | +0.226 | 1.00 | 1.00 | 319.5 | 2021 | 0.50 | 1/10 |
+| Beginner/Recent (chosen) | 10 | 0.623 | 0.433 (RELEVANCE) | +0.190 | 1.00 | 1.00 | 319.5 | 2021 | 0.60 | 1/10 |
 | Intermediate/Foundational (chosen) | 10 | 0.568 | 0.433 (RELEVANCE) | +0.135 | 1.00 | 0.99 | 439.5 | 2001 | 0.50 | 2/10 |
-| Intermediate/Recent (chosen) | 10 | 0.659 | 0.433 (RELEVANCE) | +0.226 | 1.00 | 1.00 | 319.5 | 2021 | 0.50 | 1/10 |
+| Intermediate/Recent (chosen) | 10 | 0.623 | 0.433 (RELEVANCE) | +0.190 | 1.00 | 1.00 | 319.5 | 2021 | 0.60 | 1/10 |
 | Advanced/Balanced (chosen) | 10 | 0.689 | 0.433 (RELEVANCE) | +0.256 | 1.00 | 1.00 | 335.0 | 2020 | 0.70 | 1/10 |
 | Advanced/Foundational (chosen) | 10 | 0.568 | 0.433 (RELEVANCE) | +0.135 | 1.00 | 0.99 | 439.5 | 2001 | 0.50 | 2/10 |
-| Advanced/Recent (chosen) | 10 | 0.659 | 0.433 (RELEVANCE) | +0.226 | 1.00 | 1.00 | 319.5 | 2021 | 0.50 | 1/10 |
-| Intermediate/Balanced additive β=0.0 | 20 | 0.950 | 0.593 (CITATION) | +0.357 | 1.00 | 0.95 | 135.5 | 2010 | 0.35 | 4/20 |
-| Intermediate/Balanced additive β=0.25 | 20 | 0.950 | 0.593 (CITATION) | +0.357 | 1.00 | 0.97 | 167.0 | 2009 | 0.40 | 4/20 |
-| Intermediate/Balanced additive β=1.0 | 20 | 0.933 | 0.593 (CITATION) | +0.340 | 1.00 | 0.99 | 297.0 | 2009 | 0.55 | 5/20 |
-| Intermediate/Balanced additive β=2.0 | 20 | 0.933 | 0.593 (CITATION) | +0.340 | 1.00 | 1.00 | 297.0 | 2009 | 0.55 | 5/20 |
+| Advanced/Recent (chosen) | 10 | 0.623 | 0.433 (RELEVANCE) | +0.190 | 1.00 | 1.00 | 319.5 | 2021 | 0.60 | 1/10 |
+| Intermediate/Balanced additive β=0.0 | 20 | 0.933 | 0.593 (CITATION) | +0.340 | 1.00 | 0.97 | 166.5 | 2008 | 0.50 | 4/20 |
+| Intermediate/Balanced additive β=0.25 | 20 | 0.935 | 0.593 (CITATION) | +0.342 | 1.00 | 0.99 | 297.0 | 2008 | 0.50 | 5/20 |
+| Intermediate/Balanced additive β=1.0 | 20 | 0.933 | 0.593 (CITATION) | +0.340 | 1.00 | 0.99 | 297.0 | 2008 | 0.55 | 5/20 |
+| Intermediate/Balanced additive β=2.0 | 20 | 0.933 | 0.593 (CITATION) | +0.340 | 1.00 | 0.98 | 297.0 | 2008 | 0.55 | 5/20 |
 | Intermediate/Balanced additive β=4.0 | 20 | 0.933 | 0.593 (CITATION) | +0.340 | 1.00 | 0.98 | 225.0 | 2009 | 0.50 | 5/20 |
 | Intermediate/Balanced additive β=8.0 | 20 | 0.897 | 0.593 (CITATION) | +0.304 | 1.00 | 0.99 | 222.0 | 2009 | 0.55 | 6/20 |
-| Intermediate/Balanced QW β=0.0 | 20 | 0.950 | 0.593 (CITATION) | +0.357 | 1.00 | 0.96 | 138.0 | 2010 | 0.40 | 4/20 |
-| Intermediate/Balanced QW β=0.25 | 20 | 0.935 | 0.593 (CITATION) | +0.342 | 1.00 | 0.98 | 225.0 | 2010 | 0.45 | 4/20 |
-| Intermediate/Balanced QW β=1.0 | 20 | 0.933 | 0.593 (CITATION) | +0.340 | 1.00 | 0.99 | 297.0 | 2009 | 0.50 | 5/20 |
-| Intermediate/Balanced QW β=2.0 | 20 | 0.917 | 0.593 (CITATION) | +0.324 | 1.00 | 0.98 | 166.5 | 2008 | 0.50 | 4/20 |
+| Intermediate/Balanced QW β=0.0 | 20 | 0.933 | 0.593 (CITATION) | +0.340 | 1.00 | 0.98 | 297.0 | 2008 | 0.55 | 5/20 |
+| Intermediate/Balanced QW β=0.25 | 20 | 0.933 | 0.593 (CITATION) | +0.340 | 1.00 | 0.98 | 297.0 | 2008 | 0.55 | 5/20 |
+| Intermediate/Balanced QW β=1.0 | 20 | 0.933 | 0.593 (CITATION) | +0.340 | 1.00 | 0.98 | 225.0 | 2009 | 0.50 | 5/20 |
+| Intermediate/Balanced QW β=2.0 | 20 | 0.933 | 0.593 (CITATION) | +0.340 | 1.00 | 0.98 | 166.5 | 2009 | 0.55 | 4/20 |
 | Intermediate/Balanced QW β=4.0 | 20 | 0.915 | 0.593 (CITATION) | +0.322 | 1.00 | 0.99 | 225.0 | 2007 | 0.55 | 5/20 |
 | Intermediate/Balanced QW β=8.0 | 20 | 0.867 | 0.593 (CITATION) | +0.274 | 1.00 | 1.00 | 284.0 | 2008 | 0.65 | 6/20 |
 | Beginner/Balanced (chosen) | 20 | 0.933 | 0.593 (CITATION) | +0.340 | 1.00 | 0.99 | 398.5 | 2007 | 0.60 | 6/20 |
 | Beginner/Foundational (chosen) | 20 | 0.867 | 0.593 (CITATION) | +0.274 | 1.00 | 0.97 | 225.0 | 2003 | 0.55 | 6/20 |
-| Beginner/Recent (chosen) | 20 | 0.781 | 0.593 (CITATION) | +0.188 | 1.00 | 1.00 | 172.5 | 2021 | 0.65 | 3/20 |
+| Beginner/Recent (chosen) | 20 | 0.819 | 0.593 (CITATION) | +0.226 | 1.00 | 1.00 | 207.5 | 2021 | 0.60 | 3/20 |
 | Intermediate/Foundational (chosen) | 20 | 0.867 | 0.593 (CITATION) | +0.274 | 1.00 | 0.97 | 249.5 | 2003 | 0.55 | 6/20 |
-| Intermediate/Recent (chosen) | 20 | 0.781 | 0.593 (CITATION) | +0.188 | 1.00 | 1.00 | 132.0 | 2021 | 0.60 | 3/20 |
+| Intermediate/Recent (chosen) | 20 | 0.819 | 0.593 (CITATION) | +0.226 | 1.00 | 1.00 | 185.5 | 2021 | 0.60 | 3/20 |
 | Advanced/Balanced (chosen) | 20 | 0.933 | 0.593 (CITATION) | +0.340 | 1.00 | 0.98 | 225.0 | 2008 | 0.50 | 5/20 |
 | Advanced/Foundational (chosen) | 20 | 0.849 | 0.593 (CITATION) | +0.256 | 1.00 | 0.98 | 192.5 | 2003 | 0.50 | 5/20 |
-| Advanced/Recent (chosen) | 20 | 0.781 | 0.593 (CITATION) | +0.188 | 1.00 | 1.00 | 172.5 | 2021 | 0.60 | 3/20 |
+| Advanced/Recent (chosen) | 20 | 0.819 | 0.593 (CITATION) | +0.226 | 1.00 | 1.00 | 185.5 | 2021 | 0.60 | 3/20 |
 
 ## quantum error correction
 
 | Setting | k | Coverage | Best baseline | Δ | Relevance mean | Citation percentile median | Citations median | Year median | OA share | Overlap |
 |---|---:|---:|---|---:|---:|---:|---:|---:|---:|---:|
-| Intermediate/Balanced additive β=0.0 | 10 | 0.824 | 0.471 (CITATION) | +0.353 | 1.00 | 0.92 | 89.5 | 2021 | 0.50 | 3/10 |
-| Intermediate/Balanced additive β=0.25 | 10 | 0.837 | 0.471 (CITATION) | +0.366 | 1.00 | 0.97 | 122.5 | 2020 | 0.60 | 3/10 |
-| Intermediate/Balanced additive β=1.0 | 10 | 0.837 | 0.471 (CITATION) | +0.366 | 1.00 | 0.97 | 122.5 | 2020 | 0.60 | 3/10 |
-| Intermediate/Balanced additive β=2.0 | 10 | 0.837 | 0.471 (CITATION) | +0.366 | 1.00 | 0.98 | 195.0 | 2019 | 0.60 | 4/10 |
-| Intermediate/Balanced additive β=4.0 | 10 | 0.820 | 0.471 (CITATION) | +0.349 | 1.00 | 0.98 | 195.0 | 2019 | 0.60 | 4/10 |
-| Intermediate/Balanced additive β=8.0 | 10 | 0.723 | 0.471 (CITATION) | +0.252 | 1.00 | 0.99 | 158.5 | 2014 | 0.50 | 4/10 |
-| Intermediate/Balanced QW β=0.0 | 10 | 0.837 | 0.471 (CITATION) | +0.366 | 1.00 | 0.97 | 122.5 | 2020 | 0.60 | 3/10 |
-| Intermediate/Balanced QW β=0.25 | 10 | 0.837 | 0.471 (CITATION) | +0.366 | 1.00 | 0.97 | 122.5 | 2020 | 0.60 | 3/10 |
-| Intermediate/Balanced QW β=1.0 | 10 | 0.837 | 0.471 (CITATION) | +0.366 | 1.00 | 0.97 | 122.5 | 2020 | 0.60 | 3/10 |
-| Intermediate/Balanced QW β=2.0 | 10 | 0.820 | 0.471 (CITATION) | +0.349 | 1.00 | 0.97 | 122.5 | 2020 | 0.60 | 3/10 |
-| Intermediate/Balanced QW β=4.0 | 10 | 0.723 | 0.471 (CITATION) | +0.252 | 1.00 | 0.99 | 158.5 | 2014 | 0.50 | 4/10 |
-| Intermediate/Balanced QW β=8.0 | 10 | 0.723 | 0.471 (CITATION) | +0.252 | 1.00 | 0.99 | 158.5 | 2014 | 0.50 | 4/10 |
-| Beginner/Balanced (chosen) | 10 | 0.820 | 0.471 (CITATION) | +0.349 | 1.00 | 0.97 | 122.5 | 2020 | 0.60 | 3/10 |
+| Intermediate/Balanced additive β=0.0 | 10 | 0.825 | 0.471 (CITATION) | +0.354 | 1.00 | 0.98 | 122.5 | 2019 | 0.60 | 3/10 |
+| Intermediate/Balanced additive β=0.25 | 10 | 0.825 | 0.471 (CITATION) | +0.354 | 1.00 | 0.98 | 122.5 | 2019 | 0.60 | 3/10 |
+| Intermediate/Balanced additive β=1.0 | 10 | 0.825 | 0.471 (CITATION) | +0.354 | 1.00 | 0.98 | 122.5 | 2019 | 0.60 | 3/10 |
+| Intermediate/Balanced additive β=2.0 | 10 | 0.807 | 0.471 (CITATION) | +0.336 | 1.00 | 0.98 | 205.5 | 2017 | 0.70 | 4/10 |
+| Intermediate/Balanced additive β=4.0 | 10 | 0.807 | 0.471 (CITATION) | +0.336 | 1.00 | 0.98 | 205.5 | 2017 | 0.70 | 4/10 |
+| Intermediate/Balanced additive β=8.0 | 10 | 0.738 | 0.471 (CITATION) | +0.267 | 1.00 | 0.99 | 223.0 | 2019 | 0.70 | 4/10 |
+| Intermediate/Balanced QW β=0.0 | 10 | 0.825 | 0.471 (CITATION) | +0.354 | 1.00 | 0.98 | 122.5 | 2019 | 0.60 | 3/10 |
+| Intermediate/Balanced QW β=0.25 | 10 | 0.825 | 0.471 (CITATION) | +0.354 | 1.00 | 0.98 | 122.5 | 2019 | 0.60 | 3/10 |
+| Intermediate/Balanced QW β=1.0 | 10 | 0.787 | 0.471 (CITATION) | +0.316 | 1.00 | 0.98 | 177.0 | 2019 | 0.60 | 3/10 |
+| Intermediate/Balanced QW β=2.0 | 10 | 0.787 | 0.471 (CITATION) | +0.316 | 1.00 | 0.98 | 177.0 | 2019 | 0.60 | 3/10 |
+| Intermediate/Balanced QW β=4.0 | 10 | 0.720 | 0.471 (CITATION) | +0.249 | 1.00 | 0.99 | 427.0 | 2014 | 0.60 | 5/10 |
+| Intermediate/Balanced QW β=8.0 | 10 | 0.725 | 0.471 (CITATION) | +0.254 | 1.00 | 0.99 | 264.5 | 2020 | 0.70 | 4/10 |
+| Beginner/Balanced (chosen) | 10 | 0.792 | 0.471 (CITATION) | +0.321 | 1.00 | 0.97 | 164.0 | 2021 | 0.70 | 3/10 |
 | Beginner/Foundational (chosen) | 10 | 0.536 | 0.471 (CITATION) | +0.065 | 1.00 | 0.99 | 241.5 | 1997 | 0.60 | 4/10 |
-| Beginner/Recent (chosen) | 10 | 0.745 | 0.471 (CITATION) | +0.274 | 1.00 | 1.00 | 175.5 | 2022 | 0.60 | 3/10 |
+| Beginner/Recent (chosen) | 10 | 0.740 | 0.471 (CITATION) | +0.269 | 1.00 | 0.98 | 89.5 | 2022 | 0.70 | 3/10 |
 | Intermediate/Foundational (chosen) | 10 | 0.536 | 0.471 (CITATION) | +0.065 | 1.00 | 0.99 | 241.5 | 1997 | 0.60 | 4/10 |
-| Intermediate/Recent (chosen) | 10 | 0.745 | 0.471 (CITATION) | +0.274 | 1.00 | 1.00 | 175.5 | 2022 | 0.60 | 3/10 |
-| Advanced/Balanced (chosen) | 10 | 0.820 | 0.471 (CITATION) | +0.349 | 1.00 | 0.98 | 195.0 | 2019 | 0.60 | 4/10 |
+| Intermediate/Recent (chosen) | 10 | 0.740 | 0.471 (CITATION) | +0.269 | 1.00 | 0.98 | 89.5 | 2022 | 0.70 | 3/10 |
+| Advanced/Balanced (chosen) | 10 | 0.807 | 0.471 (CITATION) | +0.336 | 1.00 | 0.98 | 205.5 | 2017 | 0.70 | 4/10 |
 | Advanced/Foundational (chosen) | 10 | 0.536 | 0.471 (CITATION) | +0.065 | 1.00 | 0.99 | 241.5 | 1997 | 0.60 | 4/10 |
-| Advanced/Recent (chosen) | 10 | 0.745 | 0.471 (CITATION) | +0.274 | 1.00 | 1.00 | 175.5 | 2022 | 0.60 | 3/10 |
-| Intermediate/Balanced additive β=0.0 | 20 | 1.000 | 0.608 (CITATION) | +0.392 | 1.00 | 0.94 | 81.0 | 2019 | 0.55 | 3/20 |
-| Intermediate/Balanced additive β=0.25 | 20 | 1.000 | 0.608 (CITATION) | +0.392 | 1.00 | 0.94 | 94.5 | 2019 | 0.55 | 3/20 |
-| Intermediate/Balanced additive β=1.0 | 20 | 1.000 | 0.608 (CITATION) | +0.392 | 1.00 | 0.97 | 116.5 | 2019 | 0.65 | 4/20 |
-| Intermediate/Balanced additive β=2.0 | 20 | 0.982 | 0.608 (CITATION) | +0.374 | 1.00 | 0.97 | 116.5 | 2018 | 0.65 | 5/20 |
-| Intermediate/Balanced additive β=4.0 | 20 | 0.982 | 0.608 (CITATION) | +0.374 | 1.00 | 0.98 | 195.0 | 2016 | 0.70 | 6/20 |
-| Intermediate/Balanced additive β=8.0 | 20 | 0.982 | 0.608 (CITATION) | +0.374 | 1.00 | 0.98 | 195.0 | 2016 | 0.65 | 7/20 |
-| Intermediate/Balanced QW β=0.0 | 20 | 1.000 | 0.608 (CITATION) | +0.392 | 1.00 | 0.94 | 84.0 | 2019 | 0.45 | 3/20 |
-| Intermediate/Balanced QW β=0.25 | 20 | 1.000 | 0.608 (CITATION) | +0.392 | 1.00 | 0.97 | 103.5 | 2018 | 0.55 | 5/20 |
-| Intermediate/Balanced QW β=1.0 | 20 | 1.000 | 0.608 (CITATION) | +0.392 | 1.00 | 0.98 | 103.5 | 2018 | 0.65 | 5/20 |
-| Intermediate/Balanced QW β=2.0 | 20 | 0.982 | 0.608 (CITATION) | +0.374 | 1.00 | 0.97 | 116.5 | 2019 | 0.65 | 5/20 |
-| Intermediate/Balanced QW β=4.0 | 20 | 0.982 | 0.608 (CITATION) | +0.374 | 1.00 | 0.98 | 123.0 | 2018 | 0.65 | 6/20 |
-| Intermediate/Balanced QW β=8.0 | 20 | 0.917 | 0.608 (CITATION) | +0.309 | 1.00 | 0.99 | 315.5 | 2015 | 0.65 | 8/20 |
-| Beginner/Balanced (chosen) | 20 | 0.982 | 0.608 (CITATION) | +0.374 | 1.00 | 0.98 | 135.5 | 2018 | 0.70 | 5/20 |
-| Beginner/Foundational (chosen) | 20 | 0.787 | 0.608 (CITATION) | +0.179 | 1.00 | 0.97 | 205.5 | 1998 | 0.60 | 7/20 |
-| Beginner/Recent (chosen) | 20 | 0.946 | 0.608 (CITATION) | +0.338 | 1.00 | 0.99 | 89.5 | 2022 | 0.65 | 6/20 |
-| Intermediate/Foundational (chosen) | 20 | 0.787 | 0.608 (CITATION) | +0.179 | 1.00 | 0.99 | 205.5 | 1998 | 0.65 | 7/20 |
-| Intermediate/Recent (chosen) | 20 | 0.946 | 0.608 (CITATION) | +0.338 | 1.00 | 0.99 | 89.5 | 2022 | 0.65 | 6/20 |
-| Advanced/Balanced (chosen) | 20 | 0.982 | 0.608 (CITATION) | +0.374 | 1.00 | 0.98 | 195.0 | 2016 | 0.70 | 6/20 |
-| Advanced/Foundational (chosen) | 20 | 0.787 | 0.608 (CITATION) | +0.179 | 1.00 | 0.99 | 205.5 | 1998 | 0.65 | 7/20 |
-| Advanced/Recent (chosen) | 20 | 0.946 | 0.608 (CITATION) | +0.338 | 1.00 | 0.99 | 89.5 | 2022 | 0.65 | 6/20 |
+| Advanced/Recent (chosen) | 10 | 0.740 | 0.471 (CITATION) | +0.269 | 1.00 | 0.98 | 89.5 | 2022 | 0.70 | 3/10 |
+| Intermediate/Balanced additive β=0.0 | 20 | 1.000 | 0.608 (CITATION) | +0.392 | 1.00 | 0.97 | 103.5 | 2016 | 0.65 | 3/20 |
+| Intermediate/Balanced additive β=0.25 | 20 | 1.000 | 0.608 (CITATION) | +0.392 | 1.00 | 0.97 | 103.5 | 2016 | 0.70 | 3/20 |
+| Intermediate/Balanced additive β=1.0 | 20 | 0.985 | 0.608 (CITATION) | +0.377 | 1.00 | 0.97 | 103.5 | 2018 | 0.50 | 3/20 |
+| Intermediate/Balanced additive β=2.0 | 20 | 0.985 | 0.608 (CITATION) | +0.377 | 1.00 | 0.97 | 105.0 | 2018 | 0.65 | 3/20 |
+| Intermediate/Balanced additive β=4.0 | 20 | 0.985 | 0.608 (CITATION) | +0.377 | 1.00 | 0.98 | 124.0 | 2015 | 0.65 | 5/20 |
+| Intermediate/Balanced additive β=8.0 | 20 | 0.948 | 0.608 (CITATION) | +0.340 | 1.00 | 0.98 | 135.5 | 2016 | 0.70 | 5/20 |
+| Intermediate/Balanced QW β=0.0 | 20 | 0.985 | 0.608 (CITATION) | +0.377 | 1.00 | 0.98 | 103.5 | 2015 | 0.65 | 4/20 |
+| Intermediate/Balanced QW β=0.25 | 20 | 0.985 | 0.608 (CITATION) | +0.377 | 1.00 | 0.98 | 105.0 | 2015 | 0.75 | 4/20 |
+| Intermediate/Balanced QW β=1.0 | 20 | 0.985 | 0.608 (CITATION) | +0.377 | 1.00 | 0.97 | 103.5 | 2018 | 0.65 | 4/20 |
+| Intermediate/Balanced QW β=2.0 | 20 | 0.985 | 0.608 (CITATION) | +0.377 | 1.00 | 0.98 | 105.0 | 2018 | 0.60 | 3/20 |
+| Intermediate/Balanced QW β=4.0 | 20 | 0.929 | 0.608 (CITATION) | +0.321 | 1.00 | 0.97 | 117.5 | 2018 | 0.65 | 3/20 |
+| Intermediate/Balanced QW β=8.0 | 20 | 0.917 | 0.608 (CITATION) | +0.309 | 1.00 | 0.99 | 315.5 | 2015 | 0.75 | 8/20 |
+| Beginner/Balanced (chosen) | 20 | 0.948 | 0.608 (CITATION) | +0.340 | 1.00 | 0.97 | 105.0 | 2020 | 0.70 | 4/20 |
+| Beginner/Foundational (chosen) | 20 | 0.775 | 0.608 (CITATION) | +0.167 | 1.00 | 0.99 | 259.5 | 1998 | 0.65 | 8/20 |
+| Beginner/Recent (chosen) | 20 | 0.912 | 0.608 (CITATION) | +0.304 | 1.00 | 0.99 | 98.5 | 2022 | 0.70 | 6/20 |
+| Intermediate/Foundational (chosen) | 20 | 0.775 | 0.608 (CITATION) | +0.167 | 1.00 | 0.99 | 259.5 | 1998 | 0.70 | 8/20 |
+| Intermediate/Recent (chosen) | 20 | 0.912 | 0.608 (CITATION) | +0.304 | 1.00 | 0.99 | 98.5 | 2022 | 0.70 | 6/20 |
+| Advanced/Balanced (chosen) | 20 | 0.985 | 0.608 (CITATION) | +0.377 | 1.00 | 0.98 | 124.0 | 2015 | 0.65 | 5/20 |
+| Advanced/Foundational (chosen) | 20 | 0.775 | 0.608 (CITATION) | +0.167 | 1.00 | 0.99 | 259.5 | 1998 | 0.70 | 8/20 |
+| Advanced/Recent (chosen) | 20 | 0.912 | 0.608 (CITATION) | +0.304 | 1.00 | 0.99 | 98.5 | 2022 | 0.70 | 6/20 |
 
 ## reinforcement learning in robotics
 
@@ -397,9 +397,9 @@ Weighted concept coverage of the optimizer vs the best baseline for the same dat
 | Intermediate/Balanced QW β=1.0 | 20 | 0.986 | 0.583 (CITATION) | +0.403 | 1.00 | 0.91 | 28.5 | 2021 | 0.55 | 6/20 |
 | Intermediate/Balanced QW β=2.0 | 20 | 0.957 | 0.583 (CITATION) | +0.374 | 1.00 | 0.94 | 36.5 | 2021 | 0.60 | 7/20 |
 | Intermediate/Balanced QW β=4.0 | 20 | 0.921 | 0.583 (CITATION) | +0.338 | 1.00 | 0.94 | 58.0 | 2021 | 0.65 | 6/20 |
-| Intermediate/Balanced QW β=8.0 | 20 | 0.868 | 0.583 (CITATION) | +0.285 | 1.00 | 0.98 | 82.0 | 2020 | 0.60 | 8/20 |
+| Intermediate/Balanced QW β=8.0 | 20 | 0.905 | 0.583 (CITATION) | +0.322 | 1.00 | 0.97 | 69.0 | 2020 | 0.60 | 7/20 |
 | Beginner/Balanced (chosen) | 20 | 0.957 | 0.583 (CITATION) | +0.374 | 1.00 | 0.97 | 66.0 | 2021 | 0.60 | 7/20 |
-| Beginner/Foundational (chosen) | 20 | 0.890 | 0.583 (CITATION) | +0.307 | 1.00 | 0.98 | 74.0 | 2018 | 0.40 | 8/20 |
+| Beginner/Foundational (chosen) | 20 | 0.904 | 0.583 (CITATION) | +0.321 | 1.00 | 0.98 | 59.5 | 2018 | 0.40 | 7/20 |
 | Beginner/Recent (chosen) | 20 | 0.936 | 0.583 (CITATION) | +0.353 | 1.00 | 0.94 | 40.0 | 2023 | 0.70 | 5/20 |
 | Intermediate/Foundational (chosen) | 20 | 0.885 | 0.583 (CITATION) | +0.302 | 1.00 | 0.98 | 55.5 | 2015 | 0.35 | 7/20 |
 | Intermediate/Recent (chosen) | 20 | 0.936 | 0.583 (CITATION) | +0.353 | 1.00 | 0.94 | 40.0 | 2023 | 0.70 | 5/20 |

@@ -22,8 +22,8 @@ import dev.researchpath.sequence.ReadingPath;
 import dev.researchpath.sequence.SequenceBuilder;
 
 /**
- * M4 / release R7 experiment: the default configuration with and without the one-paper-per-title constraint, on
- * identical frozen pools, against criteria fixed before any result was seen (docs/evaluation/title-diversity.md).
+ * D18 evidence (M4 / release R7): the default configuration with and without the one-paper-per-title constraint,
+ * on identical frozen pools, against criteria fixed before any result was seen (docs/evaluation/title-diversity.md).
  */
 public final class TitleDiversityComparison {
 

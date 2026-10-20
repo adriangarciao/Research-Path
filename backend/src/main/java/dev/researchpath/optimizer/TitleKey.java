@@ -5,7 +5,7 @@ import java.util.Locale;
 import java.util.regex.Pattern;
 
 /**
- * Conservative "same displayed title" key for the one-paper-per-title constraint (M4, release R7). Only differences a
+ * Conservative "same displayed title" key for the one-paper-per-title constraint (D18). Only differences a
  * reader would not notice are ignored: case, Unicode composition, typographic quotes and dashes, runs of whitespace,
  * spacing around {@code : ; ,} and leading/trailing punctuation (e.g. a final period). Accents, hyphen vs space,
  * plurals, abbreviations and word order still distinguish titles; there is no fuzzy or semantic matching. Equal keys

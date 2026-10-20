@@ -12,7 +12,7 @@
   },
   "conceptPolicyVersion" : 1,
   "textPipelineVersion" : 3,
-  "ranAt" : "2026-10-20T03:50:01.476294600Z",
+  "ranAt" : "2026-10-20T23:18:16.234382Z",
   "environment" : "Java 21.0.3 (Eclipse Adoptium), Windows 10 amd64, 12 CPUs",
   "results" : [ {
     "selector" : "RELEVANCE",
@@ -40,7 +40,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 20169500
+    "selectionNanos" : 17895600
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -67,7 +67,7 @@
       "openAccessShare" : 0.7,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1733600
+    "selectionNanos" : 1336800
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -94,7 +94,7 @@
       "openAccessShare" : 0.667,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1065700
+    "selectionNanos" : 1179600
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -121,7 +121,7 @@
       "openAccessShare" : 0.55,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1017300
+    "selectionNanos" : 894200
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -148,7 +148,7 @@
       "openAccessShare" : 0.6,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1447600
+    "selectionNanos" : 1545100
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -175,7 +175,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 975000
+    "selectionNanos" : 1025500
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -202,7 +202,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1392800
+    "selectionNanos" : 906800
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -229,7 +229,7 @@
       "openAccessShare" : 0.75,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 960100
+    "selectionNanos" : 883100
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -256,7 +256,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 962900
+    "selectionNanos" : 753300
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -283,7 +283,7 @@
       "openAccessShare" : 0.7,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 921200
+    "selectionNanos" : 751500
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -310,7 +310,7 @@
       "openAccessShare" : 0.667,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 765700
+    "selectionNanos" : 772500
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -337,7 +337,7 @@
       "openAccessShare" : 0.55,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 688300
+    "selectionNanos" : 744700
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -364,7 +364,7 @@
       "openAccessShare" : 0.4,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 49439300
+    "selectionNanos" : 51373200
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -391,7 +391,7 @@
       "openAccessShare" : 0.5,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 21666700
+    "selectionNanos" : 24655200
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -418,12 +418,12 @@
       "openAccessShare" : 0.6,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 22181700
+    "selectionNanos" : 19223000
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
     "budget" : 20,
-    "selectedIds" : [ "W2462689321", "W3047877081", "W4206718038", "W3187440871", "W4211101300", "W2513629617", "W3022579435", "W2483709630", "W2996477010", "W4408767339", "W4400824990", "W2519132382", "W2970838271", "W7126002939", "W1604681736", "W2091675738", "W1593627163", "W3104946744", "W7213410752", "W2905572727" ],
+    "selectedIds" : [ "W2462689321", "W3047877081", "W4206718038", "W3187440871", "W4211101300", "W2513629617", "W3022579435", "W2483709630", "W2996477010", "W4408767339", "W4400824990", "W2519132382", "W2970838271", "W7126002939", "W1604681736", "W2091675738", "W3104946744", "W3009167168", "W7213410752", "W2905572727" ],
     "metrics" : {
       "budget" : 20,
       "selectedCount" : 20,
@@ -433,11 +433,11 @@
       "relevanceMin" : 1.0,
       "relevanceMean" : 1.0,
       "titleTermShareMean" : 0.95,
-      "redundancyJaccard" : 0.012,
-      "conceptRepeats" : 14,
+      "redundancyJaccard" : 0.009,
+      "conceptRepeats" : 10,
       "citationsKnownShare" : 1.0,
-      "citationsMedian" : 9.5,
-      "topQuartileCitationShare" : 0.5,
+      "citationsMedian" : 7.0,
+      "topQuartileCitationShare" : 0.45,
       "yearMin" : 1985,
       "yearMedian" : 2019,
       "yearMax" : 2026,
@@ -445,7 +445,7 @@
       "openAccessShare" : 0.65,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 20335100
+    "selectionNanos" : 18836600
   } ]
 }, {
   "datasetFile" : "climate-agriculture-200.json",
@@ -461,7 +461,7 @@
   },
   "conceptPolicyVersion" : 1,
   "textPipelineVersion" : 3,
-  "ranAt" : "2026-10-20T03:50:01.847516400Z",
+  "ranAt" : "2026-10-20T23:18:16.693310900Z",
   "environment" : "Java 21.0.3 (Eclipse Adoptium), Windows 10 amd64, 12 CPUs",
   "results" : [ {
     "selector" : "RELEVANCE",
@@ -489,7 +489,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1935900
+    "selectionNanos" : 2053300
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -516,7 +516,7 @@
       "openAccessShare" : 0.7,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1481900
+    "selectionNanos" : 1558100
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -543,7 +543,7 @@
       "openAccessShare" : 0.533,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1644400
+    "selectionNanos" : 1707700
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -570,7 +570,7 @@
       "openAccessShare" : 0.55,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1385200
+    "selectionNanos" : 2053800
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -597,7 +597,7 @@
       "openAccessShare" : 0.2,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1475400
+    "selectionNanos" : 1971400
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -624,7 +624,7 @@
       "openAccessShare" : 0.6,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1231000
+    "selectionNanos" : 1885400
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -651,7 +651,7 @@
       "openAccessShare" : 0.6,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1271000
+    "selectionNanos" : 3400400
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -678,7 +678,7 @@
       "openAccessShare" : 0.65,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1277100
+    "selectionNanos" : 2078000
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -705,7 +705,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1110900
+    "selectionNanos" : 1538000
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -732,7 +732,7 @@
       "openAccessShare" : 0.7,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 557700
+    "selectionNanos" : 1282800
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -759,7 +759,7 @@
       "openAccessShare" : 0.533,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 343800
+    "selectionNanos" : 1440900
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -786,7 +786,7 @@
       "openAccessShare" : 0.55,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 340700
+    "selectionNanos" : 1351400
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -813,7 +813,7 @@
       "openAccessShare" : 0.4,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 53414700
+    "selectionNanos" : 63955400
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -840,7 +840,7 @@
       "openAccessShare" : 0.3,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 59614000
+    "selectionNanos" : 66914500
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -867,7 +867,7 @@
       "openAccessShare" : 0.467,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 54422400
+    "selectionNanos" : 79300600
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -894,7 +894,7 @@
       "openAccessShare" : 0.5,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 47101700
+    "selectionNanos" : 69002200
   } ]
 }, {
   "datasetFile" : "crispr-200.json",
@@ -910,7 +910,7 @@
   },
   "conceptPolicyVersion" : 1,
   "textPipelineVersion" : 3,
-  "ranAt" : "2026-10-20T03:50:02.060190300Z",
+  "ranAt" : "2026-10-20T23:18:16.917720500Z",
   "environment" : "Java 21.0.3 (Eclipse Adoptium), Windows 10 amd64, 12 CPUs",
   "results" : [ {
     "selector" : "RELEVANCE",
@@ -938,7 +938,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 816700
+    "selectionNanos" : 763600
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -965,7 +965,7 @@
       "openAccessShare" : 0.9,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 300600
+    "selectionNanos" : 425400
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -992,7 +992,7 @@
       "openAccessShare" : 0.867,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 289100
+    "selectionNanos" : 591600
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -1019,7 +1019,7 @@
       "openAccessShare" : 0.9,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 292100
+    "selectionNanos" : 432200
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -1046,7 +1046,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 391100
+    "selectionNanos" : 472800
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -1073,7 +1073,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 365200
+    "selectionNanos" : 493700
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -1100,7 +1100,7 @@
       "openAccessShare" : 0.867,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 362800
+    "selectionNanos" : 460900
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -1127,7 +1127,7 @@
       "openAccessShare" : 0.85,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 390700
+    "selectionNanos" : 593100
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -1154,7 +1154,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 323500
+    "selectionNanos" : 396800
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -1181,7 +1181,7 @@
       "openAccessShare" : 0.9,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 274500
+    "selectionNanos" : 363200
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -1208,7 +1208,7 @@
       "openAccessShare" : 0.867,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 486400
+    "selectionNanos" : 349500
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -1235,7 +1235,7 @@
       "openAccessShare" : 0.9,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 377600
+    "selectionNanos" : 336300
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -1262,7 +1262,7 @@
       "openAccessShare" : 0.6,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 33061600
+    "selectionNanos" : 32225400
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -1289,7 +1289,7 @@
       "openAccessShare" : 0.7,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 38846200
+    "selectionNanos" : 35849000
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -1316,7 +1316,7 @@
       "openAccessShare" : 0.733,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 33559300
+    "selectionNanos" : 38893400
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -1343,7 +1343,7 @@
       "openAccessShare" : 0.75,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 33498300
+    "selectionNanos" : 33323400
   } ]
 }, {
   "datasetFile" : "gnn-200.json",
@@ -1359,7 +1359,7 @@
   },
   "conceptPolicyVersion" : 1,
   "textPipelineVersion" : 3,
-  "ranAt" : "2026-10-20T03:50:02.246868400Z",
+  "ranAt" : "2026-10-20T23:18:17.099465900Z",
   "environment" : "Java 21.0.3 (Eclipse Adoptium), Windows 10 amd64, 12 CPUs",
   "results" : [ {
     "selector" : "RELEVANCE",
@@ -1387,7 +1387,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 1191800
+    "selectionNanos" : 974800
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -1414,7 +1414,7 @@
       "openAccessShare" : 0.9,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 574600
+    "selectionNanos" : 361800
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -1441,7 +1441,7 @@
       "openAccessShare" : 0.933,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 503000
+    "selectionNanos" : 303300
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -1468,7 +1468,7 @@
       "openAccessShare" : 0.95,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 572500
+    "selectionNanos" : 309400
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -1495,7 +1495,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 610400
+    "selectionNanos" : 430000
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -1522,7 +1522,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 590200
+    "selectionNanos" : 421800
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -1549,7 +1549,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 576400
+    "selectionNanos" : 428900
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -1576,7 +1576,7 @@
       "openAccessShare" : 0.95,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 613500
+    "selectionNanos" : 495500
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -1603,7 +1603,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 480500
+    "selectionNanos" : 350100
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -1630,7 +1630,7 @@
       "openAccessShare" : 0.9,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 453200
+    "selectionNanos" : 372600
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -1657,7 +1657,7 @@
       "openAccessShare" : 0.933,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 464700
+    "selectionNanos" : 347900
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -1684,7 +1684,7 @@
       "openAccessShare" : 0.95,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 451100
+    "selectionNanos" : 360100
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -1711,7 +1711,7 @@
       "openAccessShare" : 0.4,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 32285700
+    "selectionNanos" : 36286200
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -1738,7 +1738,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 33167700
+    "selectionNanos" : 29334600
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -1765,34 +1765,34 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 29126600
+    "selectionNanos" : 29664500
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
     "budget" : 20,
-    "selectedIds" : [ "W2907492528", "W2116341502", "W2971567992", "W3036016037", "W3081203761", "W4214868967", "W3123909522", "W2980013009", "W3033892090", "W3042770487", "W3090999459", "W3126138172", "W4212835176", "W2963415211", "W2965857891", "W4392553889", "W2943959761", "W3035739162", "W3217045679", "W4206401350" ],
+    "selectedIds" : [ "W2907492528", "W2116341502", "W2971567992", "W3036016037", "W3081203761", "W4214868967", "W3123909522", "W2980013009", "W3033892090", "W3042770487", "W3090999459", "W3126138172", "W4212835176", "W2963415211", "W2965857891", "W4392553889", "W2943959761", "W3035739162", "W3217045679", "W3045255111" ],
     "metrics" : {
       "budget" : 20,
       "selectedCount" : 20,
       "conceptUniverseSize" : 50,
-      "conceptsCovered" : 48,
-      "weightedCoverage" : 0.969,
+      "conceptsCovered" : 49,
+      "weightedCoverage" : 0.986,
       "relevanceMin" : 1.0,
       "relevanceMean" : 1.0,
       "titleTermShareMean" : 1.0,
-      "redundancyJaccard" : 0.025,
-      "conceptRepeats" : 26,
+      "redundancyJaccard" : 0.026,
+      "conceptRepeats" : 25,
       "citationsKnownShare" : 1.0,
       "citationsMedian" : 341.5,
       "topQuartileCitationShare" : 0.4,
       "yearMin" : 2008,
-      "yearMedian" : 2021,
+      "yearMedian" : 2020,
       "yearMax" : 2024,
       "sourceLinkShare" : 1.0,
       "openAccessShare" : 0.75,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 29224300
+    "selectionNanos" : 33165500
   } ]
 }, {
   "datasetFile" : "medical-ai-200.json",
@@ -1808,7 +1808,7 @@
   },
   "conceptPolicyVersion" : 1,
   "textPipelineVersion" : 3,
-  "ranAt" : "2026-10-20T03:50:02.458872Z",
+  "ranAt" : "2026-10-20T23:18:17.275463Z",
   "environment" : "Java 21.0.3 (Eclipse Adoptium), Windows 10 amd64, 12 CPUs",
   "results" : [ {
     "selector" : "RELEVANCE",
@@ -1836,7 +1836,7 @@
       "openAccessShare" : 0.4,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 706900
+    "selectionNanos" : 710800
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -1863,7 +1863,7 @@
       "openAccessShare" : 0.5,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 548700
+    "selectionNanos" : 348200
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -1890,7 +1890,7 @@
       "openAccessShare" : 0.533,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 847300
+    "selectionNanos" : 295500
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -1917,7 +1917,7 @@
       "openAccessShare" : 0.65,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 566300
+    "selectionNanos" : 267900
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -1944,7 +1944,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 448800
+    "selectionNanos" : 298500
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -1971,7 +1971,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 768600
+    "selectionNanos" : 261900
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -1998,7 +1998,7 @@
       "openAccessShare" : 0.867,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 649800
+    "selectionNanos" : 263700
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -2025,7 +2025,7 @@
       "openAccessShare" : 0.9,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 487200
+    "selectionNanos" : 256500
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -2052,7 +2052,7 @@
       "openAccessShare" : 0.4,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 468200
+    "selectionNanos" : 201000
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -2079,7 +2079,7 @@
       "openAccessShare" : 0.5,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 453300
+    "selectionNanos" : 193900
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -2106,7 +2106,7 @@
       "openAccessShare" : 0.533,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 450200
+    "selectionNanos" : 203100
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -2133,7 +2133,7 @@
       "openAccessShare" : 0.6,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 449500
+    "selectionNanos" : 215300
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -2160,7 +2160,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 40338700
+    "selectionNanos" : 32570600
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -2187,7 +2187,7 @@
       "openAccessShare" : 0.9,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 39607300
+    "selectionNanos" : 31873100
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -2214,7 +2214,7 @@
       "openAccessShare" : 0.933,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 35507600
+    "selectionNanos" : 29073700
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -2241,7 +2241,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 35327700
+    "selectionNanos" : 29492800
   } ]
 }, {
   "datasetFile" : "nmt-200.json",
@@ -2257,7 +2257,7 @@
   },
   "conceptPolicyVersion" : 1,
   "textPipelineVersion" : 3,
-  "ranAt" : "2026-10-20T03:50:02.595684Z",
+  "ranAt" : "2026-10-20T23:18:17.429236300Z",
   "environment" : "Java 21.0.3 (Eclipse Adoptium), Windows 10 amd64, 12 CPUs",
   "results" : [ {
     "selector" : "RELEVANCE",
@@ -2285,7 +2285,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 851700
+    "selectionNanos" : 606700
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -2312,7 +2312,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 315300
+    "selectionNanos" : 164800
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -2339,7 +2339,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 256000
+    "selectionNanos" : 167500
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -2366,7 +2366,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 257700
+    "selectionNanos" : 148000
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -2393,7 +2393,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 345700
+    "selectionNanos" : 303200
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -2420,7 +2420,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 346800
+    "selectionNanos" : 232800
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -2447,7 +2447,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 360600
+    "selectionNanos" : 236300
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -2474,7 +2474,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 336200
+    "selectionNanos" : 222100
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -2501,7 +2501,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 249000
+    "selectionNanos" : 146400
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -2528,7 +2528,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 244800
+    "selectionNanos" : 157500
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -2555,7 +2555,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 234800
+    "selectionNanos" : 146600
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -2582,7 +2582,7 @@
       "openAccessShare" : 1.0,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 233400
+    "selectionNanos" : 147100
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -2609,7 +2609,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 25851200
+    "selectionNanos" : 32459000
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -2636,7 +2636,7 @@
       "openAccessShare" : 0.9,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 23240700
+    "selectionNanos" : 28265200
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -2663,7 +2663,7 @@
       "openAccessShare" : 0.933,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 19584100
+    "selectionNanos" : 22808100
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -2690,7 +2690,7 @@
       "openAccessShare" : 0.9,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 19885900
+    "selectionNanos" : 23484000
   } ]
 }, {
   "datasetFile" : "protein-structure-200.json",
@@ -2706,7 +2706,7 @@
   },
   "conceptPolicyVersion" : 1,
   "textPipelineVersion" : 3,
-  "ranAt" : "2026-10-20T03:50:02.736567300Z",
+  "ranAt" : "2026-10-20T23:18:17.568681400Z",
   "environment" : "Java 21.0.3 (Eclipse Adoptium), Windows 10 amd64, 12 CPUs",
   "results" : [ {
     "selector" : "RELEVANCE",
@@ -2734,7 +2734,7 @@
       "openAccessShare" : 0.2,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 612300
+    "selectionNanos" : 380700
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -2761,7 +2761,7 @@
       "openAccessShare" : 0.5,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 227500
+    "selectionNanos" : 149400
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -2788,7 +2788,7 @@
       "openAccessShare" : 0.533,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 183900
+    "selectionNanos" : 147500
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -2815,7 +2815,7 @@
       "openAccessShare" : 0.55,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 170800
+    "selectionNanos" : 151700
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -2842,7 +2842,7 @@
       "openAccessShare" : 0.6,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 269600
+    "selectionNanos" : 214500
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -2869,7 +2869,7 @@
       "openAccessShare" : 0.5,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 256000
+    "selectionNanos" : 211100
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -2896,7 +2896,7 @@
       "openAccessShare" : 0.667,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 454700
+    "selectionNanos" : 210300
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -2923,7 +2923,7 @@
       "openAccessShare" : 0.7,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 317800
+    "selectionNanos" : 210300
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -2950,7 +2950,7 @@
       "openAccessShare" : 0.2,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 217400
+    "selectionNanos" : 151700
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -2977,7 +2977,7 @@
       "openAccessShare" : 0.5,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 167500
+    "selectionNanos" : 139300
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -3004,7 +3004,7 @@
       "openAccessShare" : 0.533,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 152300
+    "selectionNanos" : 141600
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -3031,7 +3031,7 @@
       "openAccessShare" : 0.55,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 174500
+    "selectionNanos" : 151000
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -3058,7 +3058,7 @@
       "openAccessShare" : 0.6,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 28110900
+    "selectionNanos" : 23160200
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -3085,7 +3085,7 @@
       "openAccessShare" : 0.7,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 20597000
+    "selectionNanos" : 23884900
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -3112,7 +3112,7 @@
       "openAccessShare" : 0.6,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 22033600
+    "selectionNanos" : 24044000
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -3139,7 +3139,7 @@
       "openAccessShare" : 0.5,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 24484300
+    "selectionNanos" : 24458600
   } ]
 }, {
   "datasetFile" : "quantum-ec-200.json",
@@ -3155,7 +3155,7 @@
   },
   "conceptPolicyVersion" : 1,
   "textPipelineVersion" : 3,
-  "ranAt" : "2026-10-20T03:50:02.859017500Z",
+  "ranAt" : "2026-10-20T23:18:17.715706500Z",
   "environment" : "Java 21.0.3 (Eclipse Adoptium), Windows 10 amd64, 12 CPUs",
   "results" : [ {
     "selector" : "RELEVANCE",
@@ -3183,7 +3183,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 437800
+    "selectionNanos" : 483400
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -3210,7 +3210,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 143200
+    "selectionNanos" : 180300
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -3237,7 +3237,7 @@
       "openAccessShare" : 0.733,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 125600
+    "selectionNanos" : 180500
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -3264,7 +3264,7 @@
       "openAccessShare" : 0.75,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 120600
+    "selectionNanos" : 178000
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -3291,7 +3291,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 199300
+    "selectionNanos" : 253200
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -3318,7 +3318,7 @@
       "openAccessShare" : 0.9,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 178100
+    "selectionNanos" : 221900
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -3345,7 +3345,7 @@
       "openAccessShare" : 0.933,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 196500
+    "selectionNanos" : 211500
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -3372,7 +3372,7 @@
       "openAccessShare" : 0.9,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 236000
+    "selectionNanos" : 236600
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -3399,7 +3399,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 176900
+    "selectionNanos" : 622800
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -3426,7 +3426,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 118000
+    "selectionNanos" : 937100
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -3453,7 +3453,7 @@
       "openAccessShare" : 0.733,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 115900
+    "selectionNanos" : 526100
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -3480,115 +3480,115 @@
       "openAccessShare" : 0.75,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 121700
+    "selectionNanos" : 416100
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
     "budget" : 5,
-    "selectedIds" : [ "W2060887031", "W3033331243", "W4405183524", "W4210753780", "W571950922" ],
+    "selectedIds" : [ "W2060887031", "W3033331243", "W4405183524", "W571950922", "W2803105322" ],
     "metrics" : {
       "budget" : 5,
       "selectedCount" : 5,
       "conceptUniverseSize" : 50,
-      "conceptsCovered" : 29,
-      "weightedCoverage" : 0.621,
+      "conceptsCovered" : 28,
+      "weightedCoverage" : 0.604,
       "relevanceMin" : 1.0,
       "relevanceMean" : 1.0,
       "titleTermShareMean" : 1.0,
-      "redundancyJaccard" : 0.044,
+      "redundancyJaccard" : 0.045,
       "conceptRepeats" : 5,
       "citationsKnownShare" : 1.0,
       "citationsMedian" : 248.0,
       "topQuartileCitationShare" : 0.6,
       "yearMin" : 1996,
-      "yearMedian" : 2020,
+      "yearMedian" : 2019,
       "yearMax" : 2024,
       "sourceLinkShare" : 1.0,
-      "openAccessShare" : 0.6,
+      "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 21784900
+    "selectionNanos" : 28471100
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
     "budget" : 10,
-    "selectedIds" : [ "W2060887031", "W2167413626", "W3033331243", "W3176428101", "W571950922", "W2803105322", "W4405183524", "W4210753780", "W2098838878", "W2893961856" ],
+    "selectedIds" : [ "W2060887031", "W2167413626", "W3033331243", "W4405183524", "W571950922", "W2803105322", "W4286600165", "W142413548", "W2098838878", "W2893961856" ],
     "metrics" : {
       "budget" : 10,
       "selectedCount" : 10,
       "conceptUniverseSize" : 50,
-      "conceptsCovered" : 40,
-      "weightedCoverage" : 0.82,
+      "conceptsCovered" : 39,
+      "weightedCoverage" : 0.807,
       "relevanceMin" : 1.0,
       "relevanceMean" : 1.0,
       "titleTermShareMean" : 1.0,
-      "redundancyJaccard" : 0.03,
-      "conceptRepeats" : 14,
+      "redundancyJaccard" : 0.022,
+      "conceptRepeats" : 11,
       "citationsKnownShare" : 1.0,
-      "citationsMedian" : 195.0,
-      "topQuartileCitationShare" : 0.5,
+      "citationsMedian" : 205.5,
+      "topQuartileCitationShare" : 0.6,
       "yearMin" : 1996,
-      "yearMedian" : 2019,
-      "yearMax" : 2024,
-      "sourceLinkShare" : 1.0,
-      "openAccessShare" : 0.6,
-      "duplicateDoiPairs" : 0
-    },
-    "selectionNanos" : 20463600
-  }, {
-    "selector" : "OPTIMIZER",
-    "selectorVersion" : 1,
-    "budget" : 15,
-    "selectedIds" : [ "W2060887031", "W2167413626", "W3033331243", "W3176428101", "W571950922", "W2803105322", "W4405183524", "W4210753780", "W2098838878", "W2893961856", "W1983447989", "W3181660950", "W2621945747", "W4214882324", "W4301287831" ],
-    "metrics" : {
-      "budget" : 15,
-      "selectedCount" : 15,
-      "conceptUniverseSize" : 50,
-      "conceptsCovered" : 46,
-      "weightedCoverage" : 0.93,
-      "relevanceMin" : 1.0,
-      "relevanceMean" : 1.0,
-      "titleTermShareMean" : 1.0,
-      "redundancyJaccard" : 0.03,
-      "conceptRepeats" : 24,
-      "citationsKnownShare" : 1.0,
-      "citationsMedian" : 248.0,
-      "topQuartileCitationShare" : 0.533,
-      "yearMin" : 1996,
-      "yearMedian" : 2019,
-      "yearMax" : 2024,
-      "sourceLinkShare" : 1.0,
-      "openAccessShare" : 0.667,
-      "duplicateDoiPairs" : 0
-    },
-    "selectionNanos" : 21313700
-  }, {
-    "selector" : "OPTIMIZER",
-    "selectorVersion" : 1,
-    "budget" : 20,
-    "selectedIds" : [ "W2060887031", "W2167413626", "W3033331243", "W3176428101", "W571950922", "W2803105322", "W4405183524", "W4286600165", "W2098838878", "W2893961856", "W1983447989", "W3181660950", "W2621945747", "W4214882324", "W4301287831", "W2141783987", "W1679069470", "W1984021697", "W3128237057", "W2095025840" ],
-    "metrics" : {
-      "budget" : 20,
-      "selectedCount" : 20,
-      "conceptUniverseSize" : 50,
-      "conceptsCovered" : 49,
-      "weightedCoverage" : 0.982,
-      "relevanceMin" : 1.0,
-      "relevanceMean" : 1.0,
-      "titleTermShareMean" : 1.0,
-      "redundancyJaccard" : 0.037,
-      "conceptRepeats" : 38,
-      "citationsKnownShare" : 1.0,
-      "citationsMedian" : 195.0,
-      "topQuartileCitationShare" : 0.5,
-      "yearMin" : 1996,
-      "yearMedian" : 2016,
+      "yearMedian" : 2017,
       "yearMax" : 2024,
       "sourceLinkShare" : 1.0,
       "openAccessShare" : 0.7,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 21720600
+    "selectionNanos" : 23743300
+  }, {
+    "selector" : "OPTIMIZER",
+    "selectorVersion" : 1,
+    "budget" : 15,
+    "selectedIds" : [ "W2060887031", "W2167413626", "W3033331243", "W4405183524", "W571950922", "W2803105322", "W4286600165", "W142413548", "W2098838878", "W2893961856", "W1983447989", "W3011328405", "W2621945747", "W4214882324", "W1679069470" ],
+    "metrics" : {
+      "budget" : 15,
+      "selectedCount" : 15,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 45,
+      "weightedCoverage" : 0.915,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.022,
+      "conceptRepeats" : 20,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 142.0,
+      "topQuartileCitationShare" : 0.467,
+      "yearMin" : 1996,
+      "yearMedian" : 2017,
+      "yearMax" : 2024,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.667,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 24982300
+  }, {
+    "selector" : "OPTIMIZER",
+    "selectorVersion" : 1,
+    "budget" : 20,
+    "selectedIds" : [ "W2060887031", "W2167413626", "W3033331243", "W4405183524", "W571950922", "W4286600165", "W2803105322", "W142413548", "W2098838878", "W2893961856", "W1983447989", "W3011328405", "W2621945747", "W4214882324", "W1679069470", "W4389168214", "W2141783987", "W1984021697", "W2963591320", "W2095025840" ],
+    "metrics" : {
+      "budget" : 20,
+      "selectedCount" : 20,
+      "conceptUniverseSize" : 50,
+      "conceptsCovered" : 49,
+      "weightedCoverage" : 0.985,
+      "relevanceMin" : 1.0,
+      "relevanceMean" : 1.0,
+      "titleTermShareMean" : 1.0,
+      "redundancyJaccard" : 0.034,
+      "conceptRepeats" : 34,
+      "citationsKnownShare" : 1.0,
+      "citationsMedian" : 124.0,
+      "topQuartileCitationShare" : 0.45,
+      "yearMin" : 1996,
+      "yearMedian" : 2015,
+      "yearMax" : 2024,
+      "sourceLinkShare" : 1.0,
+      "openAccessShare" : 0.65,
+      "duplicateDoiPairs" : 0
+    },
+    "selectionNanos" : 25889200
   } ]
 }, {
   "datasetFile" : "rl-robotics-200.json",
@@ -3604,7 +3604,7 @@
   },
   "conceptPolicyVersion" : 1,
   "textPipelineVersion" : 3,
-  "ranAt" : "2026-10-20T03:50:03.008218900Z",
+  "ranAt" : "2026-10-20T23:18:17.883261100Z",
   "environment" : "Java 21.0.3 (Eclipse Adoptium), Windows 10 amd64, 12 CPUs",
   "results" : [ {
     "selector" : "RELEVANCE",
@@ -3632,7 +3632,7 @@
       "openAccessShare" : 0.2,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 462000
+    "selectionNanos" : 460300
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -3659,7 +3659,7 @@
       "openAccessShare" : 0.4,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 132900
+    "selectionNanos" : 120700
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -3686,7 +3686,7 @@
       "openAccessShare" : 0.467,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 132100
+    "selectionNanos" : 127500
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -3713,7 +3713,7 @@
       "openAccessShare" : 0.55,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 115500
+    "selectionNanos" : 115600
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -3740,7 +3740,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 210300
+    "selectionNanos" : 183100
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -3767,7 +3767,7 @@
       "openAccessShare" : 0.7,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 180600
+    "selectionNanos" : 184900
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -3794,7 +3794,7 @@
       "openAccessShare" : 0.667,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 185700
+    "selectionNanos" : 189400
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -3821,7 +3821,7 @@
       "openAccessShare" : 0.55,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 182100
+    "selectionNanos" : 174900
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -3848,7 +3848,7 @@
       "openAccessShare" : 0.2,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 151100
+    "selectionNanos" : 127200
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -3875,7 +3875,7 @@
       "openAccessShare" : 0.4,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 122600
+    "selectionNanos" : 108700
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -3902,7 +3902,7 @@
       "openAccessShare" : 0.467,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 123500
+    "selectionNanos" : 109300
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -3929,7 +3929,7 @@
       "openAccessShare" : 0.55,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 114400
+    "selectionNanos" : 108200
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -3956,7 +3956,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 27686600
+    "selectionNanos" : 33520600
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -3983,7 +3983,7 @@
       "openAccessShare" : 0.5,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 31885700
+    "selectionNanos" : 28977600
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -4010,7 +4010,7 @@
       "openAccessShare" : 0.533,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 24983500
+    "selectionNanos" : 26692800
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -4037,7 +4037,7 @@
       "openAccessShare" : 0.6,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 26207700
+    "selectionNanos" : 36617200
   } ]
 }, {
   "datasetFile" : "urban-heat-200.json",
@@ -4053,7 +4053,7 @@
   },
   "conceptPolicyVersion" : 1,
   "textPipelineVersion" : 3,
-  "ranAt" : "2026-10-20T03:50:03.182394600Z",
+  "ranAt" : "2026-10-20T23:18:18.120899200Z",
   "environment" : "Java 21.0.3 (Eclipse Adoptium), Windows 10 amd64, 12 CPUs",
   "results" : [ {
     "selector" : "RELEVANCE",
@@ -4081,7 +4081,7 @@
       "openAccessShare" : 0.6,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 478700
+    "selectionNanos" : 503800
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -4108,7 +4108,7 @@
       "openAccessShare" : 0.5,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 182900
+    "selectionNanos" : 150700
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -4135,7 +4135,7 @@
       "openAccessShare" : 0.4,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 145300
+    "selectionNanos" : 154600
   }, {
     "selector" : "RELEVANCE",
     "selectorVersion" : 1,
@@ -4162,7 +4162,7 @@
       "openAccessShare" : 0.35,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 137100
+    "selectionNanos" : 163400
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -4189,7 +4189,7 @@
       "openAccessShare" : 0.8,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 246800
+    "selectionNanos" : 224300
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -4216,7 +4216,7 @@
       "openAccessShare" : 0.4,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 197100
+    "selectionNanos" : 323000
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -4243,7 +4243,7 @@
       "openAccessShare" : 0.4,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 210600
+    "selectionNanos" : 246800
   }, {
     "selector" : "CITATION",
     "selectorVersion" : 1,
@@ -4270,7 +4270,7 @@
       "openAccessShare" : 0.35,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 199200
+    "selectionNanos" : 248500
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -4297,7 +4297,7 @@
       "openAccessShare" : 0.6,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 132700
+    "selectionNanos" : 187000
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -4324,7 +4324,7 @@
       "openAccessShare" : 0.5,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 136300
+    "selectionNanos" : 131400
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -4351,7 +4351,7 @@
       "openAccessShare" : 0.4,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 134500
+    "selectionNanos" : 141000
   }, {
     "selector" : "PROVIDER_ORDER",
     "selectorVersion" : 1,
@@ -4378,7 +4378,7 @@
       "openAccessShare" : 0.35,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 150200
+    "selectionNanos" : 198400
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -4405,7 +4405,7 @@
       "openAccessShare" : 0.6,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 29240500
+    "selectionNanos" : 47548100
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -4432,7 +4432,7 @@
       "openAccessShare" : 0.6,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 38845300
+    "selectionNanos" : 47910500
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -4459,7 +4459,7 @@
       "openAccessShare" : 0.6,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 33021800
+    "selectionNanos" : 49669300
   }, {
     "selector" : "OPTIMIZER",
     "selectorVersion" : 1,
@@ -4486,6 +4486,6 @@
       "openAccessShare" : 0.5,
       "duplicateDoiPairs" : 0
     },
-    "selectionNanos" : 27674900
+    "selectionNanos" : 38003700
   } ]
 } ]

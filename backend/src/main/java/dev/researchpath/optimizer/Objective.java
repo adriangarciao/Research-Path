@@ -10,7 +10,9 @@ import java.util.Map;
  *
  * <p>The coverage term is probabilistic weighted coverage (monotone submodular: each further paper on a concept
  * adds less); the quality term is modular with q_p ≥ 0. Their non-negative sum is monotone submodular, so greedy
- * selection under a cardinality budget has the standard (1 − 1/e) guarantee for this objective. Pure and
+ * selection under a cardinality budget has the standard (1 − 1/e) guarantee for this objective. With at most one
+ * paper per title (D18) the feasible sets form a matroid and greedy guarantees 1/2 of the best title-distinct set
+ * (Fisher, Nemhauser and Wolsey 1978); without repeated titles in the pool the two coincide. Pure and
  * deterministic.
  */
 public final class Objective {

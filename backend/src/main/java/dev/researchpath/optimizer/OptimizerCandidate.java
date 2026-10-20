@@ -15,7 +15,7 @@ import java.util.Map;
  * @param overviewLike title/type marks a survey, review, tutorial or introduction (weak accessibility cue)
  * @param citations raw citation count, null if unknown (only compared within the pool: landmark signal, D16)
  * @param titleKey {@link TitleKey} of the displayed title, null if none; at most one paper per key when the
- *     configuration asks for distinct titles (M4)
+ *     configuration asks for distinct titles (D18)
  */
 public record OptimizerCandidate(String id, int providerRank, Map<String, Double> concepts, double relevance,
 		Double influence, Integer year, boolean overviewLike, Integer citations, String titleKey) {

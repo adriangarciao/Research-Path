@@ -14,7 +14,7 @@ import java.util.TreeMap;
  * recomputed conditional on the papers already chosen; the largest gain wins, ties broken by quality,
  * then provider rank, then id. Never exceeds the budget or repeats a candidate. With
  * {@link OptimizerConfig#distinctTitles()}, a candidate whose {@link TitleKey} is already selected is infeasible
- * (landmark seeds included), so a path holds at most one work per title (M4). Pure, deterministic,
+ * (landmark seeds included), so a path holds at most one work per title (D18). Pure, deterministic,
  * O(k · n · concepts).
  */
 public final class GreedyOptimizer {
@@ -96,7 +96,7 @@ public final class GreedyOptimizer {
 				double qual = objective.qualityGain(c);
 				double gain = cov + qual;
 				if (penalty > 0 && c.titleKey() != null && selectedTitles.contains(c.titleKey())) {
-					gain -= penalty; // soft alternative (M4 experiment): a repeated title must earn more than λ
+					gain -= penalty; // soft alternative (evaluated for D18, off by default): a repeat must earn more than λ
 				}
 				if (best == null || gain > bestGain + 1e-12
 						|| (Math.abs(gain - bestGain) <= 1e-12 && qual > bestQuality + 1e-12)) {
