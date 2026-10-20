@@ -6,4 +6,5 @@ researchpath:
     creates-per-hour: 100000
     regenerate-burst: 100000
     regenerations-per-hour: 100000
-    creates-per-day: 100000
+  provider-budget:
+    daily-calls: 100000

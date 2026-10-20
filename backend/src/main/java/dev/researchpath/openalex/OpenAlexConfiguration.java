@@ -14,8 +14,14 @@ import tools.jackson.databind.json.JsonMapper;
 class OpenAlexConfiguration {
 
 	@Bean
-	OpenAlexClient openAlexClient(RestClient.Builder builder, OpenAlexProperties properties, JsonMapper jsonMapper,
+	JdbcCallBudget providerCallBudget(org.springframework.jdbc.core.simple.JdbcClient jdbc, ProviderBudgetProperties budget,
 			Clock clock) {
+		return new JdbcCallBudget(jdbc, budget, clock);
+	}
+
+	@Bean
+	OpenAlexClient openAlexClient(RestClient.Builder builder, OpenAlexProperties properties, JsonMapper jsonMapper,
+			Clock clock, JdbcCallBudget budget) {
 		HttpClient httpClient = HttpClient.newBuilder()
 				.connectTimeout(properties.connectTimeout())
 				// Never follow redirects: the Bearer key must only ever reach the configured API host (M13 SSRF review).
@@ -28,7 +34,7 @@ class OpenAlexConfiguration {
 				.baseUrl(properties.baseUrl())
 				.requestFactory(requestFactory)
 				.build();
-		return new OpenAlexClient(restClient, properties, jsonMapper, duration -> Thread.sleep(duration), clock);
+		return new OpenAlexClient(restClient, properties, jsonMapper, duration -> Thread.sleep(duration), clock, budget);
 	}
 
 }

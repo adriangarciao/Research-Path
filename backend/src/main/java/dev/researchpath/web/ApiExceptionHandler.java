@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import dev.researchpath.openalex.OpenAlexException;
+import dev.researchpath.openalex.ProviderBudgetExhaustedException;
 import dev.researchpath.path.PathExceptions;
 import dev.researchpath.snapshot.SnapshotNotEvaluatedException;
 
@@ -92,6 +93,17 @@ class ApiExceptionHandler {
 		ProblemDetail problem = ProblemDetail.forStatusAndDetail(HttpStatus.SERVICE_UNAVAILABLE, e.getMessage());
 		problem.setTitle("Busy");
 		return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).header(HttpHeaders.RETRY_AFTER, "5").body(problem);
+	}
+
+	/** Today's provider budget is used up: no provider call was made and nothing was stored. */
+	@ExceptionHandler(ProviderBudgetExhaustedException.class)
+	ResponseEntity<ProblemDetail> budgetExhausted(ProviderBudgetExhaustedException e) {
+		ProblemDetail problem = ProblemDetail.forStatusAndDetail(HttpStatus.SERVICE_UNAVAILABLE,
+				"The service has reached its daily limit for new searches. Existing paths and rebuilds still work; "
+						+ "new searches resume after 00:00 UTC.");
+		problem.setTitle("Daily limit reached");
+		return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE)
+				.header(HttpHeaders.RETRY_AFTER, String.valueOf(e.retryAfterSeconds())).body(problem);
 	}
 
 	/** Provider unavailable or rate-limited: retryable for the caller, nothing was persisted. */

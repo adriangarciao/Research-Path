@@ -7,7 +7,7 @@ No known security or data-integrity bug is open.
 | # | Issue | Notes |
 |---|---|---|
 | H1 | Deployment prerequisites | **Code done** (2026-10-20): prod profile with required TLS, opt-in `X-Real-IP` identity + spoof test, exact-origin CORS, Dockerfile, Vercel CSP/headers, e2e profile guard. **Open (owner-gated):** Railway/Vercel provisioning, DB TLS confirmation, backups + restore test, live spoof test, spend caps — see [runbook](DEPLOYMENT_RUNBOOK.md). |
-| H2 | Rate limits and idempotency de-duplication are per instance | Fine for one backend instance; several instances need a shared store. |
+| H2 | Per-instance controls | **Constrained** (2026-10-20): one Railway replica (decision R4). The global spend cap is now a durable, atomic PostgreSQL budget of OpenAlex calls (V8) that survives restarts and redeploys. Per-connection buckets and in-flight de-duplication stay per process (reset on restart); the DB unique key still prevents duplicate paths. Adding replicas needs a shared limiter first. |
 
 ## Medium
 | # | Issue | Notes |

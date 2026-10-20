@@ -23,6 +23,7 @@ No Vercel rewrite/proxy for the API (it would hide client IPs and add a second t
 | `ALLOWED_ORIGINS` | `https://<vercel-production-domain>` | Exact origin(s), comma-separated; wildcards/paths stop startup. |
 | `CLIENT_IP_HEADER` | `X-Real-IP` | Enable for the spoof test; **keep only if the spoof test passes** (gate G3). |
 | `PORT` | injected by Railway | — |
+| `RESEARCHPATH_PROVIDER_BUDGET_DAILY_CALLS` | `900` (default) | OpenAlex calls per UTC day, retries included; keep below the key's allowance (free: 1000). |
 | Limits (`RESEARCHPATH_RATE_LIMIT_*`, `RESEARCHPATH_PATHS_*`, `RESEARCHPATH_RETENTION_*`) | defaults | Production values are the defaults in `application.yml`. |
 Healthcheck path: `/actuator/health/readiness` (status only; includes the DB, not OpenAlex). Replicas: **1**, no
 autoscaling (decision R4).
@@ -58,5 +59,6 @@ needed (one page; state in the query string).
 
 ## Operations
 Logs never contain request bodies, keys or DB credentials (verified locally). Watch: health, 5xx, 429 counts,
-provider 429/5xx, DB size, spend. The retention job runs daily at 03:17 server time. Known limits: rate limits and
-in-flight de-duplication are per process and reset on restart (one replica only).
+provider 429/5xx, DB size, spend. The retention job runs daily at 03:17 server time. Known limits: per-connection rate limits and
+in-flight de-duplication are per process and reset on restart (one replica only); the provider call budget is
+durable (PostgreSQL) and shared.
