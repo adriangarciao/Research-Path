@@ -224,12 +224,11 @@ export default function App() {
         {(screen.kind === 'search' || screen.kind === 'creating') && (
           <section className="intro" aria-labelledby="intro-title">
             <h1 id="intro-title" className="intro__title">
-              A reading path through <em>real</em> research.
+              Turn any research topic into an ordered reading path.
             </h1>
             <p className="intro__lede">
-              Name a topic. ResearchPath examines papers from OpenAlex, keeps the relevant ones, picks a small set that
-              covers different subtopics, and orders them with a short reason for each. It cannot read the papers for
-              you, and the order is a recommendation, not a prerequisite chain.
+              Enter a topic. ResearchPath finds real papers on OpenAlex, picks a short set that covers its main
+              subtopics, and tells you what to read first and why.
             </p>
             <SearchForm onSubmit={create} pending={screen.kind === 'creating'} initialTopic={lastTopic} />
             {createError && (
@@ -248,6 +247,28 @@ export default function App() {
                 </button>
               </div>
             )}
+            <section className="steps" aria-labelledby="steps-title">
+              <h2 id="steps-title" className="steps__title">
+                How it works
+              </h2>
+              <ol className="steps__list">
+                <li>
+                  <h3>Search</h3>
+                  <p>Looks up papers on your topic in OpenAlex and screens out duplicates and off-topic results.</p>
+                </li>
+                <li>
+                  <h3>Select</h3>
+                  <p>Picks the number of papers you asked for, so that together they cover different subtopics.</p>
+                </li>
+                <li>
+                  <h3>Order</h3>
+                  <p>
+                    Suggests a reading order with a reason for each paper. It is a recommendation, not a prerequisite
+                    chain, and it cannot read the papers for you.
+                  </p>
+                </li>
+              </ol>
+            </section>
           </section>
         )}
 
